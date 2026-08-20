@@ -6,12 +6,12 @@
 let currentLang = localStorage.getItem('sesjc_lang') || 'en';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageSystem();
   initAccessibility();
   initMobileNav();
   initNoticeFilters();
   initAnimatedCounters();
   initAiAssistant();
-  initLanguageSystem();
 });
 
 /* ==========================================================================
@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const translations = {
   en: {
     langBtnText: '<i class="fa-solid fa-language"></i> मराठी',
-    topLocation: 'Pandur Titha, Kudal, Sindhudurg, MH - 416528',
-    topAided: 'Estd. 1960 | Private-Aided',
     brandName: 'SHIVAJI ENGLISH SCHOOL',
     brandSub: '& Junior College of Arts, Science & Commerce',
     brandLoc: 'Pandur Titha, Sindhudurg',
@@ -43,32 +41,13 @@ const translations = {
     kioskBadge: '<i class="fa-solid fa-satellite-dish"></i> LIVE ADMISSIONS & UPDATES',
     kioskHeading: 'Admissions Open for 2026–27',
     kioskDesc: 'Grades 5th to 10th (Semi-English & English) and 11th/12th (Science, Commerce, Arts & IT).',
-    kioskChipExam: '<i class="fa-solid fa-calendar-check"></i> Exam Dates',
-    kioskChipBanks: '<i class="fa-solid fa-file-pdf"></i> Question Banks',
-    kioskChipAdmin: '<i class="fa-solid fa-user-plus"></i> Admission Info',
-    kioskChipIt: '<i class="fa-solid fa-code"></i> 12th IT Syllabus',
     kioskAffiliation: '<i class="fa-solid fa-shield-halved"></i> Maharashtra State Board Affiliated (Pune Board)',
-    statEst: 'Year Established',
-    statStud: 'Students Enrolled',
-    statResult: 'Board Exam Result',
-    statEducators: 'Expert Educators',
     aboutSub: 'Heritage & Vision',
     aboutTitle: 'About Our Institution',
     aboutLead: 'Serving Sindhudurg district with dedicated educational excellence for over six decades.',
     aboutHistTitle: 'Our Glorious History (Since 1960)',
     aboutHistP1: 'Founded in 1960 at Pandur Titha, Shivaji English School and Junior College was established with a noble mission to provide accessible, value-based, and progressive education to the rural and semi-urban students of Sindhudurg.',
     aboutHistP2: 'Over the decades, it has evolved into a leading private-aided educational hub producing district toppers, sports champions, engineers, doctors, and civic leaders.',
-    aboutVisTitle: 'Our Vision',
-    aboutVisP: 'To cultivate intellectually enlightened, morally upright, and technologically empowered youth who positively contribute to society, state, and nation.',
-    aboutMisTitle: 'Our Mission',
-    aboutMisP: 'Delivering holistic education through modern smart classrooms, rigorous science laboratories, computer training, sports mentorship, and community service.',
-    ribbonAided: '<i class="fa-solid fa-check-circle"></i> Government Recognized & Aided',
-    ribbonCoed: '<i class="fa-solid fa-check-circle"></i> Co-Educational Campus',
-    ribbonLabs: '<i class="fa-solid fa-check-circle"></i> Advanced Science & IT Labs',
-    ribbonSmart: '<i class="fa-solid fa-check-circle"></i> Interactive Smart Classrooms',
-    acadSub: 'Programs Offered',
-    acadTitle: 'Academic Streams & Curriculum',
-    acadLead: 'Comprehensive schooling from Grade 5 through 12 with specialized junior college wings.',
     noticeSub: 'Real-Time Bulletin',
     noticeTitle: 'Official Notice Board',
     noticeLead: 'Stay updated with latest announcements, meeting circulars, and exam schedules.',
@@ -80,8 +59,6 @@ const translations = {
   },
   mr: {
     langBtnText: '<i class="fa-solid fa-language"></i> English',
-    topLocation: 'पांडुर तिठा, कुडाळ, सिंधुदुर्ग, महाराष्ट्र - ४१६५२८',
-    topAided: 'स्थापना १९६० | शासकीय अनुदानित',
     brandName: 'शिवाजी इंग्लिश स्कूल',
     brandSub: '& कनिष्ठ महाविद्यालय (कला, वाणिज्य, विज्ञान व आयटी)',
     brandLoc: 'पांडुर तिठा, सिंधुदुर्ग',
@@ -103,32 +80,13 @@ const translations = {
     kioskBadge: '<i class="fa-solid fa-satellite-dish"></i> थेट प्रवेश व अपडेट्स',
     kioskHeading: 'शैक्षणिक वर्ष २०२६-२७ प्रवेश सुरू',
     kioskDesc: 'इयत्ता ५ वी ते १० वी आणि ११ वी/१२ वी (विज्ञान, वाणिज्य, कला व IT शाखा).',
-    kioskChipExam: '<i class="fa-solid fa-calendar-check"></i> परीक्षा वेळापत्रक',
-    kioskChipBanks: '<i class="fa-solid fa-file-pdf"></i> प्रश्नपत्रिका संच',
-    kioskChipAdmin: '<i class="fa-solid fa-user-plus"></i> प्रवेश माहिती',
-    kioskChipIt: '<i class="fa-solid fa-code"></i> १२वी IT अभ्यासक्रम',
     kioskAffiliation: '<i class="fa-solid fa-shield-halved"></i> महाराष्ट्र राज्य माध्यमिक व उच्च माध्यमिक शिक्षण मंडळ (पुणे)',
-    statEst: 'स्थापना वर्ष',
-    statStud: 'विद्यार्थी संख्या',
-    statResult: 'बोर्ड परीक्षा निकाल',
-    statEducators: 'अनुभवी शिक्षकवृंद',
     aboutSub: 'परंपरा व ध्येय',
     aboutTitle: 'आमच्या शाळेविषयी व महाविद्यालयाविषयी',
     aboutLead: 'गेल्या ६ दशकांपासून सिंधुदुर्ग जिल्ह्यातील विद्यार्थ्यांना संस्कारक्षम व गुणवत्तापूर्ण शिक्षण देत आहोत.',
     aboutHistTitle: 'आमचा गौरवशाली इतिहास (स्थापना १९६०)',
     aboutHistP1: 'पांडुर तिठा येथे १९६० साली स्थापन झालेले शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय हे ग्रामीण भागातील विद्यार्थ्यांना दर्जेदार शिक्षण देण्यासाठी अविरत कार्यरत आहे.',
     aboutHistP2: 'शाळेने आजवर अनेक गुणवत्तावंत विद्यार्थी, खेळाडू, डॉक्टर, इंजिनिअर व समाजसेवक घडवले आहेत.',
-    aboutVisTitle: 'आमचे ध्येय (Vision)',
-    aboutVisP: 'नैतिक मूल्ये, बौद्धिक प्रगल्भता आणि आधुनिक तंत्रज्ञानाने सुसज्ज असलेली आत्मनिर्भर पिढी घडवणे.',
-    aboutMisTitle: 'आमची उद्दिष्टे (Mission)',
-    aboutMisP: 'स्मार्ट वर्गखोल्या, अद्ययावत प्रयोगशाळा, संगणक शिक्षण व क्रीडा मार्गदर्शनाद्वारे विद्यार्थ्यांचा सर्वांगीण विकास साधणे.',
-    ribbonAided: '<i class="fa-solid fa-check-circle"></i> शासनमान्य व पूर्ण अनुदानित',
-    ribbonCoed: '<i class="fa-solid fa-check-circle"></i> सह-शिक्षण (मुले व मुली)',
-    ribbonLabs: '<i class="fa-solid fa-check-circle"></i> अद्ययावत विज्ञान व संगणक लॅब',
-    ribbonSmart: '<i class="fa-solid fa-check-circle"></i> डिजिटल स्मार्ट वर्गखोल्या',
-    acadSub: 'उपलब्ध शाखा',
-    acadTitle: 'शालेय व कनिष्ठ महाविद्यालयीन अभ्यासक्रम',
-    acadLead: 'इयत्ता ५ वी ते १० वी माध्यमिक शाळा आणि ११ वी व १२ वी उच्च माध्यमिक शाखा.',
     noticeSub: 'ताज्या घडामोडी',
     noticeTitle: 'अधिकृत सूचना फलक',
     noticeLead: 'शाळेतील सर्व महत्त्वाच्या सूचना, सभा व परीक्षांचे वेळापत्रक.',
@@ -146,7 +104,7 @@ function initLanguageSystem() {
 
   if (langBtn) {
     langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'mr' : 'en';
+      currentLang = (currentLang === 'en') ? 'mr' : 'en';
       localStorage.setItem('sesjc_lang', currentLang);
       applyLanguage(currentLang);
     });
@@ -169,23 +127,20 @@ function applyLanguage(lang) {
   // Button text
   setHtml('#btnLangToggle', t.langBtnText);
 
-  // Top info & Brand
+  // Brand Name
   setText('.college-name', t.brandName);
   setText('.college-sub', t.brandSub);
   setText('.location-tag', t.brandLoc);
 
   // Navigation Links
+  const navItems = [
+    t.navHome, t.navAbout, t.navAcademics, t.navNotices,
+    t.navHub, t.navCampus, t.navFaculty, t.navContact
+  ];
   const navLinks = document.querySelectorAll('.nav-link');
-  if (navLinks.length >= 8) {
-    navLinks[0].innerHTML = t.navHome;
-    navLinks.innerHTML = t.navAbout;
-    navLinks.innerHTML = t.navAcademics;
-    navLinks.innerHTML = t.navNotices;
-    navLinks.innerHTML = t.navHub;
-    navLinks.innerHTML = t.navCampus;
-    navLinks.innerHTML = t.navFaculty;
-    navLinks.innerHTML = t.navContact;
-  }
+  navLinks.forEach((link, idx) => {
+    if (navItems[idx]) link.innerHTML = navItems[idx];
+  });
 
   // Hero Section
   setHtml('.badge-pill', t.heroBadge);
@@ -335,7 +290,7 @@ function initNoticeFilters() {
 
 function viewNoticeDetails(noticeTitle) {
   const msg = currentLang === 'mr'
-    ? `अधिकृत सूचना: ${noticeTitle}\n\nकृपया अधिक माहितीसाठी पांडुर तिठा येथील प्रशासकीय कार्यालयाशी संपर्क साधा किंवा मुख्य सूचना फलक पहा.`
+    ? `अधिकृत सूचना: ${noticeTitle}\n\nकृपया अधिक माहितीसाठी पांडुर तिठा येथील प्रशासकीय कार्यालयाशी संपर्क साधा.`
     : `Official Notice: ${noticeTitle}\n\nPlease visit the college administrative office at Pandur Titha for complete details.`;
   alert(msg);
 }
@@ -348,8 +303,8 @@ const facilityData = {
     title: { en: "Interactive Smart Classrooms", mr: "डिजिटल स्मार्ट वर्गखोल्या" },
     icon: "fa-solid fa-chalkboard",
     desc: {
-      en: "Equipped with high-definition touch-interactive smart boards and multimedia learning tools.",
-      mr: "इंटरॅक्टिव्ह टच स्क्रीन स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल मीडिया आणि आधुनिक ई-लर्निंग सुविधा."
+      en: "Equipped with touch-interactive smart boards, audio-visual media, and high-speed internet.",
+      mr: "टच स्क्रीन डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल मीडिया आणि आधुनिक ई-लर्निंग सुविधा."
     },
     tags: { en: ["Touch Enabled", "Audio-Visual", "E-Learning"], mr: ["टच स्क्रीन", "ऑडिओ-व्हिज्युअल", "ई-लर्निंग"] }
   },
@@ -376,7 +331,7 @@ const facilityData = {
     icon: "fa-solid fa-book-bookmark",
     desc: {
       en: "Over 10,000 reference textbooks, CET/NEET/JEE entrance materials, and educational periodicals.",
-      mr: "१०,००० हून अधिक पुस्तके, संदर्भ ग्रंथ, स्पर्धा परीक्षा मार्गदर्शिका व वाचन कक्ष."
+      mr: "१०,००० हून अधिक पुस्तके, संदर्भ ग्रंथ, स्पर्धा परीक्षा मार्गदर्शिका व शांत वाचन कक्ष."
     },
     tags: { en: ["10,000+ Books", "Reading Area", "Competitive Guides"], mr: ["१०,०००+ पुस्तके", "अभ्यासिका", "मार्गदर्शन"] }
   },
@@ -397,7 +352,7 @@ function switchFacility(key) {
 
   const buttons = document.querySelectorAll('.facility-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
-  if (event && event.currentTarget) event.currentTarget.classList.add('active');
+  if (window.event && window.event.currentTarget) window.event.currentTarget.classList.add('active');
 
   const displayIcon = document.getElementById('facilityIcon');
   const displayTitle = document.getElementById('facilityTitle');
@@ -414,4 +369,86 @@ function switchFacility(key) {
   }
 }
 
-/* ========================================================
+/* ==========================================================================
+   6. Animated Counters
+   ========================================================================== */
+function initAnimatedCounters() {
+  const stats = document.querySelectorAll('.stat-number');
+  let hasRun = false;
+
+  const runCounter = () => {
+    stats.forEach(stat => {
+      const target = +stat.getAttribute('data-target');
+      const suffix = stat.textContent.includes('+') ? '+' : (stat.textContent.includes('%') ? '%' : '');
+      let current = 0;
+      const increment = Math.ceil(target / 40);
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          stat.textContent = target.toLocaleString() + suffix;
+          clearInterval(timer);
+        } else {
+          stat.textContent = current.toLocaleString() + suffix;
+        }
+      }, 35);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !hasRun) {
+      hasRun = true;
+      runCounter();
+    }
+  }, { threshold: 0.5 });
+
+  const statsSection = document.querySelector('.hero-stats-grid');
+  if (statsSection) observer.observe(statsSection);
+}
+
+/* ==========================================================================
+   7. Contact Form
+   ========================================================================== */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('fullName').value;
+  const feedback = document.getElementById('formFeedback');
+  
+  if (feedback) {
+    const successMsg = currentLang === 'mr'
+      ? `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> धन्यवाद, ${name}! आपला संदेश शाळेच्या कार्यालयास प्राप्त झाला आहे. आम्ही लवकरच संपर्क करू.</span>`
+      : `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your inquiry has been received by Shivaji English School administration.</span>`;
+    feedback.innerHTML = successMsg;
+  }
+  document.getElementById('inquiryForm').reset();
+}
+
+function navigateToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ==========================================================================
+   8. Shivaji AI Assistant
+   ========================================================================== */
+function initAiAssistant() {
+  const toggleBtn = document.getElementById('aiToggleBtn');
+  const heroTrigger = document.getElementById('heroAiTrigger');
+  const closeBtn = document.getElementById('aiCloseBtn');
+  const chatWindow = document.getElementById('aiChatWindow');
+  const sendBtn = document.getElementById('aiSendBtn');
+  const input = document.getElementById('aiUserInput');
+
+  const openChat = () => {
+    if (chatWindow) {
+      chatWindow.classList.add('open');
+      if (input) input.focus();
+    }
+  };
+
+  const closeChat = () => {
+    if (chatWindow) chatWindow.classList.remove('open');
+  };
+
+  if (toggleBtn) toggleBtn.addEventListener('click', () => {
+    chatWindow.classList.toggle('open')
