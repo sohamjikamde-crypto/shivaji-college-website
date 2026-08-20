@@ -1,6 +1,6 @@
 /**
  * Shivaji English School & Junior College | Official Portal Script
- * Global Engine: Settings Modal, 8 Campus Facilities, Advanced AI & Bilingual Engine
+ * Direct Gmail Dispatch, Smart AI Assistant, Settings & Bilingual Engine
  */
 
 window.appState = {
@@ -89,7 +89,7 @@ let activeFacilityKey = 'smartClass';
 
 const fullDictionary = {
   en: {
-    settingsBtnLabel: 'Settings / सेटिंग्ज',
+    settingsBtnLabel: 'Settings',
     settingsModalHeading: 'Preferences & Settings',
     lblSetLang: 'Language / भाषा',
     subSetLang: 'Switch entire website between English and Marathi',
@@ -224,7 +224,7 @@ const fullDictionary = {
     aiFloatingBtnText: 'Shivaji AI Assistant'
   },
   mr: {
-    settingsBtnLabel: 'सेटिंग्ज / Settings',
+    settingsBtnLabel: 'सेटिंग्ज',
     settingsModalHeading: 'सेटिंग्ज व प्राधान्ये',
     lblSetLang: 'Language / भाषा निवडा',
     subSetLang: 'वेबसाईट मराठी किंवा इंग्रजी भाषेत बदला',
@@ -536,6 +536,42 @@ window.alertNoticeDetails = function() {
   alert(msg);
 };
 
+/* ==========================================================================
+   Direct Gmail Dispatch Function
+   ========================================================================== */
+window.handleDirectEmailSubmit = function(e) {
+  e.preventDefault();
+  const name = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const purpose = document.getElementById('inquiryType').value;
+  const msg = document.getElementById('message').value.trim();
+
+  const emailTarget = 'sohamjikamde@gmail.com';
+  const subject = encodeURIComponent(`Website Inquiry from ${name} [${purpose}]`);
+  const body = encodeURIComponent(
+    `Hello Shivaji English School & Junior College Administration,\n\n` +
+    `You have received a new inquiry via the website:\n\n` +
+    `• Name: ${name}\n` +
+    `• Phone: ${phone}\n` +
+    `• Purpose: ${purpose}\n\n` +
+    `Details / Message:\n${msg}\n\n` +
+    `--\nSent from Shivaji English School & Jr. College Website`
+  );
+
+  // Direct mailto trigger to open user's email client
+  window.location.href = `mailto:${emailTarget}?subject=${subject}&body=${body}`;
+
+  const feedback = document.getElementById('formFeedback');
+  if (feedback) {
+    feedback.innerHTML = window.appState.lang === 'mr'
+      ? '<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> आपल्या ईमेल अ‍ॅपद्वारे संदेश पाठवला जात आहे...</span>'
+      : '<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Opening your email app to send the inquiry directly to sohamjikamde@gmail.com...</span>';
+  }
+};
+
+/* ==========================================================================
+   Shivaji AI Assistant & Smart Intent Engine
+   ========================================================================== */
 window.toggleAiChat = function() {
   const win = document.getElementById('aiChatWindow');
   if (win) win.classList.toggle('open');
@@ -567,14 +603,12 @@ window.sendAiMessage = function() {
   const text = input.value.trim();
   if (!text) return;
 
-  // Add User message
   const userBubble = document.createElement('div');
   userBubble.className = 'chat-bubble user';
   userBubble.textContent = text;
   container.appendChild(userBubble);
   input.value = '';
 
-  // Add Typing animation
   const typingBubble = document.createElement('div');
   typingBubble.className = 'chat-bubble ai';
   typingBubble.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (window.appState.lang === 'mr' ? 'माहिती शोधत आहे...' : 'Thinking...');
@@ -592,13 +626,9 @@ window.sendAiMessage = function() {
   }, 350);
 };
 
-/* ==========================================================================
-   Advanced Knowledge Base & Fuzzy Matcher Engine
-   ========================================================================== */
 function generateSmartAiResponse(query) {
   const isMr = window.appState.lang === 'mr' || /[\u0900-\u097F]/.test(query);
 
-  // Marathi Knowledge Patterns
   if (isMr) {
     if (query.includes('नमस्कार') || query.includes('hello') || query.includes('hi') || query.includes('काय') || query.includes('help')) {
       return {
@@ -617,7 +647,7 @@ function generateSmartAiResponse(query) {
         html: `🎓 <strong>शैक्षणिक वर्ष २०२६-२७ प्रवेश तपशील:</strong><br>
         • <strong>शालेय विभाग:</strong> इयत्ता ५ वी ते १० वी (सेमी-इंग्रजी व इंग्रजी माध्यम)<br>
         • <strong>कनिष्ठ महाविद्यालय:</strong> ११ वी व १२ वी (विज्ञान, वाणिज्य, कला आणि IT शाखा)<br><br>
-        📄 <strong>आवश्यक कागदपत्रे:</strong> मागील इयत्तेची गुणपत्रिका (Mark sheet), शाळा सोडल्याचा दाखला (LC/TC), आधार कार्ड, पासपोर्ट फोटो आणि जातीचा दाखला (लागू असल्यास).<br>
+        📄 <strong>आवश्यक कागदपत्रे:</strong> मागील इयत्तेची गुणपत्रिका (Mark sheet), शाळा सोडल्याचा दाखला (LC/TC), आधार कार्ड, पासपोर्ट फोटो आणि जातीचा दाखला.<br>
         कार्यालयीन वेळेत (सकाळी ९:३० ते ५:००) कार्यालयाशी संपर्क साधावा.`
       };
     }
@@ -625,19 +655,19 @@ function generateSmartAiResponse(query) {
     if (query.includes('आयटी') || query.includes('it') || query.includes('sop') || query.includes('प्रॅक्टिकल') || query.includes('syllabus')) {
       return {
         html: `💻 <strong>१२वी माहिती तंत्रज्ञान (IT) अभ्यासक्रम व SOPs:</strong><br>
-        १. <strong>Advanced Web Designing:</strong> HTML5 semantic tags, CSS3 flexbox, grid व audio/video घटक.<br>
-        २. <strong>Client-Side Scripting:</strong> JavaScript DOM मॅनिपुलेशन, फॉरमॅट व्हॅलिडेशन आणि इव्हेंट हँडलर्स.<br>
-        ३. <strong>Advanced JavaScript & Server-Side:</strong> PHP मूलभूत संकल्पना व डेटाबेस कनेक्टिव्हिटी.<br>
-        ४. <strong>Emerging Technologies:</strong> Cloud Computing, AI, IoT व 5G तंत्रज्ञान.<br>
+        १. <strong>Advanced Web Designing:</strong> HTML5 semantic tags, CSS3 flexbox, grid.<br>
+        २. <strong>Client-Side Scripting:</strong> JavaScript DOM मॅनिपुलेशन व फॉरमॅट व्हॅलिडेशन.<br>
+        ३. <strong>Advanced JavaScript & Server-Side:</strong> PHP व डेटाबेस कनेक्टिव्हिटी.<br>
+        ४. <strong>Emerging Technologies:</strong> Cloud Computing, AI, IoT व 5G.<br>
         ५. <strong>E-Commerce & Cyber Law:</strong> सायबर सुरक्षा आणि डिजिटल कायदे.<br><br>
-        👉 संगणक प्रयोगशाळेत ५०+ संगणकांवर प्रत्यक्ष प्रात्यक्षिके घेतली जातात.`
+        🖥️ संगणक प्रयोगशाळेत ५०+ संगणकांवर प्रत्यक्ष प्रात्यक्षिके घेतली जातात.`
       };
     }
 
     if (query.includes('शाखा') || query.includes('stream') || query.includes('subject') || query.includes('विषय') || query.includes('science') || query.includes('commerce') || query.includes('arts')) {
       return {
         html: `📚 <strong>उपलब्ध शैक्षणिक शाखा:</strong><br>
-        • <strong>विज्ञान (Science):</strong> भौतिकशास्त्र, रसायनशास्त्र, गणित, जीवशास्त्र व माहिती तंत्रज्ञान (IT) - (CET / NEET तयारीसाठी लॅब सुविधा)<br>
+        • <strong>विज्ञान (Science):</strong> भौतिकशास्त्र, रसायनशास्त्र, गणित, जीवशास्त्र व माहिती तंत्रज्ञान (IT)<br>
         • <strong>वाणिज्य (Commerce):</strong> बुक कीपिंग (BK), OCM, अर्थशास्त्र, सेक्रेटरीयल प्रॅक्टिस (SP) व IT<br>
         • <strong>कला (Arts):</strong> इतिहास, भूगोल, राज्यशास्त्र, मराठी, इंग्रजी व हिंदी साहित्य.`
       };
@@ -646,18 +676,17 @@ function generateSmartAiResponse(query) {
     if (query.includes('इतिहास') || query.includes('स्थापना') || query.includes('1960') || query.includes('संस्था')) {
       return {
         html: `🏛️ <strong>शाळेचा इतिहास व परंपरा:</strong><br>
-        • <strong>स्थापना वर्ष:</strong> १९६० (गेल्या ६०+ वर्षांहून अधिक काळ कार्यरत)<br>
+        • <strong>स्थापना वर्ष:</strong> १९६० (गेल्या ६०+ वर्षांची शैक्षणिक परंपरा)<br>
         • <strong>स्थान:</strong> पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग<br>
-        • <strong>संस्था प्रकार:</strong> खाजगी अनुदानित (Government Aided) सह-शिक्षण संस्था.<br>
-        शाळेने आजवर अनेक डॉक्टर, इंजिनिअर, शिक्षक, क्रीडापटू व प्रशासकीय अधिकारी घडवले आहेत.`
+        • <strong>संस्था प्रकार:</strong> खाजगी अनुदानित (Government Aided) सह-शिक्षण संस्था.`
       };
     }
 
     if (query.includes('पत्ता') || query.includes('संपर्क') || query.includes('फोन') || query.includes('वेळ') || query.includes('कुठे') || query.includes('mobile') || query.includes('email')) {
       return {
         html: `📍 <strong>पत्ता व संपर्क माहिती:</strong><br>
-        • <strong>पत्ता:</strong> शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय, पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग, महाराष्ट्र - ४१६५२८.<br>
-        • <strong>मोबाईल / फोन:</strong> +91 93XXXXXXXX<br>
+        • <strong>पत्ता:</strong> शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय, पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग - ४१६५२८.<br>
+        • <strong>मोबाईल:</strong> +91 93XXXXXXXX<br>
         • <strong>ईमेल:</strong> sohamjikamde@gmail.com<br>
         • <strong>कार्यालयीन वेळ:</strong> सोमवार ते शनिवार, सकाळी ९:३० ते संध्याकाळी ५:००.`
       };
@@ -706,7 +735,7 @@ function generateSmartAiResponse(query) {
   if (query.includes('it') || query.includes('sop') || query.includes('practical') || query.includes('syllabus') || query.includes('web')) {
     return {
       html: `💻 <strong>12th Standard IT Syllabus (Maharashtra State Board):</strong><br>
-      1. <strong>Advanced Web Designing:</strong> HTML5 semantics, CSS3 flexbox/grid layout, audio/video integration.<br>
+      1. <strong>Advanced Web Designing:</strong> HTML5 semantics, CSS3 flexbox/grid layout, audio/video.<br>
       2. <strong>Client-Side Scripting:</strong> JavaScript functions, form validation, DOM manipulation.<br>
       3. <strong>Advanced JS & Server-Side:</strong> PHP server scripting, database fundamentals.<br>
       4. <strong>Emerging Technologies:</strong> Cloud Computing, AI, IoT, 5G.<br>
@@ -729,7 +758,7 @@ function generateSmartAiResponse(query) {
       html: `🏛️ <strong>About Shivaji English School & Jr. College:</strong><br>
       • <strong>Established:</strong> 1960 (Over 60+ years of educational service)<br>
       • <strong>Location:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra.<br>
-      • <strong>Status:</strong> Private-Aided, Co-educational institution serving rural and semi-urban learners with distinction.`
+      • <strong>Status:</strong> Private-Aided, Co-educational institution serving rural and semi-urban learners.`
     };
   }
 
