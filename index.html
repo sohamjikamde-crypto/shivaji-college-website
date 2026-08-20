@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivaji English School & Junior College | Pandur Titha, Sindhudurg</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Smart Board & Accessibility Toolbar -->
+  <div class="top-bar" id="topBar">
+    <div class="container top-bar-content">
+      <div class="top-info">
+        <span><i class="fa-solid fa-location-dot"></i> Pandur Titha, Kudal, Sindhudurg, MH - 416528</span>
+        <span class="desktop-only"><i class="fa-solid fa-phone"></i> +91 2362 232000</span>
+        <span class="desktop-only"><i class="fa-solid fa-award"></i> Estd. 1960 | Private-Aided</span>
+      </div>
+      <div class="accessibility-tools">
+        <span class="tool-label">Accessibility:</span>
+        <button id="btnDecreaseFont" title="Decrease Font Size" class="tool-btn">A-</button>
+        <button id="btnResetFont" title="Normal Font Size" class="tool-btn">A</button>
+        <button id="btnIncreaseFont" title="Increase Font Size" class="tool-btn">A+</button>
+        <button id="btnHighContrast" title="High Contrast Mode" class="tool-btn"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button id="btnSmartBoard" title="Smart Board Mode" class="tool-btn smartboard-btn"><i class="fa-solid fa-chalkboard-user"></i> Smart Board View</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header" id="mainHeader">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo">
+        <div class="logo-emblem">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="logo-text">
+          <span class="college-name">SHIVAJI ENGLISH SCHOOL</span>
+          <span class="college-sub">& Junior College of Arts, Science & Commerce</span>
+          <span class="location-tag">Pandur Titha, Sindhudurg</span>
+        </div>
+      </a>
+
+      <!-- Mobile Navigation Hamburger -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> About</a></li>
+          <li><a href="#academics" class="nav-link"><i class="fa-solid fa-book-open"></i> Academics</a></li>
+          <li><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> Notices</a></li>
+          <li><a href="#learning-hub" class="nav-link"><i class="fa-solid fa-laptop-file"></i> Student Hub</a></li>
+          <li><a href="#campus" class="nav-link"><i class="fa-solid fa-shapes"></i> Campus</a></li>
+          <li><a href="#faculty" class="nav-link"><i class="fa-solid fa-user-tie"></i> Faculty</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-backdrop-pattern"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-pill">
+          <i class="fa-solid fa-star"></i> 60+ Years of Academic Excellence (Since 1960)
+        </div>
+        <h1 class="hero-title">
+          Empowering Minds, <br>
+          <span class="text-highlight">Shaping Leaders</span> in Sindhudurg.
+        </h1>
+        <p class="hero-description">
+          A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.
+        </p>
+
+        <!-- Quick Action Buttons -->
+        <div class="hero-action-buttons">
+          <a href="#academics" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore Courses</a>
+          <a href="#notices" class="btn btn-secondary"><i class="fa-solid fa-bell"></i> Notice Board</a>
+          <button class="btn btn-assistant" id="heroAiTrigger"><i class="fa-solid fa-robot"></i> Ask College AI</button>
+        </div>
+
+        <!-- Metric Counters -->
+        <div class="hero-stats-grid">
+          <div class="stat-card">
+            <span class="stat-number" data-target="1960">1960</span>
+            <span class="stat-label">Year Established</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="1500">1,500+</span>
+            <span class="stat-label">Students Enrolled</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="100">100%</span>
+            <span class="stat-label">Board Exam Result</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="50">50+</span>
+            <span class="stat-label">Expert Educators</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Interactive Card / Virtual Board -->
+      <div class="hero-interactive-card">
+        <div class="smart-kiosk-panel">
+          <div class="kiosk-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="kiosk-title"><i class="fa-solid fa-display"></i> Campus Digital Kiosk</span>
+          </div>
+          <div class="kiosk-body">
+            <div class="kiosk-live-badge"><i class="fa-solid fa-satellite-dish"></i> LIVE ADMISSIONS & UPDATES</div>
+            <h3>Admissions Open for 2026–27</h3>
+            <p>Grades 5th to 10th (Semi-English & English) and 11th/12th (Science, Commerce, Arts & IT).</p>
+            <div class="kiosk-quick-links">
+              <button class="kiosk-chip" onclick="navigateToSection('notices')"><i class="fa-solid fa-calendar-check"></i> Exam Dates</button>
+              <button class="kiosk-chip" onclick="navigateToSection('learning-hub')"><i class="fa-solid fa-file-pdf"></i> Question Banks</button>
+              <button class="kiosk-chip" onclick="openAssistantWithQuery('admission process')"><i class="fa-solid fa-user-plus"></i> Admission Info</button>
+              <button class="kiosk-chip" onclick="openAssistantWithQuery('it syllabus')"><i class="fa-solid fa-code"></i> 12th IT Syllabus</button>
+            </div>
+            <div class="kiosk-footer-note">
+              <i class="fa-solid fa-shield-halved"></i> Maharashtra State Board Affiliated (Pune Board)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Heritage & Vision</span>
+        <h2 class="section-title">About Our Institution</h2>
+        <p class="section-lead">Serving Sindhudurg district with dedicated educational excellence for over six decades.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card highlight-card">
+          <div class="card-icon"><i class="fa-solid fa-monument"></i></div>
+          <h3>Our Glorious History (Since 1960)</h3>
+          <p>Founded in 1960 at Pandur Titha, Shivaji English School and Junior College was established with a noble mission to provide accessible, value-based, and progressive education to the rural and semi-urban students of Sindhudurg.</p>
+          <p>Over the decades, it has evolved into a leading private-aided educational hub producing district toppers, sports champions, engineers, doctors, and civic leaders.</p>
+        </div>
+
+        <div class="about-card">
+          <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To cultivate intellectually enlightened, morally upright, and technologically empowered youth who positively contribute to society, state, and nation.</p>
+        </div>
+
+        <div class="about-card">
+          <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>Delivering holistic education through modern smart classrooms, rigorous science laboratories, computer training, sports mentorship, and community service.</p>
+        </div>
+      </div>
+
+      <!-- Institutional Highlights Banner -->
+      <div class="features-ribbon">
+        <div class="ribbon-item"><i class="fa-solid fa-check-circle"></i> Government Recognized & Aided</div>
+        <div class="ribbon-item"><i class="fa-solid fa-check-circle"></i> Co-Educational Campus</div>
+        <div class="ribbon-item"><i class="fa-solid fa-check-circle"></i> Advanced Science & IT Labs</div>
+        <div class="ribbon-item"><i class="fa-solid fa-check-circle"></i> Interactive Smart Classrooms</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics / Departments Section -->
+  <section class="section academics-section" id="academics">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Programs Offered</span>
+        <h2 class="section-title">Academic Streams & Curriculum</h2>
+        <p class="section-lead">Comprehensive schooling from Grade 5 through 12 with specialized junior college wings.</p>
+      </div>
+
+      <div class="course-grid">
+        <!-- Secondary School -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-badge">Grades 5 - 10</span>
+            <h3>Secondary Schooling</h3>
+          </div>
+          <div class="course-body">
+            <p>Rigorous foundation adhering to Maharashtra State Board curriculum. Emphasis on Science, Maths, Social Sciences, Languages, and Physical Education.</p>
+            <ul class="course-list">
+              <li><i class="fa-solid fa-check"></i> English & Semi-English Medium Options</li>
+              <li><i class="fa-solid fa-check"></i> Activity-based Science Demonstrations</li>
+              <li><i class="fa-solid fa-check"></i> Scout, Guide, & Cultural Clubs</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Junior College Science -->
+        <div class="course-card popular">
+          <div class="popular-ribbon"><i class="fa-solid fa-crown"></i> High Demand</div>
+          <div class="course-header">
+            <span class="course-badge">Grades 11 & 12</span>
+            <h3>Science Stream</h3>
+          </div>
+          <div class="course-body">
+            <p>Designed for aspirants targeting MHT-CET, NEET, JEE, and pure sciences. Well-equipped Physics, Chemistry, and Biology laboratories.</p>
+            <ul class="course-list">
+              <li><i class="fa-solid fa-check"></i> Physics, Chemistry, Mathematics, Biology</li>
+              <li><i class="fa-solid fa-check"></i> Information Technology (IT) Elective</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Practical Coaching</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Junior College Commerce -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-badge">Grades 11 & 12</span>
+            <h3>Commerce Stream</h3>
+          </div>
+          <div class="course-body">
+            <p>Equipping students with fundamental business acumen, bookkeeping, economics, and corporate financial practices.</p>
+            <ul class="course-list">
+              <li><i class="fa-solid fa-check"></i> Book Keeping & Accountancy (BK)</li>
+              <li><i class="fa-solid fa-check"></i> Organization of Commerce & Management (OCM)</li>
+              <li><i class="fa-solid fa-check"></i> Economics & Secretarial Practice (SP) / IT</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Junior College Arts -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-badge">Grades 11 & 12</span>
+            <h3>Arts & Humanities</h3>
+          </div>
+          <div class="course-body">
+            <p>Focusing on social sciences, languages, literature, and competitive exam readiness (MPSC/UPSC fundamentals).</p>
+            <ul class="course-list">
+              <li><i class="fa-solid fa-check"></i> History, Geography, Political Science</li>
+              <li><i class="fa-solid fa-check"></i> English, Marathi, & Hindi Literature</li>
+              <li><i class="fa-solid fa-check"></i> Personality Development & Oratory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Notice Board Section -->
+  <section class="section notices-section" id="notices">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Real-Time Bulletin</span>
+        <h2 class="section-title">Official Notice Board</h2>
+        <p class="section-lead">Stay updated with latest announcements, exam dates, and circulars.</p>
+      </div>
+
+      <!-- Notice Filters -->
+      <div class="notice-filter-bar">
+        <button class="notice-tab active" data-filter="all">All Notices</button>
+        <button class="notice-tab" data-filter="exams">Exams & Results</button>
+        <button class="notice-tab" data-filter="admissions">Admissions</button>
+        <button class="notice-tab" data-filter="events">Events & Holidays</button>
+      </div>
+
+      <div class="notices-container" id="noticesList">
+        <!-- Notice 1 -->
+        <div class="notice-item" data-category="exams">
+          <div class="notice-date-box">
+            <span class="date-day">24</span>
+            <span class="date-month">AUG</span>
+          </div>
+          <div class="notice-info">
+            <span class="notice-tag tag-exam">Exams</span>
+            <h4>HSC & SSC Board Examination Internal Assessment Schedule</h4>
+            <p>Submission dates for 12th standard IT practical journals and science project files have been released.</p>
+          </div>
+          <button class="btn-notice-action" onclick="viewNoticeDetails('HSC Internal Assessment')"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Notice 2 -->
+        <div class="notice-item" data-category="admissions">
+          <div class="notice-date-box">
+            <span class="date-day">18</span>
+            <span class="date-month">AUG</span>
+          </div>
+          <div class="notice-info">
+            <span class="notice-tag tag-admission">Admissions</span>
+            <h4>11th Standard FYJC Final Round Form Submission</h4>
+            <p>Eligible candidates must verify original documents at the administrative office between 10:00 AM to 4:00 PM.</p>
+          </div>
+          <button class="btn-notice-action" onclick="viewNoticeDetails('11th FYJC Verification')"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Notice 3 -->
+        <div class="notice-item" data-category="events">
+          <div class="notice-date-box">
+            <span class="date-day">05</span>
+            <span class="date-month">SEP</span>
+          </div>
+          <div class="notice-info">
+            <span class="notice-tag tag-event">Events</span>
+            <h4>Teachers' Day & Annual Science Exhibition 2026</h4>
+            <p>Students are invited to submit working science models and software demonstrations by August 30.</p>
+          </div>
+          <button class="btn-notice-action" onclick="viewNoticeDetails('Science Exhibition 2026')"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Learning Hub -->
+  <section class="section learning-hub-section" id="learning-hub">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Academic Resources</span>
+        <h2 class="section-title">Student Learning Hub</h2>
+        <p class="section-lead">Quick access to board curriculum, IT practical materials, and previous year question papers.</p>
+      </div>
+
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="hub-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>12th Standard IT Hub</h3>
+          <p>HTML5, CSS3, JavaScript, Advanced Web Designing SOPs, and SEO study modules as per Maharashtra State Board.</p>
+          <button class="hub-btn" onclick="openAssistantWithQuery('explain 12th IT SOPs')"><i class="fa-solid fa-download"></i> View IT SOP Solutions</button>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
+          <h3>Science Lab Manuals</h3>
+          <p>Physics, Chemistry, and Biology experimental handbooks, formula cheat sheets, and practical Viva guides.</p>
+          <button class="hub-btn" onclick="openAssistantWithQuery('science practicals')"><i class="fa-solid fa-file-lines"></i> Open Practical Manuals</button>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
+          <h3>Commerce & Accounts Vault</h3>
+          <p>Solved balance sheet templates, ledger practice questions, and business mathematics formulae.</p>
+          <button class="hub-btn" onclick="openAssistantWithQuery('commerce subjects')"><i class="fa-solid fa-folder-open"></i> Access Practice Sheets</button>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <h3>Previous Board Papers</h3>
+          <p>HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
+          <button class="hub-btn" onclick="openAssistantWithQuery('board question papers')"><i class="fa-solid fa-book"></i> Browse Archives</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Campus Section -->
+  <section class="section campus-section" id="campus">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Infrastructure</span>
+        <h2 class="section-title">Interactive Campus & Facilities</h2>
+        <p class="section-lead">Click on any facility below to inspect campus amenities on your display.</p>
+      </div>
+
+      <div class="campus-layout">
+        <!-- Interactive Facility Selector -->
+        <div class="facility-buttons-grid">
+          <button class="facility-btn active" onclick="switchFacility('smartClass')">
+            <i class="fa-solid fa-chalkboard"></i>
+            <span>Smart Classrooms</span>
+          </button>
+          <button class="facility-btn" onclick="switchFacility('computerLab')">
+            <i class="fa-solid fa-desktop"></i>
+            <span>Computer & IT Lab</span>
+          </button>
+          <button class="facility-btn" onclick="switchFacility('scienceLab')">
+            <i class="fa-solid fa-atom"></i>
+            <span>Science Laboratories</span>
+          </button>
+          <button class="facility-btn" onclick="switchFacility('library')">
+            <i class="fa-solid fa-book-bookmark"></i>
+            <span>Central Library</span>
+          </button>
+          <button class="facility-btn" onclick="switchFacility('sports')">
+            <i class="fa-solid fa-volleyball"></i>
+            <span>Playground & Sports</
