@@ -1,6 +1,6 @@
 /**
  * Shivaji English School & Junior College | Official Portal Script
- * Direct Gmail Dispatch, Smart AI Assistant, Settings & Bilingual Engine
+ * Direct Gmail Dispatch, Smart AI Assistant, Settings, Bilingual Engine & Board Papers Vault
  */
 
 window.appState = {
@@ -54,7 +54,7 @@ const campusFacilities = {
       en: 'High-magnification compound microscopes, botanical specimens, permanent tissue slides, and human anatomy models for practical mastery.',
       mr: 'हाय-पॉवर सूक्ष्मदर्शक, वनस्पती नमुने, पेशींच्या slides आणि मानवी शरीररचनेचे प्रतिकृती मॉडेल्स.'
     },
-    tags: { en: ['Compound Microscopes', 'Specimen Jars', 'Anatomy Models'], mr: ['संयुक्त सूक्ष्मदर्शक', 'वनस्पती नमुने', 'अ‍ॅनाटॉमी मॉडेल्स'] }
+    tags: { en: ['Compound Microscopes', 'Specimen Jars', 'Anatomy Models'], mr: ['संयुक्त सूक्ष्मदर्शक', 'वनस्पती नमुने', 'अॅनाटॉमी मॉडेल्स'] }
   },
   library: {
     icon: 'fa-solid fa-book-bookmark',
@@ -86,6 +86,230 @@ const campusFacilities = {
 };
 
 let activeFacilityKey = 'smartClass';
+
+/* ==========================================================================
+   Target Publications–Style Board Papers Repository
+   ========================================================================== */
+const targetBoardPapers = [
+  // 12th HSC Science
+  { standard: "12th", stream: "Science", medium: "English", subject: "Information Technology (Science)", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Physics (Theory & Numericals)", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Chemistry", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Mathematics & Statistics", year: "2024" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Biology", year: "2024" },
+
+  // 12th HSC Commerce
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Information Technology (Commerce)", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Book-Keeping & Accountancy (BK)", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Economics", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Organization of Commerce (OCM)", year: "2024" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Secretarial Practice (SP)", year: "2024" },
+
+  // 12th HSC Arts
+  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "इतिहास (History)", year: "2025" },
+  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "भूगोल (Geography)", year: "2025" },
+  { standard: "12th", stream: "Arts", medium: "English", subject: "English Yuvakbharati", year: "2025" },
+
+  // 11th FYJC
+  { standard: "11th", stream: "Science", medium: "English", subject: "11th IT Fundamentals", year: "2025" },
+  { standard: "11th", stream: "Commerce", medium: "English", subject: "11th Book-Keeping & Accounts", year: "2025" },
+  { standard: "11th", stream: "Science", medium: "English", subject: "11th Physics & Chemistry Unit Test", year: "2024" },
+
+  // 10th SSC
+  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-1 (Algebra)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-2 (Geometry)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Science & Technology", year: "2025" },
+  { standard: "10th", stream: "General", medium: "Marathi", subject: "मराठी प्रथम भाषा (Kumarbharati)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Social Sciences (History & Geography)", year: "2024" }
+];
+
+window.openBoardPapersModal = function() {
+  const modal = document.getElementById('papersModal');
+  if (modal) {
+    modal.classList.add('open');
+    window.filterAndDisplayPapers();
+  }
+};
+
+window.closeBoardPapersModal = function() {
+  const modal = document.getElementById('papersModal');
+  if (modal) modal.classList.remove('open');
+};
+
+window.handlePapersBackdropClick = function(e) {
+  if (e.target.id === 'papersModal') {
+    window.closeBoardPapersModal();
+  }
+};
+
+window.filterAndDisplayPapers = function() {
+  const container = document.getElementById("tpPapersList");
+  const countBadge = document.getElementById("tpPaperCount");
+  if (!container || !countBadge) return;
+
+  const standardVal = document.getElementById("tpClassFilter").value;
+  const streamVal = document.getElementById("tpStreamFilter").value;
+  const mediumVal = document.getElementById("tpMediumFilter").value;
+  const yearVal = document.getElementById("tpYearFilter").value;
+  const searchVal = (document.getElementById("tpSearchInput").value || "").toLowerCase().trim();
+
+  const filtered = targetBoardPapers.filter(item => {
+    const matchClass = item.standard === standardVal;
+    const matchStream = streamVal === "all" || item.stream === streamVal || (standardVal === "10th");
+    const matchMedium = mediumVal === "all" || item.medium === mediumVal;
+    const matchYear = yearVal === "all" || item.year === yearVal;
+    const matchSearch = item.subject.toLowerCase().includes(searchVal);
+    return matchClass && matchStream && matchMedium && matchYear && matchSearch;
+  });
+
+  countBadge.textContent = `Showing ${filtered.length} resources`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<p style="text-align:center; color:#94a3b8; padding:2rem; font-size:0.9rem;">No question papers found matching your filters.</p>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(p => {
+    let streamClass = "tag-stream";
+    if (p.stream === "Commerce") streamClass += " commerce";
+    if (p.stream === "Arts") streamClass += " arts";
+    if (p.standard === "10th") streamClass += " ssc";
+
+    return `
+      <div class="tp-paper-row">
+        <div class="tp-row-left">
+          <div class="tp-tags">
+            <span class="${streamClass}">${p.standard} • ${p.stream}</span>
+            <span style="font-size:0.75rem; color:#64748b; font-weight:600;">[${p.medium} Medium | ${p.year}]</span>
+          </div>
+          <h4 class="tp-subject-title">${p.subject}</h4>
+        </div>
+        <div class="tp-row-actions">
+          <button class="tp-btn tp-btn-paper" onclick="generateAndDownloadBoardPaper('${p.subject}', '${p.standard}', '${p.year}', 'paper')">
+            <i class="fa-solid fa-download"></i> Paper
+          </button>
+          <button class="tp-btn tp-btn-sol" onclick="generateAndDownloadBoardPaper('${p.subject}', '${p.standard}', '${p.year}', 'solution')">
+            <i class="fa-solid fa-book"></i> Solution
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+};
+
+/* ==========================================================================
+   Real Printable / PDF Document Generator
+   ========================================================================== */
+window.generateAndDownloadBoardPaper = function(subject, standard, year, type) {
+  const isSolution = type === 'solution';
+  const docTitle = `${standard} ${subject} - ${year} (${isSolution ? 'Model Answer Solution' : 'Board Question Paper'})`;
+
+  let contentHtml = '';
+  if (subject.includes('Information Technology')) {
+    contentHtml = isSolution ? `
+      <h3>SECTION A: OBJECTIVE SOLUTIONS (20 Marks)</h3>
+      <p><strong>Q.1 Fill in the blanks:</strong><br>
+      (1) The <code>&lt;canvas&gt;</code> tag is used to draw graphics on a web page via JavaScript.<br>
+      (2) CSS <code>display: flex</code> defines a flex container.<br>
+      (3) JavaScript variables declared with <code>const</code> have block scope.<br>
+      (4) In SEO, <code>meta name="description"</code> provides page summary for search bots.<br>
+      (5) E-Commerce model between businesses is known as <strong>B2B</strong>.</p>
+      
+      <h3>SECTION B: CODE & PROGRAMMING (20 Marks)</h3>
+      <p><strong>Q.6 Write an HTML5 & JavaScript Code with Form Validation:</strong></p>
+      <pre style="background:#f1f5f9; padding:15px; border-radius:6px; font-size:14px;">
+&lt;form onsubmit="return validate()"&gt;
+  &lt;input type="text" id="name" required placeholder="Name"&gt;
+  &lt;input type="tel" id="mobile" pattern="[0-9]{10}" required placeholder="10-digit mobile"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+    ` : `
+      <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #000; padding-bottom:5px;">
+        <span><strong>Time:</strong> 2.5 Hours</span>
+        <span><strong>Max Marks:</strong> 80</span>
+      </div>
+      <h3>SECTION A: OBJECTIVE QUESTIONS (20 Marks)</h3>
+      <p><strong>Q.1 Fill in the blanks: (5 Marks)</strong><br>
+      (1) The ________ tag is used in HTML5 to draw graphics on the fly.<br>
+      (2) CSS ________ property is used to specify a flexible layout structure.<br>
+      (3) In JavaScript, variables declared with ________ cannot be re-assigned.<br>
+      (4) In SEO, Meta ________ tag provides short summary of web page.<br>
+      (5) E-Commerce transaction between company and customer is called ________.</p>
+      
+      <p><strong>Q.2 State whether True or False: (5 Marks)</strong><br>
+      (1) JavaScript is a case-sensitive programming language.<br>
+      (2) Audio and Video tags were introduced in HTML4.</p>
+      
+      <h3>SECTION B: PROGRAMMING & PRACTICAL SOPs (20 Marks)</h3>
+      <p><strong>Q.6 Write HTML5 code with CSS & JavaScript form validation for School Admission Portal. (10 Marks)</strong></p>
+    `;
+  } else {
+    contentHtml = isSolution ? `
+      <h3>MODEL ANSWERS & MARKING SCHEME</h3>
+      <p><strong>Q.1 Multiple Choice Questions:</strong><br>
+      (i) Option (B) • 1 Mark<br>
+      (ii) Option (A) • 1 Mark<br>
+      (iii) Option (C) • 1 Mark</p>
+      <p><strong>Q.2 Descriptive Answers:</strong> Complete step-by-step working and diagrams as prescribed by Maharashtra State Board textbook syllabus.</p>
+    ` : `
+      <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #000; padding-bottom:5px;">
+        <span><strong>Time:</strong> 3.0 Hours</span>
+        <span><strong>Max Marks:</strong> 80 / 100</span>
+      </div>
+      <h3>SECTION A (General Instructions)</h3>
+      <p>1. All questions are compulsory.<br>2. Draw neat diagrams wherever necessary.<br>3. Figures to the right indicate full marks.</p>
+      <h3 style="margin-top:15px;">SECTION B (Questions)</h3>
+      <p>Q.1 Attempt any four out of six short-answer questions. (12 Marks)<br>
+      Q.2 Solve practical problems / Long-answer questions. (16 Marks)<br>
+      Q.3 Explain concepts with formula and equations. (12 Marks)</p>
+    `;
+  }
+
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) {
+    alert('Please allow popups in your browser to view and download the question paper.');
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>${docTitle}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 25px; color: #111; max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h2 { margin: 0; font-size: 1.25rem; text-transform: uppercase; }
+        .header p { margin: 5px 0 0; font-size: 0.95rem; }
+        .print-bar { background: #1a365d; color: white; padding: 12px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .print-btn { background: #d97706; color: #ffffff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; }
+        @media print { .print-bar { display: none; } body { padding: 0; } }
+      </style>
+    </head>
+    <body>
+      <div class="print-bar">
+        <span>📄 ${docTitle}</span>
+        <button class="print-btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
+      </div>
+
+      <div class="header">
+        <h2>Maharashtra State Board of Secondary & Higher Secondary Education</h2>
+        <p><strong>Shivaji English School & Junior College, Pandur Titha, Sindhudurg</strong></p>
+        <p><strong>${standard} Examination • ${subject} (${year})</strong></p>
+        <p style="font-style: italic; color: #444;">${isSolution ? 'Official Model Answer & Solution Guide' : 'Annual Board Question Paper'}</p>
+      </div>
+
+      ${contentHtml}
+
+      <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; text-align: center; font-size: 0.8rem; color: #666;">
+        Shivaji English School & Jr. College • Student Learning Hub • Contact: sohamjikamde@gmail.com
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+};
 
 const fullDictionary = {
   en: {
@@ -119,7 +343,7 @@ const fullDictionary = {
     heroDesc: 'A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.',
     btnExplore: '<i class="fa-solid fa-compass"></i> Explore Courses',
     btnNotices: '<i class="fa-solid fa-bell"></i> Notice Board',
-    btnAskAi: 'Ask College AI',
+    btnAskAi: 'Ask AI Assistant',
     stat1: 'Year Established',
     stat2: 'Students Enrolled',
     stat3: 'Board Exam Result',
@@ -221,7 +445,7 @@ const fullDictionary = {
     lblFormPurpose: 'Inquiry Purpose',
     lblFormMsg: 'Message / Details',
     btnSubmitForm: '<i class="fa-solid fa-paper-plane"></i> Submit Inquiry',
-    aiFloatingBtnText: 'Shivaji AI Assistant'
+    aiFloatingBtnText: 'AI Assistant'
   },
   mr: {
     settingsBtnLabel: 'सेटिंग्ज',
@@ -254,7 +478,7 @@ const fullDictionary = {
     heroDesc: 'इयत्ता ५ वी ते १२ वी पर्यंत सेमी-इंग्रजी/इंग्रजी माध्यम, कला, वाणिज्य, विज्ञान आणि माहिती तंत्रज्ञान (IT) चे दर्जेदार शिक्षण देणारी सिंधुदुर्गातील नामांकित खाजगी अनुदानित संस्था.',
     btnExplore: '<i class="fa-solid fa-compass"></i> अभ्यासक्रम पहा',
     btnNotices: '<i class="fa-solid fa-bell"></i> सूचना फलक',
-    btnAskAi: 'शिवाजी AI मदतनीस',
+    btnAskAi: 'AI सहाय्यक',
     stat1: 'स्थापना वर्ष',
     stat2: 'विद्यार्थी संख्या',
     stat3: 'बोर्ड परीक्षा निकाल',
@@ -356,7 +580,7 @@ const fullDictionary = {
     lblFormPurpose: 'चौकशीचा विषय',
     lblFormMsg: 'संदेश / तपशील',
     btnSubmitForm: '<i class="fa-solid fa-paper-plane"></i> संदेश पाठवा',
-    aiFloatingBtnText: 'शिवाजी AI मदतनीस'
+    aiFloatingBtnText: 'AI सहाय्यक'
   }
 };
 
@@ -558,19 +782,18 @@ window.handleDirectEmailSubmit = function(e) {
     `--\nSent from Shivaji English School & Jr. College Website`
   );
 
-  // Direct mailto trigger to open user's email client
   window.location.href = `mailto:${emailTarget}?subject=${subject}&body=${body}`;
 
   const feedback = document.getElementById('formFeedback');
   if (feedback) {
     feedback.innerHTML = window.appState.lang === 'mr'
-      ? '<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> आपल्या ईमेल अ‍ॅपद्वारे संदेश पाठवला जात आहे...</span>'
+      ? '<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> आपल्या ईमेल अॅपद्वारे संदेश पाठवला जात आहे...</span>'
       : '<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Opening your email app to send the inquiry directly to sohamjikamde@gmail.com...</span>';
   }
 };
 
 /* ==========================================================================
-   Shivaji AI Assistant & Smart Intent Engine
+   AI Assistant & Smart Intent Engine
    ========================================================================== */
 window.toggleAiChat = function() {
   const win = document.getElementById('aiChatWindow');
@@ -632,13 +855,21 @@ function generateSmartAiResponse(query) {
   if (isMr) {
     if (query.includes('नमस्कार') || query.includes('hello') || query.includes('hi') || query.includes('काय') || query.includes('help')) {
       return {
-        html: `नमस्ते! मी <strong>शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय, पांडुर तिठा</strong> चा अधिकृत AI मदतनीस आहे.<br><br>खालीलपैकी कोणत्याही विषयावर प्रश्न विचारू शकता:
+        html: `नमस्ते! मी <strong>शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय, पांडुर तिठा</strong> चा अधिकृत <strong>AI सहाय्यक</strong> आहे.<br><br>खालीलपैकी कोणत्याही विषयावर प्रश्न विचारू शकता:
         <div class="ai-suggestion-chips">
           <button class="ai-chip-btn" onclick="askAiQuestion('प्रवेश प्रक्रिया २०२६')">प्रवेश प्रक्रिया</button>
           <button class="ai-chip-btn" onclick="askAiQuestion('१२वी IT प्रॅक्टिकल अभ्यासक्रम')">१२वी IT प्रॅक्टिकल</button>
-          <button class="ai-chip-btn" onclick="askAiQuestion('उपलब्ध शाखा व विषय')">शाखा व विषय</button>
+          <button class="ai-chip-btn" onclick="openBoardPapersModal()">बोर्ड प्रश्नपत्रिका</button>
           <button class="ai-chip-btn" onclick="askAiQuestion('शाळेचा पत्ता आणि संपर्क')">पत्ता व वेळ</button>
         </div>`
+      };
+    }
+
+    if (query.includes('प्रश्नपत्रिका') || query.includes('paper') || query.includes('board paper') || query.includes('डाउनलोड')) {
+      return {
+        html: `📄 <strong>मागील बोर्ड प्रश्नपत्रिका व मॉडेल उत्तरे:</strong><br>
+        आपण १० वी (SSC), ११ वी (FYJC) आणि १२ वी (HSC) बोर्डाच्या प्रश्नपत्रिका व उत्तरे थेट डाउनलोड करू शकता.<br><br>
+        <button class="btn btn-primary btn-sm" onclick="openBoardPapersModal()"><i class="fa-solid fa-book-open"></i> प्रश्नपत्रिका दालन उघडा</button>`
       };
     }
 
@@ -705,20 +936,28 @@ function generateSmartAiResponse(query) {
     }
 
     return {
-      html: `मी आपल्याला <strong>प्रवेश प्रक्रिया</strong>, <strong>१२वी IT प्रॅक्टिकल्स</strong>, <strong>शाखा व विषय</strong>, <strong>शाळेचा इतिहास</strong> किंवा <strong>पत्ता व वेळ</strong> याबद्दल माहिती देऊ शकतो.`
+      html: `मी आपल्याला <strong>प्रवेश प्रक्रिया</strong>, <strong>१२वी IT प्रॅक्टिकल्स</strong>, <strong>बोर्ड प्रश्नपत्रिका</strong>, <strong>शाखा व विषय</strong>, किंवा <strong>पत्ता व वेळ</strong> याबद्दल माहिती देऊ शकतो.`
     };
   }
 
   // English Knowledge Patterns
   if (query.includes('hi') || query.includes('hello') || query.includes('namaste') || query.includes('hey')) {
     return {
-      html: `Namaste! I am the AI Assistant for <strong>Shivaji English School & Jr. College, Pandur Titha</strong>.<br><br>What would you like to know about?
+      html: `Namaste! I am the <strong>AI Assistant</strong> for Shivaji English School & Jr. College, Pandur Titha.<br><br>What would you like to know about?
       <div class="ai-suggestion-chips">
         <button class="ai-chip-btn" onclick="askAiQuestion('Admissions 2026')">🎓 Admissions</button>
         <button class="ai-chip-btn" onclick="askAiQuestion('12th IT Syllabus')">💻 12th IT Syllabus</button>
-        <button class="ai-chip-btn" onclick="askAiQuestion('Courses & Streams')">📚 Courses</button>
+        <button class="ai-chip-btn" onclick="openBoardPapersModal()">📄 Board Papers</button>
         <button class="ai-chip-btn" onclick="askAiQuestion('Contact details')">📍 Contact Details</button>
       </div>`
+    };
+  }
+
+  if (query.includes('paper') || query.includes('board paper') || query.includes('question bank') || query.includes('download') || query.includes('solution')) {
+    return {
+      html: `📄 <strong>Previous Board Papers & Model Answers:</strong><br>
+      You can filter and download 10th SSC, 11th FYJC, and 12th HSC question papers with model answer solutions.<br><br>
+      <button class="btn btn-primary btn-sm" onclick="openBoardPapersModal()"><i class="fa-solid fa-book-open"></i> Open Board Papers Vault</button>`
     };
   }
 
@@ -785,7 +1024,7 @@ function generateSmartAiResponse(query) {
   }
 
   return {
-    html: `I can help you with <strong>Admissions 2026</strong>, <strong>12th IT Practical SOPs</strong>, <strong>Junior College Streams</strong>, <strong>Campus Facilities</strong>, or <strong>Location & Timings</strong>.`
+    html: `I can help you with <strong>Admissions 2026</strong>, <strong>12th IT Practical SOPs</strong>, <strong>Board Question Papers</strong>, <strong>Junior College Streams</strong>, or <strong>Location & Timings</strong>.`
   };
 }
 
