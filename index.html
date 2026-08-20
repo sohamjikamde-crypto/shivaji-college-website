@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Shivaji English School & Junior College | Pandur Titha, Sindhudurg</title>
   
   <!-- Google Fonts & Font Awesome Icons -->
@@ -11,12 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Main Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="style.css?v=30">
+  <!-- Main Stylesheet with Forced Cache Buster -->
+  <link rel="stylesheet" href="style.css?v=101">
 </head>
 <body>
 
-  <!-- Clean, Uncrowded Top Bar -->
+  <!-- Top Bar -->
   <div class="top-bar" id="topBar">
     <div class="container top-bar-content">
       <div class="top-info">
@@ -142,6 +142,8 @@
   <!-- Hero Section -->
   <section class="hero-section" id="home">
     <div class="container hero-grid">
+      
+      <!-- Left Hero Content -->
       <div class="hero-content">
         <div class="badge-pill" id="heroBadge">
           <i class="fa-solid fa-star"></i> 60+ Years of Academic Excellence (Since 1960)
@@ -157,7 +159,7 @@
         <div class="hero-action-buttons">
           <a href="#academics" class="btn btn-primary" id="btnExplore"><i class="fa-solid fa-compass"></i> Explore Courses</a>
           <a href="#notices" class="btn btn-secondary" id="btnNotices"><i class="fa-solid fa-bell"></i> Notice Board</a>
-          <button class="btn btn-assistant" onclick="openAssistant()"><i class="fa-solid fa-robot"></i> <span id="btnAskAi">Ask College AI</span></button>
+          <button class="btn btn-assistant" onclick="openAssistant()"><i class="fa-solid fa-robot"></i> <span id="btnAskAi">Ask AI Assistant</span></button>
         </div>
 
         <div class="hero-stats-grid">
@@ -180,7 +182,7 @@
         </div>
       </div>
 
-      <!-- Hero Digital Kiosk -->
+      <!-- Right Hero Digital Kiosk (Stacks cleanly on mobile) -->
       <div class="hero-interactive-card">
         <div class="smart-kiosk-panel">
           <div class="kiosk-header">
@@ -195,7 +197,7 @@
             <p id="kioskDesc">Grades 5th to 10th (Semi-English & English) and 11th/12th (Science, Commerce, Arts & IT).</p>
             <div class="kiosk-quick-links">
               <button class="kiosk-chip" onclick="navigateToSection('notices')"><i class="fa-solid fa-calendar-check"></i> <span id="chip1">Exam Dates</span></button>
-              <button class="kiosk-chip" onclick="navigateToSection('learning-hub')"><i class="fa-solid fa-file-pdf"></i> <span id="chip2">Question Banks</span></button>
+              <button class="kiosk-chip" onclick="openBoardPapersModal()"><i class="fa-solid fa-file-pdf"></i> <span id="chip2">Question Banks</span></button>
               <button class="kiosk-chip" onclick="askAiQuestion('admission process')"><i class="fa-solid fa-user-plus"></i> <span id="chip3">Admission Info</span></button>
               <button class="kiosk-chip" onclick="askAiQuestion('12th IT syllabus')"><i class="fa-solid fa-code"></i> <span id="chip4">12th IT Syllabus</span></button>
             </div>
@@ -205,6 +207,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -358,11 +361,12 @@
           <button class="hub-btn" onclick="askAiQuestion('commerce practical ledger')"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">Practice Sheets</span></button>
         </div>
 
+        <!-- 4. Previous Board Papers (Opens Download Modal) -->
         <div class="hub-card">
           <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
           <h3 id="hub4Title">Previous Board Papers</h3>
           <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-          <button class="hub-btn" onclick="askAiQuestion('previous board question papers')"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Papers</span></button>
+          <button class="hub-btn" onclick="openBoardPapersModal()"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Papers</span></button>
         </div>
       </div>
     </div>
@@ -560,18 +564,80 @@
     </div>
   </section>
 
+  <!-- Target Publications Style Previous Board Papers Modal -->
+  <div id="papersModal" class="tp-download-modal" onclick="handlePapersBackdropClick(event)">
+    <div class="tp-modal-dialog">
+      <div class="tp-modal-header">
+        <div>
+          <div class="tp-badge">Maharashtra State Board (SSC & HSC)</div>
+          <h3 class="tp-title">Previous Question Papers & Solutions Vault</h3>
+          <p class="tp-subtitle">Download official board question papers & model answer keys (2021–2026)</p>
+        </div>
+        <button class="tp-close-btn" onclick="closeBoardPapersModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="tp-filter-toolbar">
+        <div class="tp-filter-group">
+          <label>Class / Standard</label>
+          <select id="tpClassFilter" class="tp-select" onchange="filterAndDisplayPapers()">
+            <option value="12th">12th Standard (HSC)</option>
+            <option value="11th">11th Standard (FYJC)</option>
+            <option value="10th">10th Standard (SSC)</option>
+          </select>
+        </div>
+
+        <div class="tp-filter-group">
+          <label>Stream</label>
+          <select id="tpStreamFilter" class="tp-select" onchange="filterAndDisplayPapers()">
+            <option value="all">All Streams</option>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Arts">Arts</option>
+          </select>
+        </div>
+
+        <div class="tp-filter-group">
+          <label>Medium</label>
+          <select id="tpMediumFilter" class="tp-select" onchange="filterAndDisplayPapers()">
+            <option value="all">All Mediums</option>
+            <option value="English">English</option>
+            <option value="Marathi">Marathi</option>
+          </select>
+        </div>
+
+        <div class="tp-filter-group">
+          <label>Exam Year</label>
+          <select id="tpYearFilter" class="tp-select" onchange="filterAndDisplayPapers()">
+            <option value="all">All Years</option>
+            <option value="2026">2026 (Model)</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tp-search-bar-row">
+        <input type="text" id="tpSearchInput" class="tp-search-input" placeholder="🔍 Search subject (e.g. IT, Physics, BK, Marathi)..." oninput="filterAndDisplayPapers()" />
+        <span class="tp-count-badge" id="tpPaperCount">Loading resources...</span>
+      </div>
+
+      <div class="tp-papers-container" id="tpPapersList"></div>
+    </div>
+  </div>
+
   <!-- AI Assistant Floating Widget -->
   <div class="ai-assistant-wrapper">
-    <button class="ai-assistant-toggle-btn" onclick="toggleAiChat()" title="Open Shivaji AI Assistant">
+    <button class="ai-assistant-toggle-btn" onclick="toggleAiChat()" title="Open AI Assistant">
       <i class="fa-solid fa-robot"></i>
-      <span class="ai-btn-text" id="aiFloatingBtnText">Shivaji AI Assistant</span>
+      <span class="ai-btn-text" id="aiFloatingBtnText">AI Assistant</span>
     </button>
 
     <div class="ai-chat-window" id="aiChatWindow">
       <div class="ai-chat-header">
         <div class="ai-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="ai-header-info">
-          <h4>Shivaji AI Assistant</h4>
+          <h4>AI Assistant</h4>
           <span class="ai-status"><span class="status-indicator"></span> Smart Online Assistant</span>
         </div>
         <button class="ai-close-btn" onclick="toggleAiChat()"><i class="fa-solid fa-xmark"></i></button>
@@ -579,13 +645,13 @@
 
       <div class="ai-chat-messages" id="aiChatMessages">
         <div class="chat-bubble ai" id="aiWelcomeBubble">
-          Namaste! I am the AI Assistant for <strong>Shivaji English School & Jr. College, Pandur Titha</strong>.
+          Namaste! I am the <strong>AI Assistant</strong> for Shivaji English School & Jr. College, Pandur Titha.
           <br><br>
           Ask me anything in English or मराठी:
           <div class="ai-suggestion-chips">
             <button class="ai-chip-btn" onclick="askAiQuestion('Admissions 2026')">🎓 Admissions</button>
             <button class="ai-chip-btn" onclick="askAiQuestion('12th IT practicals and SOPs')">💻 12th IT SOPs</button>
-            <button class="ai-chip-btn" onclick="askAiQuestion('Junior college streams')">📚 Courses</button>
+            <button class="ai-chip-btn" onclick="openBoardPapersModal()">📄 Board Papers</button>
             <button class="ai-chip-btn" onclick="askAiQuestion('School history and timings')">🕒 Timings</button>
           </div>
         </div>
@@ -612,7 +678,7 @@
     </div>
   </footer>
 
-  <!-- Main JavaScript -->
-  <script src="script.js?v=31"></script>
+  <!-- Main JavaScript with Forced Cache Buster -->
+  <script src="script.js?v=101"></script>
 </body>
 </html>
