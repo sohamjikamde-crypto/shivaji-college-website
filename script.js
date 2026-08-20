@@ -1,153 +1,109 @@
 /**
  * Shivaji English School & Junior College | Official Portal Script
- * Settings Engine (Language, Font Scale, Dark Mode, Smart Board) & AI Assistant
+ * Global Engine: Settings Modal, 8 Campus Facilities, Bilingual Translation & AI
  */
 
-// Application State
-let appSettings = {
+// Global State
+window.appState = {
   lang: localStorage.getItem('sesjc_lang') || 'en',
   fontSize: localStorage.getItem('sesjc_font') || 'md',
   darkMode: localStorage.getItem('sesjc_dark') === 'true',
-  smartBoard: localStorage.getItem('sesjc_smartboard') === 'true'
+  smartBoard: localStorage.getItem('sesjc_smart') === 'true'
 };
 
-// Initialize all features on load
-document.addEventListener('DOMContentLoaded', () => {
-  applyAllSettings();
-  initNoticeFilters();
-  initFacilityViewer();
-});
-
-/* ==========================================================================
-   1. Settings Modal Controls
-   ========================================================================== */
-function toggleSettingsModal() {
-  const modal = document.getElementById('settingsModal');
-  if (modal) {
-    modal.classList.toggle('open');
+// Complete 8 Campus Facilities Data
+const campusFacilities = {
+  smartClass: {
+    icon: 'fa-solid fa-chalkboard',
+    title: { en: 'Interactive Smart Classrooms', mr: 'डिजिटल स्मार्ट वर्गखोल्या' },
+    desc: {
+      en: 'Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and high-speed internet connectivity for engaging multimedia delivery.',
+      mr: 'टच स्क्रीन डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल मीडिया आणि आधुनिक ई-लर्निंग सुविधांनी सुसज्ज वर्गखोल्या.'
+    },
+    tags: { en: ['Touch Enabled', 'Audio-Visual', 'E-Learning'], mr: ['टच स्क्रीन', 'ऑडिओ-व्हिज्युअल', 'ई-लर्निंग'] }
+  },
+  compLab: {
+    icon: 'fa-solid fa-desktop',
+    title: { en: 'Computer & IT Laboratory', mr: 'अद्ययावत संगणक व IT लॅब' },
+    desc: {
+      en: 'Over 50 high-performance computer workstations with Linux/Windows, HTML5/CSS3/JavaScript IDEs, and 1:1 student PC access for 12th IT practicals.',
+      mr: '५० पेक्षा जास्त संगणक, हाय-स्पीड इंटरनेट आणि १२वी IT प्रॅक्टिकल्ससाठी लागणारे आधुनिक सॉफ्टवेअर्स.'
+    },
+    tags: { en: ['High-Speed Wi-Fi', 'Linux & Windows', '1:1 PC Ratio'], mr: ['हाय-स्पीड इंटरनेट', 'लिनक्स व विंडोज', '१:१ कॉम्प्युटर'] }
+  },
+  physicsLab: {
+    icon: 'fa-solid fa-atom',
+    title: { en: 'Physics Laboratory', mr: 'भौतिकशास्त्र प्रयोगशाळा' },
+    desc: {
+      en: 'Specialized optics benches, electrical circuit trainers, vernier calipers, and resonance apparatus adhering to State Board practical standards.',
+      mr: 'प्रकाशशास्त्र, विद्युत परिपथ, स्क्रू गेज व आधुनिक उपकरणांनी सुसज्ज स्वतंत्र भौतिकशास्त्र प्रयोगशाळा.'
+    },
+    tags: { en: ['Optics Benches', 'Circuit Kits', 'Board Certified'], mr: ['ऑप्टिक्स साधने', 'विद्युत किट', 'बोर्ड प्रमाणित'] }
+  },
+  chemLab: {
+    icon: 'fa-solid fa-flask',
+    title: { en: 'Chemistry Laboratory', mr: 'रसायनशास्त्र प्रयोगशाळा' },
+    desc: {
+      en: 'Dedicated chemical titration stations, digital weighing scales, reagent racks, and modern exhaust hoods with strict student safety measures.',
+      mr: 'रासायनिक टायट्रेशन स्टेशन्स, डिजिटल वजनकाटे आणि सुरक्षित उपकरणांनी सुसज्ज रसायनशास्त्र प्रयोगशाळा.'
+    },
+    tags: { en: ['Safety Fume Hoods', 'Analytical Reagents', 'Practical Kits'], mr: ['सुरक्षित व्यवस्था', 'रासायनिक अभिकर्मके', 'प्रॅक्टिकल किट्स'] }
+  },
+  bioLab: {
+    icon: 'fa-solid fa-dna',
+    title: { en: 'Biology & Botany Laboratory', mr: 'जीवशास्त्र व वनस्पतीशास्त्र प्रयोगशाळा' },
+    desc: {
+      en: 'High-magnification compound microscopes, botanical specimens, permanent tissue slides, and human anatomy models for practical mastery.',
+      mr: 'हाय-पॉवर सूक्ष्मदर्शक, वनस्पती नमुने, पेशींच्या स्लाइड्स आणि मानवी शरीररचनेचे प्रतिकृती मॉडेल्स.'
+    },
+    tags: { en: ['Compound Microscopes', 'Specimen Jars', 'Anatomy Models'], mr: ['संयुक्त सूक्ष्मदर्शक', 'वनस्पती नमुने', 'अ‍ॅनाटॉमी मॉडेल्स'] }
+  },
+  library: {
+    icon: 'fa-solid fa-book-bookmark',
+    title: { en: 'Central Knowledge Library', mr: 'मध्यवर्ती ज्ञान ग्रंथालय व अभ्यासिका' },
+    desc: {
+      en: 'Over 12,000 reference textbooks, state board guides, competitive entrance manuals (CET/NEET/JEE), regional literature, and quiet reading hall.',
+      mr: '१२,००० हून अधिक पुस्तके, संदर्भ ग्रंथ, स्पर्धा परीक्षा मार्गदर्शिका (CET/NEET/JEE) व शांत अभ्यासिका कक्ष.'
+    },
+    tags: { en: ['12,000+ Books', 'Reading Hall', 'Entrance Guides'], mr: ['१२,०००+ पुस्तके', 'वाचन कक्ष', 'प्रवेश परीक्षा संदर्भ'] }
+  },
+  sports: {
+    icon: 'fa-solid fa-volleyball',
+    title: { en: 'Playground & Sports Complex', mr: 'विशाल क्रीडांगण व क्रीडा सुविधा' },
+    desc: {
+      en: 'Expansive outdoor playground for volleyball, kabaddi, kho-kho, cricket, and athletics, alongside indoor facilities for chess, table tennis, and carrom.',
+      mr: 'व्हॉलीबॉल, कबड्डी, खो-खो, क्रिकेट आणि इनडोअर खेळांसाठी (बुद्धिबळ, कॅरम) प्रशस्त क्रीडांगण व साहित्य.'
+    },
+    tags: { en: ['Large Ground', 'District Coaching', 'Indoor Arena'], mr: ['मोठे मैदान', 'क्रीडा प्रशिक्षण', 'इनडोअर गेम्स'] }
+  },
+  auditorium: {
+    icon: 'fa-solid fa-masks-theater',
+    title: { en: 'Auditorium & Cultural Hall', mr: 'सभागृह व सांस्कृतिक रंगमंच' },
+    desc: {
+      en: 'Spacious multi-purpose auditorium with acoustic sound systems, stage lighting, and podium for annual gatherings, debates, and seminars.',
+      mr: 'वार्षिक स्नेहसंमेलन, वादविवाद स्पर्धा व चर्चासत्रांसाठी आधुनिक ध्वनी-प्रकाश व्यवस्थेसह प्रशस्त सभागृह.'
+    },
+    tags: { en: ['Acoustic Sound', 'Cultural Stage', '500+ Seating'], mr: ['उत्कृष्ट ध्वनीव्यवस्था', 'सांस्कृतिक मंच', '५००+ बैठक क्षमता'] }
   }
-}
+};
 
-function handleModalBackdropClick(e) {
-  if (e.target.id === 'settingsModal') {
-    toggleSettingsModal();
-  }
-}
+let activeFacilityKey = 'smartClass';
 
-function resetAllSettings() {
-  appSettings = {
-    lang: 'en',
-    fontSize: 'md',
-    darkMode: false,
-    smartBoard: false
-  };
-  localStorage.clear();
-  applyAllSettings();
-  alert(appSettings.lang === 'mr' ? 'सर्व सेटिंग्ज पूर्ववत करण्यात आल्या आहेत.' : 'All settings reset to default.');
-}
-
-function applyAllSettings() {
-  // Apply Language
-  setLanguage(appSettings.lang, false);
-
-  // Apply Font Size
-  changeFontSize(appSettings.fontSize, false);
-
-  // Apply Dark Mode
-  const darkBtn = document.getElementById('darkModeBtn');
-  if (appSettings.darkMode) {
-    document.body.classList.add('dark-theme');
-    if (darkBtn) darkBtn.innerHTML = '<i class="fa-solid fa-moon"></i> On';
-    if (darkBtn) darkBtn.classList.add('active');
-  } else {
-    document.body.classList.remove('dark-theme');
-    if (darkBtn) darkBtn.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i> Off';
-    if (darkBtn) darkBtn.classList.remove('active');
-  }
-
-  // Apply Smart Board View
-  const smartBtn = document.getElementById('smartBoardBtn');
-  if (appSettings.smartBoard) {
-    document.body.classList.add('smartboard-mode');
-    if (smartBtn) smartBtn.innerHTML = '<i class="fa-solid fa-display"></i> On';
-    if (smartBtn) smartBtn.classList.add('active');
-  } else {
-    document.body.classList.remove('smartboard-mode');
-    if (smartBtn) smartBtn.innerHTML = '<i class="fa-solid fa-display"></i> Off';
-    if (smartBtn) smartBtn.classList.remove('active');
-  }
-}
-
-/* ==========================================================================
-   2. Font Size Adjuster
-   ========================================================================== */
-function changeFontSize(size, save = true) {
-  document.body.classList.remove('font-sm', 'font-md', 'font-lg', 'font-xl');
-  document.body.classList.add(`font-${size}`);
-
-  if (save) {
-    appSettings.fontSize = size;
-    localStorage.setItem('sesjc_font', size);
-  }
-
-  // Highlight active button in settings
-  const buttons = document.querySelectorAll('.font-btn-group .btn-setting-toggle');
-  buttons.forEach(btn => btn.classList.remove('active'));
-  const sizeMap = { sm: 0, md: 1, lg: 2, xl: 3 };
-  if (buttons[sizeMap[size]]) {
-    buttons[sizeMap[size]].classList.add('active');
-  }
-}
-
-/* ==========================================================================
-   3. Dark Mode & Smart Board Toggles
-   ========================================================================== */
-function toggleDarkMode() {
-  appSettings.darkMode = !appSettings.darkMode;
-  localStorage.setItem('sesjc_dark', appSettings.darkMode);
-  
-  const darkBtn = document.getElementById('darkModeBtn');
-  if (appSettings.darkMode) {
-    document.body.classList.add('dark-theme');
-    if (darkBtn) {
-      darkBtn.innerHTML = '<i class="fa-solid fa-moon"></i> On';
-      darkBtn.classList.add('active');
-    }
-  } else {
-    document.body.classList.remove('dark-theme');
-    if (darkBtn) {
-      darkBtn.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i> Off';
-      darkBtn.classList.remove('active');
-    }
-  }
-}
-
-function toggleSmartBoard() {
-  appSettings.smartBoard = !appSettings.smartBoard;
-  localStorage.setItem('sesjc_smartboard', appSettings.smartBoard);
-
-  const smartBtn = document.getElementById('smartBoardBtn');
-  if (appSettings.smartBoard) {
-    document.body.classList.add('smartboard-mode');
-    if (smartBtn) {
-      smartBtn.innerHTML = '<i class="fa-solid fa-display"></i> On';
-      smartBtn.classList.add('active');
-    }
-  } else {
-    document.body.classList.remove('smartboard-mode');
-    if (smartBtn) {
-      smartBtn.innerHTML = '<i class="fa-solid fa-display"></i> Off';
-      smartBtn.classList.remove('active');
-    }
-  }
-}
-
-/* ==========================================================================
-   4. Language Engine (English <-> मराठी)
-   ========================================================================== */
-const siteDictionary = {
+// Complete Bilingual Dictionary (English <-> मराठी)
+const fullDictionary = {
   en: {
-    settingsLabel: 'Settings / सेटिंग्ज',
+    settingsBtnLabel: 'Settings / सेटिंग्ज',
+    settingsModalHeading: 'Preferences & Settings',
+    lblSetLang: 'Language / भाषा',
+    subSetLang: 'Switch entire website between English and Marathi',
+    lblSetFont: 'Text Size / अक्षरांचा आकार',
+    subSetFont: 'Enlarge or reduce readability font size',
+    lblSetDark: 'Dark Mode / नाईट मोड',
+    subSetDark: 'Comfortable night reading palette',
+    lblSetSmart: 'Smart Board View / स्मार्ट बोर्ड',
+    subSetSmart: 'Large touch buttons & presenter view for classrooms',
+    btnResetSettings: 'Reset Defaults',
+    btnCloseSettings: 'Done',
     topAddr: 'Pandur Titha, Kudal, Sindhudurg - 416528',
     topAided: 'Estd. 1960 | Private-Aided',
     brandName: 'SHIVAJI ENGLISH SCHOOL',
@@ -173,7 +129,7 @@ const siteDictionary = {
     stat4: 'Expert Educators',
     kioskTitle: '<i class="fa-solid fa-display"></i> Campus Digital Kiosk',
     kioskBadge: '<i class="fa-solid fa-satellite-dish"></i> LIVE ADMISSIONS & UPDATES',
-    kioskHead: 'Admissions Open for 2026–27',
+    kioskHeading: 'Admissions Open for 2026–27',
     kioskDesc: 'Grades 5th to 10th (Semi-English & English) and 11th/12th (Science, Commerce, Arts & IT).',
     chip1: 'Exam Dates',
     chip2: 'Question Banks',
@@ -210,6 +166,47 @@ const siteDictionary = {
     noticeLead: 'Stay updated with latest announcements, meeting circulars, and exam schedules.',
     noticeParentTitle: 'Urgent Parent-Management Meeting with Principal',
     noticeParentDesc: 'All parents are hereby informed that an important meeting with the Institution Management and Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school premises. All parents are requested to attend without fail. — Principal',
+    hubSub: 'Academic Resources',
+    hubTitle: 'Student Learning Hub',
+    hubLead: 'Quick access to board curriculum, IT practical materials, and previous year question papers.',
+    hub1Title: '12th Standard IT Hub',
+    hub1Desc: 'HTML5, CSS3, JavaScript, Advanced Web Designing SOPs, and SEO study modules as per Maharashtra State Board.',
+    hub1Btn: 'View IT SOPs',
+    hub2Title: 'Science Lab Manuals',
+    hub2Desc: 'Physics, Chemistry, and Biology experimental handbooks, formula cheat sheets, and practical Viva guides.',
+    hub2Btn: 'Open Manuals',
+    hub3Title: 'Commerce & Accounts Vault',
+    hub3Desc: 'Solved balance sheet templates, ledger practice questions, and business mathematics formulae.',
+    hub3Btn: 'Practice Sheets',
+    hub4Title: 'Previous Board Papers',
+    hub4Desc: 'HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.',
+    hub4Btn: 'Browse Papers',
+    campusSub: 'Infrastructure',
+    campusTitle: 'Interactive Campus & Facilities',
+    campusLead: 'Tap any facility below to inspect the infrastructure on your screen or smart board.',
+    facBtn1: 'Smart Classrooms',
+    facBtn2: 'Computer & IT Lab',
+    facBtn3: 'Physics Laboratory',
+    facBtn4: 'Chemistry Laboratory',
+    facBtn5: 'Biology Laboratory',
+    facBtn6: 'Central Library',
+    facBtn7: 'Playground & Sports',
+    facBtn8: 'Auditorium & Stage',
+    facSub: 'Our Mentors',
+    facTitle: 'Faculty & Administration',
+    facLead: 'Experienced educators devoted to academic nurturing and student character building.',
+    fac1Name: "Principal's Desk",
+    fac1Role: 'Head of Institution',
+    fac1Msg: '"Guiding every student to achieve their highest intellectual and ethical potential."',
+    fac2Name: 'Dept. of Science',
+    fac2Role: 'Senior Lecturers',
+    fac2Msg: 'Specialized in competitive guidance, practical mastery, and conceptual clarity.',
+    fac3Name: 'Dept. of IT & Computers',
+    fac3Role: 'IT Faculty & Lab Staff',
+    fac3Msg: 'Instructing web technologies, coding, database systems, and modern digital skills.',
+    fac4Name: 'Dept. of Commerce & Arts',
+    fac4Role: 'Senior Lecturers',
+    fac4Msg: 'Fostering financial intelligence, critical analysis, and communicative excellence.',
     contactSub: 'Reach Out',
     contactTitle: 'Contact & Location',
     contactLead: 'Visit our campus at Pandur Titha or connect with the administrative office.',
@@ -230,7 +227,18 @@ const siteDictionary = {
     aiFloatingBtnText: 'Shivaji AI Assistant'
   },
   mr: {
-    settingsLabel: 'सेटिंग्ज / Settings',
+    settingsBtnLabel: 'सेटिंग्ज / Settings',
+    settingsModalHeading: 'सेटिंग्ज व प्राधान्ये',
+    lblSetLang: 'Language / भाषा निवडा',
+    subSetLang: 'वेबसाईट मराठी किंवा इंग्रजी भाषेत बदला',
+    lblSetFont: 'Text Size / अक्षरांचा आकार',
+    subSetFont: 'वाचण्यास सोपे जाण्यासाठी अक्षरे मोठी करा',
+    lblSetDark: 'Dark Mode / नाईट मोड',
+    subSetDark: 'डोळ्यांना त्रास न होणारा गडद रंग मोड',
+    lblSetSmart: 'Smart Board View / स्मार्ट बोर्ड',
+    subSetSmart: 'स्मार्ट बोर्ड व टच स्क्रीनसाठी मोठी बटणे',
+    btnResetSettings: 'मूळ सेटिंग्ज',
+    btnCloseSettings: 'पूर्ण झाले',
     topAddr: 'पांडुर तिठा, कुडाळ, सिंधुदुर्ग - ४१६५२८',
     topAided: 'स्थापना १९६० | शासकीय अनुदानित',
     brandName: 'शिवाजी इंग्लिश स्कूल',
@@ -256,7 +264,7 @@ const siteDictionary = {
     stat4: 'अनुभवी शिक्षकवृंद',
     kioskTitle: '<i class="fa-solid fa-display"></i> डिजिटल सूचना केंद्र',
     kioskBadge: '<i class="fa-solid fa-satellite-dish"></i> थेट प्रवेश व अपडेट्स',
-    kioskHead: 'शैक्षणिक वर्ष २०२६-२७ प्रवेश सुरू',
+    kioskHeading: 'शैक्षणिक वर्ष २०२६-२७ प्रवेश सुरू',
     kioskDesc: 'इयत्ता ५ वी ते १० वी आणि ११ वी/१२ वी (विज्ञान, वाणिज्य, कला व IT शाखा).',
     chip1: 'परीक्षा वेळापत्रक',
     chip2: 'प्रश्नपत्रिका संच',
@@ -293,7 +301,48 @@ const siteDictionary = {
     noticeLead: 'शाळेतील सर्व महत्त्वाच्या सूचना, सभा व परीक्षांचे वेळापत्रक.',
     noticeParentTitle: 'पालक-संस्थाचालक व मुख्याध्यापक संयुक्त सभा सूचना',
     noticeParentDesc: 'सर्व विद्यार्थ्यांच्या पालकांना कळविण्यात येते की शनिवार दिनांक २२/०८/२०२६ रोजी शाळेत सकाळी ठीक १०.०० वाजता संस्थाचालक व मुख्याध्यापक यांच्या समवेत सभा आयोजित केली आहे. तरी सर्व पालकांनी आवर्जून उपस्थित राहावे. — मुख्याध्यापक',
-    contactSub: 'संपर्क करा',
+    hubSub: 'शैक्षणिक साहित्य',
+    hubTitle: 'विद्यार्थी अभ्यास मंच',
+    hubLead: '१२वी IT प्रॅक्टिकल्स, प्रयोग पुस्तिका आणि मागील वर्षांच्या प्रश्नपत्रिका.',
+    hub1Title: '१२वी IT अभ्यास केंद्र',
+    hub1Desc: 'HTML5, CSS3, JavaScript, वेब डिझाईनिंग SOPs आणि SEO मार्गदर्शन.',
+    hub1Btn: 'IT SOPs पहा',
+    hub2Title: 'विज्ञान प्रयोग पुस्तिका',
+    hub2Desc: 'भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रयोग मार्गदर्शिका आणि तोंडी परीक्षा (Viva) नोट्स.',
+    hub2Btn: 'पुस्तिका उघडा',
+    hub3Title: 'वाणिज्य व लेजर बँक',
+    hub3Desc: 'सोडवलेले बॅलन्स शीट, खातेवही सराव प्रश्न आणि व्यावसायिक गणित सूत्रे.',
+    hub3Btn: 'सराव पत्रके',
+    hub4Title: 'मागील बोर्ड प्रश्नपत्रिका',
+    hub4Desc: 'HSC आणि SSC बोर्डाच्या २०२१ ते २०२६ च्या प्रश्नपत्रिका व आदर्श उत्तरे.',
+    hub4Btn: 'प्रश्नपत्रिका पहा',
+    campusSub: 'शालेय पायाभूत सुविधा',
+    campusTitle: 'आमचा परिसर व शैक्षणिक सुविधा',
+    campusLead: 'तपशील पाहण्यासाठी खालील कोणत्याही सुविधेवर स्पर्श करा.',
+    facBtn1: 'स्मार्ट वर्गखोल्या',
+    facBtn2: 'संगणक व IT लॅब',
+    facBtn3: 'भौतिकशास्त्र लॅब',
+    facBtn4: 'रसायनशास्त्र लॅब',
+    facBtn5: 'जीवशास्त्र लॅब',
+    facBtn6: 'मध्यवर्ती ग्रंथालय',
+    facBtn7: 'क्रीडांगण व मैदाने',
+    facBtn8: 'सभागृह व रंगमंच',
+    facSub: 'मार्गदर्शक',
+    facTitle: 'शिक्षकवृंद व प्रशासन',
+    facLead: 'विद्यार्थ्यांना ज्ञानदान करणारे अनुभवी व उच्चशिक्षित शिक्षकवृंद.',
+    fac1Name: 'मुख्याध्यापक कक्ष',
+    fac1Role: 'संस्था प्रमुख',
+    fac1Msg: '"प्रत्येक विद्यार्थ्याचा सर्वांगीण विकास घडवणे हेच आमचे अंतिम उद्दिष्ट आहे."',
+    fac2Name: 'विज्ञान विभाग',
+    fac2Role: 'वरिष्ठ प्राध्यापक',
+    fac2Msg: 'प्रात्यक्षिके, संकल्पना स्पष्टता आणि स्पर्धा परीक्षांचे विशेष मार्गदर्शन.',
+    fac3Name: 'माहिती तंत्रज्ञान विभाग',
+    fac3Role: 'IT प्राध्यापक व लॅब समन्वयक',
+    fac3Msg: 'आधुनिक कोडिंग, वेब तंत्रज्ञान व डिजिटल कौशल्ये शिकवण्यावर भर.',
+    fac4Name: 'वाणिज्य व कला विभाग',
+    fac4Role: 'वरिष्ठ प्राध्यापक',
+    fac4Msg: 'आर्थिक साक्षरता, व्यावसायिक कौशल्ये व भाषा प्रभुत्व निर्माण करणे.',
+    contactSub: 'संपर्क साधा',
     contactTitle: 'पत्ता व संपर्क तपशील',
     contactLead: 'पांडुर तिठा येथील कार्यालयास भेट द्या किंवा थेट संपर्क साधा.',
     contactCardHead: 'शालेय कार्यालय तपशील',
@@ -314,16 +363,26 @@ const siteDictionary = {
   }
 };
 
-function setLanguage(lang, save = true) {
-  if (save) {
-    appSettings.lang = lang;
-    localStorage.setItem('sesjc_lang', lang);
+/* ==========================================================================
+   Global Functions (Attached to window for 100% execution guarantee)
+   ========================================================================== */
+
+window.toggleSettingsModal = function(e) {
+  if (e) e.stopPropagation();
+  const modal = document.getElementById('settingsModal');
+  if (modal) modal.classList.toggle('open');
+};
+
+window.handleBackdropClick = function(e) {
+  if (e.target.id === 'settingsModal') {
+    window.toggleSettingsModal();
   }
+};
 
-  const dict = siteDictionary[lang];
-  if (!dict) return;
+window.applyLanguage = function(lang) {
+  window.appState.lang = lang;
+  localStorage.setItem('sesjc_lang', lang);
 
-  // Toggle active class on language buttons in Settings
   const enBtn = document.getElementById('langEnBtn');
   const mrBtn = document.getElementById('langMrBtn');
   if (enBtn && mrBtn) {
@@ -336,402 +395,286 @@ function setLanguage(lang, save = true) {
     }
   }
 
-  // Safe DOM text updater
-  const updateText = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = val;
-  };
-  const updateHtml = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = val;
-  };
-  const updateClassText = (cls, val) => {
+  const dict = fullDictionary[lang];
+  if (!dict) return;
+
+  // Safe DOM string updates
+  for (let key in dict) {
+    const el = document.getElementById(key);
+    if (el) {
+      if (dict[key].includes('<')) {
+        el.innerHTML = dict[key];
+      } else {
+        el.textContent = dict[key];
+      }
+    }
+  }
+
+  // Update Class-based items
+  const updateByClass = (cls, text) => {
     const el = document.querySelector(`.${cls}`);
-    if (el) el.textContent = val;
+    if (el) el.textContent = text;
   };
+  updateByClass('college-name', dict.brandName);
+  updateByClass('college-sub', dict.brandSub);
+  updateByClass('location-tag', dict.brandLoc);
+  updateByClass('nav-txt-home', dict.navHome);
+  updateByClass('nav-txt-about', dict.navAbout);
+  updateByClass('nav-txt-academics', dict.navAcademics);
+  updateByClass('nav-txt-notices', dict.navNotices);
+  updateByClass('nav-txt-hub', dict.navHub);
+  updateByClass('nav-txt-campus', dict.navCampus);
+  updateByClass('nav-txt-faculty', dict.navFaculty);
+  updateByClass('nav-txt-contact', dict.navContact);
 
-  // Update Top Bar & Brand
-  updateText('settingsBtnLabel', dict.settingsLabel);
-  updateText('topBarAddress', dict.topAddr);
-  updateText('topBarAided', dict.topAided);
-  updateClassText('college-name', dict.brandName);
-  updateClassText('college-sub', dict.brandSub);
-  updateClassText('location-tag', dict.brandLoc);
+  // Update Active Campus Facility
+  window.selectFacility(activeFacilityKey);
+};
 
-  // Update Navigation
-  updateClassText('nav-txt-home', dict.navHome);
-  updateClassText('nav-txt-about', dict.navAbout);
-  updateClassText('nav-txt-academics', dict.navAcademics);
-  updateClassText('nav-txt-notices', dict.navNotices);
-  updateClassText('nav-txt-hub', dict.navHub);
-  updateClassText('nav-txt-campus', dict.navCampus);
-  updateClassText('nav-txt-faculty', dict.navFaculty);
-  updateClassText('nav-txt-contact', dict.navContact);
+window.applyFontSize = function(size) {
+  window.appState.fontSize = size;
+  localStorage.setItem('sesjc_font', size);
 
-  // Update Hero Section
-  updateHtml('heroBadge', dict.heroBadge);
-  updateHtml('heroTitle', dict.heroTitle);
-  updateText('heroDesc', dict.heroDesc);
-  updateHtml('btnExploreCourses', dict.btnExplore);
-  updateHtml('btnNoticeBoard', dict.btnNotices);
-  updateText('btnAskAi', dict.btnAskAi);
-  updateText('statLabel1', dict.stat1);
-  updateText('statLabel2', dict.stat2);
-  updateText('statLabel3', dict.stat3);
-  updateText('statLabel4', dict.stat4);
+  document.body.classList.remove('font-sm', 'font-md', 'font-lg', 'font-xl');
+  document.body.classList.add(`font-${size}`);
 
-  // Update Digital Kiosk
-  updateHtml('kioskTitle', dict.kioskTitle);
-  updateHtml('kioskLiveBadge', dict.kioskBadge);
-  updateText('kioskHeading', dict.kioskHead);
-  updateText('kioskDesc', dict.kioskDesc);
-  updateText('chip1', dict.chip1);
-  updateText('chip2', dict.chip2);
-  updateText('chip3', dict.chip3);
-  updateText('chip4', dict.chip4);
-  updateHtml('kioskFooterNote', dict.kioskAffiliation);
-
-  // Update About Section
-  updateText('aboutSub', dict.aboutSub);
-  updateText('aboutTitle', dict.aboutTitle);
-  updateText('aboutLead', dict.aboutLead);
-  updateText('aboutHistTitle', dict.aboutHistTitle);
-  updateHtml('aboutHistP1', dict.aboutHistP1);
-  updateHtml('aboutHistP2', dict.aboutHistP2);
-  updateText('aboutVisTitle', dict.aboutVisTitle);
-  updateText('aboutVisP', dict.aboutVisP);
-  updateText('aboutMisTitle', dict.aboutMisTitle);
-  updateText('aboutMisP', dict.aboutMisP);
-  updateHtml('ribbon1', dict.ribbon1);
-  updateHtml('ribbon2', dict.ribbon2);
-  updateHtml('ribbon3', dict.ribbon3);
-  updateHtml('ribbon4', dict.ribbon4);
-
-  // Update Academics Section
-  updateText('acadSub', dict.acadSub);
-  updateText('acadTitle', dict.acadTitle);
-  updateText('acadLead', dict.acadLead);
-  updateText('course1Title', dict.course1Title);
-  updateText('course1Desc', dict.course1Desc);
-  updateText('course2Title', dict.course2Title);
-  updateText('course2Desc', dict.course2Desc);
-  updateText('course3Title', dict.course3Title);
-  updateText('course3Desc', dict.course3Desc);
-  updateText('course4Title', dict.course4Title);
-  updateText('course4Desc', dict.course4Desc);
-
-  // Update Notice Section
-  updateText('noticeSub', dict.noticeSub);
-  updateText('noticeTitle', dict.noticeTitle);
-  updateText('noticeLead', dict.noticeLead);
-  updateText('noticeParentTitle', dict.noticeParentTitle);
-  updateText('noticeParentDesc', dict.noticeParentDesc);
-
-  // Update Contact Section
-  updateText('contactSub', dict.contactSub);
-  updateText('contactTitle', dict.contactTitle);
-  updateText('contactLead', dict.contactLead);
-  updateText('contactCardHead', dict.contactCardHead);
-  updateText('contactCardSub', dict.contactCardSub);
-  updateText('contactLblAddr', dict.contactLblAddr);
-  updateHtml('contactValAddr', dict.contactValAddr);
-  updateText('contactLblPhone', dict.contactLblPhone);
-  updateText('contactLblEmail', dict.contactLblEmail);
-  updateText('contactLblHours', dict.contactLblHours);
-  updateText('contactValHours', dict.contactValHours);
-  updateText('inquiryHead', dict.inquiryHead);
-  updateText('lblFormName', dict.lblFormName);
-  updateText('lblFormPhone', dict.lblFormPhone);
-  updateText('lblFormPurpose', dict.lblFormPurpose);
-  updateText('lblFormMsg', dict.lblFormMsg);
-  updateHtml('btnSubmitForm', dict.btnSubmitForm);
-
-  // Update Floating AI Button
-  updateText('aiFloatingBtnText', dict.aiFloatingBtnText);
-
-  // Update Campus Facility Names
-  updateFacilityLanguage(lang);
-}
-
-/* ==========================================================================
-   5. Interactive Facilities Viewer
-   ========================================================================== */
-const facilityContent = {
-  smartClass: {
-    icon: 'fa-solid fa-chalkboard',
-    title: { en: 'Interactive Smart Classrooms', mr: 'डिजिटल स्मार्ट वर्गखोल्या' },
-    desc: {
-      en: 'Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual systems, and broadband internet for dynamic multimedia lectures.',
-      mr: 'टच स्क्रीन डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल मीडिया आणि आधुनिक ई-लर्निंग सुविधांनी सुसज्ज वर्गखोल्या.'
-    },
-    tags: { en: ['Touch Enabled', 'Audio-Visual', 'E-Learning'], mr: ['टच स्क्रीन', 'ऑडिओ-व्हिज्युअल', 'ई-लर्निंग'] }
-  },
-  computerLab: {
-    icon: 'fa-solid fa-desktop',
-    title: { en: 'Advanced Computer & IT Lab', mr: 'अद्ययावत संगणक व IT लॅब' },
-    desc: {
-      en: 'Over 40 high-performance computer workstations with Linux/Windows, HTML5/CSS3/JavaScript IDEs, and 1:1 student PC access.',
-      mr: '४० पेक्षा जास्त संगणक, हाय-स्पीड इंटरनेट आणि १२वी IT प्रॅक्टिकल्ससाठी लागणारे आधुनिक सॉफ्टवेअर्स.'
-    },
-    tags: { en: ['High-Speed Wi-Fi', 'Linux & Windows', '1:1 PC Ratio'], mr: ['हाय-स्पीड इंटरनेट', 'लिनक्स व विंडोज', '१:१ कॉम्प्युटर'] }
-  },
-  scienceLab: {
-    icon: 'fa-solid fa-atom',
-    title: { en: 'Specialized Science Laboratories', mr: 'विज्ञान प्रयोगशाळा (भौतिक, रसायन व जीवशास्त्र)' },
-    desc: {
-      en: 'Individual Physics, Chemistry, and Biology laboratories equipped with modern precision apparatus and safety measures.',
-      mr: 'भौतिकशास्त्र, रसायनशास्त्र आणि जीवशास्त्राच्या अत्याधुनिक उपकरणांनी सुसज्ज स्वतंत्र व सुरक्षित प्रयोगशाळा.'
-    },
-    tags: { en: ['Modern Apparatus', 'Physics & Chem', 'Safety Certified'], mr: ['अद्ययावत उपकरणे', 'सुरक्षित प्रयोगशाळा', 'बोर्ड प्रॅक्टिकल'] }
-  },
-  library: {
-    icon: 'fa-solid fa-book-bookmark',
-    title: { en: 'Central Knowledge Library', mr: 'मध्यवर्ती ज्ञान ग्रंथालय व अभ्यासिका' },
-    desc: {
-      en: 'Over 10,000 reference books, state board textbooks, competitive exam guides (CET/NEET/JEE), and quiet reading hall.',
-      mr: '१०,००० हून अधिक पुस्तके, संदर्भ ग्रंथ, स्पर्धा परीक्षा मार्गदर्शिका व शांत अभ्यासिका कक्ष.'
-    },
-    tags: { en: ['10,000+ Books', 'Reading Hall', 'Competitive Guides'], mr: ['१०,०००+ पुस्तके', 'अभ्यासिका', 'मार्गदर्शन'] }
-  },
-  sports: {
-    icon: 'fa-solid fa-volleyball',
-    title: { en: 'Playground & Sports Complex', mr: 'विशाल क्रीडांगण व क्रीडा सुविधा' },
-    desc: {
-      en: 'Expansive playground supporting volleyball, kabaddi, kho-kho, cricket, and indoor arenas for chess and carrom.',
-      mr: 'व्हॉलीबॉल, कबड्डी, खो-खो, क्रिकेट आणि इनडोअर खेळांसाठी प्रशस्त क्रीडांगण व साहित्य.'
-    },
-    tags: { en: ['Large Ground', 'District Coaching', 'Indoor Arena'], mr: ['मोठे मैदान', 'क्रीडा प्रशिक्षण', 'इनडोअर गेम्स'] }
+  const fontBtns = {
+    sm: document.getElementById('fontSmBtn'),
+    md: document.getElementById('fontMdBtn'),
+    lg: document.getElementById('fontLgBtn'),
+    xl: document.getElementById('fontXlBtn')
+  };
+  for (let s in fontBtns) {
+    if (fontBtns[s]) {
+      if (s === size) fontBtns[s].classList.add('active');
+      else fontBtns[s].classList.remove('active');
+    }
   }
 };
 
-let currentFacilityKey = 'smartClass';
+window.toggleDarkMode = function() {
+  window.appState.darkMode = !window.appState.darkMode;
+  localStorage.setItem('sesjc_dark', window.appState.darkMode);
 
-function initFacilityViewer() {
-  switchFacility('smartClass');
-}
+  const btn = document.getElementById('darkModeToggleBtn');
+  const txt = document.getElementById('txtDarkStatus');
 
-function switchFacility(key, btnElement = null) {
-  currentFacilityKey = key;
-  const data = facilityContent[key];
+  if (window.appState.darkMode) {
+    document.body.classList.add('dark-theme');
+    if (btn) btn.classList.add('active');
+    if (txt) txt.textContent = 'On';
+  } else {
+    document.body.classList.remove('dark-theme');
+    if (btn) btn.classList.remove('active');
+    if (txt) txt.textContent = 'Off';
+  }
+};
+
+window.toggleSmartBoardMode = function() {
+  window.appState.smartBoard = !window.appState.smartBoard;
+  localStorage.setItem('sesjc_smart', window.appState.smartBoard);
+
+  const btn = document.getElementById('smartBoardToggleBtn');
+  const txt = document.getElementById('txtSmartStatus');
+
+  if (window.appState.smartBoard) {
+    document.body.classList.add('smartboard-mode');
+    if (btn) btn.classList.add('active');
+    if (txt) txt.textContent = 'On';
+  } else {
+    document.body.classList.remove('smartboard-mode');
+    if (btn) btn.classList.remove('active');
+    if (txt) txt.textContent = 'Off';
+  }
+};
+
+window.resetAllDefaults = function() {
+  localStorage.clear();
+  window.appState = { lang: 'en', fontSize: 'md', darkMode: false, smartBoard: false };
+  window.applyLanguage('en');
+  window.applyFontSize('md');
+  if (document.body.classList.contains('dark-theme')) window.toggleDarkMode();
+  if (document.body.classList.contains('smartboard-mode')) window.toggleSmartBoardMode();
+  alert('All settings have been reset to default.');
+};
+
+window.selectFacility = function(key, btnElement = null) {
+  activeFacilityKey = key;
+  const data = campusFacilities[key];
   if (!data) return;
 
+  const buttons = document.querySelectorAll('.facility-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+
   if (btnElement) {
-    const btns = document.querySelectorAll('.facility-btn');
-    btns.forEach(b => b.classList.remove('active'));
     btnElement.classList.add('active');
+  } else {
+    const matchingBtn = document.querySelector(`.facility-btn[onclick*="${key}"]`);
+    if (matchingBtn) matchingBtn.classList.add('active');
   }
 
+  const lang = window.appState.lang;
   const icon = document.getElementById('facilityIcon');
   const title = document.getElementById('facilityTitle');
   const desc = document.getElementById('facilityDesc');
   const tagsContainer = document.getElementById('facilityTags');
 
-  const lang = appSettings.lang;
   if (icon) icon.innerHTML = `<i class="${data.icon}"></i>`;
   if (title) title.textContent = data.title[lang] || data.title.en;
   if (desc) desc.textContent = data.desc[lang] || data.desc.en;
 
-  const tagList = data.tags[lang] || data.tags.en;
-  if (tagsContainer && tagList) {
-    tagsContainer.innerHTML = tagList.map(t => `<span class="badge">${t}</span>`).join('');
+  const tags = data.tags[lang] || data.tags.en;
+  if (tagsContainer && tags) {
+    tagsContainer.innerHTML = tags.map(t => `<span class="badge">${t}</span>`).join('');
   }
-}
+};
 
-function updateFacilityLanguage(lang) {
-  const facBtnMap = {
-    facBtn1: { en: 'Smart Classrooms', mr: 'स्मार्ट वर्गखोल्या' },
-    facBtn2: { en: 'Computer & IT Lab', mr: 'संगणक व IT लॅब' },
-    facBtn3: { en: 'Science Laboratories', mr: 'विज्ञान प्रयोगशाळा' },
-    facBtn4: { en: 'Central Library', mr: 'मध्यवर्ती ग्रंथालय' },
-    facBtn5: { en: 'Playground & Sports', mr: 'क्रीडांगण व क्रीडा' }
-  };
-  for (let id in facBtnMap) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = facBtnMap[id][lang] || facBtnMap[id].en;
-  }
-  switchFacility(currentFacilityKey);
-}
+window.toggleMobileMenu = function() {
+  const menu = document.getElementById('navMenu');
+  if (menu) menu.classList.toggle('open');
+};
 
-/* ==========================================================================
-   6. Navigation & Mobile Menu
-   ========================================================================== */
-function toggleMobileMenu() {
-  const navMenu = document.getElementById('navMenu');
-  const toggleBtn = document.getElementById('mobileNavToggle');
-  if (navMenu) {
-    navMenu.classList.toggle('open');
-    if (toggleBtn) {
-      const icon = toggleBtn.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-xmark');
-      }
-    }
-  }
-}
-
-function navigateToSection(id) {
+window.navigateToSection = function(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
-}
+};
 
-function initNoticeFilters() {
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const navMenu = document.getElementById('navMenu');
-      if (navMenu) navMenu.classList.remove('open');
-    });
-  });
-}
-
-function viewNoticeAlert() {
-  const msg = appSettings.lang === 'mr'
-    ? `अधिकृत सूचना:\n\nपालक-संस्थाचालक व मुख्याध्यापक संयुक्त सभा शनिवार दि. २२/०८/२०२६ रोजी सकाळी १०:०० वाजता आयोजित केली आहे. सर्व पालकांनी आवर्जून उपस्थित राहावे.\n— मुख्याध्यापक, शिवाजी इंग्लिश स्कूल`
-    : `Official Notice:\n\nParent-Management Meeting with the Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school campus. All parents are requested to attend.\n— Principal, Shivaji English School`;
+window.alertNoticeDetails = function() {
+  const msg = window.appState.lang === 'mr'
+    ? 'पालक-संस्थाचालक व मुख्याध्यापक संयुक्त सभा शनिवार दि. २२/०८/२०२६ रोजी सकाळी १०:०० वाजता शाळेत आयोजित केली आहे. सर्व पालकांनी आवर्जून उपस्थित राहावे.\n— मुख्याध्यापक, शिवाजी इंग्लिश स्कूल'
+    : 'Parent-Management Meeting with Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school premises. All parents are requested to attend.\n— Principal, Shivaji English School';
   alert(msg);
-}
+};
 
-function handleFormSubmit(e) {
+window.handleInquirySubmit = function(e) {
   e.preventDefault();
   const name = document.getElementById('fullName').value;
   const feedback = document.getElementById('formFeedback');
   if (feedback) {
-    const msg = appSettings.lang === 'mr'
+    feedback.innerHTML = window.appState.lang === 'mr'
       ? `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> धन्यवाद, ${name}! आपला संदेश शाळेच्या कार्यालयास प्राप्त झाला आहे.</span>`
-      : `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your inquiry has been received by the school administration.</span>`;
-    feedback.innerHTML = msg;
+      : `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your inquiry has been received.</span>`;
   }
   document.getElementById('inquiryForm').reset();
-}
+};
 
 /* ==========================================================================
-   7. Shivaji AI Assistant
+   Shivaji AI Assistant (Bilingual)
    ========================================================================== */
-function toggleAiChat() {
-  const chat = document.getElementById('aiChatWindow');
-  if (chat) chat.classList.toggle('open');
-}
+window.toggleAiChat = function() {
+  const win = document.getElementById('aiChatWindow');
+  if (win) win.classList.toggle('open');
+};
 
-function openAssistantModal() {
-  const chat = document.getElementById('aiChatWindow');
-  if (chat) {
-    chat.classList.add('open');
+window.openAssistant = function() {
+  const win = document.getElementById('aiChatWindow');
+  if (win) {
+    win.classList.add('open');
     const input = document.getElementById('aiUserInput');
     if (input) input.focus();
   }
-}
+};
 
-function sendPrompt(query) {
+window.askAiQuestion = function(query) {
+  window.openAssistant();
   const input = document.getElementById('aiUserInput');
   if (input) {
     input.value = query;
-    handleAiUserMessage();
+    window.sendAiMessage();
   }
-}
+};
 
-function openAssistantWithQuery(query) {
-  openAssistantModal();
-  sendPrompt(query);
-}
-
-function handleAiUserMessage() {
+window.sendAiMessage = function() {
   const input = document.getElementById('aiUserInput');
   const container = document.getElementById('aiChatMessages');
   if (!input || !container) return;
 
-  const rawText = input.value.trim();
-  if (!rawText) return;
+  const text = input.value.trim();
+  if (!text) return;
 
   // Add User bubble
-  appendChatBubble(rawText, 'user');
+  const userBubble = document.createElement('div');
+  userBubble.className = 'chat-bubble user';
+  userBubble.textContent = text;
+  container.appendChild(userBubble);
   input.value = '';
 
-  // Add Typing indicator
-  const typing = document.createElement('div');
-  typing.className = 'chat-bubble ai';
-  typing.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (appSettings.lang === 'mr' ? 'माहिती शोधत आहे...' : 'Thinking...');
-  container.appendChild(typing);
+  // Add typing bubble
+  const typingBubble = document.createElement('div');
+  typingBubble.className = 'chat-bubble ai';
+  typingBubble.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (window.appState.lang === 'mr' ? 'माहिती शोधत आहे...' : 'Thinking...');
+  container.appendChild(typingBubble);
   container.scrollTop = container.scrollHeight;
 
   setTimeout(() => {
-    container.removeChild(typing);
-    const reply = getBilingualAiResponse(rawText.toLowerCase());
-    appendChatBubble(reply, 'ai');
-  }, 400);
-}
+    container.removeChild(typingBubble);
+    const reply = generateAiAnswer(text.toLowerCase());
+    const aiBubble = document.createElement('div');
+    aiBubble.className = 'chat-bubble ai';
+    aiBubble.innerHTML = reply;
+    container.appendChild(aiBubble);
+    container.scrollTop = container.scrollHeight;
+  }, 350);
+};
 
-function appendChatBubble(html, sender) {
-  const container = document.getElementById('aiChatMessages');
-  if (!container) return;
-  const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${sender}`;
-  bubble.innerHTML = html;
-  container.appendChild(bubble);
-  container.scrollTop = container.scrollHeight;
-}
+function generateAiAnswer(query) {
+  const isMr = window.appState.lang === 'mr' || /[\u0900-\u097F]/.test(query);
 
-function getBilingualAiResponse(query) {
-  const isMarathi = (appSettings.lang === 'mr') || /[\u0900-\u097F]/.test(query);
-
-  if (isMarathi) {
+  if (isMr) {
     if (query.includes('नमस्कार') || query.includes('hello') || query.includes('hi')) {
-      return `नमस्ते! शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय AI मदतनीस मध्ये आपले स्वागत आहे. मी आपल्याला प्रवेश, १२वी आयटी किंवा अभ्यासक्रमाबद्दल कशी मदत करू शकतो?`;
+      return 'नमस्ते! शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय AI मदतनीस मध्ये आपले स्वागत आहे. मी आपल्याला कशी मदत करू?';
     }
-    if (query.includes('इतिहास') || query.includes('स्थापना') || query.includes('1960') || query.includes('माहिती')) {
-      return `🏛️ <strong>शाळेचा इतिहास:</strong><br>शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालयाची स्थापना <strong>१९६०</strong> मध्ये पांडुर तिठा येथे झाली. ही संस्था खाजगी अनुदानित असून इयत्ता ५ वी ते १२ वी पर्यंतचे दर्जेदार शिक्षण देते.`;
+    if (query.includes('इतिहास') || query.includes('स्थापना') || query.includes('1960')) {
+      return '🏛️ <strong>शाळेचा इतिहास:</strong><br>शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालयाची स्थापना <strong>१९६०</strong> मध्ये पांडुर तिठा येथे झाली. ही संस्था खाजगी अनुदानित असून इयत्ता ५ वी ते १२ वी पर्यंतचे दर्जेदार शिक्षण देते.';
     }
-    if (query.includes('शाखा') || query.includes('प्रवेश') || query.includes('विषय') || query.includes('अभ्यासक्रम')) {
-      return `📚 <strong>उपलब्ध शाखा:</strong><br>
-      • <strong>माध्यमिक:</strong> इयत्ता ५ वी ते १० वी (सेमी-इंग्रजी व इंग्रजी माध्यम)<br>
-      • <strong>विज्ञान शाखा (११वी व १२वी):</strong> भौतिकशास्त्र, रसायन, गणित, जीवशास्त्र व IT<br>
-      • <strong>वाणिज्य शाखा:</strong> बुक कीपिंग, OCM, अर्थशास्त्र, SP / IT<br>
-      • <strong>कला शाखा:</strong> इतिहास, भूगोल, राज्यशास्त्र व भाषा विषय.`;
+    if (query.includes('शाखा') || query.includes('प्रवेश') || query.includes('अभ्यासक्रम')) {
+      return '📚 <strong>उपलब्ध शाखा:</strong><br>• माध्यमिक: इयत्ता ५ वी ते १० वी<br>• विज्ञान शाखा (११वी व १२वी): PCMB + IT<br>• वाणिज्य शाखा: BK, OCM, Eco, SP / IT<br>• कला शाखा: इतिहास, भूगोल, राज्यशास्त्र, भाषा.';
     }
-    if (query.includes('आयटी') || query.includes('it') || query.includes('प्रॅक्टिकल') || query.includes('sop')) {
-      return `💻 <strong>१२वी आयटी (IT) अभ्यासक्रम:</strong><br>
-      १. Advanced Web Designing (HTML5, CSS3 Grid/Flexbox)<br>
-      २. Client-Side Scripting (JavaScript DOM & Validation)<br>
-      ३. Advanced JavaScript व Server-Side (PHP Basics)<br>
-      ४. Emerging Technologies (Cloud Computing, AI, 5G)<br>
-      ५. E-Commerce & E-Governance.`;
+    if (query.includes('आयटी') || query.includes('it') || query.includes('sop')) {
+      return '💻 <strong>१२वी IT अभ्यासक्रम:</strong><br>१. Advanced Web Designing (HTML5/CSS3 Grid)<br>२. Client-Side Scripting (JavaScript Validation)<br>३. Server-Side (PHP Basics)<br>४. Emerging Tech (Cloud, AI, IoT)<br>५. E-Commerce & Cyber Law.';
     }
-    if (query.includes('पत्ता') || query.includes('संपर्क') || query.includes('फोन') || query.includes('कुठे')) {
-      return `📍 <strong>पत्ता व संपर्क:</strong><br>
-      • <strong>पत्ता:</strong> शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय, पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग - ४१६५२८.<br>
-      • <strong>फोन:</strong> +91 2362 232000<br>
-      • <strong>कार्यालयीन वेळ:</strong> सोम-शनि, सकाळी ९:३० ते संध्याकाळी ५:००.`;
+    if (query.includes('पत्ता') || query.includes('संपर्क') || query.includes('फोन')) {
+      return '📍 <strong>संपर्क:</strong><br>पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग - ४१६५२८.<br>फोन: +91 2362 232000 (सकाळी ९:३० ते संध्याकाळी ५:००).';
     }
-    return `मी आपल्याला <strong>प्रवेश प्रक्रिया</strong>, <strong>११वी/१२वी शाखा (विज्ञान, वाणिज्य, कला, IT)</strong>, <strong>शाळेचा इतिहास</strong> किंवा <strong>१२वी IT प्रॅक्टिकल्स</strong> बाबत माहिती देऊ शकतो.`;
+    return 'मी आपल्याला <strong>प्रवेश</strong>, <strong>११वी/१२वी शाखा (विज्ञान, वाणिज्य, कला, IT)</strong>, <strong>शाळेचा इतिहास</strong> किंवा <strong>१२वी IT प्रॅक्टिकल्स</strong> बाबत माहिती देऊ शकतो.';
   }
 
   // English Knowledge Base
   if (query.includes('hi') || query.includes('hello') || query.includes('namaste')) {
-    return `Namaste! Welcome to Shivaji English School & Junior College AI Assistant. How can I help you with admissions, IT syllabus, or courses today?`;
+    return 'Namaste! Welcome to Shivaji English School & Junior College AI Assistant. How can I assist you today?';
   }
-  if (query.includes('establish') || query.includes('history') || query.includes('1960') || query.includes('about')) {
-    return `🏛️ <strong>About Institution:</strong><br>Established in <strong>1960</strong> at Pandur Titha, Sindhudurg, Maharashtra. It is a premier co-educational, private-aided institution providing education for Grades 5 through 12.`;
+  if (query.includes('establish') || query.includes('history') || query.includes('1960')) {
+    return '🏛️ <strong>About Institution:</strong><br>Established in <strong>1960</strong> at Pandur Titha, Sindhudurg, Maharashtra. It is a premier co-educational, private-aided institution providing education for Grades 5 through 12.';
   }
-  if (query.includes('stream') || query.includes('course') || query.includes('subject') || query.includes('admission')) {
-    return `📚 <strong>Academic Programs:</strong><br>
-    • <strong>Secondary School:</strong> Grades 5–10<br>
-    • <strong>Science (11th & 12th):</strong> PCMB + Information Technology (IT)<br>
-    • <strong>Commerce (11th & 12th):</strong> BK, OCM, Economics, SP / IT<br>
-    • <strong>Arts (11th & 12th):</strong> History, Geography, Political Science, Languages.`;
+  if (query.includes('stream') || query.includes('course') || query.includes('admission')) {
+    return '📚 <strong>Academic Programs:</strong><br>• Secondary School: Grades 5–10<br>• Science (11th & 12th): PCMB + IT<br>• Commerce (11th & 12th): BK, OCM, Eco, SP / IT<br>• Arts (11th & 12th): History, Geography, Political Science, Languages.';
   }
-  if (query.includes('it') || query.includes('sop') || query.includes('project')) {
-    return `💻 <strong>12th Standard IT Syllabus:</strong><br>
-    1. Advanced Web Designing (HTML5/CSS3)<br>
-    2. Client-Side Scripting (JavaScript Validation)<br>
-    3. Server-Side Scripting (PHP)<br>
-    4. Emerging Tech (Cloud, AI, 5G)<br>
-    5. E-Commerce & Cyber Law.`;
+  if (query.includes('it') || query.includes('sop')) {
+    return '💻 <strong>12th Standard IT Syllabus:</strong><br>1. Advanced Web Designing (HTML5/CSS3)<br>2. Client-Side Scripting (JavaScript)<br>3. Server-Side Scripting (PHP)<br>4. Emerging Tech (Cloud, AI, 5G)<br>5. E-Commerce & Cyber Law.';
   }
-  if (query.includes('contact') || query.includes('location') || query.includes('where') || query.includes('address')) {
-    return `📍 <strong>Contact Details:</strong><br>
-    • <strong>Address:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, MH - 416528.<br>
-    • <strong>Phone:</strong> +91 2362 232000 (Mon–Sat, 9:30 AM to 5:00 PM).`;
+  if (query.includes('contact') || query.includes('location') || query.includes('address')) {
+    return '📍 <strong>Contact Details:</strong><br>Pandur Titha, Taluka Kudal, Sindhudurg, MH - 416528.<br>Phone: +91 2362 232000 (Mon–Sat, 9:30 AM to 5:00 PM).';
   }
-
-  return `You can ask me about <strong>Admissions</strong>, <strong>Junior College Streams (Science, Commerce, Arts, IT)</strong>, <strong>School History</strong>, or <strong>12th IT Practical SOPs</strong>.`;
+  return 'You can ask me about <strong>Admissions</strong>, <strong>Junior College Streams (Science, Commerce, Arts, IT)</strong>, <strong>School History</strong>, or <strong>12th IT Practical SOPs</strong>.';
 }
+
+// Initial Bootstrapping
+window.addEventListener('load', () => {
+  window.applyLanguage(window.appState.lang);
+  window.applyFontSize(window.appState.fontSize);
+  if (window.appState.darkMode) {
+    document.body.classList.add('dark-theme');
+    const dBtn = document.getElementById('darkModeToggleBtn');
+    const dTxt = document.getElementById('txtDarkStatus');
+    if (dBtn) dBtn.classList.add('active');
+    if (dTxt) dTxt.textContent = 'On';
+  }
+  if (window.appState.smartBoard) {
+    document.body.classList.add('smartboard-mode');
+    const sBtn = document.getElementById('smartBoardToggleBtn');
+    const sTxt = document.getElementById('txtSmartStatus');
+    if (sBtn) sBtn.classList.add('active');
+    if (sTxt) sTxt.textContent = 'On';
+  }
+  window.selectFacility('smartClass');
+});
