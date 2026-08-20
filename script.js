@@ -1,9 +1,8 @@
 /**
  * Shivaji English School & Junior College | Official Portal Script
- * Global Engine: Settings Modal, 8 Campus Facilities, Bilingual Translation & AI
+ * Global Engine: Settings Modal, 8 Campus Facilities, Advanced AI & Bilingual Engine
  */
 
-// Global State
 window.appState = {
   lang: localStorage.getItem('sesjc_lang') || 'en',
   fontSize: localStorage.getItem('sesjc_font') || 'md',
@@ -11,13 +10,12 @@ window.appState = {
   smartBoard: localStorage.getItem('sesjc_smart') === 'true'
 };
 
-// Complete 8 Campus Facilities Data
 const campusFacilities = {
   smartClass: {
     icon: 'fa-solid fa-chalkboard',
     title: { en: 'Interactive Smart Classrooms', mr: 'डिजिटल स्मार्ट वर्गखोल्या' },
     desc: {
-      en: 'Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and high-speed internet connectivity for engaging multimedia delivery.',
+      en: 'Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.',
       mr: 'टच स्क्रीन डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल मीडिया आणि आधुनिक ई-लर्निंग सुविधांनी सुसज्ज वर्गखोल्या.'
     },
     tags: { en: ['Touch Enabled', 'Audio-Visual', 'E-Learning'], mr: ['टच स्क्रीन', 'ऑडिओ-व्हिज्युअल', 'ई-लर्निंग'] }
@@ -54,7 +52,7 @@ const campusFacilities = {
     title: { en: 'Biology & Botany Laboratory', mr: 'जीवशास्त्र व वनस्पतीशास्त्र प्रयोगशाळा' },
     desc: {
       en: 'High-magnification compound microscopes, botanical specimens, permanent tissue slides, and human anatomy models for practical mastery.',
-      mr: 'हाय-पॉवर सूक्ष्मदर्शक, वनस्पती नमुने, पेशींच्या स्लाइड्स आणि मानवी शरीररचनेचे प्रतिकृती मॉडेल्स.'
+      mr: 'हाय-पॉवर सूक्ष्मदर्शक, वनस्पती नमुने, पेशींच्या slides आणि मानवी शरीररचनेचे प्रतिकृती मॉडेल्स.'
     },
     tags: { en: ['Compound Microscopes', 'Specimen Jars', 'Anatomy Models'], mr: ['संयुक्त सूक्ष्मदर्शक', 'वनस्पती नमुने', 'अ‍ॅनाटॉमी मॉडेल्स'] }
   },
@@ -89,7 +87,6 @@ const campusFacilities = {
 
 let activeFacilityKey = 'smartClass';
 
-// Complete Bilingual Dictionary (English <-> मराठी)
 const fullDictionary = {
   en: {
     settingsBtnLabel: 'Settings / सेटिंग्ज',
@@ -104,7 +101,7 @@ const fullDictionary = {
     subSetSmart: 'Large touch buttons & presenter view for classrooms',
     btnResetSettings: 'Reset Defaults',
     btnCloseSettings: 'Done',
-    topAddr: 'Pandur Titha, Kudal, Sindhudurg - 416528',
+    topAddr: 'Pandur Titha, Sindhudurg',
     topAided: 'Estd. 1960 | Private-Aided',
     brandName: 'SHIVAJI ENGLISH SCHOOL',
     brandSub: '& Junior College of Arts, Science & Commerce',
@@ -214,7 +211,7 @@ const fullDictionary = {
     contactCardSub: 'For admissions, verification, certificates, and student inquiries:',
     contactLblAddr: 'Campus Address:',
     contactValAddr: 'Shivaji English School & Junior College,<br>Pandur Titha, Taluka: Kudal,<br>District: Sindhudurg, Maharashtra - 416528',
-    contactLblPhone: 'Phone:',
+    contactLblPhone: 'Phone / Mobile:',
     contactLblEmail: 'Email:',
     contactLblHours: 'Office Hours:',
     contactValHours: 'Monday – Saturday: 9:30 AM to 5:00 PM',
@@ -239,7 +236,7 @@ const fullDictionary = {
     subSetSmart: 'स्मार्ट बोर्ड व टच स्क्रीनसाठी मोठी बटणे',
     btnResetSettings: 'मूळ सेटिंग्ज',
     btnCloseSettings: 'पूर्ण झाले',
-    topAddr: 'पांडुर तिठा, कुडाळ, सिंधुदुर्ग - ४१६५२८',
+    topAddr: 'पांडुर तिठा, सिंधुदुर्ग',
     topAided: 'स्थापना १९६० | शासकीय अनुदानित',
     brandName: 'शिवाजी इंग्लिश स्कूल',
     brandSub: '& कनिष्ठ महाविद्यालय (कला, वाणिज्य, विज्ञान व आयटी)',
@@ -349,7 +346,7 @@ const fullDictionary = {
     contactCardSub: 'प्रवेश, दाखले, गुणपत्रिका व इतर चौकशीसाठी:',
     contactLblAddr: 'शाळेचा पत्ता:',
     contactValAddr: 'शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय,<br>पांडुर तिठा, ता. कुडाळ,<br>जि. सिंधुदुर्ग, महाराष्ट्र - ४१६५२८',
-    contactLblPhone: 'फोन नंबर:',
+    contactLblPhone: 'फोन / मोबाईल:',
     contactLblEmail: 'ईमेल:',
     contactLblHours: 'कार्यालयीन वेळ:',
     contactValHours: 'सोमवार ते शनिवार: सकाळी ९:३० ते संध्याकाळी ५:००',
@@ -362,10 +359,6 @@ const fullDictionary = {
     aiFloatingBtnText: 'शिवाजी AI मदतनीस'
   }
 };
-
-/* ==========================================================================
-   Global Functions (Attached to window for 100% execution guarantee)
-   ========================================================================== */
 
 window.toggleSettingsModal = function(e) {
   if (e) e.stopPropagation();
@@ -398,7 +391,6 @@ window.applyLanguage = function(lang) {
   const dict = fullDictionary[lang];
   if (!dict) return;
 
-  // Safe DOM string updates
   for (let key in dict) {
     const el = document.getElementById(key);
     if (el) {
@@ -410,7 +402,6 @@ window.applyLanguage = function(lang) {
     }
   }
 
-  // Update Class-based items
   const updateByClass = (cls, text) => {
     const el = document.querySelector(`.${cls}`);
     if (el) el.textContent = text;
@@ -427,7 +418,6 @@ window.applyLanguage = function(lang) {
   updateByClass('nav-txt-faculty', dict.navFaculty);
   updateByClass('nav-txt-contact', dict.navContact);
 
-  // Update Active Campus Facility
   window.selectFacility(activeFacilityKey);
 };
 
@@ -546,21 +536,6 @@ window.alertNoticeDetails = function() {
   alert(msg);
 };
 
-window.handleInquirySubmit = function(e) {
-  e.preventDefault();
-  const name = document.getElementById('fullName').value;
-  const feedback = document.getElementById('formFeedback');
-  if (feedback) {
-    feedback.innerHTML = window.appState.lang === 'mr'
-      ? `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> धन्यवाद, ${name}! आपला संदेश शाळेच्या कार्यालयास प्राप्त झाला आहे.</span>`
-      : `<span style="color: #059669;"><i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your inquiry has been received.</span>`;
-  }
-  document.getElementById('inquiryForm').reset();
-};
-
-/* ==========================================================================
-   Shivaji AI Assistant (Bilingual)
-   ========================================================================== */
 window.toggleAiChat = function() {
   const win = document.getElementById('aiChatWindow');
   if (win) win.classList.toggle('open');
@@ -592,14 +567,14 @@ window.sendAiMessage = function() {
   const text = input.value.trim();
   if (!text) return;
 
-  // Add User bubble
+  // Add User message
   const userBubble = document.createElement('div');
   userBubble.className = 'chat-bubble user';
   userBubble.textContent = text;
   container.appendChild(userBubble);
   input.value = '';
 
-  // Add typing bubble
+  // Add Typing animation
   const typingBubble = document.createElement('div');
   typingBubble.className = 'chat-bubble ai';
   typingBubble.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (window.appState.lang === 'mr' ? 'माहिती शोधत आहे...' : 'Thinking...');
@@ -608,54 +583,181 @@ window.sendAiMessage = function() {
 
   setTimeout(() => {
     container.removeChild(typingBubble);
-    const reply = generateAiAnswer(text.toLowerCase());
+    const answerObj = generateSmartAiResponse(text.toLowerCase());
     const aiBubble = document.createElement('div');
     aiBubble.className = 'chat-bubble ai';
-    aiBubble.innerHTML = reply;
+    aiBubble.innerHTML = answerObj.html;
     container.appendChild(aiBubble);
     container.scrollTop = container.scrollHeight;
   }, 350);
 };
 
-function generateAiAnswer(query) {
+/* ==========================================================================
+   Advanced Knowledge Base & Fuzzy Matcher Engine
+   ========================================================================== */
+function generateSmartAiResponse(query) {
   const isMr = window.appState.lang === 'mr' || /[\u0900-\u097F]/.test(query);
 
+  // Marathi Knowledge Patterns
   if (isMr) {
-    if (query.includes('नमस्कार') || query.includes('hello') || query.includes('hi')) {
-      return 'नमस्ते! शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय AI मदतनीस मध्ये आपले स्वागत आहे. मी आपल्याला कशी मदत करू?';
+    if (query.includes('नमस्कार') || query.includes('hello') || query.includes('hi') || query.includes('काय') || query.includes('help')) {
+      return {
+        html: `नमस्ते! मी <strong>शिवाजी इंग्लिश स्कूल आणि कनिष्ठ महाविद्यालय, पांडुर तिठा</strong> चा अधिकृत AI मदतनीस आहे.<br><br>खालीलपैकी कोणत्याही विषयावर प्रश्न विचारू शकता:
+        <div class="ai-suggestion-chips">
+          <button class="ai-chip-btn" onclick="askAiQuestion('प्रवेश प्रक्रिया २०२६')">प्रवेश प्रक्रिया</button>
+          <button class="ai-chip-btn" onclick="askAiQuestion('१२वी IT प्रॅक्टिकल अभ्यासक्रम')">१२वी IT प्रॅक्टिकल</button>
+          <button class="ai-chip-btn" onclick="askAiQuestion('उपलब्ध शाखा व विषय')">शाखा व विषय</button>
+          <button class="ai-chip-btn" onclick="askAiQuestion('शाळेचा पत्ता आणि संपर्क')">पत्ता व वेळ</button>
+        </div>`
+      };
     }
-    if (query.includes('इतिहास') || query.includes('स्थापना') || query.includes('1960')) {
-      return '🏛️ <strong>शाळेचा इतिहास:</strong><br>शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालयाची स्थापना <strong>१९६०</strong> मध्ये पांडुर तिठा येथे झाली. ही संस्था खाजगी अनुदानित असून इयत्ता ५ वी ते १२ वी पर्यंतचे दर्जेदार शिक्षण देते.';
+
+    if (query.includes('प्रवेश') || query.includes('admission') || query.includes('फॉर्म') || query.includes('कागदपत्रे')) {
+      return {
+        html: `🎓 <strong>शैक्षणिक वर्ष २०२६-२७ प्रवेश तपशील:</strong><br>
+        • <strong>शालेय विभाग:</strong> इयत्ता ५ वी ते १० वी (सेमी-इंग्रजी व इंग्रजी माध्यम)<br>
+        • <strong>कनिष्ठ महाविद्यालय:</strong> ११ वी व १२ वी (विज्ञान, वाणिज्य, कला आणि IT शाखा)<br><br>
+        📄 <strong>आवश्यक कागदपत्रे:</strong> मागील इयत्तेची गुणपत्रिका (Mark sheet), शाळा सोडल्याचा दाखला (LC/TC), आधार कार्ड, पासपोर्ट फोटो आणि जातीचा दाखला (लागू असल्यास).<br>
+        कार्यालयीन वेळेत (सकाळी ९:३० ते ५:००) कार्यालयाशी संपर्क साधावा.`
+      };
     }
-    if (query.includes('शाखा') || query.includes('प्रवेश') || query.includes('अभ्यासक्रम')) {
-      return '📚 <strong>उपलब्ध शाखा:</strong><br>• माध्यमिक: इयत्ता ५ वी ते १० वी<br>• विज्ञान शाखा (११वी व १२वी): PCMB + IT<br>• वाणिज्य शाखा: BK, OCM, Eco, SP / IT<br>• कला शाखा: इतिहास, भूगोल, राज्यशास्त्र, भाषा.';
+
+    if (query.includes('आयटी') || query.includes('it') || query.includes('sop') || query.includes('प्रॅक्टिकल') || query.includes('syllabus')) {
+      return {
+        html: `💻 <strong>१२वी माहिती तंत्रज्ञान (IT) अभ्यासक्रम व SOPs:</strong><br>
+        १. <strong>Advanced Web Designing:</strong> HTML5 semantic tags, CSS3 flexbox, grid व audio/video घटक.<br>
+        २. <strong>Client-Side Scripting:</strong> JavaScript DOM मॅनिपुलेशन, फॉरमॅट व्हॅलिडेशन आणि इव्हेंट हँडलर्स.<br>
+        ३. <strong>Advanced JavaScript & Server-Side:</strong> PHP मूलभूत संकल्पना व डेटाबेस कनेक्टिव्हिटी.<br>
+        ४. <strong>Emerging Technologies:</strong> Cloud Computing, AI, IoT व 5G तंत्रज्ञान.<br>
+        ५. <strong>E-Commerce & Cyber Law:</strong> सायबर सुरक्षा आणि डिजिटल कायदे.<br><br>
+        👉 संगणक प्रयोगशाळेत ५०+ संगणकांवर प्रत्यक्ष प्रात्यक्षिके घेतली जातात.`
+      };
     }
-    if (query.includes('आयटी') || query.includes('it') || query.includes('sop')) {
-      return '💻 <strong>१२वी IT अभ्यासक्रम:</strong><br>१. Advanced Web Designing (HTML5/CSS3 Grid)<br>२. Client-Side Scripting (JavaScript Validation)<br>३. Server-Side (PHP Basics)<br>४. Emerging Tech (Cloud, AI, IoT)<br>५. E-Commerce & Cyber Law.';
+
+    if (query.includes('शाखा') || query.includes('stream') || query.includes('subject') || query.includes('विषय') || query.includes('science') || query.includes('commerce') || query.includes('arts')) {
+      return {
+        html: `📚 <strong>उपलब्ध शैक्षणिक शाखा:</strong><br>
+        • <strong>विज्ञान (Science):</strong> भौतिकशास्त्र, रसायनशास्त्र, गणित, जीवशास्त्र व माहिती तंत्रज्ञान (IT) - (CET / NEET तयारीसाठी लॅब सुविधा)<br>
+        • <strong>वाणिज्य (Commerce):</strong> बुक कीपिंग (BK), OCM, अर्थशास्त्र, सेक्रेटरीयल प्रॅक्टिस (SP) व IT<br>
+        • <strong>कला (Arts):</strong> इतिहास, भूगोल, राज्यशास्त्र, मराठी, इंग्रजी व हिंदी साहित्य.`
+      };
     }
-    if (query.includes('पत्ता') || query.includes('संपर्क') || query.includes('फोन')) {
-      return '📍 <strong>संपर्क:</strong><br>पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग - ४१६५२८.<br>फोन: +91 2362 232000 (सकाळी ९:३० ते संध्याकाळी ५:००).';
+
+    if (query.includes('इतिहास') || query.includes('स्थापना') || query.includes('1960') || query.includes('संस्था')) {
+      return {
+        html: `🏛️ <strong>शाळेचा इतिहास व परंपरा:</strong><br>
+        • <strong>स्थापना वर्ष:</strong> १९६० (गेल्या ६०+ वर्षांहून अधिक काळ कार्यरत)<br>
+        • <strong>स्थान:</strong> पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग<br>
+        • <strong>संस्था प्रकार:</strong> खाजगी अनुदानित (Government Aided) सह-शिक्षण संस्था.<br>
+        शाळेने आजवर अनेक डॉक्टर, इंजिनिअर, शिक्षक, क्रीडापटू व प्रशासकीय अधिकारी घडवले आहेत.`
+      };
     }
-    return 'मी आपल्याला <strong>प्रवेश</strong>, <strong>११वी/१२वी शाखा (विज्ञान, वाणिज्य, कला, IT)</strong>, <strong>शाळेचा इतिहास</strong> किंवा <strong>१२वी IT प्रॅक्टिकल्स</strong> बाबत माहिती देऊ शकतो.';
+
+    if (query.includes('पत्ता') || query.includes('संपर्क') || query.includes('फोन') || query.includes('वेळ') || query.includes('कुठे') || query.includes('mobile') || query.includes('email')) {
+      return {
+        html: `📍 <strong>पत्ता व संपर्क माहिती:</strong><br>
+        • <strong>पत्ता:</strong> शिवाजी इंग्लिश स्कूल व कनिष्ठ महाविद्यालय, पांडुर तिठा, ता. कुडाळ, जि. सिंधुदुर्ग, महाराष्ट्र - ४१६५२८.<br>
+        • <strong>मोबाईल / फोन:</strong> +91 93XXXXXXXX<br>
+        • <strong>ईमेल:</strong> sohamjikamde@gmail.com<br>
+        • <strong>कार्यालयीन वेळ:</strong> सोमवार ते शनिवार, सकाळी ९:३० ते संध्याकाळी ५:००.`
+      };
+    }
+
+    if (query.includes('लॅब') || query.includes('सुविधा') || query.includes('मैदान') || query.includes('ग्रंथालय') || query.includes('facility')) {
+      return {
+        html: `🔬 <strong>कॅम्पस व शैक्षणिक पायाभूत सुविधा:</strong><br>
+        • 🖥️ डिजिटल टच स्क्रीन स्मार्ट क्लासरूम्स<br>
+        • 💻 ५०+ संगणकांची अद्ययावत IT लॅब<br>
+        • ⚛️ भौतिक, रसायन व जीवशास्त्राच्या स्वतंत्र सुसज्ज प्रयोगशाळा<br>
+        • 📚 १२,०००+ पुस्तकांचे मध्यवर्ती ग्रंथालय व वाचन कक्ष<br>
+        • ⚽ व्हॉलीबॉल, कबड्डी, खो-खो व क्रिकेटचे मोठे क्रीडांगण<br>
+        • 🎭 ५०० आसनक्षमतेचे सांस्कृतिक सभागृह.`
+      };
+    }
+
+    return {
+      html: `मी आपल्याला <strong>प्रवेश प्रक्रिया</strong>, <strong>१२वी IT प्रॅक्टिकल्स</strong>, <strong>शाखा व विषय</strong>, <strong>शाळेचा इतिहास</strong> किंवा <strong>पत्ता व वेळ</strong> याबद्दल माहिती देऊ शकतो.`
+    };
   }
 
-  // English Knowledge Base
-  if (query.includes('hi') || query.includes('hello') || query.includes('namaste')) {
-    return 'Namaste! Welcome to Shivaji English School & Junior College AI Assistant. How can I assist you today?';
+  // English Knowledge Patterns
+  if (query.includes('hi') || query.includes('hello') || query.includes('namaste') || query.includes('hey')) {
+    return {
+      html: `Namaste! I am the AI Assistant for <strong>Shivaji English School & Jr. College, Pandur Titha</strong>.<br><br>What would you like to know about?
+      <div class="ai-suggestion-chips">
+        <button class="ai-chip-btn" onclick="askAiQuestion('Admissions 2026')">🎓 Admissions</button>
+        <button class="ai-chip-btn" onclick="askAiQuestion('12th IT Syllabus')">💻 12th IT Syllabus</button>
+        <button class="ai-chip-btn" onclick="askAiQuestion('Courses & Streams')">📚 Courses</button>
+        <button class="ai-chip-btn" onclick="askAiQuestion('Contact details')">📍 Contact Details</button>
+      </div>`
+    };
   }
-  if (query.includes('establish') || query.includes('history') || query.includes('1960')) {
-    return '🏛️ <strong>About Institution:</strong><br>Established in <strong>1960</strong> at Pandur Titha, Sindhudurg, Maharashtra. It is a premier co-educational, private-aided institution providing education for Grades 5 through 12.';
+
+  if (query.includes('admission') || query.includes('apply') || query.includes('eligibility') || query.includes('documents') || query.includes('fees')) {
+    return {
+      html: `🎓 <strong>Admissions for Academic Year 2026–27:</strong><br>
+      • <strong>Secondary Wing:</strong> Grades 5th to 10th (English & Semi-English medium)<br>
+      • <strong>Junior College:</strong> Grades 11th & 12th (Science, Commerce, Arts & IT)<br><br>
+      📑 <strong>Required Documents:</strong> Transfer Certificate (LC/TC), Marksheet copy, Aadhaar Card, Passport photos, Caste Certificate (if applicable).<br>
+      Office verification is open Mon–Sat (9:30 AM to 5:00 PM).`
+    };
   }
-  if (query.includes('stream') || query.includes('course') || query.includes('admission')) {
-    return '📚 <strong>Academic Programs:</strong><br>• Secondary School: Grades 5–10<br>• Science (11th & 12th): PCMB + IT<br>• Commerce (11th & 12th): BK, OCM, Eco, SP / IT<br>• Arts (11th & 12th): History, Geography, Political Science, Languages.';
+
+  if (query.includes('it') || query.includes('sop') || query.includes('practical') || query.includes('syllabus') || query.includes('web')) {
+    return {
+      html: `💻 <strong>12th Standard IT Syllabus (Maharashtra State Board):</strong><br>
+      1. <strong>Advanced Web Designing:</strong> HTML5 semantics, CSS3 flexbox/grid layout, audio/video integration.<br>
+      2. <strong>Client-Side Scripting:</strong> JavaScript functions, form validation, DOM manipulation.<br>
+      3. <strong>Advanced JS & Server-Side:</strong> PHP server scripting, database fundamentals.<br>
+      4. <strong>Emerging Technologies:</strong> Cloud Computing, AI, IoT, 5G.<br>
+      5. <strong>E-Commerce & Cyber Law:</strong> Digital safety and cyber legislation.<br><br>
+      🖥️ Practicals are conducted in our 50+ PC computer laboratory with 1:1 student access.`
+    };
   }
-  if (query.includes('it') || query.includes('sop')) {
-    return '💻 <strong>12th Standard IT Syllabus:</strong><br>1. Advanced Web Designing (HTML5/CSS3)<br>2. Client-Side Scripting (JavaScript)<br>3. Server-Side Scripting (PHP)<br>4. Emerging Tech (Cloud, AI, 5G)<br>5. E-Commerce & Cyber Law.';
+
+  if (query.includes('stream') || query.includes('course') || query.includes('subject') || query.includes('science') || query.includes('commerce') || query.includes('arts')) {
+    return {
+      html: `📚 <strong>Junior College Academic Streams:</strong><br>
+      • <strong>Science:</strong> Physics, Chemistry, Mathematics, Biology & IT elective (with competitive CET/NEET guidance).<br>
+      • <strong>Commerce:</strong> Book Keeping & Accountancy (BK), OCM, Economics, Secretarial Practice (SP) & IT.<br>
+      • <strong>Arts:</strong> History, Geography, Political Science, English, Marathi and Hindi literature.`
+    };
   }
-  if (query.includes('contact') || query.includes('location') || query.includes('address')) {
-    return '📍 <strong>Contact Details:</strong><br>Pandur Titha, Taluka Kudal, Sindhudurg, MH - 416528.<br>Phone: +91 2362 232000 (Mon–Sat, 9:30 AM to 5:00 PM).';
+
+  if (query.includes('history') || query.includes('about') || query.includes('established') || query.includes('1960') || query.includes('founder')) {
+    return {
+      html: `🏛️ <strong>About Shivaji English School & Jr. College:</strong><br>
+      • <strong>Established:</strong> 1960 (Over 60+ years of educational service)<br>
+      • <strong>Location:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra.<br>
+      • <strong>Status:</strong> Private-Aided, Co-educational institution serving rural and semi-urban learners with distinction.`
+    };
   }
-  return 'You can ask me about <strong>Admissions</strong>, <strong>Junior College Streams (Science, Commerce, Arts, IT)</strong>, <strong>School History</strong>, or <strong>12th IT Practical SOPs</strong>.';
+
+  if (query.includes('contact') || query.includes('location') || query.includes('where') || query.includes('address') || query.includes('phone') || query.includes('mobile') || query.includes('email')) {
+    return {
+      html: `📍 <strong>Campus Location & Office Contact:</strong><br>
+      • <strong>Address:</strong> Shivaji English School & Junior College, Pandur Titha, Taluka Kudal, Dist. Sindhudurg, Maharashtra - 416528.<br>
+      • <strong>Mobile / Phone:</strong> +91 93XXXXXXXX<br>
+      • <strong>Email:</strong> sohamjikamde@gmail.com<br>
+      • <strong>Office Hours:</strong> Monday – Saturday: 9:30 AM to 5:00 PM.`
+    };
+  }
+
+  if (query.includes('lab') || query.includes('facility') || query.includes('library') || query.includes('sports') || query.includes('smart')) {
+    return {
+      html: `🔬 <strong>Campus Facilities & Infrastructure:</strong><br>
+      • 🖥️ Interactive Touch Smart Classrooms<br>
+      • 💻 50+ Workstation IT Computer Lab<br>
+      • ⚛️ Individual Physics, Chemistry & Biology Laboratories<br>
+      • 📚 Central Library with 12,000+ reference volumes<br>
+      • ⚽ Outdoor Volleyball, Cricket, Kabaddi & Kho-Kho grounds<br>
+      • 🎭 500-seater Cultural Auditorium.`
+    };
+  }
+
+  return {
+    html: `I can help you with <strong>Admissions 2026</strong>, <strong>12th IT Practical SOPs</strong>, <strong>Junior College Streams</strong>, <strong>Campus Facilities</strong>, or <strong>Location & Timings</strong>.`
+  };
 }
 
 // Initial Bootstrapping
