@@ -11,23 +11,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=10">
+  <!-- Main Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body>
 
-  <!-- Top Info & Settings Bar -->
+  <!-- Clean, Uncrowded Top Bar -->
   <div class="top-bar" id="topBar">
     <div class="container top-bar-content">
       <div class="top-info">
-        <span><i class="fa-solid fa-location-dot"></i> <span id="topAddr">Pandur Titha, Kudal, Sindhudurg - 416528</span></span>
-        <span class="desktop-only"><i class="fa-solid fa-phone"></i> +91 2362 232000</span>
+        <span class="top-loc"><i class="fa-solid fa-location-dot"></i> <span id="topAddr">Pandur Titha, Sindhudurg</span></span>
+        <span class="desktop-only"><i class="fa-solid fa-phone"></i> +91 93XXXXXXXX</span>
         <span class="desktop-only"><i class="fa-solid fa-award"></i> <span id="topAided">Estd. 1960 | Private-Aided</span></span>
       </div>
       
-      <!-- Direct Header Settings Trigger Button -->
+      <!-- Compact Settings Button -->
       <button class="settings-trigger-btn" onclick="toggleSettingsModal(event)" title="Settings / सेटिंग्ज">
-        <i class="fa-solid fa-gear"></i> <span id="settingsBtnLabel">Settings / सेटिंग्ज</span>
+        <i class="fa-solid fa-gear"></i> <span id="settingsBtnLabel">Settings</span>
       </button>
     </div>
   </div>
@@ -67,7 +67,7 @@
     </div>
   </header>
 
-  <!-- Dedicated Settings Modal (Works on Mobile, PC & Smart Board) -->
+  <!-- Settings Modal (Popup) -->
   <div class="settings-modal-overlay" id="settingsModal" onclick="handleBackdropClick(event)">
     <div class="settings-modal-box">
       <div class="settings-modal-header">
@@ -154,14 +154,12 @@
           A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.
         </p>
 
-        <!-- Action Buttons -->
         <div class="hero-action-buttons">
           <a href="#academics" class="btn btn-primary" id="btnExplore"><i class="fa-solid fa-compass"></i> Explore Courses</a>
           <a href="#notices" class="btn btn-secondary" id="btnNotices"><i class="fa-solid fa-bell"></i> Notice Board</a>
           <button class="btn btn-assistant" onclick="openAssistant()"><i class="fa-solid fa-robot"></i> <span id="btnAskAi">Ask College AI</span></button>
         </div>
 
-        <!-- Metric Counters -->
         <div class="hero-stats-grid">
           <div class="stat-card">
             <span class="stat-number">1960</span>
@@ -199,7 +197,7 @@
               <button class="kiosk-chip" onclick="navigateToSection('notices')"><i class="fa-solid fa-calendar-check"></i> <span id="chip1">Exam Dates</span></button>
               <button class="kiosk-chip" onclick="navigateToSection('learning-hub')"><i class="fa-solid fa-file-pdf"></i> <span id="chip2">Question Banks</span></button>
               <button class="kiosk-chip" onclick="askAiQuestion('admission process')"><i class="fa-solid fa-user-plus"></i> <span id="chip3">Admission Info</span></button>
-              <button class="kiosk-chip" onclick="askAiQuestion('it syllabus')"><i class="fa-solid fa-code"></i> <span id="chip4">12th IT Syllabus</span></button>
+              <button class="kiosk-chip" onclick="askAiQuestion('12th IT syllabus')"><i class="fa-solid fa-code"></i> <span id="chip4">12th IT Syllabus</span></button>
             </div>
             <div class="kiosk-footer-note" id="kioskAffiliation">
               <i class="fa-solid fa-shield-halved"></i> Maharashtra State Board Affiliated (Pune Board)
@@ -303,7 +301,7 @@
     </div>
   </section>
 
-  <!-- Live Notice Board Section -->
+  <!-- Notice Section -->
   <section class="section notices-section" id="notices">
     <div class="container">
       <div class="section-header">
@@ -343,34 +341,34 @@
           <div class="hub-icon"><i class="fa-solid fa-code"></i></div>
           <h3 id="hub1Title">12th Standard IT Hub</h3>
           <p id="hub1Desc">HTML5, CSS3, JavaScript, Advanced Web Designing SOPs, and SEO study modules as per Maharashtra State Board.</p>
-          <button class="hub-btn" onclick="askAiQuestion('explain 12th IT SOPs')"><i class="fa-solid fa-download"></i> <span id="hub1Btn">View IT SOPs</span></button>
+          <button class="hub-btn" onclick="askAiQuestion('12th IT SOP practicals')"><i class="fa-solid fa-download"></i> <span id="hub1Btn">View IT SOPs</span></button>
         </div>
 
         <div class="hub-card">
           <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
           <h3 id="hub2Title">Science Lab Manuals</h3>
           <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, formula cheat sheets, and practical Viva guides.</p>
-          <button class="hub-btn" onclick="askAiQuestion('science practicals')"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open Manuals</span></button>
+          <button class="hub-btn" onclick="askAiQuestion('science practical manuals')"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open Manuals</span></button>
         </div>
 
         <div class="hub-card">
           <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
           <h3 id="hub3Title">Commerce & Accounts Vault</h3>
           <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, and business mathematics formulae.</p>
-          <button class="hub-btn" onclick="askAiQuestion('commerce subjects')"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">Practice Sheets</span></button>
+          <button class="hub-btn" onclick="askAiQuestion('commerce practical ledger')"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">Practice Sheets</span></button>
         </div>
 
         <div class="hub-card">
           <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
           <h3 id="hub4Title">Previous Board Papers</h3>
           <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-          <button class="hub-btn" onclick="askAiQuestion('board question papers')"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Papers</span></button>
+          <button class="hub-btn" onclick="askAiQuestion('previous board question papers')"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Papers</span></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Complete 8 Interactive Campus Facilities Section -->
+  <!-- 8 Campus Facilities Section -->
   <section class="section campus-section" id="campus">
     <div class="container">
       <div class="section-header">
@@ -380,7 +378,6 @@
       </div>
 
       <div class="campus-layout">
-        <!-- Interactive Facility Selection Tabs (All 8 Facilities) -->
         <div class="facility-buttons-grid">
           <button class="facility-btn active" onclick="selectFacility('smartClass', this)">
             <i class="fa-solid fa-chalkboard"></i>
@@ -416,7 +413,6 @@
           </button>
         </div>
 
-        <!-- Dynamic Facility Display Card -->
         <div class="facility-display-card" id="facilityDisplay">
           <div class="facility-icon-large" id="facilityIcon"><i class="fa-solid fa-chalkboard"></i></div>
           <h3 id="facilityTitle">Interactive Smart Classrooms</h3>
@@ -476,7 +472,7 @@
     </div>
   </section>
 
-  <!-- Contact Us Section -->
+  <!-- Contact Us Section with Direct Gmail Dispatch -->
   <section class="section contact-section" id="contact">
     <div class="container">
       <div class="section-header">
@@ -501,8 +497,8 @@
           <div class="contact-item">
             <i class="fa-solid fa-phone"></i>
             <div>
-              <strong id="contactLblPhone">Phone:</strong>
-              <p>+91 2362 232000 / 232001</p>
+              <strong id="contactLblPhone">Phone / Mobile:</strong>
+              <p>+91 93XXXXXXXX</p>
             </div>
           </div>
 
@@ -510,7 +506,7 @@
             <i class="fa-solid fa-envelope"></i>
             <div>
               <strong id="contactLblEmail">Email:</strong>
-              <p>contact@shivajipandur.edu.in</p>
+              <p>sohamjikamde@gmail.com</p>
             </div>
           </div>
 
@@ -525,7 +521,9 @@
 
         <div class="contact-form-card">
           <h3 id="inquiryHead">Send an Inquiry / Message</h3>
-          <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+          
+          <!-- Direct Email Form (Opens Gmail pre-filled, Zero Activation needed) -->
+          <form onsubmit="handleDirectEmailSubmit(event)">
             <div class="form-group">
               <label for="fullName" id="lblFormName">Student / Parent Name</label>
               <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required>
@@ -539,10 +537,10 @@
               <div class="form-group">
                 <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose</label>
                 <select id="inquiryType" class="form-control" required>
-                  <option value="admission">Admissions (5th - 12th)</option>
-                  <option value="it_project">12th IT Project Query</option>
-                  <option value="documents">TC / LC / Certificates</option>
-                  <option value="general">General Information</option>
+                  <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
+                  <option value="12th IT Project Query">12th IT Project Query</option>
+                  <option value="TC / LC / Certificates">TC / LC / Certificates</option>
+                  <option value="General Information">General Information</option>
                 </select>
               </div>
             </div>
@@ -562,7 +560,7 @@
     </div>
   </section>
 
-  <!-- AI College Assistant Floating Button & Widget -->
+  <!-- AI Assistant Floating Widget -->
   <div class="ai-assistant-wrapper">
     <button class="ai-assistant-toggle-btn" onclick="toggleAiChat()" title="Open Shivaji AI Assistant">
       <i class="fa-solid fa-robot"></i>
@@ -574,27 +572,27 @@
         <div class="ai-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="ai-header-info">
           <h4>Shivaji AI Assistant</h4>
-          <span class="ai-status"><span class="status-indicator"></span> Ready to help</span>
+          <span class="ai-status"><span class="status-indicator"></span> Smart Online Assistant</span>
         </div>
         <button class="ai-close-btn" onclick="toggleAiChat()"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <div class="ai-chat-messages" id="aiChatMessages">
         <div class="chat-bubble ai" id="aiWelcomeBubble">
-          Namaste! I am the official AI Assistant for <strong>Shivaji English School & Jr. College, Pandur Titha</strong>.
+          Namaste! I am the AI Assistant for <strong>Shivaji English School & Jr. College, Pandur Titha</strong>.
           <br><br>
-          How can I help you today? You can ask me about:
-          <ul class="quick-sample-list">
-            <li onclick="askAiQuestion('When was the school established?')">🏫 School History & Foundation</li>
-            <li onclick="askAiQuestion('What junior college streams are available?')">📚 Courses & 11th/12th Streams</li>
-            <li onclick="askAiQuestion('What is the 12th standard IT syllabus?')">💻 12th IT Practical & Syllabus</li>
-            <li onclick="askAiQuestion('Where is the college located?')">📍 Location & Contact Details</li>
-          </ul>
+          Ask me anything in English or मराठी:
+          <div class="ai-suggestion-chips">
+            <button class="ai-chip-btn" onclick="askAiQuestion('Admissions 2026')">🎓 Admissions</button>
+            <button class="ai-chip-btn" onclick="askAiQuestion('12th IT practicals and SOPs')">💻 12th IT SOPs</button>
+            <button class="ai-chip-btn" onclick="askAiQuestion('Junior college streams')">📚 Courses</button>
+            <button class="ai-chip-btn" onclick="askAiQuestion('School history and timings')">🕒 Timings</button>
+          </div>
         </div>
       </div>
 
       <div class="ai-chat-input-box">
-        <input type="text" id="aiUserInput" placeholder="Ask a question..." autocomplete="off" onkeypress="if(event.key==='Enter') sendAiMessage()">
+        <input type="text" id="aiUserInput" placeholder="Ask in English or मराठी..." autocomplete="off" onkeypress="if(event.key==='Enter') sendAiMessage()">
         <button id="aiSendBtn" onclick="sendAiMessage()"><i class="fa-solid fa-paper-plane"></i></button>
       </div>
     </div>
@@ -615,6 +613,6 @@
   </footer>
 
   <!-- Main JavaScript -->
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=30"></script>
 </body>
 </html>
