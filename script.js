@@ -347,34 +347,37 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // 3. CAMPUS FACILITIES DATA (8 FACILITIES)
   // =========================================================================
-  const facilitiesData = {
+    const facilitiesData = {
     smartClass: {
       icon: "fa-chalkboard",
-      img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/smart-class.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Interactive Touch",
       badgeMr: "डिजिटल टच स्क्रीन",
       titleEn: "Interactive Smart Classrooms",
       titleMr: "डिजिटल स्मार्ट क्लासरूम्स",
       descEn: "Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.",
-      descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या.",
+      descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.",
       tagsEn: ["Touch Enabled", "Audio-Visual", "E-Learning", "Interactive"],
       tagsMr: ["टच स्क्रीन", "दृकश्राव्य शिक्षण", "ई-लर्निंग", "इंटरॅक्टिव्ह"]
     },
     itLab: {
       icon: "fa-desktop",
-      img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/it-lab.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "40+ Workstations",
       badgeMr: "४०+ कॉम्प्युटर",
       titleEn: "Computer & Information Technology (IT) Lab",
       titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब",
-      descEn: "State-of-the-art computer laboratory with 40+ networked high-speed workstations, Linux/Windows dual boot, HTML5/CSS3/JavaScript web development tools, and dedicated UPS backup.",
+      descEn: "State-of-the-art computer laboratory with 40+ networked high-speed workstations, Linux/Windows dual boot, HTML5/CSS3/JavaScript web development tools, Python/PHP servers, and dedicated UPS backup.",
       descMr: "४०+ अद्ययावत संगणक, अखंड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.",
       tagsEn: ["40+ PCs", "Gigabit LAN", "HSC IT Center", "Web Dev Suite"],
       tagsMr: ["४०+ संगणक", "हाय-स्पीड नेटवर्क", "HSC IT केंद्र", "वेब डिझायनिंग"]
     },
     physicsLab: {
       icon: "fa-atom",
-      img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/physics-lab.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Practical Kits",
       badgeMr: "प्रायोगिक साधने",
       titleEn: "Physics Laboratory",
@@ -386,7 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     chemLab: {
       icon: "fa-flask",
-      img: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/chemistry-lab.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Safe & Ventilated",
       badgeMr: "सुरक्षित रसायन लॅब",
       titleEn: "Chemistry Laboratory",
@@ -398,7 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     bioLab: {
       icon: "fa-dna",
-      img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/biology-lab.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Microscopy Hub",
       badgeMr: "सूक्ष्मदर्शक केंद्र",
       titleEn: "Biology & Life Sciences Lab",
@@ -410,7 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     library: {
       icon: "fa-book-bookmark",
-      img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/library.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "15,000+ Books",
       badgeMr: "१५,०००+ पुस्तके",
       titleEn: "Central Library & Digital Reading Hall",
@@ -422,7 +428,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     sports: {
       icon: "fa-volleyball",
-      img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/playground.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Expansive Turf",
       badgeMr: "भव्य क्रीडांगण",
       titleEn: "Playground & Athletic Sports Complex",
@@ -434,7 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     auditorium: {
       icon: "fa-masks-theater",
-      img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
+      img: "images/facilities/auditorium.jpg",
+      fallbackImg: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "500+ Seating",
       badgeMr: "५००+ आसनक्षमता",
       titleEn: "Auditorium, Stage & Seminar Hall",
@@ -443,78 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
       descMr: "५०० आसन क्षमतेचे भव्य सांस्कृतिक सभागृह, उत्तम ध्वनी व प्रकाश यंत्रणा, आणि सेमिनारसाठी प्रोजेक्टर सुविधा.",
       tagsEn: ["500 Seater", "Acoustic Tuned", "Theatrical Stage", "Keynote Ready"],
       tagsMr: ["५०० आसने", "उत्तम ध्वनीयंत्रणा", "रंगमंच", "सांस्कृतिक केंद्र"]
-    }
-    smartClass: {
-      icon: "fa-chalkboard",
-      titleEn: "Interactive Smart Classrooms",
-      titleMr: "डिजिटल स्मार्ट क्लासरूम्स",
-      descEn: "Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and high-speed broadband internet for dynamic multimedia lectures and interactive board demonstrations.",
-      descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.",
-      tagsEn: ["Touch Enabled", "Audio-Visual", "E-Learning", "Interactive"],
-      tagsMr: ["टच स्क्रीन", "दृकश्राव्य शिक्षण", "ई-लर्निंग", "इंटरॅक्टिव्ह"]
-    },
-    itLab: {
-      icon: "fa-desktop",
-      titleEn: "Computer & Information Technology (IT) Lab",
-      titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब",
-      descEn: "State-of-the-art computer laboratory with 40+ networked high-speed workstations, Linux/Windows dual boot, HTML5/CSS3/JavaScript web development tools, Python/PHP servers, and dedicated UPS backup.",
-      descMr: "४०+ अद्ययावत संगणक, अखंड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.",
-      tagsEn: ["40+ PCs", "Gigabit LAN", "HSC IT Center", "Web Dev Suite"],
-      tagsMr: ["४०+ संगणक", "हाय-स्पीड नेटवर्क", "HSC IT केंद्र", "वेब डिझायनिंग"]
-    },
-    physicsLab: {
-      icon: "fa-atom",
-      titleEn: "Advanced Physics Laboratory",
-      titleMr: "भौतिकशास्त्र (Physics) प्रयोगशाळा",
-      descEn: "Comprehensive experimental setups including optical benches, spectrometers, Vernier callipers, screw gauges, electrical potentiometers, and digital measuring instruments for HSC practicals.",
-      descMr: "प्रकाशाचे प्रयोग, स्पेक्ट्रोमीटर, अचूक मापन यंत्रे, इलेक्ट्रिकल सर्किट्स आणि बोर्डाच्या सर्व प्रयोगांसाठी लागणाऱ्या आधुनिक उपकरणांनी सुसज्ज स्वतंत्र भौतिकशास्त्र प्रयोगशाळा.",
-      tagsEn: ["Optics Bench", "Spectrometers", "Board Certified", "Safety Inspected"],
-      tagsMr: ["ऑप्टिक्स साधने", "मापन यंत्रे", "बोर्ड प्रमाणित", "सुरक्षित"]
-    },
-    chemLab: {
-      icon: "fa-flask",
-      titleEn: "Chemistry Laboratory",
-      titleMr: "रसायनशास्त्र (Chemistry) प्रयोगशाळा",
-      descEn: "Spacious, well-ventilated lab with individual chemical reagent racks, digital analytical balances, titration stations, fume hoods, and strict safety protocols with eye-wash stations and fire extinguishers.",
-      descMr: "टायट्रेशन स्टेशन्स, डिजिटल वजन काटे, रासायनिक अभिकर्मक, योग्य वायुविजन आणि अग्निरोधक सुरक्षिततेसह सुसज्ज रसायनशास्त्र प्रयोगशाळा.",
-      tagsEn: ["Titration Stations", "Fume Exhaust", "Reagent Racks", "Safety First"],
-      tagsMr: ["टायट्रेशन सुविधा", "रासायनिक साधने", "सुरक्षा उपकरणे", "प्रशस्त लॅब"]
-    },
-    bioLab: {
-      icon: "fa-dna",
-      titleEn: "Biology & Botanical Laboratory",
-      titleMr: "जीवशास्त्र व वनस्पतीशास्त्र प्रयोगशाळा",
-      descEn: "High-resolution compound microscopes, human anatomical models, botanical specimen collection of Western Ghats flora, preserved zoological mounts, and dissection demonstration tools.",
-      descMr: "उच्च दर्जाचे सूक्ष्मदर्शक (Compound Microscopes), मानवी शरीररचना मॉडेल्स, पश्चिम घाटातील दुर्मिळ वनस्पती व प्राण्यांचे नमुने आणि चार्ट्सने समृद्ध प्रयोगशाळा.",
-      tagsEn: ["Compound Microscopes", "Anatomy Models", "Western Ghats Flora", "Specimen Vault"],
-      tagsMr: ["सूक्ष्मदर्शक", "बायोलॉजी मॉडेल्स", "वनस्पती संग्रह", "प्राणी नमुने"]
-    },
-    library: {
-      icon: "fa-book-bookmark",
-      titleEn: "Central Knowledge Library & Reading Hall",
-      titleMr: "मध्यवर्ती ग्रंथालय व अभ्यासिका",
-      descEn: "Over 10,000 reference volumes, competitive examination guides (MPSC, UPSC, CET, NEET, JEE), Marathi literature, encyclopedias, national journals, daily newspapers, and quiet study carrels.",
-      descMr: "१०,०००+ हून अधिक संदर्भ पुस्तके, स्पर्धा परीक्षा पुस्तके, मराठी साहित्य, विज्ञान कोश, नियतकालिके आणि शांत वातावरणातील प्रशस्त वाचन कक्ष.",
-      tagsEn: ["10,000+ Books", "Competitive Prep", "Digital Catalog", "Silent Reading"],
-      tagsMr: ["१०,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "वाचन दालन", "साहित्य संग्रह"]
-    },
-    sports: {
-      icon: "fa-volleyball",
-      titleEn: "Playground & Sports Complex",
-      titleMr: "क्रीडांगण व मैदानी खेळ संकुल",
-      descEn: "Expansive multi-sport grounds for Cricket, Football, Volleyball, Kabaddi, Kho-Kho, Athletics running tracks, badminton court, and specialized coaching for district/state tournaments.",
-      descMr: "क्रिकेट, फुटबॉल, व्हॉलीबॉल, कबड्डी, खो-खो आणि धावण्याच्या ट्रॅकसह विशाल क्रीडांगण. जिल्हा व राज्यस्तरीय स्पर्धांसाठी तज्ज्ञ क्रीडा शिक्षकांचे मार्गदर्शन.",
-      tagsEn: ["Cricket/Football", "Kho-Kho/Kabaddi", "Athletics Track", "State Coaching"],
-      tagsMr: ["क्रिकेट/फुटबॉल", "कबड्डी/खो-खो", "रनिंग ट्रॅक", "क्रीडा प्रशिक्षण"]
-    },
-    auditorium: {
-      icon: "fa-masks-theater",
-      titleEn: "Auditorium & Cultural Open-Air Stage",
-      titleMr: "सभागृह व सांस्कृतिक रंगमंच",
-      descEn: "Grand auditorium with acoustic sound engineering, stage lighting, 600+ seating capacity for Annual Gatherings, traditional Rombaat dance rehearsals, elocution competitions, and seminars.",
-      descMr: "६००+ आसनक्षमतेचे भव्य सभागृह, आधुनिक ध्वनी व प्रकाश यंत्रणा, वार्षिक स्नेहसंमेलन, पारंपारिक रोंबाट नृत्य, वक्तृत्व स्पर्धा आणि शैक्षणिक व्याख्यानांचे केंद्र.",
-      tagsEn: ["600+ Seats", "Acoustic Audio", "Cultural Stage", "Seminar Ready"],
-      tagsMr: ["६००+ जागा", "ध्वनी यंत्रणा", "सांस्कृतिक व्यासपीठ", "वार्षिक स्नेहसंमेलन"]
     }
   };
 
@@ -676,7 +612,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Refresh active facility card in current language
     renderFacility(state.currentFacility);
-    if (typeof renderGallery === "function") renderGallery(currentGalleryFilter);
+  initGallery();
+    if (typeof updateGalleryLanguage === "function") updateGalleryLanguage();
   }
 
   function applyFontSize(sizeClass) {
@@ -740,15 +677,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function renderFacility(key) {
+    function renderFacility(key) {
     state.currentFacility = key;
     const fac = facilitiesData[key];
     if (!fac) return;
 
+    const imgEl = document.getElementById('facilityImg');
+    const badgeEl = document.getElementById('facilityImgBadge');
     const iconEl = document.getElementById('facilityIcon');
     const titleEl = document.getElementById('facilityTitle');
     const descEl = document.getElementById('facilityDesc');
     const tagsEl = document.getElementById('facilityTags');
+
+    if (imgEl) {
+      imgEl.src = fac.img;
+      imgEl.onerror = function() {
+        if (this.src !== fac.fallbackImg) {
+          this.src = fac.fallbackImg;
+        }
+        this.onerror = null;
+      };
+      imgEl.alt = state.lang === 'mr' ? fac.titleMr : fac.titleEn;
+    }
+
+    if (badgeEl) {
+      const bText = state.lang === 'mr' ? (fac.badgeMr || '') : (fac.badgeEn || '');
+      badgeEl.innerHTML = `<i class="fa-solid ${fac.icon}"></i> <span>${bText}</span>`;
+    }
 
     if (iconEl) iconEl.innerHTML = `<i class="fa-solid ${fac.icon}"></i>`;
     if (titleEl) titleEl.textContent = state.lang === 'mr' ? fac.titleMr : fac.titleEn;
@@ -757,18 +712,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tagsEl) {
       const tags = state.lang === 'mr' ? fac.tagsMr : fac.tagsEn;
       tagsEl.innerHTML = tags.map(t => `<span class="badge">${t}</span>`).join('');
-    }
-
-    // Set active button in facility buttons grid
-    const btnGroup = document.getElementById('facilityButtonGroup');
-    if (btnGroup) {
-      btnGroup.querySelectorAll('.facility-btn').forEach(b => {
-        if (b.getAttribute('data-fac-key') === key) {
-          b.classList.add('active');
-        } else {
-          b.classList.remove('active');
-        }
-      });
     }
   }
 
@@ -846,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyDarkMode(state.darkMode);
   applySmartBoard(state.smartBoard);
   renderFacility(state.currentFacility);
-    if (typeof renderGallery === "function") renderGallery(currentGalleryFilter);
+    if (typeof updateGalleryLanguage === "function") updateGalleryLanguage();
 
   // Settings Modal Controls
   const settingsModal = document.getElementById('settingsModal');
@@ -1236,5 +1179,282 @@ document.addEventListener('DOMContentLoaded', () => {
       processAiQuery(q);
     }
   });
+
+
+
+  // =========================================================================
+  // PHOTO & VIDEO COLLAGE GALLERY ENGINE
+  // =========================================================================
+  const galleryData = [
+    {
+      id: 1, category: 'campus',
+      img: 'images/gallery/campus-main.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
+      titleEn: 'Main Academic Campus & Building',
+      titleMr: 'मुख्य इमारत व शाळा परिसर',
+      descEn: 'The picturesque front view of Shivaji English School & Junior College established in 1960.',
+      descMr: '१९६० पासून सिंधुदुर्गातील विद्यार्थ्यांचे भविष्य घडविणारी मुख्य महाविद्यालयीन इमारत.',
+      dateEn: 'Campus View', dateMr: 'परिसर',
+      catEn: 'Campus & Labs', catMr: 'परिसर व लॅब'
+    },
+    {
+      id: 2, category: 'festivals',
+      img: 'images/gallery/shiv-jayanti.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80',
+      titleEn: 'Chhatrapati Shivaji Maharaj Jayanti Utsav',
+      titleMr: 'छत्रपती शिवाजी महाराज जयंती व पालखी सोहळा',
+      descEn: 'Grand annual procession, traditional Lezim performance, and patriotic speech competition.',
+      descMr: 'भव्य शिवजयंती मिरवणूक, लेझीम प्रात्यक्षिके आणि विद्यार्थ्यांची प्रेरणादायी भाषणे.',
+      dateEn: '19 February', dateMr: '१९ फेब्रुवारी',
+      catEn: 'Shiv Jayanti', catMr: 'शिवजयंती'
+    },
+    {
+      id: 3, category: 'campus',
+      img: 'images/gallery/it-session.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+      titleEn: '12th HSC IT Practical Lab Session',
+      titleMr: '१२ वी IT प्रॅक्टिकल व कोडिंग सत्र',
+      descEn: 'Students developing responsive websites and executing JavaScript SOP exercises.',
+      descMr: 'विद्यार्थी HTML5, CSS3 आणि जावास्क्रिप्ट प्रॅक्टिकल्स करताना.',
+      dateEn: 'HSC IT Practicals', dateMr: 'HSC IT प्रात्यक्षिके',
+      catEn: 'IT Lab', catMr: 'IT लॅब'
+    },
+    {
+      id: 4, category: 'cultural',
+      img: 'images/gallery/annual-gathering.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Annual Gathering Traditional Folk Dance',
+      titleMr: 'वार्षिक स्नेहसंमेलन - पारंपरिक लोकनृत्य व नाटक',
+      descEn: 'Vibrant cultural stage performances, Konkani folk dance, and musical dramas.',
+      descMr: 'वार्षिक स्नेहसंमेलनातील मनमोहक नृत्य आणि नाट्य सादरीकरण.',
+      dateEn: 'Annual Gathering', dateMr: 'वार्षिक स्नेहसंमेलन',
+      catEn: 'Cultural Event', catMr: 'सांस्कृतिक'
+    },
+    {
+      id: 5, category: 'science',
+      img: 'images/gallery/science-practical.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Physics & Chemistry Practical Experiments',
+      titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके',
+      descEn: 'Junior College Science students conducting titration and optics practicals.',
+      descMr: 'विज्ञान शाखेतील विद्यार्थी प्रात्यक्षिक प्रयोग करताना.',
+      dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा',
+      catEn: 'Science Lab', catMr: 'विज्ञान लॅब'
+    },
+    {
+      id: 6, category: 'sports',
+      img: 'images/gallery/sports-meet.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80',
+      titleEn: 'Inter-School Sports Meet & Tournament',
+      titleMr: 'वार्षिक क्रीडा महोत्सव व कबड्डी / व्हॉलीबॉल स्पर्धा',
+      descEn: 'Thrilling inter-house Kabaddi, Kho-Kho, and Volleyball matches.',
+      descMr: 'विद्यार्थ्यांमधील चुरशीचे कबड्डी, खो-खो आणि व्हॉलीबॉल सामने.',
+      dateEn: 'Sports Meet', dateMr: 'क्रीडा महोत्सव',
+      catEn: 'Sports', catMr: 'क्रीडा'
+    },
+    {
+      id: 7, category: 'science',
+      img: 'images/gallery/science-fair.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'District-Level Science Exhibition Projects',
+      titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन',
+      descEn: 'Innovative working models on solar energy and IoT robotics created by students.',
+      descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण प्रकल्प.',
+      dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन',
+      catEn: 'Science Fair', catMr: 'विज्ञान प्रदर्शन'
+    },
+    {
+      id: 8, category: 'campus',
+      img: 'images/gallery/smart-classroom.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Interactive Smart Classroom Lecture',
+      titleMr: 'स्मार्ट क्लासरूम डिजिटल ऑडिओ-व्हिज्युअल तासिका',
+      descEn: 'Engaging digital syllabus presentations using interactive touchscreens.',
+      descMr: 'डिजिटल स्क्रीनवर क्लिष्ट संकल्पनांचे सुलभ दृकश्राव्य स्पष्टीकरण.',
+      dateEn: 'Smart Teaching', dateMr: 'स्मार्ट शिक्षण',
+      catEn: 'Classroom', catMr: 'वर्गखोली'
+    },
+    {
+      id: 9, category: 'festivals',
+      img: 'images/gallery/independence-day.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80',
+      titleEn: '77th Independence Day Parade & Flag Hoisting',
+      titleMr: 'स्वातंत्र्य दिन ध्वजारोहण व संचलन',
+      descEn: 'Ceremonial national flag hoisting, Scout & Guide parade, and choir.',
+      descMr: '१५ ऑगस्ट स्वातंत्र्य दिन सोहळा, ध्वजारोहण आणि शिस्तबद्ध संचलन.',
+      dateEn: '15 August', dateMr: '१५ ऑगस्ट',
+      catEn: 'National Day', catMr: 'राष्ट्रीय उत्सव'
+    },
+    {
+      id: 10, category: 'campus',
+      img: 'images/gallery/library-study.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Central Library & Dedicated Study Hall',
+      titleMr: 'मध्यवर्ती ग्रंथालय व वाचन कक्ष',
+      descEn: 'Students preparing for MHT-CET, NEET, and Board Exams.',
+      descMr: 'शांत वातावरणात स्पर्धा परीक्षा व बोर्ड परीक्षेचा अभ्यास करणारे विद्यार्थी.',
+      dateEn: 'Study Hall', dateMr: 'अभ्यासिका',
+      catEn: 'Library', catMr: 'ग्रंथालय'
+    },
+    {
+      id: 11, category: 'cultural',
+      img: 'images/gallery/prize-distribution.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Annual Prize Distribution & Merit Felicitation',
+      titleMr: 'गुणवंत विद्यार्थी सत्कार व बक्षीस वितरण समारंभ',
+      descEn: 'Honoring SSC & HSC Board toppers and sports champions.',
+      descMr: 'बोर्ड परीक्षेतील गुणवंत व क्रीडा विजेत्या विद्यार्थ्यांचा गौरव.',
+      dateEn: 'Award Ceremony', dateMr: 'बक्षीस वितरण',
+      catEn: 'Felicitation', catMr: 'सत्कार समारंभ'
+    },
+    {
+      id: 12, category: 'sports',
+      img: 'images/gallery/athletics-sprint.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80',
+      titleEn: 'Athletic Track & Field Sprint Races',
+      titleMr: 'धावण्याच्या शर्यती व मैदानी स्पर्धा',
+      descEn: 'Track and field events with enthusiastic participation.',
+      descMr: 'धावणे व मैदानी खेळांमधील विद्यार्थ्यांचा उत्साही सहभाग.',
+      dateEn: 'Athletics Meet', dateMr: 'धावण्याची शर्यत',
+      catEn: 'Athletics', catMr: 'धावणे'
+    }
+  ];
+
+  let currentGalleryFilter = 'all';
+  let activeLightboxIndex = 0;
+  let activeGalleryList = [...galleryData];
+
+  function renderGallery(filter = 'all') {
+    currentGalleryFilter = filter;
+    activeGalleryList = filter === 'all'
+      ? galleryData
+      : galleryData.filter(item => item.category === filter);
+
+    const cards = document.querySelectorAll('.gallery-card');
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-category');
+      if (filter === 'all' || cat === filter) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  window.openLightbox = function(index) {
+    if (index < 0 || index >= activeGalleryList.length) return;
+    activeLightboxIndex = index;
+    const item = activeGalleryList[activeLightboxIndex];
+    const modal = document.getElementById('galleryLightbox');
+    if (!modal || !item) return;
+
+    const img = document.getElementById('lightboxImg');
+    const title = document.getElementById('lightboxTitle');
+    const desc = document.getElementById('lightboxDesc');
+    const cat = document.getElementById('lightboxCategory');
+    const counter = document.getElementById('lightboxCounter');
+    const date = document.getElementById('lightboxDate');
+
+    if (img) {
+      img.src = item.img;
+      img.onerror = function() {
+        if (this.src !== item.fallbackImg) {
+          this.src = item.fallbackImg;
+        }
+        this.onerror = null;
+      };
+    }
+    if (title) title.textContent = state.lang === 'mr' ? item.titleMr : item.titleEn;
+    if (desc) desc.textContent = state.lang === 'mr' ? item.descMr : item.descEn;
+    if (cat) cat.textContent = state.lang === 'mr' ? item.catMr : item.catEn;
+    if (date) date.innerHTML = '<i class="fa-regular fa-calendar"></i> ' + (state.lang === 'mr' ? item.dateMr : item.dateEn);
+    if (counter) counter.textContent = (activeLightboxIndex + 1) + ' / ' + activeGalleryList.length;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function() {
+    const modal = document.getElementById('galleryLightbox');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  window.nextLightbox = function() {
+    if (activeGalleryList.length === 0) return;
+    let nextIdx = (activeLightboxIndex + 1) % activeGalleryList.length;
+    openLightbox(nextIdx);
+  };
+
+  window.prevLightbox = function() {
+    if (activeGalleryList.length === 0) return;
+    let prevIdx = (activeLightboxIndex - 1 + activeGalleryList.length) % activeGalleryList.length;
+    openLightbox(prevIdx);
+  };
+
+  function initGallery() {
+    renderGallery('all');
+
+    const cards = document.querySelectorAll('.gallery-card');
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', () => {
+        const visibleCards = Array.from(document.querySelectorAll('.gallery-card')).filter(c => c.style.display !== 'none');
+        const matchIdx = visibleCards.indexOf(card);
+        openLightbox(matchIdx >= 0 ? matchIdx : 0);
+      });
+    });
+
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter') || 'all';
+        renderGallery(filter);
+      });
+    });
+
+    const closeBtn = document.getElementById('lightboxCloseBtn');
+    const backdrop = document.getElementById('lightboxBackdrop');
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+    const nextBtn = document.getElementById('lightboxNextBtn');
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (backdrop) backdrop.addEventListener('click', closeLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', prevLightbox);
+    if (nextBtn) nextBtn.addEventListener('click', nextLightbox);
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryLightbox');
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+    });
+
+    const campusZoom = document.getElementById('facilityZoomBtn');
+    if (campusZoom) {
+      campusZoom.addEventListener('click', () => {
+        const fac = facilitiesData[state.currentFacility];
+        if (!fac) return;
+        activeGalleryList = [{
+          img: fac.img,
+          fallbackImg: fac.fallbackImg,
+          titleEn: fac.titleEn,
+          titleMr: fac.titleMr,
+          descEn: fac.descEn,
+          descMr: fac.descMr,
+          catEn: 'Campus Facility',
+          catMr: 'परिसर सुविधा',
+          dateEn: 'Infrastructure',
+          dateMr: 'पायाभूत सुविधा'
+        }];
+        openLightbox(0);
+      });
+    }
+  }
+
+  // Initialize Gallery
+  initGallery();
 
 });
