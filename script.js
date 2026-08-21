@@ -446,8 +446,8 @@
   window.applyFontSize = function(sizeClass) {
     safeSetItem('ses_font', sizeClass);
     state.fontSize = sizeClass;
-    document.body.classList.remove('font-sm', 'font-md', 'font-lg', 'font-xl');
-    document.body.classList.add(sizeClass);
+    document.documentElement.classList.remove('font-sm', 'font-md', 'font-lg', 'font-xl');
+    document.documentElement.classList.add(sizeClass);
 
     ['fontSmBtn', 'fontMdBtn', 'fontLgBtn', 'fontXlBtn'].forEach(btnId => {
       const btn = document.getElementById(btnId);
@@ -463,7 +463,7 @@
   window.applyTheme = function(isDark) {
     safeSetItem('ses_dark', isDark);
     state.darkMode = isDark;
-    if (isDark) { document.body.classList.add('dark-theme'); } else { document.body.classList.remove('dark-theme'); }
+    if (isDark) { document.documentElement.classList.add('dark-theme'); } else { document.documentElement.classList.remove('dark-theme'); }
     const btn = document.getElementById('darkModeToggleBtn');
     if (btn) { if (isDark) btn.classList.add('active'); else btn.classList.remove('active'); }
     const txt = document.getElementById('txtDarkStatus');
@@ -473,7 +473,7 @@
   window.applySmartBoard = function(isSmart) {
     safeSetItem('ses_smart', isSmart);
     state.smartBoard = isSmart;
-    if (isSmart) { document.body.classList.add('smartboard-mode'); } else { document.body.classList.remove('smartboard-mode'); }
+    if (isSmart) { document.documentElement.classList.add('smartboard-mode'); } else { document.documentElement.classList.remove('smartboard-mode'); }
     const btn = document.getElementById('smartBoardToggleBtn');
     if (btn) { if (isSmart) btn.classList.add('active'); else btn.classList.remove('active'); }
     const txt = document.getElementById('txtSmartStatus');
@@ -504,7 +504,7 @@
   };
 
   // =========================================================================
-  // NOTICE BOARD MODAL LOGIC (ADDED)
+  // NOTICE BOARD MODAL LOGIC
   // =========================================================================
   window.openNoticeModal = function(noticeId) {
     const modal = document.getElementById('noticeModal');
@@ -747,7 +747,7 @@
     let reply = "";
 
     if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('फॉर्म') || q.includes('फी')) {
-      reply = state.lang === 'mr' ? "📚 <strong>प्रवेश २०२६-२७ माहिती:</strong><br>• इयत्ता ११ वी कला, वाणिज्य व विज्ञान आणि ५ वी ते १० वी प्रवेश सुरू आहेत.<br>• <strong>आवश्यक कागदपत्रे:</strong> १० वी गुणपत्रिका, शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो.<br>• <strong>फी रचना:</strong> शासन नियमांनुसार माफक/अनुदानित फी व EBC/मागासवर्गीय शिष्यवृत्ती उपलब्ध.<br>• <strong>कार्यालय संपर्क:</strong> +91 (02362) 224-8090" : "📚 <strong>Admissions 2026–27 Information:</strong><br>• Admissions are open for 11th Science, Commerce, Arts & IT streams, as well as Secondary Grades 5th–10th.<br>• <strong>Required Documents:</strong> 10th Marksheet, School Leaving Certificate (LC), Aadhaar Card & photos.<br>• <strong>Fee Structure:</strong> Highly subsidized government-aided fees with EBC & government scholarships.<br>• <strong>Helpline:</strong> +91 (02362) 224-8090";
+      reply = state.lang === 'mr' ? "📚 <strong>प्रवेश २०२६-२७ माहिती:</strong><br>• इयत्ता ११ वी कला, वाणिज्य व विज्ञान आणि ५ वी ते १०্বা वी प्रवेश सुरू आहेत.<br>• <strong>आवश्यक कागदपत्रे:</strong> १० वी गुणपत्रिका, शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो.<br>• <strong>फी रचना:</strong> शासन नियमांनुसार माफक/अनुदानित फी व EBC/मागासवर्गीय शिष्यवृत्ती उपलब्ध.<br>• <strong>कार्यालय संपर्क:</strong> +91 (02362) 224-8090" : "📚 <strong>Admissions 2026–27 Information:</strong><br>• Admissions are open for 11th Science, Commerce, Arts & IT streams, as well as Secondary Grades 5th–10th.<br>• <strong>Required Documents:</strong> 10th Marksheet, School Leaving Certificate (LC), Aadhaar Card & photos.<br>• <strong>Fee Structure:</strong> Highly subsidized government-aided fees with EBC & government scholarships.<br>• <strong>Helpline:</strong> +91 (02362) 224-8090";
     } else if (q.includes('it') || q.includes('sop') || q.includes('practical') || q.includes('प्रॅक्टिकल') || q.includes('code') || q.includes('कोड')) {
       reply = state.lang === 'mr' ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>• महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे.<br>• वर दिलेल्या <strong>View IT SOPs & Code</strong> बटणावर क्लिक करून आपण थेट कोड पाहू व कॉपी करू शकता." : "💻 <strong>12th HSC IT Practical Hub:</strong><br>• Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) including HTML5, CSS Flexbox, JavaScript Validation, Image Mapping, and SEO are ready in the <em>Student Hub</em>.<br>• Click the <strong>View IT SOPs & Code</strong> button to view and copy complete source code.";
     } else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब') || q.includes('chemistry') || q.includes('physics') || q.includes('library')) {
