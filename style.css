@@ -6,7 +6,6 @@
    ========================================================================== */
 
 :root {
-  /* Brand Colors */
   --primary: #1a365d;
   --primary-dark: #0f172a;
   --primary-light: #2b6cb0;
@@ -16,20 +15,17 @@
   --danger: #dc2626;
   --info: #0284c7;
   
-  /* Text & Surfaces */
   --text-main: #1f2937;
   --text-muted: #4b5563;
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --border-color: #e2e8f0;
   
-  /* Elevation Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
   
-  /* Shape & Metrics */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -40,7 +36,7 @@
   --transition: all 0.25s ease-in-out;
 }
 
-/* Accessibility Font Scale Classes (Fixed Inheritance to HTML root) */
+/* Accessibility Font Scale Classes (Fixed Inheritance) */
 html.font-sm { --base-font-size: 14px; font-size: 14px; }
 html.font-md { --base-font-size: 16px; font-size: 16px; }
 html.font-lg { --base-font-size: 18px; font-size: 18px; }
@@ -48,16 +44,8 @@ html.font-xl { --base-font-size: 21px; font-size: 21px; }
 
 /* Dark Theme Overrides */
 html.dark-theme body {
-  --primary: #3b82f6;
-  --primary-dark: #090d16;
-  --primary-light: #60a5fa;
-  --accent: #fbbf24;
-  --accent-light: #451a03;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --bg-page: #0b1120;
-  --bg-card: #131d31;
-  --border-color: #1e293b;
+  --primary: #3b82f6; --primary-dark: #090d16; --primary-light: #60a5fa; --accent: #fbbf24; --accent-light: #451a03;
+  --text-main: #f1f5f9; --text-muted: #94a3b8; --bg-page: #0b1120; --bg-card: #131d31; --border-color: #1e293b;
 }
 
 html.dark-theme .main-header { background: rgba(19, 29, 49, 0.98); }
@@ -106,7 +94,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary-dark
 .main-header { position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); border-bottom: 1px solid var(--border-color); transition: var(--transition); }
 .nav-container { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; }
 .brand-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-.logo-emblem { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: var(--shadow-sm); }
+.logo-emblem { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: var(--shadow-sm); flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; }
 .college-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; color: var(--primary); line-height: 1.15; }
 .college-sub { font-size: 0.72rem; font-weight: 600; color: var(--accent); line-height: 1.2; }
@@ -114,7 +102,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary-dark
 .mobile-nav-toggle { display: none; background: none; border: 1px solid var(--border-color); padding: 0.45rem 0.65rem; border-radius: var(--radius-sm); font-size: 1.2rem; color: var(--primary); cursor: pointer; }
 .nav-menu { display: flex; align-items: center; }
 .nav-list { display: flex; gap: 0.35rem; }
-.nav-link { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.75rem; font-size: 0.88rem; font-weight: 600; color: var(--text-main); border-radius: var(--radius-sm); transition: var(--transition); }
+.nav-link { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.75rem; font-size: 0.88rem; font-weight: 600; color: var(--text-main); border-radius: var(--radius-sm); transition: var(--transition); white-space: nowrap; }
 .nav-link:hover, .nav-link.active { color: var(--primary); background: #f1f5f9; }
 
 /* Shared Modals */
@@ -299,7 +287,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary-dark
 .gallery-card:hover .gallery-card-overlay { opacity: 1; }
 .gallery-card-top { display: flex; justify-content: space-between; align-items: center; }
 .gallery-cat-pill { background: rgba(26, 54, 93, 0.9); color: #fff; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.25rem 0.7rem; border-radius: 50px; backdrop-filter: blur(4px); }
-.gallery-zoom-icon { background: rgba(255,255,255,0.25); color: #ffffff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); font-size: 0.85rem; transition: transform 0.2s ease, background 0.2s ease; }
+.gallery-zoom-icon { background: rgba(255,255,255,0.25); color: #ffffff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); font-size: 0.85rem; transition: transform 0.2s ease, background 0.2s ease; pointer-events: none; }
 .gallery-card:hover .gallery-zoom-icon { transform: scale(1.15); background: #d97706; }
 .gallery-card-bottom h4 { color: #ffffff; font-size: 1.05rem; font-weight: 700; margin: 0 0 0.3rem; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
 .gallery-card-bottom p { color: rgba(255,255,255,0.9); font-size: 0.82rem; margin: 0; display: flex; align-items: center; gap: 0.4rem; }
@@ -313,7 +301,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary-dark
 .faculty-qual { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; }
 .faculty-msg { font-size: 0.82rem; font-style: italic; color: var(--text-muted); }
 
-/* Contact Form */
+/* Contact Form & Location Map */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; }
 .contact-info-card, .contact-form-card { background: var(--bg-card); padding: 2.2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
 .contact-info-card h3, .contact-form-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
@@ -322,6 +310,8 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary-dark
 .contact-item i { font-size: 1.2rem; color: var(--primary); margin-top: 0.2rem; }
 .contact-item strong { display: block; font-size: 0.85rem; color: var(--text-main); }
 .contact-item p { font-size: 0.88rem; color: var(--text-muted); }
+.map-container { margin-top: 1.5rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); height: 200px; }
+.map-container iframe { width: 100%; height: 100%; border: none; }
 .form-group { margin-bottom: 1.1rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem; }
@@ -372,7 +362,14 @@ label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3
   .campus-layout { grid-template-columns: 360px 1fr; align-items: start; }
 }
 
+/* 992px Breakpoint: Fixes the Nav Menu Scrambling */
 @media (max-width: 992px) {
+  .desktop-only { display: none !important; }
+  .mobile-nav-toggle { display: block; }
+  .nav-menu { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card); border-bottom: 1px solid var(--border-color); box-shadow: var(--shadow-lg); display: none; z-index: 2000; padding: 1rem 0; }
+  .nav-menu.open { display: block; }
+  .nav-list { flex-direction: column; width: 90%; margin: 0 auto; gap: 0.5rem; }
+
   .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
   .hero-description { margin: 0 auto 1.8rem; }
   .hero-action-buttons { justify-content: center; }
@@ -383,12 +380,8 @@ label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3
   .features-ribbon { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* 768px Breakpoint: Mobile Optimization */
 @media (max-width: 768px) {
-  .desktop-only { display: none !important; }
-  .mobile-nav-toggle { display: block; }
-  .nav-menu { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card); border-bottom: 1px solid var(--border-color); box-shadow: var(--shadow-lg); display: none; z-index: 2000; padding: 1rem 0; }
-  .nav-menu.open { display: block; }
-  .nav-list { flex-direction: column; width: 90%; margin: 0 auto; gap: 0.5rem; }
   .hero-title { font-size: 2.2rem; }
   .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .course-grid, .hub-grid, .faculty-grid, .facility-buttons-grid { grid-template-columns: 1fr !important; }
