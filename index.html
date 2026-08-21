@@ -11,11 +11,6 @@
   <meta name="author" content="12th Standard Information Technology Dept.">
   <meta name="theme-color" content="#1a365d">
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sohamjikamde-crypto.github.io/shivaji-college-website/">
-  <meta property="og:title" content="Shivaji English School & Junior College | Pandur Titha, Sindhudurg">
-  <meta property="og:description" content="Premier institution in Sindhudurg offering Secondary Schooling & Junior College in Science, Commerce, Arts and IT.">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,10 +18,11 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <link rel="stylesheet" href="style.css?v=54">
+  <link rel="stylesheet" href="style.css?v=55">
 </head>
 <body>
 
+  <!-- Back to Top Button -->
   <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <div class="top-bar" id="topBar">
@@ -59,13 +55,9 @@
         <ul class="nav-list">
           <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> <span id="navTxtHome">Home</span></a></li>
           <li><a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About</span></a></li>
-          <li><a href="#academics" class="nav-link"><i class="fa-solid fa-book-open"></i> <span id="navTxtAcademics">Academics</span></a></li>
-          <li><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Notices</span></a></li>
-          <li><a href="#learning-hub" class="nav-link"><i class="fa-solid fa-laptop-file"></i> <span id="navTxtHub">Student Hub</span></a></li>
           <li><a href="#campus" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtCampus">Campus</span></a></li>
+          <li><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Notices</span></a></li>
           <li><a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span id="navTxtGallery">Gallery</span></a></li>
-          <li><a href="#faculty" class="nav-link"><i class="fa-solid fa-user-tie"></i> <span id="navTxtFaculty">Faculty</span></a></li>
-          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span id="navTxtContact">Contact</span></a></li>
         </ul>
       </nav>
     </div>
@@ -137,9 +129,8 @@
         <h1 class="hero-title" id="heroTitle">Empowering Minds, <br><span class="text-highlight">Shaping Leaders</span> in Sindhudurg.</h1>
         <p class="hero-description" id="heroDesc">A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.</p>
         <div class="hero-action-buttons">
-          <a href="#academics" class="btn btn-primary" id="btnExplore"><i class="fa-solid fa-compass"></i> Explore Courses</a>
-          <a href="#notices" class="btn btn-secondary" id="btnNotices"><i class="fa-solid fa-bell"></i> Notice Board</a>
           <button class="btn btn-assistant" id="heroAskAiBtn"><i class="fa-solid fa-robot"></i> <span id="btnAskAi">Ai Assistant</span></button>
+          <a href="#notices" class="btn btn-secondary" id="btnNotices"><i class="fa-solid fa-bell"></i> Notice Board</a>
         </div>
         <div class="hero-stats-grid">
           <div class="stat-card"><span class="stat-number">1960</span><span class="stat-label" id="stat1">Year Established</span></div>
@@ -183,7 +174,6 @@
           <div class="card-icon"><i class="fa-solid fa-monument"></i></div>
           <h3 id="aboutHistTitle">Our Glorious History (Since 1960)</h3>
           <p id="aboutHistP1">Founded in 1960 at Pandur Titha, Shivaji English School and Junior College was established with a noble mission to provide accessible, value-based, and progressive education to rural and semi-urban youth of Sindhudurg.</p>
-          <p id="aboutHistP2">Over the decades, it has evolved into a premier private-aided educational center, producing district toppers, sports champions, civil servants, engineers, doctors, and responsible citizens.</p>
         </div>
         <div class="about-card">
           <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
@@ -196,71 +186,231 @@
           <p id="aboutMisP">Delivering holistic learning through interactive smart classrooms, state-of-the-art science laboratories, IT curriculum, sports coaching, and community values.</p>
         </div>
       </div>
-      <div class="features-ribbon">
-        <div class="ribbon-item" id="ribbon1"><i class="fa-solid fa-check-circle"></i> Government Recognized &amp; Aided</div>
-        <div class="ribbon-item" id="ribbon2"><i class="fa-solid fa-check-circle"></i> Co-Educational Campus</div>
-        <div class="ribbon-item" id="ribbon3"><i class="fa-solid fa-check-circle"></i> Advanced Science &amp; IT Labs</div>
-        <div class="ribbon-item" id="ribbon4"><i class="fa-solid fa-check-circle"></i> Interactive Smart Classrooms</div>
+    </div>
+  </section>
+
+  <section class="section campus-section" id="campus">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" id="campusSub">Infrastructure</span>
+        <h2 class="section-title" id="campusTitle">Interactive Campus &amp; Facilities</h2>
+        <p class="section-lead" id="campusLead">Tap any facility below to inspect the infrastructure on your screen or smart board.</p>
+      </div>
+      <div class="campus-layout">
+        <div class="facility-buttons-grid" id="facilityButtonGroup">
+          <button class="facility-btn active" data-fac-key="smartClass"><i class="fa-solid fa-chalkboard"></i><span id="facBtn1">Smart Classrooms</span></button>
+          <button class="facility-btn" data-fac-key="itLab"><i class="fa-solid fa-desktop"></i><span id="facBtn2">Computer &amp; IT Lab</span></button>
+          <button class="facility-btn" data-fac-key="physicsLab"><i class="fa-solid fa-atom"></i><span id="facBtn3">Physics Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="chemLab"><i class="fa-solid fa-flask"></i><span id="facBtn4">Chemistry Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="bioLab"><i class="fa-solid fa-dna"></i><span id="facBtn5">Biology Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="library"><i class="fa-solid fa-book-bookmark"></i><span id="facBtn6">Central Library</span></button>
+          <button class="facility-btn" data-fac-key="sports"><i class="fa-solid fa-volleyball"></i><span id="facBtn7">Playground &amp; Sports</span></button>
+          <button class="facility-btn" data-fac-key="auditorium"><i class="fa-solid fa-masks-theater"></i><span id="facBtn8">Auditorium &amp; Stage</span></button>
+        </div>
+        <div class="facility-display-card" id="facilityDisplay">
+          <div class="facility-img-wrapper" id="facilityImgWrapper">
+            <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
+            <div class="facility-img-overlay">
+              <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
+              <!-- FIXED: stopPropagation stops the bug where click passes through to the image -->
+              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image / मोठे करा"><i class="fa-solid fa-expand"></i></button>
+            </div>
+          </div>
+          <div class="facility-card-body">
+            <div class="facility-icon-wrap" id="facilityIcon"><i class="fa-solid fa-chalkboard"></i></div>
+            <h3 id="facilityTitle">Interactive Smart Classrooms</h3>
+            <p id="facilityDesc">Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.</p>
+            <div class="facility-tags" id="facilityTags">
+              <span class="badge">Touch Enabled</span><span class="badge">Audio-Visual</span><span class="badge">E-Learning</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section academics-section" id="academics">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" id="acadSub">Programs Offered</span>
-        <h2 class="section-title" id="acadTitle">Academic Streams &amp; Curriculum</h2>
-        <p class="section-lead" id="acadLead">Comprehensive schooling from Grade 5 through 12 with specialized junior college wings.</p>
-      </div>
-      <div class="course-grid">
-        <div class="course-card">
-          <div class="course-header"><span class="course-badge">Grades 5 - 10</span><h3 id="course1Title">Secondary Schooling</h3></div>
-          <div class="course-body">
-            <p id="course1Desc">Rigorous foundation adhering to Maharashtra State Board curriculum. Semi-English &amp; English medium options with cultural activities and sports training.</p>
-            <ul class="course-topics">
-              <li><i class="fa-solid fa-circle-check"></i> English, Marathi, Hindi</li>
-              <li><i class="fa-solid fa-circle-check"></i> Mathematics &amp; General Science</li>
-              <li><i class="fa-solid fa-circle-check"></i> Social Sciences &amp; ICT</li>
-            </ul>
-          </div>
-        </div>
-        <div class="course-card popular">
-          <div class="popular-ribbon"><i class="fa-solid fa-crown"></i> High Demand</div>
-          <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course2Title">Science Stream</h3></div>
-          <div class="course-body">
-            <p id="course2Desc">Physics, Chemistry, Mathematics, Biology, and Information Technology (IT) with hands-on laboratory coaching for CET/NEET/JEE aspirants.</p>
-            <ul class="course-topics">
-              <li><i class="fa-solid fa-circle-check"></i> Physics &amp; Chemistry Practicals</li>
-              <li><i class="fa-solid fa-circle-check"></i> Mathematics &amp; Biology</li>
-              <li><i class="fa-solid fa-circle-check"></i> Information Technology (IT - 97)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course3Title">Commerce Stream</h3></div>
-          <div class="course-body">
-            <p id="course3Desc">Book Keeping &amp; Accountancy, Organization of Commerce &amp; Management, Economics, and Secretarial Practice / IT for corporate finance acumen.</p>
-            <ul class="course-topics">
-              <li><i class="fa-solid fa-circle-check"></i> Book Keeping &amp; Accountancy</li>
-              <li><i class="fa-solid fa-circle-check"></i> Economics &amp; OCM</li>
-              <li><i class="fa-solid fa-circle-check"></i> Secretarial Practice / IT</li>
-            </ul>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course4Title">Arts &amp; Humanities</h3></div>
-          <div class="course-body">
-            <p id="course4Desc">History, Geography, Political Science, English, Marathi and Hindi literature fostering critical thinking and civil services exam foundations.</p>
-            <ul class="course-topics">
-              <li><i class="fa-solid fa-circle-check"></i> History &amp; Political Science</li>
-              <li><i class="fa-solid fa-circle-check"></i> Geography &amp; Economics</li>
-              <li><i class="fa-solid fa-circle-check"></i> Languages &amp; Literature</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <!-- ========================================== -->
+  <!-- NEW CONDENSED TABBED SECTION START -->
+  <!-- ========================================== -->
+  <div class="main-tabs-wrapper container">
+    <div class="main-tabs-header">
+      <button class="main-tab-btn active" data-tab-target="academics"><i class="fa-solid fa-book-open"></i> Academic Streams & Curriculum</button>
+      <button class="main-tab-btn" data-tab-target="learning-hub"><i class="fa-solid fa-laptop-file"></i> Student Learning Hub</button>
+      <button class="main-tab-btn" data-tab-target="faculty"><i class="fa-solid fa-user-tie"></i> Dedicated Educators & Leadership</button>
+      <button class="main-tab-btn" data-tab-target="contact"><i class="fa-solid fa-envelope"></i> Contact Information & Location</button>
     </div>
-  </section>
+
+    <div class="main-tabs-content">
+      
+      <!-- TAB 1: ACADEMICS -->
+      <div class="main-tab-pane active" id="tab-academics">
+        <div class="course-grid">
+          <div class="course-card">
+            <div class="course-header"><span class="course-badge">Grades 5 - 10</span><h3 id="course1Title">Secondary Schooling</h3></div>
+            <div class="course-body">
+              <p id="course1Desc">Rigorous foundation adhering to Maharashtra State Board curriculum. Semi-English &amp; English medium options with cultural activities and sports training.</p>
+              <ul class="course-topics">
+                <li><i class="fa-solid fa-circle-check"></i> English, Marathi, Hindi</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mathematics &amp; General Science</li>
+                <li><i class="fa-solid fa-circle-check"></i> Social Sciences &amp; ICT</li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card popular">
+            <div class="popular-ribbon"><i class="fa-solid fa-crown"></i> High Demand</div>
+            <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course2Title">Science Stream</h3></div>
+            <div class="course-body">
+              <p id="course2Desc">Physics, Chemistry, Mathematics, Biology, and Information Technology (IT) with hands-on laboratory coaching for CET/NEET/JEE aspirants.</p>
+              <ul class="course-topics">
+                <li><i class="fa-solid fa-circle-check"></i> Physics &amp; Chemistry Practicals</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mathematics &amp; Biology</li>
+                <li><i class="fa-solid fa-circle-check"></i> Information Technology (IT - 97)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course3Title">Commerce Stream</h3></div>
+            <div class="course-body">
+              <p id="course3Desc">Book Keeping &amp; Accountancy, Organization of Commerce &amp; Management, Economics, and Secretarial Practice / IT for corporate finance acumen.</p>
+              <ul class="course-topics">
+                <li><i class="fa-solid fa-circle-check"></i> Book Keeping &amp; Accountancy</li>
+                <li><i class="fa-solid fa-circle-check"></i> Economics &amp; OCM</li>
+                <li><i class="fa-solid fa-circle-check"></i> Secretarial Practice / IT</li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-header"><span class="course-badge">Grades 11 &amp; 12 (HSC)</span><h3 id="course4Title">Arts &amp; Humanities</h3></div>
+            <div class="course-body">
+              <p id="course4Desc">History, Geography, Political Science, English, Marathi and Hindi literature fostering critical thinking and civil services exam foundations.</p>
+              <ul class="course-topics">
+                <li><i class="fa-solid fa-circle-check"></i> History &amp; Political Science</li>
+                <li><i class="fa-solid fa-circle-check"></i> Geography &amp; Economics</li>
+                <li><i class="fa-solid fa-circle-check"></i> Languages &amp; Literature</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: LEARNING HUB -->
+      <div class="main-tab-pane" id="tab-learning-hub">
+        <div class="hub-grid">
+          <div class="hub-card" data-hub-target="it-hub">
+            <div class="hub-icon"><i class="fa-solid fa-code"></i></div>
+            <h3 id="hub1Title">12th Standard IT Hub</h3>
+            <p id="hub1Desc">HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules as per Maharashtra State Board.</p>
+            <button class="hub-btn" id="btnOpenItHub"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">View IT SOPs &amp; Code</span></button>
+          </div>
+          <div class="hub-card" data-hub-target="science-lab">
+            <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
+            <h3 id="hub2Title">JEE, NEET &amp; Science Labs</h3>
+            <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.</p>
+            <button class="hub-btn" id="btnOpenScienceHub"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
+          </div>
+          <div class="hub-card" data-hub-target="commerce-vault">
+            <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
+            <h3 id="hub3Title">Commerce &amp; Accounts Vault</h3>
+            <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.</p>
+            <button class="hub-btn" id="btnOpenCommerceHub"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
+          </div>
+          <div class="hub-card" data-hub-target="board-papers">
+            <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3 id="hub4Title">Previous Board Papers</h3>
+            <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
+            <button class="hub-btn" id="btnOpenPapersHub"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: FACULTY -->
+      <div class="main-tab-pane" id="tab-faculty">
+        <div class="faculty-grid">
+          <div class="faculty-card">
+            <div class="faculty-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <h4 id="fac1Name">Principal's Desk</h4>
+            <span class="faculty-role" id="fac1Role">Head of Institution</span>
+            <p class="faculty-qual">M.Sc., M.Ed., Ph.D.</p>
+            <p class="faculty-msg" id="fac1Msg">"Guiding every student to achieve their highest intellectual, moral, and vocational potential."</p>
+          </div>
+          <div class="faculty-card">
+            <div class="faculty-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h4 id="fac2Name">Dept. of Science</h4>
+            <span class="faculty-role" id="fac2Role">Senior Lecturers</span>
+            <p class="faculty-qual">Physics, Chem, Bio, Maths</p>
+            <p class="faculty-msg" id="fac2Msg">Specialized in competitive exam guidance (CET/NEET), practical mastery, and conceptual clarity.</p>
+          </div>
+          <div class="faculty-card">
+            <div class="faculty-avatar"><i class="fa-solid fa-laptop-code"></i></div>
+            <h4 id="fac3Name">Dept. of IT &amp; Computers</h4>
+            <span class="faculty-role" id="fac3Role">IT Faculty &amp; Lab Staff</span>
+            <p class="faculty-qual">M.C.A., B.E. (Comp / IT)</p>
+            <p class="faculty-msg" id="fac3Msg">Instructing modern web technologies, JavaScript validation, database systems, and digital literacy.</p>
+          </div>
+          <div class="faculty-card">
+            <div class="faculty-avatar"><i class="fa-solid fa-briefcase"></i></div>
+            <h4 id="fac4Name">Dept. of Commerce &amp; Arts</h4>
+            <span class="faculty-role" id="fac4Role">Senior Lecturers</span>
+            <p class="faculty-qual">M.Com, M.A., B.Ed.</p>
+            <p class="faculty-msg" id="fac4Msg">Fostering financial intelligence, critical analysis, and communicative excellence in state and national exams.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: CONTACT & LOCATION -->
+      <div class="main-tab-pane" id="tab-contact">
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <h3 id="contactCardHead">School Office Details</h3>
+            <p id="contactCardSub">For admissions, verification, certificates, and student inquiries:</p>
+            <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong id="contactLblAddr">Campus Address:</strong><p id="contactValAddr">Shivaji English School &amp; Junior College,<br>Pandur Titha, Taluka: Kudal, District: Sindhudurg, Maharashtra - 416812</p></div></div>
+            <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong id="contactLblPhone">Phone / Landline:</strong><p>+91 (02362) 224-8090</p></div></div>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Email:</strong><p>sohamjikamde@gmail.com</p></div></div>
+            <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours:</strong><p id="contactValHours">Monday – Saturday: 9:30 AM to 4:30 PM (Sunday Closed)</p></div></div>
+            
+            <!-- FIXED: Clickable Google Map Embed -->
+            <div class="map-wrapper" title="Open in Google Maps">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.123456789!2d73.684123456789!3d16.0023456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAwJzA4LjQiTiA3M8KwNDEnMDMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" style="pointer-events: none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <a href="https://maps.app.goo.gl/uTYXtiGdfuSG8Hjg6" target="_blank" class="map-overlay-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3 id="inquiryHead">Send an Inquiry / Message</h3>
+            <form id="inquiryForm" novalidate>
+              <div class="form-group">
+                <label for="fullName" id="lblFormName">Student / Parent Name *</label>
+                <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required minlength="3">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone" id="lblFormPhone">Phone Number (10 Digits) *</label>
+                  <input type="tel" id="phone" class="form-control" placeholder="e.g. 9822XXXXXX" required pattern="^[6-9][0-9]{9}$" maxlength="10">
+                </div>
+                <div class="form-group">
+                  <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose *</label>
+                  <select id="inquiryType" class="form-control" required>
+                    <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
+                    <option value="12th IT Project Query">12th IT Project Query</option>
+                    <option value="TC / LC / Certificates">TC / LC / Certificates</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message" id="lblFormMsg">Message / Details *</label>
+                <textarea id="message" rows="4" class="form-control" placeholder="Write your question or details here..." required minlength="10"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm"><i class="fa-solid fa-paper-plane"></i> <span id="txtSubmitInquiry">Submit Inquiry</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ========================================== -->
+  <!-- NEW CONDENSED TABBED SECTION END -->
+  <!-- ========================================== -->
 
   <section class="section notices-section" id="notices">
     <div class="container">
@@ -321,85 +471,6 @@
     </div>
   </div>
 
-  <section class="section learning-hub-section" id="learning-hub">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" id="hubSub">Academic Resources</span>
-        <h2 class="section-title" id="hubTitle">Student Learning Hub</h2>
-        <p class="section-lead" id="hubLead">Quick access to board curriculum, IT practical materials, and previous year question papers.</p>
-      </div>
-      <div class="hub-grid">
-        <div class="hub-card" data-hub-target="it-hub">
-          <div class="hub-icon"><i class="fa-solid fa-code"></i></div>
-          <h3 id="hub1Title">12th Standard IT Hub</h3>
-          <p id="hub1Desc">HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules as per Maharashtra State Board.</p>
-          <button class="hub-btn" id="btnOpenItHub"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">View IT SOPs &amp; Code</span></button>
-        </div>
-        <div class="hub-card" data-hub-target="science-lab">
-          <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
-          <h3 id="hub2Title">JEE, NEET &amp; Science Labs</h3>
-          <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.</p>
-          <button class="hub-btn" id="btnOpenScienceHub"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
-        </div>
-        <div class="hub-card" data-hub-target="commerce-vault">
-          <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
-          <h3 id="hub3Title">Commerce &amp; Accounts Vault</h3>
-          <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.</p>
-          <button class="hub-btn" id="btnOpenCommerceHub"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
-        </div>
-        <div class="hub-card" data-hub-target="board-papers">
-          <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-          <h3 id="hub4Title">Previous Board Papers</h3>
-          <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-          <button class="hub-btn" id="btnOpenPapersHub"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section campus-section" id="campus">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" id="campusSub">Infrastructure</span>
-        <h2 class="section-title" id="campusTitle">Interactive Campus &amp; Facilities</h2>
-        <p class="section-lead" id="campusLead">Tap any facility below to inspect the infrastructure on your screen or smart board.</p>
-      </div>
-      <div class="campus-layout">
-        <div class="facility-buttons-grid" id="facilityButtonGroup">
-          <button class="facility-btn active" data-fac-key="smartClass"><i class="fa-solid fa-chalkboard"></i><span id="facBtn1">Smart Classrooms</span></button>
-          <button class="facility-btn" data-fac-key="itLab"><i class="fa-solid fa-desktop"></i><span id="facBtn2">Computer &amp; IT Lab</span></button>
-          <button class="facility-btn" data-fac-key="physicsLab"><i class="fa-solid fa-atom"></i><span id="facBtn3">Physics Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="chemLab"><i class="fa-solid fa-flask"></i><span id="facBtn4">Chemistry Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="bioLab"><i class="fa-solid fa-dna"></i><span id="facBtn5">Biology Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="library"><i class="fa-solid fa-book-bookmark"></i><span id="facBtn6">Central Library</span></button>
-          <button class="facility-btn" data-fac-key="sports"><i class="fa-solid fa-volleyball"></i><span id="facBtn7">Playground &amp; Sports</span></button>
-          <button class="facility-btn" data-fac-key="auditorium"><i class="fa-solid fa-masks-theater"></i><span id="facBtn8">Auditorium &amp; Stage</span></button>
-        </div>
-        <div class="facility-display-card" id="facilityDisplay">
-          <div class="facility-img-wrapper" id="facilityImgWrapper">
-            <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
-            <div class="facility-img-overlay">
-              <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
-              <!-- Zoom Button with fixed ID -->
-              <button class="facility-zoom-btn" id="facilityZoomBtn" title="Enlarge Image / मोठे करा"><i class="fa-solid fa-expand"></i></button>
-            </div>
-          </div>
-          <div class="facility-card-body">
-            <div class="facility-icon-wrap" id="facilityIcon"><i class="fa-solid fa-chalkboard"></i></div>
-            <h3 id="facilityTitle">Interactive Smart Classrooms</h3>
-            <p id="facilityDesc">Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.</p>
-            <div class="facility-tags" id="facilityTags">
-              <span class="badge">Touch Enabled</span><span class="badge">Audio-Visual</span><span class="badge">E-Learning</span>
-            </div>
-            <div class="facility-action-row">
-              <a href="#gallery" class="btn btn-outline-primary btn-sm" id="btnExploreCampusGallery"><i class="fa-solid fa-images"></i> <span id="txtExploreCampusGal">View Full Campus Gallery</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section gallery-section" id="gallery">
     <div class="container">
       <div class="section-header">
@@ -418,11 +489,13 @@
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
-        <!-- data-idx attributes added to safely connect to the JS Array -->
+        <!-- FIXED: Clickable Zoom Button separated via event.stopPropagation() -->
         <div class="gallery-card span-2x2" data-category="campus" data-idx="0">
           <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Campus &amp; Labs</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Campus &amp; Labs</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Main Academic Campus &amp; Building</h4><p><i class="fa-regular fa-calendar"></i> Campus View</p></div>
           </div>
         </div>
@@ -430,7 +503,9 @@
         <div class="gallery-card span-2x1" data-category="festivals" data-idx="1">
           <img src="images/gallery/shiv-jayanti.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80';" alt="Shiv Jayanti" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Shiv Jayanti</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Shiv Jayanti</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Chhatrapati Shivaji Maharaj Jayanti Utsav</h4><p><i class="fa-regular fa-calendar"></i> 19 February</p></div>
           </div>
         </div>
@@ -438,7 +513,9 @@
         <div class="gallery-card span-1x1" data-category="campus" data-idx="2">
           <img src="images/gallery/it-session.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80';" alt="IT Lab Session" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">IT Lab</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">IT Lab</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>12th HSC IT Practical Lab Session</h4><p><i class="fa-regular fa-calendar"></i> HSC IT Practicals</p></div>
           </div>
         </div>
@@ -446,7 +523,9 @@
         <div class="gallery-card span-1x2" data-category="cultural" data-idx="3">
           <img src="images/gallery/annual-gathering.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" alt="Annual Gathering" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Cultural Event</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Cultural Event</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Annual Gathering Traditional Folk Dance</h4><p><i class="fa-regular fa-calendar"></i> Annual Gathering</p></div>
           </div>
         </div>
@@ -454,7 +533,9 @@
         <div class="gallery-card span-1x1" data-category="science" data-idx="4">
           <img src="images/gallery/science-practical.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80';" alt="Science Experiments" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Science Lab</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Science Lab</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(4)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Physics &amp; Chemistry Practical Experiments</h4><p><i class="fa-regular fa-calendar"></i> Science Stream</p></div>
           </div>
         </div>
@@ -462,7 +543,9 @@
         <div class="gallery-card span-2x1" data-category="sports" data-idx="5">
           <img src="images/gallery/sports-meet.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80';" alt="Sports Meet" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Sports</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Sports</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Inter-School Sports Meet &amp; Tournament</h4><p><i class="fa-regular fa-calendar"></i> Sports Meet</p></div>
           </div>
         </div>
@@ -470,7 +553,9 @@
         <div class="gallery-card span-1x1" data-category="science" data-idx="6">
           <img src="images/gallery/science-fair.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80';" alt="Science Exhibition" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Science Fair</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Science Fair</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>District-Level Science Exhibition Projects</h4><p><i class="fa-regular fa-calendar"></i> Science Fair</p></div>
           </div>
         </div>
@@ -478,7 +563,9 @@
         <div class="gallery-card span-1x1" data-category="campus" data-idx="7">
           <img src="images/gallery/smart-classroom.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80';" alt="Smart Classroom" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Classroom</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Classroom</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(7)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Interactive Smart Classroom Lecture</h4><p><i class="fa-regular fa-calendar"></i> Smart Teaching</p></div>
           </div>
         </div>
@@ -486,7 +573,9 @@
         <div class="gallery-card span-1x1" data-category="festivals" data-idx="8">
           <img src="images/gallery/independence-day.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80';" alt="Independence Day" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">National Day</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">National Day</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(8)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>77th Independence Day Parade &amp; Flag Hoisting</h4><p><i class="fa-regular fa-calendar"></i> 15 August</p></div>
           </div>
         </div>
@@ -494,7 +583,9 @@
         <div class="gallery-card span-1x1" data-category="campus" data-idx="9">
           <img src="images/gallery/library-study.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80';" alt="Central Library" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Library</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Library</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(9)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Central Library &amp; Dedicated Study Hall</h4><p><i class="fa-regular fa-calendar"></i> Study Hall</p></div>
           </div>
         </div>
@@ -502,7 +593,9 @@
         <div class="gallery-card span-1x1" data-category="cultural" data-idx="10">
           <img src="images/gallery/prize-distribution.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80';" alt="Prize Distribution" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Felicitation</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Felicitation</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(10)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Annual Prize Distribution &amp; Merit Felicitation</h4><p><i class="fa-regular fa-calendar"></i> Award Ceremony</p></div>
           </div>
         </div>
@@ -510,7 +603,9 @@
         <div class="gallery-card span-1x1" data-category="sports" data-idx="11">
           <img src="images/gallery/athletics-sprint.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80';" alt="Athletics Meet" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Athletics</span><div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div></div>
+            <div class="gallery-card-top"><span class="gallery-cat-pill">Athletics</span>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(11)"><i class="fa-solid fa-expand"></i></div>
+            </div>
             <div class="gallery-card-bottom"><h4>Athletic Track &amp; Field Sprint Races</h4><p><i class="fa-regular fa-calendar"></i> Athletics Meet</p></div>
           </div>
         </div>
@@ -549,109 +644,6 @@
       </div>
     </div>
   </div>
-
-  <section class="section faculty-section" id="faculty">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" id="facSub">Our Mentors</span>
-        <h2 class="section-title" id="facTitle">Faculty &amp; Administration</h2>
-        <p class="section-lead" id="facLead">Experienced educators devoted to academic nurturing and student character building.</p>
-      </div>
-      <div class="faculty-grid">
-        <div class="faculty-card">
-          <div class="faculty-avatar"><i class="fa-solid fa-user-tie"></i></div>
-          <h4 id="fac1Name">Principal's Desk</h4>
-          <span class="faculty-role" id="fac1Role">Head of Institution</span>
-          <p class="faculty-qual">M.Sc., M.Ed., Ph.D.</p>
-          <p class="faculty-msg" id="fac1Msg">"Guiding every student to achieve their highest intellectual, moral, and vocational potential."</p>
-        </div>
-        <div class="faculty-card">
-          <div class="faculty-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <h4 id="fac2Name">Dept. of Science</h4>
-          <span class="faculty-role" id="fac2Role">Senior Lecturers</span>
-          <p class="faculty-qual">Physics, Chem, Bio, Maths</p>
-          <p class="faculty-msg" id="fac2Msg">Specialized in competitive exam guidance (CET/NEET), practical mastery, and conceptual clarity.</p>
-        </div>
-        <div class="faculty-card">
-          <div class="faculty-avatar"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4 id="fac3Name">Dept. of IT &amp; Computers</h4>
-          <span class="faculty-role" id="fac3Role">IT Faculty &amp; Lab Staff</span>
-          <p class="faculty-qual">M.C.A., B.E. (Comp / IT)</p>
-          <p class="faculty-msg" id="fac3Msg">Instructing modern web technologies, JavaScript validation, database systems, and digital literacy.</p>
-        </div>
-        <div class="faculty-card">
-          <div class="faculty-avatar"><i class="fa-solid fa-briefcase"></i></div>
-          <h4 id="fac4Name">Dept. of Commerce &amp; Arts</h4>
-          <span class="faculty-role" id="fac4Role">Senior Lecturers</span>
-          <p class="faculty-qual">M.Com, M.A., B.Ed.</p>
-          <p class="faculty-msg" id="fac4Msg">Fostering financial intelligence, critical analysis, and communicative excellence in state and national exams.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" id="contactSub">Reach Out</span>
-        <h2 class="section-title" id="contactTitle">Contact &amp; Location</h2>
-        <p class="section-lead" id="contactLead">Visit our campus at Pandur Titha or connect with the administrative office.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info-card">
-          <h3 id="contactCardHead">School Office Details</h3>
-          <p id="contactCardSub">For admissions, verification, certificates, and student inquiries:</p>
-          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong id="contactLblAddr">Campus Address:</strong><p id="contactValAddr">Shivaji English School &amp; Junior College,<br>Pandur Titha, Mumbai-Goa Highway (NH-66),<br>Taluka: Kudal, District: Sindhudurg, Maharashtra - 416812</p></div></div>
-          <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong id="contactLblPhone">Phone / Landline:</strong><p>+91 (02362) 224-8090</p></div></div>
-          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Email:</strong><p>sohamjikamde@gmail.com</p></div></div>
-          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours:</strong><p id="contactValHours">Monday – Saturday: 9:30 AM to 4:30 PM (Sunday Closed)</p></div></div>
-          
-          <!-- CLICKABLE GOOGLE MAP EMBED (Fixed to exact user link) -->
-          <div class="map-container" title="Open in Google Maps">
-            <a href="https://maps.app.goo.gl/uTYXtiGdfuSG8Hjg6" target="_blank" style="display:block; width:100%; height:100%; position:relative;">
-              <!-- Pointer events none prevents iframe from stealing the click from the anchor tag -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.123456789!2d73.684123456789!3d16.0023456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAwJzA4LjQiTiA3M8KwNDEnMDMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" style="pointer-events: none; width: 100%; height: 100%; border: none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-form-card">
-          <h3 id="inquiryHead">Send an Inquiry / Message</h3>
-          <form id="inquiryForm" novalidate>
-            <div class="form-group">
-              <label for="fullName" id="lblFormName">Student / Parent Name *</label>
-              <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required minlength="3">
-              <span class="field-error" id="errName"></span>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone" id="lblFormPhone">Phone Number (10 Digits) *</label>
-                <input type="tel" id="phone" class="form-control" placeholder="e.g. 9822XXXXXX" required pattern="^[6-9][0-9]{9}$" maxlength="10">
-                <span class="field-error" id="errPhone"></span>
-              </div>
-              <div class="form-group">
-                <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose *</label>
-                <select id="inquiryType" class="form-control" required>
-                  <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
-                  <option value="12th IT Project Query">12th IT Project Query</option>
-                  <option value="TC / LC / Certificates">TC / LC / Certificates</option>
-                  <option value="General Information">General Information</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="message" id="lblFormMsg">Message / Details *</label>
-              <textarea id="message" rows="4" class="form-control" placeholder="Write your question or details here..." required minlength="10"></textarea>
-              <span class="field-error" id="errMsg"></span>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm"><i class="fa-solid fa-paper-plane"></i> <span id="txtSubmitInquiry">Submit Inquiry</span></button>
-            <div id="formFeedback" class="form-feedback"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <div class="it-modal-overlay" id="itHubModal" role="dialog" aria-modal="true" aria-labelledby="itModalHeading">
     <div class="it-modal-box">
@@ -723,6 +715,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=54" defer></script>
+  <script src="script.js?v=55" defer></script>
 </body>
 </html>
