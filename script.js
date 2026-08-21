@@ -27,7 +27,7 @@
 
   const state = window.sesState;
 
-  // AI Knowledge Base Constants
+  // AI Knowledge Base Constants (STRICT ADHERENCE)
   const aiKnowledge = {
     schoolName: "Shivaji English School & Junior College, Pandur Titha",
     location: "Pandur Titha, Taluka Kudal, District Sindhudurg, Maharashtra",
@@ -49,7 +49,7 @@
   const translations = {
     en: {
       "topAddr": "Pandur Titha, Sindhudurg, Maharashtra",
-      "topAided": "Estd. 1960 | Private-Aided Institution",
+      "topAided": "Estd. 1960 | UDISE: 27330408903",
       "settingsBtnLabel": "Settings",
       "settingsModalHeading": "Preferences & Settings",
       "lblSetLang": "Language / भाषा",
@@ -197,7 +197,7 @@
     },
     mr: {
       "topAddr": "पांडूर तिठा, सिंधुदुर्ग, महाराष्ट्र",
-      "topAided": "स्थापना १९६० | शासनमान्य अनुदानित संस्था",
+      "topAided": "स्थापना १९६० | UDISE: 27330408903",
       "settingsBtnLabel": "सेटिंग्ज",
       "settingsModalHeading": "प्राधान्ये आणि सेटिंग्ज",
       "lblSetLang": "Language / भाषा",
@@ -499,6 +499,18 @@
   };
 
   // =========================================================================
+  // MAIN TAB SWITCHER (NEW FUNCTION)
+  // =========================================================================
+  window.switchMainTab = function(tabId) {
+    document.querySelectorAll('.main-tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-tab-target') === tabId);
+    });
+    document.querySelectorAll('.main-tab-pane').forEach(pane => {
+      pane.classList.toggle('active', pane.id === 'tab-' + tabId);
+    });
+  };
+
+  // =========================================================================
   // NOTICE BOARD MODAL LOGIC
   // =========================================================================
   window.openNoticeModal = function(noticeId) {
@@ -571,7 +583,6 @@
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
     
-    // We open the facility image by treating it as a single-item gallery list
     activeGalleryList = [{
       img: fac.img, fallbackImg: fac.fallbackImg, titleEn: fac.titleEn, titleMr: fac.titleMr, descEn: fac.descEn, descMr: fac.descMr, catEn: 'Campus Facility', catMr: 'परिसर सुविधा', dateEn: 'Infrastructure', dateMr: 'पायाभूत सुविधा'
     }];
@@ -608,13 +619,10 @@
   };
 
   window.openLightbox = function(index) {
-    // Determine if we are opening a facility image or the full gallery
-    // If the activeGalleryList only has 1 item, it's the facility zoom. 
-    // Otherwise, it's a gallery click, so reset activeGalleryList to the full gallery to prevent the bug.
     if (activeGalleryList.length === 1 && index !== 0) {
         activeGalleryList = [...galleryData];
     } else if (activeGalleryList.length === 1 && index === 0) {
-        // Leave it as the facility image
+        // Keep single item array for facility
     } else {
         activeGalleryList = [...galleryData];
     }
@@ -638,11 +646,18 @@
     document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
     
     const counterEl = document.getElementById('lightboxCounter');
+    const nextBtn = document.getElementById('lightboxNextBtn');
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+
     if (counterEl) {
-        if(activeGalleryList.length === 1) {
+        if(activeGalleryList.length <= 1) {
              counterEl.style.display = 'none';
+             if(nextBtn) nextBtn.style.display = 'none';
+             if(prevBtn) prevBtn.style.display = 'none';
         } else {
              counterEl.style.display = 'block';
+             if(nextBtn) nextBtn.style.display = 'flex';
+             if(prevBtn) prevBtn.style.display = 'flex';
              counterEl.textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
         }
     }
@@ -860,6 +875,14 @@
       });
     });
 
+    // MAIN TABS LOGIC
+    document.querySelectorAll('.main-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab-target');
+        if (tabId) window.switchMainTab(tabId);
+      });
+    });
+
     // BACK TO TOP BUTTON LOGIC
     const backToTopBtn = document.getElementById('backToTopBtn');
     if (backToTopBtn) {
@@ -875,6 +898,13 @@
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = btn.getAttribute('data-notice-open');
+        if (id) window.openNoticeModal(id);
+      });
+    });
+
+    document.querySelectorAll('.notice-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const id = item.getAttribute('data-notice-id');
         if (id) window.openNoticeModal(id);
       });
     });
