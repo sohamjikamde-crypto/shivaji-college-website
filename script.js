@@ -570,6 +570,8 @@
   window.zoomCurrentFacility = function() {
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
+    
+    // We open the facility image by treating it as a single-item gallery list
     activeGalleryList = [{
       img: fac.img, fallbackImg: fac.fallbackImg, titleEn: fac.titleEn, titleMr: fac.titleMr, descEn: fac.descEn, descMr: fac.descMr, catEn: 'Campus Facility', catMr: 'परिसर सुविधा', dateEn: 'Infrastructure', dateMr: 'पायाभूत सुविधा'
     }];
@@ -578,8 +580,7 @@
 
   window.filterGalleryCategory = function(filter) {
     state.currentGalleryFilter = filter;
-    activeGalleryList = filter === 'all' ? galleryData : galleryData.filter(item => item.category === filter);
-
+    
     document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
       if (btn.getAttribute('data-filter') === filter) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     });
@@ -607,6 +608,17 @@
   };
 
   window.openLightbox = function(index) {
+    // Determine if we are opening a facility image or the full gallery
+    // If the activeGalleryList only has 1 item, it's the facility zoom. 
+    // Otherwise, it's a gallery click, so reset activeGalleryList to the full gallery to prevent the bug.
+    if (activeGalleryList.length === 1 && index !== 0) {
+        activeGalleryList = [...galleryData];
+    } else if (activeGalleryList.length === 1 && index === 0) {
+        // Leave it as the facility image
+    } else {
+        activeGalleryList = [...galleryData];
+    }
+    
     if (index < 0 || index >= activeGalleryList.length) return;
     state.activeLightboxIndex = index;
     const item = activeGalleryList[state.activeLightboxIndex];
@@ -624,7 +636,16 @@
     document.getElementById('lightboxDesc').textContent = state.lang === 'mr' ? item.descMr : item.descEn;
     document.getElementById('lightboxCategory').textContent = state.lang === 'mr' ? item.catMr : item.catEn;
     document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
-    document.getElementById('lightboxCounter').textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
+    
+    const counterEl = document.getElementById('lightboxCounter');
+    if (counterEl) {
+        if(activeGalleryList.length === 1) {
+             counterEl.style.display = 'none';
+        } else {
+             counterEl.style.display = 'block';
+             counterEl.textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
+        }
+    }
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -637,12 +658,12 @@
   };
 
   window.nextLightbox = function() {
-    if (activeGalleryList.length === 0) return;
+    if (activeGalleryList.length <= 1) return;
     window.openLightbox((state.activeLightboxIndex + 1) % activeGalleryList.length);
   };
 
   window.prevLightbox = function() {
-    if (activeGalleryList.length === 0) return;
+    if (activeGalleryList.length <= 1) return;
     window.openLightbox((state.activeLightboxIndex - 1 + activeGalleryList.length) % activeGalleryList.length);
   };
 
