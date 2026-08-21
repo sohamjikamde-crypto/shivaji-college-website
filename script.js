@@ -1,23 +1,17 @@
 /**
  * Shivaji English School & Junior College | Pandur Titha, Sindhudurg
- * Robust, Zero-Glitch Interactive Engine (Bilingual, Accessibility, Facilities, Gallery, Ai Assistant, SOPs)
+ * Robust, Zero-Glitch Interactive Engine
  */
 
 (function() {
   'use strict';
 
   function safeGetItem(key, defaultValue) {
-    try {
-      return localStorage.getItem(key) || defaultValue;
-    } catch (e) {
-      return defaultValue;
-    }
+    try { return localStorage.getItem(key) || defaultValue; } catch (e) { return defaultValue; }
   }
 
   function safeSetItem(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) {}
+    try { localStorage.setItem(key, value); } catch (e) {}
   }
 
   window.sesState = {
@@ -335,75 +329,35 @@
   const facilitiesData = {
     smartClass: {
       icon: "fa-chalkboard", img: "images/facilities/smart-class.jpg", fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Interactive Touch Screen", badgeMr: "डिजिटल टच स्क्रीन",
-      titleEn: "Interactive Smart Classrooms", titleMr: "डिजिटल स्मार्ट क्लासरूम्स",
-      descEn: "Equipped with high-definition interactive touchscreens, smart projectors, digital podiums, and ultra-high-speed broadband. Complex concepts in Science and Mathematics are taught using animated simulations, 3D models, and digital board notes.",
-      descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.",
-      tagsEn: ["Interactive Touchscreen", "Digital Podium", "Audio-Visual Projection", "E-Learning Modules"],
-      tagsMr: ["टच स्क्रीन", "डिजिटल पोडियम", "दृकश्राव्य प्रोजेक्शन", "ई-लर्निंग"]
+      badgeEn: "Interactive Touch Screen", badgeMr: "डिजिटल टच स्क्रीन", titleEn: "Interactive Smart Classrooms", titleMr: "डिजिटल स्मार्ट क्लासरूम्स", descEn: "Equipped with high-definition interactive touchscreens, smart projectors, digital podiums, and ultra-high-speed broadband. Complex concepts in Science and Mathematics are taught using animated simulations, 3D models, and digital board notes.", descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.", tagsEn: ["Interactive Touchscreen", "Digital Podium", "Audio-Visual Projection", "E-Learning Modules"], tagsMr: ["टच स्क्रीन", "डिजिटल पोडियम", "दृकश्राव्य प्रोजेक्शन", "ई-लर्निंग"]
     },
     itLab: {
       icon: "fa-desktop", img: "images/facilities/it-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "40+ Workstations", badgeMr: "४०+ कॉम्प्युटर लॅब",
-      titleEn: "Computer & Information Technology (IT) Lab", titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब",
-      descEn: "Modern computing center featuring 40+ networked Core-i5 systems with dual-boot Linux and Windows OS, gigabit Ethernet LAN, dedicated high-speed optical fiber leased line, HTML5/CSS3/JavaScript IDEs, PostgreSQL/MySQL database engines, and full power backup via centralized online UPS.",
-      descMr: "४०+ अद्ययावत संगणक, अखंड हाय-स्पीड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.",
-      tagsEn: ["40+ Core-i5 PCs", "Gigabit LAN & Fiber", "Linux & Windows OS", "Web Design IDEs"],
-      tagsMr: ["४०+ संगणक", "ऑप्टिकल फायबर इंटरनेट", "लिनक्स व विंडोज", "वेब डिझायनिंग टूल्स"]
+      badgeEn: "40+ Workstations", badgeMr: "४०+ कॉम्प्युटर लॅब", titleEn: "Computer & Information Technology (IT) Lab", titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब", descEn: "Modern computing center featuring 40+ networked Core-i5 systems with dual-boot Linux and Windows OS, gigabit Ethernet LAN, dedicated high-speed optical fiber leased line, HTML5/CSS3/JavaScript IDEs, PostgreSQL/MySQL database engines, and full power backup via centralized online UPS.", descMr: "४०+ अद्ययावत संगणक, अखंड हाय-स्पीड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.", tagsEn: ["40+ Core-i5 PCs", "Gigabit LAN & Fiber", "Linux & Windows OS", "Web Design IDEs"], tagsMr: ["४०+ संगणक", "ऑप्टिकल फायबर इंटरनेट", "लिनक्स व विंडोज", "वेब डिझायनिंग टूल्स"]
     },
     physicsLab: {
       icon: "fa-atom", img: "images/facilities/physics-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Precision Apparatus", badgeMr: "अचूक प्रायोगिक साधने",
-      titleEn: "Physics Laboratory", titleMr: "भौतिकशास्त्र प्रयोगशाळा",
-      descEn: "Designed strictly per Maharashtra HSC Board specifications. Equipped with darkroom optics setups, spectrometers, travelling microscopes, potentiometer benches, resonance tubes, and digital multi-meters ensuring hands-on mastery of practical physics.",
-      descMr: "महाराष्ट्र HSC बोर्डाच्या मानकांनुसार सुसज्ज. ऑप्टिक्स, स्पेक्ट्रोमीटर, मायक्रोस्कोप, पोटेंशियोमीटर आणि अचूक विद्युत मापक यंत्रांनी सज्ज प्रशस्त लॅब.",
-      tagsEn: ["Optics & Darkroom", "Spectrometers", "Travelling Microscopes", "Electrical Benches"],
-      tagsMr: ["ऑप्टिक्स डार्क रूम", "स्पेक्ट्रोमीटर", "मायक्रोस्कोप", "विद्युत प्रयोग मांडणी"]
+      badgeEn: "Precision Apparatus", badgeMr: "अचूक प्रायोगिक साधने", titleEn: "Physics Laboratory", titleMr: "भौतिकशास्त्र प्रयोगशाळा", descEn: "Designed strictly per Maharashtra HSC Board specifications. Equipped with darkroom optics setups, spectrometers, travelling microscopes, potentiometer benches, resonance tubes, and digital multi-meters ensuring hands-on mastery of practical physics.", descMr: "महाराष्ट्र HSC बोर्डाच्या मानकांनुसार सुसज्ज. ऑप्टिक्स, स्पेक्ट्रोमीटर, मायक्रोस्कोप, पोटेंशियोमीटर आणि अचूक विद्युत मापक यंत्रांनी सज्ज प्रशस्त लॅब.", tagsEn: ["Optics & Darkroom", "Spectrometers", "Travelling Microscopes", "Electrical Benches"], tagsMr: ["ऑप्टिक्स डार्क रूम", "स्पेक्ट्रोमीटर", "मायक्रोस्कोप", "विद्युत प्रयोग मांडणी"]
     },
     chemLab: {
       icon: "fa-flask", img: "images/facilities/chemistry-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Safe & Modern Fume Hoods", badgeMr: "सुरक्षित रसायन लॅब",
-      titleEn: "Chemistry Laboratory", titleMr: "रसायनशास्त्र प्रयोगशाळा",
-      descEn: "Spacious, well-ventilated laboratory furnished with anti-corrosive granite counters, individual LPG burner stations, calibrated chemical balances, glass distillation units, eye-wash stations, and dedicated safety shower protocols.",
-      descMr: "सुरक्षितता मानकांचे काटेकोर पालन करणारी हवेशीर प्रयोगशाळा. ग्रॅनाइट प्लॅटफॉर्म, बर्नर स्टेशन, डिजिटल वजनी काटे आणि सर्व रासायनिक अभिकर्मके उपलब्ध.",
-      tagsEn: ["Granite Workstations", "Chemical Balances", "Safety Showers", "Distillation Setups"],
-      tagsMr: ["ग्रॅनाइट वर्कस्टेशन", "रासायनिक शिल्लक", "सुरक्षा शॉवर", "डिस्टिलेशन संच"]
+      badgeEn: "Safe & Modern Fume Hoods", badgeMr: "सुरक्षित रसायन लॅब", titleEn: "Chemistry Laboratory", titleMr: "रसायनशास्त्र प्रयोगशाळा", descEn: "Spacious, well-ventilated laboratory furnished with anti-corrosive granite counters, individual LPG burner stations, calibrated chemical balances, glass distillation units, eye-wash stations, and dedicated safety shower protocols.", descMr: "सुरक्षितता मानकांचे काटेकोर पालन करणारी हवेशीर प्रयोगशाळा. ग्रॅनाइट प्लॅटफॉर्म, बर्नर स्टेशन, डिजिटल वजनी काटे आणि सर्व रासायनिक अभिकर्मके उपलब्ध.", tagsEn: ["Granite Workstations", "Chemical Balances", "Safety Showers", "Distillation Setups"], tagsMr: ["ग्रॅनाइट वर्कस्टेशन", "रासायनिक शिल्लक", "सुरक्षा शॉवर", "डिस्टिलेशन संच"]
     },
     bioLab: {
       icon: "fa-dna", img: "images/facilities/biology-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Microscopes & Specimens", badgeMr: "सूक्ष्मदर्शक व नमुने",
-      titleEn: "Biology Laboratory", titleMr: "जीवशास्त्र प्रयोगशाळा",
-      descEn: "Equipped with binocular compound microscopes, preserved Konkan floral and faunal specimens, anatomical human skeletal models, plant physiology apparatus, and permanent cytology projection slides for Botany and Zoology practicals.",
-      descMr: "बायनॉक्युलर संयुक्त सूक्ष्मदर्शक, कोकणातील वनस्पती व प्राणी नमुने, मानवी सांगाडा मॉडेल्स आणि वनस्पतीशास्त्र व प्राणीशास्त्र प्रयोगांची समृद्ध मांडणी.",
-      tagsEn: ["Compound Microscopes", "Botanical Herbarium", "Anatomical Models", "Histology Slides"],
-      tagsMr: ["संयुक्त सूक्ष्मदर्शक", "हर्बेरियम नमुने", "मानवी सांगाडा", "सायटोलॉजी स्लाईड्स"]
+      badgeEn: "Microscopes & Specimens", badgeMr: "सूक्ष्मदर्शक व नमुने", titleEn: "Biology Laboratory", titleMr: "जीवशास्त्र प्रयोगशाळा", descEn: "Equipped with binocular compound microscopes, preserved Konkan floral and faunal specimens, anatomical human skeletal models, plant physiology apparatus, and permanent cytology projection slides for Botany and Zoology practicals.", descMr: "बायनॉक्युलर संयुक्त सूक्ष्मदर्शक, कोकणातील वनस्पती व प्राणी नमुने, मानवी सांगाडा मॉडेल्स आणि वनस्पतीशास्त्र व प्राणीशास्त्र प्रयोगांची समृद्ध मांडणी.", tagsEn: ["Compound Microscopes", "Botanical Herbarium", "Anatomical Models", "Histology Slides"], tagsMr: ["संयुक्त सूक्ष्मदर्शक", "हर्बेरियम नमुने", "मानवी सांगाडा", "सायटोलॉजी स्लाईड्स"]
     },
     library: {
       icon: "fa-book-bookmark", img: "images/facilities/library.jpg", fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "15,000+ Books", badgeMr: "१५,०००+ ग्रंथ संपदा",
-      titleEn: "Central Library & Reading Hall", titleMr: "मध्यवर्ती ग्रंथालय व वाचन कक्ष",
-      descEn: "A serene academic sanctuary stocking over 15,000 reference textbooks, Maharashtra State Board guides, CET/NEET/JEE preparatory series, educational journals, regional Konkani & Marathi literature, and a peaceful 100-seat reading hall.",
-      descMr: "१५,००० हून अधिक संदर्भ पुस्तके, स्पर्धा परीक्षा मार्गदर्शिका, शैक्षणिक नियतकालिके, मराठी साहित्य आणि १०० विद्यार्थी क्षमतेचा शांत वाचन कक्ष.",
-      tagsEn: ["15,000+ Volumes", "Competitive Exam Guides", "Digital Catalog (OPAC)", "100-Seat Study Hall"],
-      tagsMr: ["१५,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "डिजिटल कॅटलॉग", "१०० आसन वाचनालय"]
+      badgeEn: "15,000+ Books", badgeMr: "१५,०००+ ग्रंथ संपदा", titleEn: "Central Library & Reading Hall", titleMr: "मध्यवर्ती ग्रंथालय व वाचन कक्ष", descEn: "A serene academic sanctuary stocking over 15,000 reference textbooks, Maharashtra State Board guides, CET/NEET/JEE preparatory series, educational journals, regional Konkani & Marathi literature, and a peaceful 100-seat reading hall.", descMr: "१५,००० हून अधिक संदर्भ पुस्तके, स्पर्धा परीक्षा मार्गदर्शिका, शैक्षणिक नियतकालिके, मराठी साहित्य आणि १०० विद्यार्थी क्षमतेचा शांत वाचन कक्ष.", tagsEn: ["15,000+ Volumes", "Competitive Exam Guides", "Digital Catalog (OPAC)", "100-Seat Study Hall"], tagsMr: ["१५,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "डिजिटल कॅटलॉग", "१०० आसन वाचनालय"]
     },
     sports: {
       icon: "fa-volleyball", img: "images/facilities/sports-ground.jpg", fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "2-Acre Athletic Complex", badgeMr: "२ एकर भव्य क्रीडांगण",
-      titleEn: "Playground & Sports Complex", titleMr: "क्रीडांगण व क्रीडा संकुल",
-      descEn: "Expansive multi-sport athletic grounds featuring standard volleyball courts, Kho-Kho & Kabaddi clay arenas, running tracks, cricket pitches, and indoor facilities for chess, carrom, and table tennis under certified NIS physical training instructors.",
-      descMr: "२ एकराचे विस्तीर्ण मैदान, व्हॉलीबॉल कोर्ट, खो-खो व कबड्डीचे मातीचे मैदान, धावपट्टी आणि इनडोअर खेळांसाठी टेबल टेनिस व बुद्धिबळ कक्ष.",
-      tagsEn: ["2-Acre Grounds", "Kabaddi & Kho-Kho", "Volleyball Court", "Indoor Games Room"],
-      tagsMr: ["२ एकर मैदान", "कबड्डी व खो-खो", "व्हॉलीबॉल कोर्ट", "इनडोअर गेम्स"]
+      badgeEn: "2-Acre Athletic Complex", badgeMr: "२ एकर भव्य क्रीडांगण", titleEn: "Playground & Sports Complex", titleMr: "क्रीडांगण व क्रीडा संकुल", descEn: "Expansive multi-sport athletic grounds featuring standard volleyball courts, Kho-Kho & Kabaddi clay arenas, running tracks, cricket pitches, and indoor facilities for chess, carrom, and table tennis under certified NIS physical training instructors.", descMr: "२ एकराचे विस्तीर्ण मैदान, व्हॉलीबॉल कोर्ट, खो-खो व कबड्डीचे मातीचे मैदान, धावपट्टी आणि इनडोअर खेळांसाठी टेबल टेनिस व बुद्धिबळ कक्ष.", tagsEn: ["2-Acre Grounds", "Kabaddi & Kho-Kho", "Volleyball Court", "Indoor Games Room"], tagsMr: ["२ एकर मैदान", "कबड्डी व खो-खो", "व्हॉलीबॉल कोर्ट", "इनडोअर गेम्स"]
     },
     auditorium: {
       icon: "fa-masks-theater", img: "images/facilities/auditorium.jpg", fallbackImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "500+ Seating Capacity", badgeMr: "५०० आसन क्षमता",
-      titleEn: "Auditorium & Cultural Stage", titleMr: "सभागृह व सांस्कृतिक मंच",
-      descEn: "A grand multi-purpose hall equipped with acoustic wall treatment, modern stage lighting, surround sound PA systems, and digital projection. Host venue for Annual Gatherings, Shiv Jayanti celebrations, elocutions, science fairs, and parent conferences.",
-      descMr: "अत्याधुनिक ध्वनी व्यवस्था, स्टेज लाइटिंग आणि ५०० आसन क्षमतेचे भव्य सभागृह. स्नेहसंमेलन, शिवजयंती, वक्तृत्व स्पर्धा आणि परिसंवादांसाठी उपयुक्त.",
-      tagsEn: ["500+ Seats", "Acoustic Stage", "Surround Sound PA", "Stage Lighting"],
-      tagsMr: ["५०० आसने", "अकॉस्टिक स्टेज", "सराउंड साऊंड", "स्टेज लाइटिंग"]
+      badgeEn: "500+ Seating Capacity", badgeMr: "५०० आसन क्षमता", titleEn: "Auditorium & Cultural Stage", titleMr: "सभागृह व सांस्कृतिक मंच", descEn: "A grand multi-purpose hall equipped with acoustic wall treatment, modern stage lighting, surround sound PA systems, and digital projection. Host venue for Annual Gatherings, Shiv Jayanti celebrations, elocutions, science fairs, and parent conferences.", descMr: "अत्याधुनिक ध्वनी व्यवस्था, स्टेज लाइटिंग आणि ५०० आसन क्षमतेचे भव्य सभागृह. स्नेहसंमेलन, शिवजयंती, वक्तृत्व स्पर्धा आणि परिसंवादांसाठी उपयुक्त.", tagsEn: ["500+ Seats", "Acoustic Stage", "Surround Sound PA", "Stage Lighting"], tagsMr: ["५०० आसने", "अकॉस्टिक स्टेज", "सराउंड साऊंड", "स्टेज लाइटिंग"]
     }
   };
 
@@ -414,7 +368,7 @@
     { id: 4, category: 'cultural', img: 'images/gallery/annual-gathering.jpg', fallbackImg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80', titleEn: 'Annual Gathering Traditional Folk Dance', titleMr: 'वार्षिक स्नेहसंमेलन - पारंपरिक लोकनृत्य व नाटक', descEn: 'Vibrant cultural stage performances, Konkani folk dance, classical drama, and musical orchestras.', descMr: 'वार्षिक स्नेहसंमेलनातील मनमोहक नृत्य, नाटक आणि पारंपरिक लोककला सादरीकरण.', dateEn: 'Annual Gathering', dateMr: 'वार्षिक स्नेहसंमेलन', catEn: 'Annual Gathering', catMr: 'स्नेहसंमेलन' },
     { id: 5, category: 'science', img: 'images/gallery/science-practical.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80', titleEn: 'Physics & Chemistry Practical Experiments', titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके', descEn: 'Junior College Science students conducting titration, spectrometry, and optics experiments.', descMr: 'विज्ञान शाखेतील विद्यार्थी प्रयोगशाळेत प्रत्यक्ष रासायनिक व भौतिक प्रयोग करताना.', dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा', catEn: 'Science Lab', catMr: 'विज्ञान लॅब' },
     { id: 6, category: 'sports', img: 'images/gallery/sports-meet.jpg', fallbackImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80', titleEn: 'Inter-School Sports Meet & Tournament', titleMr: 'वार्षिक क्रीडा महोत्सव व कबड्डी / व्हॉलीबॉल स्पर्धा', descEn: 'Thrilling inter-house Kabaddi, Kho-Kho, Volleyball, and athletics sprint matches.', descMr: 'विद्यार्थ्यांमधील चुरशीचे कबड्डी, खो-खो, व्हॉलीबॉल आणि धावण्याच्या स्पर्धा सामने.', dateEn: 'Sports Meet', dateMr: 'क्रीडा महोत्सव', catEn: 'Annual Sports', catMr: 'क्रीडा स्पर्धा' },
-    { id: 7, category: 'science', img: 'images/gallery/science-fair.jpg', fallbackImg: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80', titleEn: 'District-Level Science Exhibition Projects', titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन', descEn: 'Innovative working models on solar energy, drip irrigation, and IoT robotics created by students.', descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण विज्ञान प्रकल्पांचे सादरीकरण.', dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन', catEn: 'Science Exhibition', catMr: 'विज्ञान प्रदर्शन' },
+    { id: 7, category: 'science', img: 'images/gallery/science-fair.jpg', fallbackImg: 'https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80', titleEn: 'District-Level Science Exhibition Projects', titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन', descEn: 'Innovative working models on solar energy, drip irrigation, and IoT robotics created by students.', descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण विज्ञान प्रकल्पांचे सादरीकरण.', dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन', catEn: 'Science Exhibition', catMr: 'विज्ञान प्रदर्शन' },
     { id: 8, category: 'campus', img: 'images/gallery/smart-classroom.jpg', fallbackImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', titleEn: 'Interactive Smart Classroom Lecture', titleMr: 'स्मार्ट क्लासरूम डिजिटल ऑडिओ-व्हिज्युअल तासिका', descEn: 'Engaging digital syllabus presentations using interactive touchscreens and audiovisual simulations.', descMr: 'डिजिटल स्क्रीनवर क्लिष्ट संकल्पनांचे सुलभ दृकश्राव्य स्पष्टीकरण घेणारे विद्यार्थी.', dateEn: 'Smart Teaching', dateMr: 'स्मार्ट शिक्षण', catEn: 'Classroom', catMr: 'वर्गखोली' },
     { id: 9, category: 'festivals', img: 'images/gallery/independence-day.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80', titleEn: 'Independence Day Parade & Flag Hoisting', titleMr: 'स्वातंत्र्य दिन ध्वजारोहण व संचलन', descEn: 'Ceremonial national flag hoisting, Scout & Guide parade, and patriotic choir performances.', descMr: '१५ ऑगस्ट स्वातंत्र्य दिन सोहळा, ध्वजारोहण आणि शिस्तबद्ध संचलन.', dateEn: '15 August', dateMr: '१५ ऑगस्ट', catEn: 'National Day', catMr: 'राष्ट्रीय उत्सव' },
     { id: 10, category: 'campus', img: 'images/gallery/library-study.jpg', fallbackImg: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80', titleEn: 'Central Library & Dedicated Study Hall', titleMr: 'मध्यवर्ती ग्रंथालय व वाचन कक्ष', descEn: 'Students preparing for MHT-CET, NEET, and Board Exams in our quiet reference library.', descMr: 'शांत वातावरणात स्पर्धा परीक्षा व बोर्ड परीक्षेचा अभ्यास करणारे विद्यार्थी.', dateEn: 'Study Hall', dateMr: 'अभ्यासिका', catEn: 'Library', catMr: 'ग्रंथालय' },
@@ -425,44 +379,17 @@
   let activeGalleryList = [...galleryData];
 
   const sopData = {
-    sop1: {
-      badge: "SOP 1 • HTML5 & CSS",
-      title: "Creation of Website using HTML5 and CSS3 Layout",
-      aim: "To design a multi-page responsive college portal adhering to HTML5 semantic tags (<header>, <nav>, <section>, <article>, <aside>, <footer>) with external CSS styling.",
-      code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <title>Shivaji English School & Jr. College</title>\n  <style>\n    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f8fafc; color: #1e293b; }\n    header { background: #0f172a; color: white; padding: 1.5rem; text-align: center; }\n    nav { background: #1e293b; display: flex; justify-content: center; gap: 1.5rem; padding: 0.75rem; }\n    nav a { color: #38bdf8; text-decoration: none; font-weight: 600; }\n    .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }\n    .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 1rem; margin-top: 2rem; }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>Shivaji English School & Jr. College</h1>\n    <p>Pandur Titha, Sindhudurg • Affiliated to MSBSHSE Pune</p>\n  </header>\n  <nav>\n    <a href="#home">Home</a>\n    <a href="#streams">Streams</a>\n    <a href="#facilities">Facilities</a>\n    <a href="#contact">Contact</a>\n  </nav>\n  <div class="container">\n    <div class="card">\n      <h2>Welcome to Sindhudurg's Premier Institution</h2>\n      <p>Providing quality education in Science, Commerce, Arts, and IT since 1960.</p>\n    </div>\n  </div>\n  <footer>\n    <p>&copy; 2026 Shivaji English School & Jr. College. All Rights Reserved.</p>\n  </footer>\n</body>\n</html>`
-    },
-    sop2: {
-      badge: "SOP 2 • JavaScript Validation",
-      title: "Client-Side Form Validation using JavaScript",
-      aim: "To implement robust JavaScript client-side validation on an admission inquiry form verifying Name (non-empty & alphabetic), Email, 10-digit Phone number, and Stream selection.",
-      code: `function validateAdmissionForm() {\n  const name = document.getElementById('studentName').value.trim();\n  const email = document.getElementById('studentEmail').value.trim();\n  const phone = document.getElementById('studentPhone').value.trim();\n  const stream = document.getElementById('studentStream').value;\n\n  // 1. Name validation (Alphabets only)\n  const nameRegex = /^[A-Za-z\\s]{3,40}$/;\n  if (!nameRegex.test(name)) {\n    alert("Please enter a valid Student Name (alphabets only, min 3 characters).");\n    return false;\n  }\n\n  // 2. Email validation\n  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  if (!emailRegex.test(email)) {\n    alert("Please enter a valid Email address.");\n    return false;\n  }\n\n  // 3. Phone validation (10 digits starting with 6, 7, 8, 9)\n  const phoneRegex = /^[6-9]\\d{9}$/;\n  if (!phoneRegex.test(phone)) {\n    alert("Please enter a valid 10-digit Indian Mobile Number.");\n    return false;\n  }\n\n  // 4. Stream selection\n  if (stream === "" || stream === "select") {\n    alert("Please select an Academic Stream (Science / Commerce / Arts / IT).");\n    return false;\n  }\n\n  alert("Form validated successfully! Admission inquiry submitted.");\n  return true;\n}`
-    },
-    sop3: {
-      badge: "SOP 3 • Audio & Video Media",
-      title: "Embedding Multimedia (Audio & Video) in HTML5",
-      aim: "To integrate HTML5 <audio> and <video> elements with custom controls, multiple source codecs (mp4/webm, mp3/ogg), fallback messages, and CSS styling.",
-      code: `<section class="multimedia-section">\n  <h2>College Anthem & Campus Tour</h2>\n  \n  <!-- HTML5 Audio -->\n  <div class="media-box">\n    <h3>Shivaji School Anthem (Audio)</h3>\n    <audio controls preload="metadata">\n      <source src="media/anthem.mp3" type="audio/mpeg">\n      <source src="media/anthem.ogg" type="audio/ogg">\n      Your browser does not support the audio element.\n    </audio>\n  </div>\n\n  <!-- HTML5 Video -->\n  <div class="media-box">\n    <h3>Interactive Campus Walkthrough (Video)</h3>\n    <video controls poster="images/facilities/smart-class.jpg" width="100%" height="auto">\n      <source src="media/campus-tour.mp4" type="video/mp4">\n      <source src="media/campus-tour.webm" type="video/webm">\n      Your browser does not support the video tag.\n    </video>\n  </div>\n</section>`
-    },
-    sop4: {
-      badge: "SOP 4 • Image Mapping",
-      title: "Client-Side Image Mapping with Clickable Hotspots",
-      aim: "To create an interactive campus map graphic utilizing <map> and <area> tags with rect, circle, and poly coordinate shapes linking to respective college departments.",
-      code: `<div class="image-map-container">\n  <h2>Interactive Campus Department Map</h2>\n  <img src="images/campus-map.jpg" usemap="#campusmap" alt="Campus Map" width="800" height="400">\n\n  <map name="campusmap">\n    <!-- Rectangular Area for Science & IT Wing -->\n    <area shape="rect" coords="34,44,270,350" href="#academics" alt="Science & IT Labs" title="Science & IT Building">\n    \n    <!-- Circular Area for Central Library -->\n    <area shape="circle" coords="410,200,90" href="#campus" alt="Central Library" title="Central Library & Reading Hall">\n    \n    <!-- Polygonal Area for Sports Ground -->\n    <area shape="poly" coords="520,60,780,60,750,360,500,320" href="#gallery" alt="Athletic Grounds" title="2-Acre Sports Complex">\n  </map>\n</div>`
-    },
-    sop5: {
-      badge: "SOP 5 • CSS Flexbox Layout",
-      title: "Responsive Multi-Card Layout using CSS Flexbox",
-      aim: "To implement modern responsive web page cards that adjust automatically between desktop, tablet, and mobile screens using flexbox properties (flex-wrap, justify-content, gap).",
-      code: `.course-grid {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1.5rem;\n  justify-content: space-between;\n}\n\n.course-card {\n  flex: 1 1 calc(25% - 1.5rem);\n  min-width: 250px;\n  background: white;\n  border-radius: 12px;\n  padding: 1.5rem;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n}\n\n.course-card:hover {\n  transform: translateY(-6px);\n  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);\n}\n\n@media (max-width: 768px) {\n  .course-card {\n    flex: 1 1 100%;\n  }\n}`
-    },
-    sop6: {
-      badge: "SOP 6 • SEO & Meta Tags",
-      title: "Search Engine Optimization (SEO) & Structured Headings",
-      aim: "To optimize web pages for search engines using standard Meta tags (charset, description, keywords, author, robots, OpenGraph), semantic hierarchy (H1-H6), and alt attributes.",
-      code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Shivaji English School & Jr. College | Pandur Titha, Sindhudurg</title>\n  \n  <!-- Core SEO Meta Tags -->\n  <meta name="description" content="Official website of Shivaji English School & Junior College, Pandur Titha, Sindhudurg. Admissions open for 11th & 12th Science, Commerce, Arts, and IT.">\n  <meta name="keywords" content="Shivaji College Pandur Titha, Sindhudurg Junior College, 12th IT HSC Maharashtra Board, Sindhudurg Science College">\n  <meta name="author" content="Shivaji English School & Jr. College IT Dept">\n  <meta name="robots" content="index, follow">\n\n  <!-- Open Graph for Social Media Sharing -->\n  <meta property="og:title" content="Shivaji English School & Junior College">\n  <meta property="og:description" content="64+ Years of Academic Excellence in Sindhudurg.">\n  <meta property="og:image" content="https://images.unsplash.com/photo-1562774053-701939374585">\n  <meta property="og:type" content="website">\n</head>\n<body>\n  <h1>Shivaji English School & Junior College - Pandur Titha</h1>\n  <!-- Structured Semantic Content -->\n</body>\n</html>`
-    }
+    sop1: { badge: "SOP 1 • HTML5 & CSS", title: "Creation of Website using HTML5 and CSS3 Layout", aim: "To design a multi-page responsive college portal adhering to HTML5 semantic tags (<header>, <nav>, <section>, <article>, <aside>, <footer>) with external CSS styling.", code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <title>Shivaji English School & Jr. College</title>\n  <style>\n    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f8fafc; color: #1e293b; }\n    header { background: #0f172a; color: white; padding: 1.5rem; text-align: center; }\n    nav { background: #1e293b; display: flex; justify-content: center; gap: 1.5rem; padding: 0.75rem; }\n    nav a { color: #38bdf8; text-decoration: none; font-weight: 600; }\n    .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }\n    .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 1rem; margin-top: 2rem; }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>Shivaji English School & Jr. College</h1>\n    <p>Pandur Titha, Sindhudurg • Affiliated to MSBSHSE Pune</p>\n  </header>\n  <nav>\n    <a href="#home">Home</a>\n    <a href="#streams">Streams</a>\n    <a href="#facilities">Facilities</a>\n    <a href="#contact">Contact</a>\n  </nav>\n  <div class="container">\n    <div class="card">\n      <h2>Welcome to Sindhudurg's Premier Institution</h2>\n      <p>Providing quality education in Science, Commerce, Arts, and IT since 1960.</p>\n    </div>\n  </div>\n  <footer>\n    <p>&copy; 2026 Shivaji English School & Jr. College. All Rights Reserved.</p>\n  </footer>\n</body>\n</html>` },
+    sop2: { badge: "SOP 2 • JavaScript Validation", title: "Client-Side Form Validation using JavaScript", aim: "To implement robust JavaScript client-side validation on an admission inquiry form verifying Name (non-empty & alphabetic), Email, 10-digit Phone number, and Stream selection.", code: `function validateAdmissionForm() {\n  const name = document.getElementById('studentName').value.trim();\n  const email = document.getElementById('studentEmail').value.trim();\n  const phone = document.getElementById('studentPhone').value.trim();\n  const stream = document.getElementById('studentStream').value;\n\n  // 1. Name validation (Alphabets only)\n  const nameRegex = /^[A-Za-z\\s]{3,40}$/;\n  if (!nameRegex.test(name)) {\n    alert("Please enter a valid Student Name (alphabets only, min 3 characters).");\n    return false;\n  }\n\n  // 2. Email validation\n  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  if (!emailRegex.test(email)) {\n    alert("Please enter a valid Email address.");\n    return false;\n  }\n\n  // 3. Phone validation (10 digits starting with 6, 7, 8, 9)\n  const phoneRegex = /^[6-9]\\d{9}$/;\n  if (!phoneRegex.test(phone)) {\n    alert("Please enter a valid 10-digit Indian Mobile Number.");\n    return false;\n  }\n\n  // 4. Stream selection\n  if (stream === "" || stream === "select") {\n    alert("Please select an Academic Stream (Science / Commerce / Arts / IT).");\n    return false;\n  }\n\n  alert("Form validated successfully! Admission inquiry submitted.");\n  return true;\n}` },
+    sop3: { badge: "SOP 3 • Audio & Video Media", title: "Embedding Multimedia (Audio & Video) in HTML5", aim: "To integrate HTML5 <audio> and <video> elements with custom controls, multiple source codecs (mp4/webm, mp3/ogg), fallback messages, and CSS styling.", code: `<section class="multimedia-section">\n  <h2>College Anthem & Campus Tour</h2>\n  \n  <!-- HTML5 Audio -->\n  <div class="media-box">\n    <h3>Shivaji School Anthem (Audio)</h3>\n    <audio controls preload="metadata">\n      <source src="media/anthem.mp3" type="audio/mpeg">\n      <source src="media/anthem.ogg" type="audio/ogg">\n      Your browser does not support the audio element.\n    </audio>\n  </div>\n\n  <!-- HTML5 Video -->\n  <div class="media-box">\n    <h3>Interactive Campus Walkthrough (Video)</h3>\n    <video controls poster="images/facilities/smart-class.jpg" width="100%" height="auto">\n      <source src="media/campus-tour.mp4" type="video/mp4">\n      <source src="media/campus-tour.webm" type="video/webm">\n      Your browser does not support the video tag.\n    </video>\n  </div>\n</section>` },
+    sop4: { badge: "SOP 4 • Image Mapping", title: "Client-Side Image Mapping with Clickable Hotspots", aim: "To create an interactive campus map graphic utilizing <map> and <area> tags with rect, circle, and poly coordinate shapes linking to respective college departments.", code: `<div class="image-map-container">\n  <h2>Interactive Campus Department Map</h2>\n  <img src="images/campus-map.jpg" usemap="#campusmap" alt="Campus Map" width="800" height="400">\n\n  <map name="campusmap">\n    <!-- Rectangular Area for Science & IT Wing -->\n    <area shape="rect" coords="34,44,270,350" href="#academics" alt="Science & IT Labs" title="Science & IT Building">\n    \n    <!-- Circular Area for Central Library -->\n    <area shape="circle" coords="410,200,90" href="#campus" alt="Central Library" title="Central Library & Reading Hall">\n    \n    <!-- Polygonal Area for Sports Ground -->\n    <area shape="poly" coords="520,60,780,60,750,360,500,320" href="#gallery" alt="Athletic Grounds" title="2-Acre Sports Complex">\n  </map>\n</div>` },
+    sop5: { badge: "SOP 5 • CSS Flexbox Layout", title: "Responsive Multi-Card Layout using CSS Flexbox", aim: "To implement modern responsive web page cards that adjust automatically between desktop, tablet, and mobile screens using flexbox properties (flex-wrap, justify-content, gap).", code: `.course-grid {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1.5rem;\n  justify-content: space-between;\n}\n\n.course-card {\n  flex: 1 1 calc(25% - 1.5rem);\n  min-width: 250px;\n  background: white;\n  border-radius: 12px;\n  padding: 1.5rem;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n}\n\n.course-card:hover {\n  transform: translateY(-6px);\n  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);\n}\n\n@media (max-width: 768px) {\n  .course-card {\n    flex: 1 1 100%;\n  }\n}` },
+    sop6: { badge: "SOP 6 • SEO & Meta Tags", title: "Search Engine Optimization (SEO) & Structured Headings", aim: "To optimize web pages for search engines using standard Meta tags (charset, description, keywords, author, robots, OpenGraph), semantic hierarchy (H1-H6), and alt attributes.", code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Shivaji English School & Jr. College | Pandur Titha, Sindhudurg</title>\n  \n  <!-- Core SEO Meta Tags -->\n  <meta name="description" content="Official website of Shivaji English School & Junior College, Pandur Titha, Sindhudurg. Admissions open for 11th & 12th Science, Commerce, Arts, and IT.">\n  <meta name="keywords" content="Shivaji College Pandur Titha, Sindhudurg Junior College, 12th IT HSC Maharashtra Board, Sindhudurg Science College">\n  <meta name="author" content="Shivaji English School & Jr. College IT Dept">\n  <meta name="robots" content="index, follow">\n\n  <!-- Open Graph for Social Media Sharing -->\n  <meta property="og:title" content="Shivaji English School & Junior College">\n  <meta property="og:description" content="64+ Years of Academic Excellence in Sindhudurg.">\n  <meta property="og:image" content="https://images.unsplash.com/photo-1562774053-701939374585">\n  <meta property="og:type" content="website">\n</head>\n<body>\n  <h1>Shivaji English School & Junior College - Pandur Titha</h1>\n  <!-- Structured Semantic Content -->\n</body>\n</html>` }
   };
 
+  // =========================================================================
+  // CORE FUNCTIONS
+  // =========================================================================
   window.applyLanguage = function(lang) {
     safeSetItem('ses_lang', lang);
     state.lang = lang;
@@ -471,13 +398,8 @@
     const btnEn = document.getElementById('langEnBtn');
     const btnMr = document.getElementById('langMrBtn');
     if (btnEn && btnMr) {
-      if (lang === 'mr') {
-        btnMr.classList.add('active');
-        btnEn.classList.remove('active');
-      } else {
-        btnEn.classList.add('active');
-        btnMr.classList.remove('active');
-      }
+      if (lang === 'mr') { btnMr.classList.add('active'); btnEn.classList.remove('active'); } 
+      else { btnEn.classList.add('active'); btnMr.classList.remove('active'); }
     }
 
     for (const key in dict) {
@@ -530,12 +452,7 @@
     ['fontSmBtn', 'fontMdBtn', 'fontLgBtn', 'fontXlBtn'].forEach(btnId => {
       const btn = document.getElementById(btnId);
       if (!btn) return;
-      if (
-        (btnId === 'fontSmBtn' && sizeClass === 'font-sm') ||
-        (btnId === 'fontMdBtn' && sizeClass === 'font-md') ||
-        (btnId === 'fontLgBtn' && sizeClass === 'font-lg') ||
-        (btnId === 'fontXlBtn' && sizeClass === 'font-xl')
-      ) {
+      if ((btnId === 'fontSmBtn' && sizeClass === 'font-sm') || (btnId === 'fontMdBtn' && sizeClass === 'font-md') || (btnId === 'fontLgBtn' && sizeClass === 'font-lg') || (btnId === 'fontXlBtn' && sizeClass === 'font-xl')) {
         btn.classList.add('active');
       } else {
         btn.classList.remove('active');
@@ -546,43 +463,21 @@
   window.applyTheme = function(isDark) {
     safeSetItem('ses_dark', isDark);
     state.darkMode = isDark;
-    if (isDark) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-
+    if (isDark) { document.body.classList.add('dark-theme'); } else { document.body.classList.remove('dark-theme'); }
     const btn = document.getElementById('darkModeToggleBtn');
-    if (btn) {
-      if (isDark) btn.classList.add('active');
-      else btn.classList.remove('active');
-    }
-
+    if (btn) { if (isDark) btn.classList.add('active'); else btn.classList.remove('active'); }
     const txt = document.getElementById('txtDarkStatus');
-    if (txt) {
-      txt.textContent = isDark ? (state.lang === 'mr' ? 'सुरू' : 'On') : (state.lang === 'mr' ? 'बंद' : 'Off');
-    }
+    if (txt) { txt.textContent = isDark ? (state.lang === 'mr' ? 'सुरू' : 'On') : (state.lang === 'mr' ? 'बंद' : 'Off'); }
   };
 
   window.applySmartBoard = function(isSmart) {
     safeSetItem('ses_smart', isSmart);
     state.smartBoard = isSmart;
-    if (isSmart) {
-      document.body.classList.add('smartboard-mode');
-    } else {
-      document.body.classList.remove('smartboard-mode');
-    }
-
+    if (isSmart) { document.body.classList.add('smartboard-mode'); } else { document.body.classList.remove('smartboard-mode'); }
     const btn = document.getElementById('smartBoardToggleBtn');
-    if (btn) {
-      if (isSmart) btn.classList.add('active');
-      else btn.classList.remove('active');
-    }
-
+    if (btn) { if (isSmart) btn.classList.add('active'); else btn.classList.remove('active'); }
     const txt = document.getElementById('txtSmartStatus');
-    if (txt) {
-      txt.textContent = isSmart ? (state.lang === 'mr' ? 'सुरू' : 'On') : (state.lang === 'mr' ? 'बंद' : 'Off');
-    }
+    if (txt) { txt.textContent = isSmart ? (state.lang === 'mr' ? 'सुरू' : 'On') : (state.lang === 'mr' ? 'बंद' : 'Off'); }
   };
 
   window.openSettingsModal = function() {
@@ -608,46 +503,69 @@
     }
   };
 
+  // =========================================================================
+  // NOTICE BOARD MODAL LOGIC (ADDED)
+  // =========================================================================
+  window.openNoticeModal = function(noticeId) {
+    const modal = document.getElementById('noticeModal');
+    const noticeItem = document.querySelector(`.notice-item[data-notice-id="${noticeId}"]`);
+    
+    if (modal && noticeItem) {
+      const tagHTML = noticeItem.querySelector('.notice-tag').outerHTML;
+      const titleText = noticeItem.querySelector('h4').textContent;
+      const descText = noticeItem.querySelector('p').textContent;
+      const day = noticeItem.querySelector('.date-day').textContent;
+      const month = noticeItem.querySelector('.date-month').textContent;
+      
+      document.getElementById('noticeModalTagWrap').innerHTML = tagHTML;
+      document.getElementById('noticeModalDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${day} ${month} 2026`;
+      document.getElementById('noticeModalTitle').textContent = titleText;
+      document.getElementById('noticeModalDesc').textContent = descText;
+      
+      modal.classList.add('open');
+    }
+  };
+  
+  window.closeNoticeModal = function() {
+    const modal = document.getElementById('noticeModal');
+    if (modal) modal.classList.remove('open');
+  };
+
+  // =========================================================================
+  // FACILITIES, GALLERY, AND LIGHTBOX
+  // =========================================================================
   window.selectFacility = function(key) {
     state.currentFacility = key;
     const fac = facilitiesData[key];
     if (!fac) return;
 
     document.querySelectorAll('.facility-btn').forEach(btn => {
-      if (btn.getAttribute('data-fac-key') === key) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      if (btn.getAttribute('data-fac-key') === key) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     });
 
     const imgEl = document.getElementById('facilityImg');
-    const badgeEl = document.getElementById('facilityImgBadge');
-    const iconEl = document.getElementById('facilityIcon');
-    const titleEl = document.getElementById('facilityTitle');
-    const descEl = document.getElementById('facilityDesc');
-    const tagsEl = document.getElementById('facilityTags');
-
     if (imgEl) {
       imgEl.src = fac.img;
-      imgEl.onerror = function() {
-        if (this.src !== fac.fallbackImg) {
-          this.src = fac.fallbackImg;
-        }
-        this.onerror = null;
-      };
+      imgEl.onerror = function() { if (this.src !== fac.fallbackImg) { this.src = fac.fallbackImg; } this.onerror = null; };
       imgEl.alt = state.lang === 'mr' ? fac.titleMr : fac.titleEn;
     }
 
+    const badgeEl = document.getElementById('facilityImgBadge');
     if (badgeEl) {
       const bText = state.lang === 'mr' ? (fac.badgeMr || '') : (fac.badgeEn || '');
       badgeEl.innerHTML = `<i class="fa-solid ${fac.icon}"></i> <span>${bText}</span>`;
     }
 
+    const iconEl = document.getElementById('facilityIcon');
     if (iconEl) iconEl.innerHTML = `<i class="fa-solid ${fac.icon}"></i>`;
+    
+    const titleEl = document.getElementById('facilityTitle');
     if (titleEl) titleEl.textContent = state.lang === 'mr' ? fac.titleMr : fac.titleEn;
+    
+    const descEl = document.getElementById('facilityDesc');
     if (descEl) descEl.textContent = state.lang === 'mr' ? fac.descMr : fac.descEn;
 
+    const tagsEl = document.getElementById('facilityTags');
     if (tagsEl) {
       const tags = state.lang === 'mr' ? fac.tagsMr : fac.tagsEn;
       tagsEl.innerHTML = tags.map(t => `<span class="badge">${t}</span>`).join('');
@@ -658,42 +576,23 @@
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
     activeGalleryList = [{
-      img: fac.img,
-      fallbackImg: fac.fallbackImg,
-      titleEn: fac.titleEn,
-      titleMr: fac.titleMr,
-      descEn: fac.descEn,
-      descMr: fac.descMr,
-      catEn: 'Campus Facility',
-      catMr: 'परिसर सुविधा',
-      dateEn: 'Infrastructure',
-      dateMr: 'पायाभूत सुविधा'
+      img: fac.img, fallbackImg: fac.fallbackImg, titleEn: fac.titleEn, titleMr: fac.titleMr, descEn: fac.descEn, descMr: fac.descMr, catEn: 'Campus Facility', catMr: 'परिसर सुविधा', dateEn: 'Infrastructure', dateMr: 'पायाभूत सुविधा'
     }];
     window.openLightbox(0);
   };
 
   window.filterGalleryCategory = function(filter) {
     state.currentGalleryFilter = filter;
-    activeGalleryList = filter === 'all'
-      ? galleryData
-      : galleryData.filter(item => item.category === filter);
+    activeGalleryList = filter === 'all' ? galleryData : galleryData.filter(item => item.category === filter);
 
     document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
-      if (btn.getAttribute('data-filter') === filter) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      if (btn.getAttribute('data-filter') === filter) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     });
 
     const cards = document.querySelectorAll('.gallery-card');
     cards.forEach(card => {
       const cat = card.getAttribute('data-category');
-      if (filter === 'all' || cat === filter) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+      if (filter === 'all' || cat === filter) { card.style.display = 'block'; } else { card.style.display = 'none'; }
     });
   };
 
@@ -720,27 +619,17 @@
     if (!modal || !item) return;
 
     const img = document.getElementById('lightboxImg');
-    const title = document.getElementById('lightboxTitle');
-    const desc = document.getElementById('lightboxDesc');
-    const cat = document.getElementById('lightboxCategory');
-    const counter = document.getElementById('lightboxCounter');
-    const date = document.getElementById('lightboxDate');
-
     if (img) {
       img.src = item.img;
-      img.onerror = function() {
-        if (this.src !== item.fallbackImg) {
-          this.src = item.fallbackImg;
-        }
-        this.onerror = null;
-      };
+      img.onerror = function() { if (this.src !== item.fallbackImg) { this.src = item.fallbackImg; } this.onerror = null; };
       img.alt = state.lang === 'mr' ? item.titleMr : item.titleEn;
     }
-    if (title) title.textContent = state.lang === 'mr' ? item.titleMr : item.titleEn;
-    if (desc) desc.textContent = state.lang === 'mr' ? item.descMr : item.descEn;
-    if (cat) cat.textContent = state.lang === 'mr' ? item.catMr : item.catEn;
-    if (date) date.innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
-    if (counter) counter.textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
+    
+    document.getElementById('lightboxTitle').textContent = state.lang === 'mr' ? item.titleMr : item.titleEn;
+    document.getElementById('lightboxDesc').textContent = state.lang === 'mr' ? item.descMr : item.descEn;
+    document.getElementById('lightboxCategory').textContent = state.lang === 'mr' ? item.catMr : item.catEn;
+    document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
+    document.getElementById('lightboxCounter').textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -754,22 +643,20 @@
 
   window.nextLightbox = function() {
     if (activeGalleryList.length === 0) return;
-    let nextIdx = (state.activeLightboxIndex + 1) % activeGalleryList.length;
-    window.openLightbox(nextIdx);
+    window.openLightbox((state.activeLightboxIndex + 1) % activeGalleryList.length);
   };
 
   window.prevLightbox = function() {
     if (activeGalleryList.length === 0) return;
-    let prevIdx = (state.activeLightboxIndex - 1 + activeGalleryList.length) % activeGalleryList.length;
-    window.openLightbox(prevIdx);
+    window.openLightbox((state.activeLightboxIndex - 1 + activeGalleryList.length) % activeGalleryList.length);
   };
 
+  // =========================================================================
+  // IT HUB MODAL & AI WIDGET
+  // =========================================================================
   window.openItHubModal = function() {
     const modal = document.getElementById('itHubModal');
-    if (modal) {
-      modal.classList.add('open');
-      window.renderSopContent(state.currentSop);
-    }
+    if (modal) { modal.classList.add('open'); window.renderSopContent(state.currentSop); }
   };
 
   window.closeItHubModal = function() {
@@ -780,11 +667,7 @@
   window.selectSopTab = function(sopKey) {
     state.currentSop = sopKey;
     document.querySelectorAll('.sop-tab-btn').forEach(btn => {
-      if (btn.getAttribute('data-sop-tab') === sopKey) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      if (btn.getAttribute('data-sop-tab') === sopKey) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     });
     window.renderSopContent(sopKey);
   };
@@ -794,16 +677,13 @@
     if (!container) return;
     const item = sopData[sopKey] || sopData.sop1;
 
-    const escapeHTML = str => str.replace(/[&<>'"]/g, tag => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-    }[tag] || tag));
+    const escapeHTML = str => str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
 
     container.innerHTML = `
       <div class="sop-content-card">
         <span class="sop-title-badge">${item.badge}</span>
         <h4 class="sop-heading">${item.title}</h4>
         <p class="sop-desc"><strong>Aim / Objective:</strong> ${item.aim}</p>
-        
         <div class="sop-code-container">
           <div class="sop-code-header">
             <span><i class="fa-solid fa-code"></i> Verified HSC Board Practical Solution</span>
@@ -818,37 +698,24 @@
   window.copySopCode = function() {
     const codeEl = document.getElementById('sopActiveCodeText');
     if (!codeEl) return;
-    const text = codeEl.textContent;
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(codeEl.textContent).then(() => {
       alert(state.lang === 'mr' ? "कोड क्लिपबोर्डवर यशस्वीरीत्या कॉपी केला गेला!" : "Practical source code successfully copied to clipboard!");
-    }).catch(() => {
-      alert("Code selected. You can press Ctrl+C to copy.");
-    });
+    }).catch(() => { alert("Code selected. You can press Ctrl+C to copy."); });
   };
 
-  // =========================================================================
-  // FIX: OPEN REAL LINKS IN NEW TABS FOR THE STUDENT HUB
-  // =========================================================================
   window.openResourceInfo = function(type) {
     if (type === 'science') {
-      // Official National Testing Agency (NTA) archive for NEET/JEE
       window.open('https://nta.ac.in/Downloads', '_blank');
     } else if (type === 'commerce') {
-      // Official Maharashtra eBalbharati portal
       window.open('https://ebalbharati.in/main/publicHome.aspx', '_blank');
     } else if (type === 'papers') {
-      // Shaalaa (most widely used by HSC students for board papers) or Official Board
       window.open('https://shaalaa.com/question-papers/maharashtra-state-board-12th-board-exam-hsc-science-general_33', '_blank');
     }
   };
 
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
-    if (win) {
-      win.classList.add('open');
-      const input = document.getElementById('aiUserInput');
-      if (input) input.focus();
-    }
+    if (win) { win.classList.add('open'); document.getElementById('aiUserInput').focus(); }
   };
 
   window.closeAiChat = function() {
@@ -858,9 +725,8 @@
 
   window.sendAiMessage = function() {
     const input = document.getElementById('aiUserInput');
-    if (!input) return;
+    if (!input || !input.value.trim()) return;
     const text = input.value.trim();
-    if (!text) return;
     appendAiMessage(text, 'user');
     input.value = '';
     processAiText(text);
@@ -881,48 +747,31 @@
     let reply = "";
 
     if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('फॉर्म') || q.includes('फी')) {
-      reply = state.lang === 'mr'
-        ? "📚 <strong>प्रवेश २०२६-२७ माहिती:</strong><br>• इयत्ता ११ वी कला, वाणिज्य व विज्ञान आणि ५ वी ते १० वी प्रवेश सुरू आहेत.<br>• <strong>आवश्यक कागदपत्रे:</strong> १० वी गुणपत्रिका, शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो.<br>• <strong>फी रचना:</strong> शासन नियमांनुसार माफक/अनुदानित फी व EBC/मागासवर्गीय शिष्यवृत्ती उपलब्ध.<br>• <strong>कार्यालय संपर्क:</strong> +91 (02362) 224-8090"
-        : "📚 <strong>Admissions 2026–27 Information:</strong><br>• Admissions are open for 11th Science, Commerce, Arts & IT streams, as well as Secondary Grades 5th–10th.<br>• <strong>Required Documents:</strong> 10th Marksheet, School Leaving Certificate (LC), Aadhaar Card & photos.<br>• <strong>Fee Structure:</strong> Highly subsidized government-aided fees with EBC & government scholarships.<br>• <strong>Helpline:</strong> +91 (02362) 224-8090";
+      reply = state.lang === 'mr' ? "📚 <strong>प्रवेश २०२६-२७ माहिती:</strong><br>• इयत्ता ११ वी कला, वाणिज्य व विज्ञान आणि ५ वी ते १० वी प्रवेश सुरू आहेत.<br>• <strong>आवश्यक कागदपत्रे:</strong> १० वी गुणपत्रिका, शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो.<br>• <strong>फी रचना:</strong> शासन नियमांनुसार माफक/अनुदानित फी व EBC/मागासवर्गीय शिष्यवृत्ती उपलब्ध.<br>• <strong>कार्यालय संपर्क:</strong> +91 (02362) 224-8090" : "📚 <strong>Admissions 2026–27 Information:</strong><br>• Admissions are open for 11th Science, Commerce, Arts & IT streams, as well as Secondary Grades 5th–10th.<br>• <strong>Required Documents:</strong> 10th Marksheet, School Leaving Certificate (LC), Aadhaar Card & photos.<br>• <strong>Fee Structure:</strong> Highly subsidized government-aided fees with EBC & government scholarships.<br>• <strong>Helpline:</strong> +91 (02362) 224-8090";
     } else if (q.includes('it') || q.includes('sop') || q.includes('practical') || q.includes('प्रॅक्टिकल') || q.includes('code') || q.includes('कोड')) {
-      reply = state.lang === 'mr'
-        ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>• महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे.<br>• वर दिलेल्या <strong>View IT SOPs & Code</strong> बटणावर क्लिक करून आपण थेट कोड पाहू व कॉपी करू शकता."
-        : "💻 <strong>12th HSC IT Practical Hub:</strong><br>• Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) including HTML5, CSS Flexbox, JavaScript Validation, Image Mapping, and SEO are ready in the <em>Student Hub</em>.<br>• Click the <strong>View IT SOPs & Code</strong> button to view and copy complete source code.";
+      reply = state.lang === 'mr' ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>• महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे.<br>• वर दिलेल्या <strong>View IT SOPs & Code</strong> बटणावर क्लिक करून आपण थेट कोड पाहू व कॉपी करू शकता." : "💻 <strong>12th HSC IT Practical Hub:</strong><br>• Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) including HTML5, CSS Flexbox, JavaScript Validation, Image Mapping, and SEO are ready in the <em>Student Hub</em>.<br>• Click the <strong>View IT SOPs & Code</strong> button to view and copy complete source code.";
     } else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब') || q.includes('chemistry') || q.includes('physics') || q.includes('library')) {
-      reply = state.lang === 'mr'
-        ? "🏫 <strong>महाविद्यालयीन पायाभूत सुविधा:</strong><br>• <strong>स्मार्ट क्लासरूम्स:</strong> परस्परसंवादी टच स्क्रीन व ऑडिओ-व्हिज्युअल सिस्टम.<br>• <strong>IT लॅब:</strong> ४०+ हाय-स्पीड कॉम्प्युटर, गिगाबिट लॅन व अखंड वीजपुरवठा.<br>• <strong>विज्ञान लॅब:</strong> सुसज्ज भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रयोगशाळा.<br>• <strong>मध्यवर्ती ग्रंथालय:</strong> १५,०००+ पुस्तके व वाचनालय.<br>• <strong>क्रीडांगण:</strong> २ एकराचे भव्य क्रीडांगण व व्हॉलीबॉल कोर्ट."
-        : "🏫 <strong>Campus Infrastructure & Facilities:</strong><br>• <strong>Smart Classrooms:</strong> Interactive touch displays & digital podiums.<br>• <strong>IT Lab:</strong> 40+ Core-i5 PCs, gigabit LAN, Linux/Windows OS & UPS backup.<br>• <strong>Science Labs:</strong> Dedicated Physics, Chemistry & Biology laboratories.<br>• <strong>Central Library:</strong> 15,000+ reference books & 100-seat reading hall.<br>• <strong>Sports Complex:</strong> 2-acre athletic grounds, Kabaddi/Kho-Kho arenas & volleyball court.";
+      reply = state.lang === 'mr' ? "🏫 <strong>महाविद्यालयीन पायाभूत सुविधा:</strong><br>• <strong>स्मार्ट क्लासरूम्स:</strong> परस्परसंवादी टच स्क्रीन व ऑडिओ-व्हिज्युअल सिस्टम.<br>• <strong>IT लॅब:</strong> ४०+ हाय-स्पीड कॉम्प्युटर, गिगाबिट लॅन व अखंड वीजपुरवठा.<br>• <strong>विज्ञान लॅब:</strong> सुसज्ज भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रयोगशाळा.<br>• <strong>मध्यवर्ती ग्रंथालय:</strong> १५,०००+ पुस्तके व वाचनालय.<br>• <strong>क्रीडांगण:</strong> २ एकराचे भव्य क्रीडांगण व व्हॉलीबॉल कोर्ट." : "🏫 <strong>Campus Infrastructure & Facilities:</strong><br>• <strong>Smart Classrooms:</strong> Interactive touch displays & digital podiums.<br>• <strong>IT Lab:</strong> 40+ Core-i5 PCs, gigabit LAN, Linux/Windows OS & UPS backup.<br>• <strong>Science Labs:</strong> Dedicated Physics, Chemistry & Biology laboratories.<br>• <strong>Central Library:</strong> 15,000+ reference books & 100-seat reading hall.<br>• <strong>Sports Complex:</strong> 2-acre athletic grounds, Kabaddi/Kho-Kho arenas & volleyball court.";
     } else if (q.includes('stream') || q.includes('course') || q.includes('शाखा') || q.includes('subject') || q.includes('विषय')) {
-      reply = state.lang === 'mr'
-        ? "🎓 <strong>उपलब्ध शैक्षणिक शाखा:</strong><br>१. <strong>विज्ञान (Science):</strong> Physics, Chemistry, Maths, Biology, Information Technology (IT).<br>२. <strong>वाणिज्य (Commerce):</strong> Book Keeping & Accountancy, OCM, SP, Economics, IT.<br>३. <strong>कला (Arts):</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>४. <strong>माध्यमिक (Grades 5-10):</strong> सेमी-इंग्रजी व मराठी माध्यम."
-        : "🎓 <strong>Available Academic Streams:</strong><br>1. <strong>Science Stream:</strong> Physics, Chemistry, Mathematics, Biology, Information Technology (IT).<br>2. <strong>Commerce Stream:</strong> Accountancy, OCM, Secretarial Practice, Economics, IT.<br>3. <strong>Arts Stream:</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>4. <strong>Secondary (5th–10th):</strong> Semi-English & English medium options.";
+      reply = state.lang === 'mr' ? "🎓 <strong>उपलब्ध शैक्षणिक शाखा:</strong><br>१. <strong>विज्ञान (Science):</strong> Physics, Chemistry, Maths, Biology, Information Technology (IT).<br>२. <strong>वाणिज्य (Commerce):</strong> Book Keeping & Accountancy, OCM, SP, Economics, IT.<br>३. <strong>कला (Arts):</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>४. <strong>माध्यमिक (Grades 5-10):</strong> सेमी-इंग्रजी व मराठी माध्यम." : "🎓 <strong>Available Academic Streams:</strong><br>1. <strong>Science Stream:</strong> Physics, Chemistry, Mathematics, Biology, Information Technology (IT).<br>2. <strong>Commerce Stream:</strong> Accountancy, OCM, Secretarial Practice, Economics, IT.<br>3. <strong>Arts Stream:</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>4. <strong>Secondary (5th–10th):</strong> Semi-English & English medium options.";
     } else if (q.includes('timing') || q.includes('time') || q.includes('वेळ') || q.includes('office') || q.includes('कार्यालय')) {
-      reply = state.lang === 'mr'
-        ? "🕒 <strong>महाविद्यालयीन वेळा:</strong><br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> सकाळी ७:३० ते दुपारी १:००<br>• <strong>माध्यमिक शाळा (५ वी ते १० वी):</strong> सकाळी १०:०० ते सायंकाळी ५:००<br>• <strong>प्रशासकीय कार्यालय:</strong> सकाळी ९:३० ते सायंकाळी ५:३० (सोमवार ते शनिवार)"
-        : "🕒 <strong>College & Office Timings:</strong><br>• <strong>Junior College (11th & 12th):</strong> 7:30 AM to 1:00 PM<br>• <strong>Secondary School (5th to 10th):</strong> 10:00 AM to 5:00 PM<br>• <strong>Administrative Office:</strong> 9:30 AM to 5:30 PM (Monday to Saturday)";
+      reply = state.lang === 'mr' ? "🕒 <strong>महाविद्यालयीन वेळा:</strong><br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> सकाळी ७:३० ते दुपारी १:००<br>• <strong>माध्यमिक शाळा (५ वी ते १० वी):</strong> सकाळी १०:०० ते सायंकाळी ५:००<br>• <strong>प्रशासकीय कार्यालय:</strong> सकाळी ९:३० ते सायंकाळी ५:३० (सोमवार ते शनिवार)" : "🕒 <strong>College & Office Timings:</strong><br>• <strong>Junior College (11th & 12th):</strong> 7:30 AM to 1:00 PM<br>• <strong>Secondary School (5th to 10th):</strong> 10:00 AM to 5:00 PM<br>• <strong>Administrative Office:</strong> 9:30 AM to 5:30 PM (Monday to Saturday)";
     } else if (q.includes('principal') || q.includes('प्राचार्य') || q.includes('head') || q.includes('management') || q.includes('संस्था')) {
-      reply = state.lang === 'mr'
-        ? "👨‍🏫 <strong>प्रशासकीय नेतृत्व:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील (M.Sc., Ph.D., B.Ed.) - २५+ वर्षे शैक्षणिक अनुभव.<br>• <strong>संस्था:</strong> शिवाजी शिक्षण प्रसारक मंडळ, पांडूर तिठा (स्थापना १९६०)."
-        : "👨‍🏫 <strong>Administrative Leadership:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil (M.Sc., Ph.D., B.Ed.) with 25+ years of distinguished leadership.<br>• <strong>Institution:</strong> Shivaji Shikshan Prasarak Mandal, Pandur Titha (Estd. 1960).";
+      reply = state.lang === 'mr' ? "👨‍🏫 <strong>प्रशासकीय नेतृत्व:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील (M.Sc., Ph.D., B.Ed.) - २५+ वर्षे शैक्षणिक अनुभव.<br>• <strong>संस्था:</strong> शिवाजी शिक्षण प्रसारक मंडळ, पांडूर तिठा (स्थापना १९६०)." : "👨‍🏫 <strong>Administrative Leadership:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil (M.Sc., Ph.D., B.Ed.) with 25+ years of distinguished leadership.<br>• <strong>Institution:</strong> Shivaji Shikshan Prasarak Mandal, Pandur Titha (Estd. 1960).";
     } else if (q.includes('contact') || q.includes('संपर्क') || q.includes('address') || q.includes('पत्ता') || q.includes('phone') || q.includes('नंबर')) {
-      reply = state.lang === 'mr'
-        ? "📍 <strong>संपर्क व पत्ता:</strong><br>• <strong>पत्ता:</strong> पांडूर तिठा, तालुका कुडाळ, जिल्हा सिंधुदुर्ग, महाराष्ट्र ४१६५२८<br>• <strong>फोन:</strong> +91 (02362) 224-8090<br>• <strong>ईमेल:</strong> contact@shivajischoolpandur.edu.in"
-        : "📍 <strong>Contact & Location:</strong><br>• <strong>Address:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra 416528<br>• <strong>Phone:</strong> +91 (02362) 224-8090<br>• <strong>Email:</strong> contact@shivajischoolpandur.edu.in";
+      reply = state.lang === 'mr' ? "📍 <strong>संपर्क व पत्ता:</strong><br>• <strong>पत्ता:</strong> पांडूर तिठा, तालुका कुडाळ, जिल्हा सिंधुदुर्ग, महाराष्ट्र ४१६५२८<br>• <strong>फोन:</strong> +91 (02362) 224-8090<br>• <strong>ईमेल:</strong> contact@shivajischoolpandur.edu.in" : "📍 <strong>Contact & Location:</strong><br>• <strong>Address:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra 416528<br>• <strong>Phone:</strong> +91 (02362) 224-8090<br>• <strong>Email:</strong> contact@shivajischoolpandur.edu.in";
     } else if (q.includes('sport') || q.includes('खेळ') || q.includes('gathering') || q.includes('संमेलन') || q.includes('science fair') || q.includes('प्रदर्शन')) {
-      reply = state.lang === 'mr'
-        ? "🏆 <strong>क्रीडा व सांस्कृतिक उपक्रम:</strong><br>• वार्षिक स्नेहसंमेलन (डिसेंबर/जानेवारी), शिवजयंती उत्सव (१९ फेब्रुवारी), तालुका व जिल्हास्तरीय क्रीडा स्पर्धा आणि विज्ञान प्रदर्शन दरवर्षी उत्साहात साजरे केले जातात."
-        : "🏆 <strong>Sports & Cultural Activities:</strong><br>• Annual Gathering & Drama festival, Grand Shiv Jayanti Utsav (19 Feb), Inter-School Athletic tournaments, and District Science Exhibitions are celebrated annually.";
+      reply = state.lang === 'mr' ? "🏆 <strong>क्रीडा व सांस्कृतिक उपक्रम:</strong><br>• वार्षिक स्नेहसंमेलन (डिसेंबर/जानेवारी), शिवजयंती उत्सव (१९ फेब्रुवारी), तालुका व जिल्हास्तरीय क्रीडा स्पर्धा आणि विज्ञान प्रदर्शन दरवर्षी उत्साहात साजरे केले जातात." : "🏆 <strong>Sports & Cultural Activities:</strong><br>• Annual Gathering & Drama festival, Grand Shiv Jayanti Utsav (19 Feb), Inter-School Athletic tournaments, and District Science Exhibitions are celebrated annually.";
     } else {
-      reply = state.lang === 'mr'
-        ? "मी <strong>Ai Assistant</strong> आहे! आपण प्रवेश प्रक्रिया, १२ वी IT प्रॅक्टिकल, प्रयोगशाळा सुविधा, शाखा किंवा महाविद्यालयाच्या वेळेबद्दल विचारू शकता."
-        : "I am your <strong>Ai Assistant</strong>! Feel free to ask about Admissions 2026–27, 12th IT Practicals (SOP 1–6), Science Labs, Courses, Facilities, or College Timings.";
+      reply = state.lang === 'mr' ? "मी <strong>Ai Assistant</strong> आहे! आपण प्रवेश प्रक्रिया, १२ वी IT प्रॅक्टिकल, प्रयोगशाळा सुविधा, शाखा किंवा महाविद्यालयाच्या वेळेबद्दल विचारू शकता." : "I am your <strong>Ai Assistant</strong>! Feel free to ask about Admissions 2026–27, 12th IT Practicals (SOP 1–6), Science Labs, Courses, Facilities, or College Timings.";
     }
 
-    setTimeout(() => {
-      appendAiMessage(reply, 'ai');
-    }, 250);
+    setTimeout(() => { appendAiMessage(reply, 'ai'); }, 250);
   }
 
+  // =========================================================================
+  // APP INITIALIZATION
+  // =========================================================================
   function initApp() {
     window.applyLanguage(state.lang);
     window.applyFontSize(state.fontSize);
@@ -932,80 +781,71 @@
     window.filterGalleryCategory('all');
     window.renderSopContent('sop1');
 
-    const settingsOpenBtn = document.getElementById('settingsOpenBtn');
-    if (settingsOpenBtn) settingsOpenBtn.addEventListener('click', window.openSettingsModal);
-
-    const settingsCloseBtn = document.getElementById('settingsCloseBtn');
-    if (settingsCloseBtn) settingsCloseBtn.addEventListener('click', window.closeSettingsModal);
-
-    const btnCloseSettingsModal = document.getElementById('btnCloseSettingsModal');
-    if (btnCloseSettingsModal) btnCloseSettingsModal.addEventListener('click', window.closeSettingsModal);
-
-    const settingsModal = document.getElementById('settingsModal');
-    if (settingsModal) {
-      settingsModal.addEventListener('click', (e) => {
-        if (e.target === settingsModal) window.closeSettingsModal();
-      });
-    }
-
-    const langEnBtn = document.getElementById('langEnBtn');
-    if (langEnBtn) langEnBtn.addEventListener('click', () => window.applyLanguage('en'));
-
-    const langMrBtn = document.getElementById('langMrBtn');
-    if (langMrBtn) langMrBtn.addEventListener('click', () => window.applyLanguage('mr'));
-
-    const fontSmBtn = document.getElementById('fontSmBtn');
-    if (fontSmBtn) fontSmBtn.addEventListener('click', () => window.applyFontSize('font-sm'));
-
-    const fontMdBtn = document.getElementById('fontMdBtn');
-    if (fontMdBtn) fontMdBtn.addEventListener('click', () => window.applyFontSize('font-md'));
-
-    const fontLgBtn = document.getElementById('fontLgBtn');
-    if (fontLgBtn) fontLgBtn.addEventListener('click', () => window.applyFontSize('font-lg'));
-
-    const fontXlBtn = document.getElementById('fontXlBtn');
-    if (fontXlBtn) fontXlBtn.addEventListener('click', () => window.applyFontSize('font-xl'));
+    // Attach Listeners
+    const btnIds = ['settingsOpenBtn', 'settingsCloseBtn', 'btnCloseSettingsModal', 'langEnBtn', 'langMrBtn', 'fontSmBtn', 'fontMdBtn', 'fontLgBtn', 'fontXlBtn'];
+    const actions = [window.openSettingsModal, window.closeSettingsModal, window.closeSettingsModal, () => window.applyLanguage('en'), () => window.applyLanguage('mr'), () => window.applyFontSize('font-sm'), () => window.applyFontSize('font-md'), () => window.applyFontSize('font-lg'), () => window.applyFontSize('font-xl')];
+    btnIds.forEach((id, i) => { const el = document.getElementById(id); if (el) el.addEventListener('click', actions[i]); });
 
     const darkModeToggleBtn = document.getElementById('darkModeToggleBtn');
-    if (darkModeToggleBtn) {
-      darkModeToggleBtn.addEventListener('click', () => window.applyTheme(!state.darkMode));
-    }
+    if (darkModeToggleBtn) darkModeToggleBtn.addEventListener('click', () => window.applyTheme(!state.darkMode));
 
     const smartBoardToggleBtn = document.getElementById('smartBoardToggleBtn');
-    if (smartBoardToggleBtn) {
-      smartBoardToggleBtn.addEventListener('click', () => window.applySmartBoard(!state.smartBoard));
-    }
+    if (smartBoardToggleBtn) smartBoardToggleBtn.addEventListener('click', () => window.applySmartBoard(!state.smartBoard));
 
     const btnResetSettings = document.getElementById('btnResetSettings');
-    if (btnResetSettings) {
-      btnResetSettings.addEventListener('click', () => {
-        window.applyLanguage('en');
-        window.applyFontSize('font-md');
-        window.applyTheme(false);
-        window.applySmartBoard(false);
-      });
-    }
+    if (btnResetSettings) btnResetSettings.addEventListener('click', () => { window.applyLanguage('en'); window.applyFontSize('font-md'); window.applyTheme(false); window.applySmartBoard(false); });
+
+    const settingsModal = document.getElementById('settingsModal');
+    if (settingsModal) settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) window.closeSettingsModal(); });
 
     const mobileNavToggle = document.getElementById('mobileNavToggle');
     if (mobileNavToggle) mobileNavToggle.addEventListener('click', window.toggleMobileNav);
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         const nav = document.getElementById('navMenu');
         const toggleBtn = document.getElementById('mobileNavToggle');
         if (nav && nav.classList.contains('open')) {
           nav.classList.remove('open');
-          if (toggleBtn) {
-            toggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-            toggleBtn.setAttribute('aria-expanded', 'false');
-          }
+          if (toggleBtn) { toggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>'; toggleBtn.setAttribute('aria-expanded', 'false'); }
         }
       });
     });
 
-    const facilityBtns = document.querySelectorAll('.facility-btn');
-    facilityBtns.forEach(btn => {
+    // BACK TO TOP BUTTON LOGIC
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) { backToTopBtn.classList.add('show'); } 
+        else { backToTopBtn.classList.remove('show'); }
+      });
+      backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    }
+
+    // NOTICE BOARD MODAL EVENT LISTENERS
+    document.querySelectorAll('.btn-notice-action').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.getAttribute('data-notice-open');
+        if (id) window.openNoticeModal(id);
+      });
+    });
+
+    document.querySelectorAll('.notice-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const id = item.getAttribute('data-notice-id');
+        if (id) window.openNoticeModal(id);
+      });
+    });
+
+    const noticeModal = document.getElementById('noticeModal');
+    if (noticeModal) noticeModal.addEventListener('click', (e) => { if (e.target === noticeModal) window.closeNoticeModal(); });
+
+    const noticeModalCloseBtn = document.getElementById('noticeModalCloseBtn');
+    if (noticeModalCloseBtn) noticeModalCloseBtn.addEventListener('click', window.closeNoticeModal);
+
+
+    document.querySelectorAll('.facility-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const key = btn.getAttribute('data-fac-key');
         if (key) window.selectFacility(key);
@@ -1018,20 +858,17 @@
     const facilityImg = document.getElementById('facilityImg');
     if (facilityImg) facilityImg.addEventListener('click', window.zoomCurrentFacility);
 
-    const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
-    galleryFilterBtns.forEach(btn => {
+    document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
         if (filter) window.filterGalleryCategory(filter);
       });
     });
 
-    const cards = document.querySelectorAll('.gallery-card');
-    cards.forEach((card) => {
+    document.querySelectorAll('.gallery-card').forEach((card) => {
       card.addEventListener('click', () => {
         const visibleCards = Array.from(document.querySelectorAll('.gallery-card')).filter(c => c.style.display !== 'none');
-        const matchIdx = visibleCards.indexOf(card);
-        window.openLightbox(matchIdx >= 0 ? matchIdx : 0);
+        window.openLightbox(visibleCards.indexOf(card) >= 0 ? visibleCards.indexOf(card) : 0);
       });
     });
 
@@ -1054,16 +891,12 @@
         if (e.key === 'ArrowRight') window.nextLightbox();
         if (e.key === 'ArrowLeft') window.prevLightbox();
       }
-
-      const settingsModal = document.getElementById('settingsModal');
-      if (settingsModal && settingsModal.classList.contains('open')) {
-        if (e.key === 'Escape') window.closeSettingsModal();
-      }
-
-      const itModal = document.getElementById('itHubModal');
-      if (itModal && itModal.classList.contains('open')) {
-        if (e.key === 'Escape') window.closeItHubModal();
-      }
+      const modals = [document.getElementById('settingsModal'), document.getElementById('itHubModal'), document.getElementById('noticeModal')];
+      modals.forEach(m => {
+        if (m && m.classList.contains('open') && e.key === 'Escape') {
+          m.classList.remove('open');
+        }
+      });
     });
 
     const btnOpenItHub = document.getElementById('btnOpenItHub');
@@ -1073,47 +906,25 @@
     if (itModalCloseBtn) itModalCloseBtn.addEventListener('click', window.closeItHubModal);
 
     const itHubModal = document.getElementById('itHubModal');
-    if (itHubModal) {
-      itHubModal.addEventListener('click', (e) => {
-        if (e.target === itHubModal) window.closeItHubModal();
-      });
-    }
+    if (itHubModal) { itHubModal.addEventListener('click', (e) => { if (e.target === itHubModal) window.closeItHubModal(); }); }
 
-    const sopTabBtns = document.querySelectorAll('.sop-tab-btn');
-    sopTabBtns.forEach(btn => {
+    document.querySelectorAll('.sop-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const sopKey = btn.getAttribute('data-sop-tab');
         if (sopKey) window.selectSopTab(sopKey);
       });
     });
 
-    const btnOpenScienceHub = document.getElementById('btnOpenScienceHub');
-    if (btnOpenScienceHub) btnOpenScienceHub.addEventListener('click', () => window.openResourceInfo('science'));
+    const hubIds = ['btnOpenScienceHub', 'btnOpenCommerceHub', 'btnOpenPapersHub'];
+    const hubActions = ['science', 'commerce', 'papers'];
+    hubIds.forEach((id, i) => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => window.openResourceInfo(hubActions[i])); });
 
-    const btnOpenCommerceHub = document.getElementById('btnOpenCommerceHub');
-    if (btnOpenCommerceHub) btnOpenCommerceHub.addEventListener('click', () => window.openResourceInfo('commerce'));
-
-    const btnOpenPapersHub = document.getElementById('btnOpenPapersHub');
-    if (btnOpenPapersHub) btnOpenPapersHub.addEventListener('click', () => window.openResourceInfo('papers'));
-
-    const aiToggleBtn = document.getElementById('aiToggleBtn');
-    if (aiToggleBtn) aiToggleBtn.addEventListener('click', window.openAiChat);
-
-    const heroAskAiBtn = document.getElementById('heroAskAiBtn');
-    if (heroAskAiBtn) heroAskAiBtn.addEventListener('click', window.openAiChat);
-
-    const aiCloseBtn = document.getElementById('aiCloseBtn');
-    if (aiCloseBtn) aiCloseBtn.addEventListener('click', window.closeAiChat);
-
-    const aiSendBtn = document.getElementById('aiSendBtn');
-    if (aiSendBtn) aiSendBtn.addEventListener('click', window.sendAiMessage);
+    const aiIds = ['aiToggleBtn', 'heroAskAiBtn', 'aiCloseBtn', 'aiSendBtn'];
+    const aiActions = [window.openAiChat, window.openAiChat, window.closeAiChat, window.sendAiMessage];
+    aiIds.forEach((id, i) => { const el = document.getElementById(id); if (el) el.addEventListener('click', aiActions[i]); });
 
     const aiInput = document.getElementById('aiUserInput');
-    if (aiInput) {
-      aiInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') window.sendAiMessage();
-      });
-    }
+    if (aiInput) { aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') window.sendAiMessage(); }); }
 
     document.addEventListener('click', (e) => {
       const chip = e.target.closest('.ai-chip-btn');
@@ -1128,19 +939,12 @@
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const msg = state.lang === 'mr'
-          ? "धन्यवाद! तुमची चौकशी यशस्वीरीत्या नोंदवली गेली आहे. आमचे प्रशासकीय कार्यालय लवकरच संपर्क साधेल."
-          : "Thank you! Your admission inquiry has been successfully submitted. Our administrative office will contact you soon.";
-        alert(msg);
+        alert(state.lang === 'mr' ? "धन्यवाद! तुमची चौकशी यशस्वीरीत्या नोंदवली गेली आहे." : "Thank you! Your admission inquiry has been successfully submitted.");
         inquiryForm.reset();
       });
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-  } else {
-    initApp();
-  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initApp); } else { initApp(); }
 
 })();
