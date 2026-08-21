@@ -6,9 +6,6 @@
 (function() {
   'use strict';
 
-  // =========================================================================
-  // 1. GLOBAL STATE & LOCAL STORAGE (FIXED FOR LOCAL FILE PROTOCOL)
-  // =========================================================================
   function safeGetItem(key, defaultValue) {
     try {
       return localStorage.getItem(key) || defaultValue;
@@ -20,9 +17,7 @@
   function safeSetItem(key, value) {
     try {
       localStorage.setItem(key, value);
-    } catch (e) {
-      // Ignore security errors in local file mode
-    }
+    } catch (e) {}
   }
 
   window.sesState = {
@@ -38,9 +33,6 @@
 
   const state = window.sesState;
 
-  // =========================================================================
-  // 2. EXHAUSTIVE TRANSLATIONS DICTIONARY
-  // =========================================================================
   const translations = {
     en: {
       "topAddr": "Pandur Titha, Sindhudurg, Maharashtra",
@@ -127,15 +119,15 @@
       "hub1Title": "12th Standard IT Hub",
       "hub1Desc": "HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules as per Maharashtra State Board.",
       "hub1Btn": "View IT SOPs &amp; Code",
-      "hub2Title": "Science Lab Manuals",
-      "hub2Desc": "Physics, Chemistry, and Biology experimental handbooks, formula cheat sheets, and practical Viva guides.",
-      "hub2Btn": "Open Manuals",
+      "hub2Title": "JEE, NEET &amp; Science Labs",
+      "hub2Desc": "Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.",
+      "hub2Btn": "Open NTA Archives",
       "hub3Title": "Commerce &amp; Accounts Vault",
       "hub3Desc": "Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.",
-      "hub3Btn": "Practice Sheets",
+      "hub3Btn": "eBalbharati Sheets",
       "hub4Title": "Previous Board Papers",
       "hub4Desc": "HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.",
-      "hub4Btn": "Browse Papers",
+      "hub4Btn": "Browse Board Papers",
       "campusSub": "Infrastructure",
       "campusTitle": "Interactive Campus &amp; Facilities",
       "campusLead": "Tap any facility below to inspect the infrastructure on your screen or smart board.",
@@ -275,12 +267,12 @@
       "hub1Title": "१२ वी IT प्रॅक्टिकल हब",
       "hub1Desc": "HTML5, CSS3, जावास्क्रिप्ट व्हॅलिडेशन, SOP 1 ते 6 चे संपूर्ण कोड व सोल्युशन्स.",
       "hub1Btn": "IT SOPs व कोड पहा",
-      "hub2Title": "विज्ञान लॅब मॅन्युअल्स",
-      "hub2Desc": "भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रात्यक्षिक पुस्तिका आणि फॉर्म्युला शीट.",
-      "hub2Btn": "मॅन्युअल उघडा",
+      "hub2Title": "JEE, NEET व विज्ञान लॅब",
+      "hub2Desc": "भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रात्यक्षिक पुस्तिका आणि NEET / JEE मागील वर्षांच्या प्रश्नपत्रिका.",
+      "hub2Btn": "NTA आर्काईव्ह उघडा",
       "hub3Title": "वाणिज्य अभ्यास साहित्य",
       "hub3Desc": "अकाउंट्स ताळेबंद नमुने, जीएसटी उदाहरणे आणि सोपे स्पष्टीकरण.",
-      "hub3Btn": "सराव पत्रके पहा",
+      "hub3Btn": "ई-बालभारती पुस्तके",
       "hub4Title": "मागील बोर्ड प्रश्नपत्रिका",
       "hub4Desc": "२०२१ ते २०२६ पर्यंतच्या HSC व SSC बोर्ड प्रश्नपत्रिका आणि आदर्श उत्तरपत्रिका.",
       "hub4Btn": "प्रश्नपत्रिका पहा",
@@ -340,14 +332,9 @@
     }
   };
 
-  // =========================================================================
-  // 3. CAMPUS FACILITIES DATA
-  // =========================================================================
   const facilitiesData = {
     smartClass: {
-      icon: "fa-chalkboard",
-      img: "images/facilities/smart-class.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-chalkboard", img: "images/facilities/smart-class.jpg", fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Interactive Touch Screen", badgeMr: "डिजिटल टच स्क्रीन",
       titleEn: "Interactive Smart Classrooms", titleMr: "डिजिटल स्मार्ट क्लासरूम्स",
       descEn: "Equipped with high-definition interactive touchscreens, smart projectors, digital podiums, and ultra-high-speed broadband. Complex concepts in Science and Mathematics are taught using animated simulations, 3D models, and digital board notes.",
@@ -356,9 +343,7 @@
       tagsMr: ["टच स्क्रीन", "डिजिटल पोडियम", "दृकश्राव्य प्रोजेक्शन", "ई-लर्निंग"]
     },
     itLab: {
-      icon: "fa-desktop",
-      img: "images/facilities/it-lab.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-desktop", img: "images/facilities/it-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "40+ Workstations", badgeMr: "४०+ कॉम्प्युटर लॅब",
       titleEn: "Computer & Information Technology (IT) Lab", titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब",
       descEn: "Modern computing center featuring 40+ networked Core-i5 systems with dual-boot Linux and Windows OS, gigabit Ethernet LAN, dedicated high-speed optical fiber leased line, HTML5/CSS3/JavaScript IDEs, PostgreSQL/MySQL database engines, and full power backup via centralized online UPS.",
@@ -367,9 +352,7 @@
       tagsMr: ["४०+ संगणक", "ऑप्टिकल फायबर इंटरनेट", "लिनक्स व विंडोज", "वेब डिझायनिंग टूल्स"]
     },
     physicsLab: {
-      icon: "fa-atom",
-      img: "images/facilities/physics-lab.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-atom", img: "images/facilities/physics-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Precision Apparatus", badgeMr: "अचूक प्रायोगिक साधने",
       titleEn: "Physics Laboratory", titleMr: "भौतिकशास्त्र प्रयोगशाळा",
       descEn: "Designed strictly per Maharashtra HSC Board specifications. Equipped with darkroom optics setups, spectrometers, travelling microscopes, potentiometer benches, resonance tubes, and digital multi-meters ensuring hands-on mastery of practical physics.",
@@ -378,9 +361,7 @@
       tagsMr: ["ऑप्टिक्स डार्क रूम", "स्पेक्ट्रोमीटर", "मायक्रोस्कोप", "विद्युत प्रयोग मांडणी"]
     },
     chemLab: {
-      icon: "fa-flask",
-      img: "images/facilities/chemistry-lab.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-flask", img: "images/facilities/chemistry-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Safe & Modern Fume Hoods", badgeMr: "सुरक्षित रसायन लॅब",
       titleEn: "Chemistry Laboratory", titleMr: "रसायनशास्त्र प्रयोगशाळा",
       descEn: "Spacious, well-ventilated laboratory furnished with anti-corrosive granite counters, individual LPG burner stations, calibrated chemical balances, glass distillation units, eye-wash stations, and dedicated safety shower protocols.",
@@ -389,9 +370,7 @@
       tagsMr: ["ग्रॅनाइट वर्कस्टेशन", "रासायनिक शिल्लक", "सुरक्षा शॉवर", "डिस्टिलेशन संच"]
     },
     bioLab: {
-      icon: "fa-dna",
-      img: "images/facilities/biology-lab.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-dna", img: "images/facilities/biology-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "Microscopes & Specimens", badgeMr: "सूक्ष्मदर्शक व नमुने",
       titleEn: "Biology Laboratory", titleMr: "जीवशास्त्र प्रयोगशाळा",
       descEn: "Equipped with binocular compound microscopes, preserved Konkan floral and faunal specimens, anatomical human skeletal models, plant physiology apparatus, and permanent cytology projection slides for Botany and Zoology practicals.",
@@ -400,9 +379,7 @@
       tagsMr: ["संयुक्त सूक्ष्मदर्शक", "हर्बेरियम नमुने", "मानवी सांगाडा", "सायटोलॉजी स्लाईड्स"]
     },
     library: {
-      icon: "fa-book-bookmark",
-      img: "images/facilities/library.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-book-bookmark", img: "images/facilities/library.jpg", fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "15,000+ Books", badgeMr: "१५,०००+ ग्रंथ संपदा",
       titleEn: "Central Library & Reading Hall", titleMr: "मध्यवर्ती ग्रंथालय व वाचन कक्ष",
       descEn: "A serene academic sanctuary stocking over 15,000 reference textbooks, Maharashtra State Board guides, CET/NEET/JEE preparatory series, educational journals, regional Konkani & Marathi literature, and a peaceful 100-seat reading hall.",
@@ -411,9 +388,7 @@
       tagsMr: ["१५,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "डिजिटल कॅटलॉग", "१०० आसन वाचनालय"]
     },
     sports: {
-      icon: "fa-volleyball",
-      img: "images/facilities/sports-ground.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-volleyball", img: "images/facilities/sports-ground.jpg", fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "2-Acre Athletic Complex", badgeMr: "२ एकर भव्य क्रीडांगण",
       titleEn: "Playground & Sports Complex", titleMr: "क्रीडांगण व क्रीडा संकुल",
       descEn: "Expansive multi-sport athletic grounds featuring standard volleyball courts, Kho-Kho & Kabaddi clay arenas, running tracks, cricket pitches, and indoor facilities for chess, carrom, and table tennis under certified NIS physical training instructors.",
@@ -422,9 +397,7 @@
       tagsMr: ["२ एकर मैदान", "कबड्डी व खो-खो", "व्हॉलीबॉल कोर्ट", "इनडोअर गेम्स"]
     },
     auditorium: {
-      icon: "fa-masks-theater",
-      img: "images/facilities/auditorium.jpg",
-      fallbackImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80",
+      icon: "fa-masks-theater", img: "images/facilities/auditorium.jpg", fallbackImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80",
       badgeEn: "500+ Seating Capacity", badgeMr: "५०० आसन क्षमता",
       titleEn: "Auditorium & Cultural Stage", titleMr: "सभागृह व सांस्कृतिक मंच",
       descEn: "A grand multi-purpose hall equipped with acoustic wall treatment, modern stage lighting, surround sound PA systems, and digital projection. Host venue for Annual Gatherings, Shiv Jayanti celebrations, elocutions, science fairs, and parent conferences.",
@@ -434,125 +407,23 @@
     }
   };
 
-  // =========================================================================
-  // 4. PHOTO GALLERY DATA
-  // =========================================================================
   const galleryData = [
-    {
-      id: 1, category: 'campus',
-      img: 'images/gallery/campus-main.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
-      titleEn: 'Main Academic Campus & Building', titleMr: 'मुख्य इमारत व शाळा परिसर',
-      descEn: 'The picturesque front view of Shivaji English School & Junior College established in 1960 at Pandur Titha.',
-      descMr: '१९६० पासून सिंधुदुर्गातील विद्यार्थ्यांचे भविष्य घडविणारी मुख्य महाविद्यालयीन इमारत.',
-      dateEn: 'Campus View', dateMr: 'परिसर', catEn: 'Campus & Labs', catMr: 'परिसर व लॅब'
-    },
-    {
-      id: 2, category: 'festivals',
-      img: 'images/gallery/shiv-jayanti.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80',
-      titleEn: 'Chhatrapati Shivaji Maharaj Jayanti Utsav', titleMr: 'छत्रपती शिवाजी महाराज जयंती व पालखी सोहळा',
-      descEn: 'Grand annual procession, traditional Lezim performance, dhol-tasha, and patriotic student speeches.',
-      descMr: 'भव्य शिवजयंती मिरवणूक, लेझीम प्रात्यक्षिके आणि विद्यार्थ्यांची प्रेरणादायी भाषणे.',
-      dateEn: '19 February', dateMr: '१९ फेब्रुवारी', catEn: 'Shiv Jayanti', catMr: 'शिवजयंती'
-    },
-    {
-      id: 3, category: 'campus',
-      img: 'images/gallery/it-session.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-      titleEn: '12th HSC IT Practical Lab Session', titleMr: '१२ वी IT प्रॅक्टिकल व कोडिंग सत्र',
-      descEn: 'Students developing responsive websites, writing CSS Flexbox, and executing JavaScript SOP exercises.',
-      descMr: 'विद्यार्थी HTML5, CSS3 आणि जावास्क्रिप्ट प्रॅक्टिकल्स प्रत्यक्ष कॉम्प्युटरवर करताना.',
-      dateEn: 'HSC IT Practicals', dateMr: 'HSC IT प्रात्यक्षिके', catEn: 'IT Lab', catMr: 'IT लॅब'
-    },
-    {
-      id: 4, category: 'cultural',
-      img: 'images/gallery/annual-gathering.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Annual Gathering Traditional Folk Dance', titleMr: 'वार्षिक स्नेहसंमेलन - पारंपरिक लोकनृत्य व नाटक',
-      descEn: 'Vibrant cultural stage performances, Konkani folk dance, classical drama, and musical orchestras.',
-      descMr: 'वार्षिक स्नेहसंमेलनातील मनमोहक नृत्य, नाटक आणि पारंपरिक लोककला सादरीकरण.',
-      dateEn: 'Annual Gathering', dateMr: 'वार्षिक स्नेहसंमेलन', catEn: 'Annual Gathering', catMr: 'स्नेहसंमेलन'
-    },
-    {
-      id: 5, category: 'science',
-      img: 'images/gallery/science-practical.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Physics & Chemistry Practical Experiments', titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके',
-      descEn: 'Junior College Science students conducting titration, spectrometry, and optics experiments.',
-      descMr: 'विज्ञान शाखेतील विद्यार्थी प्रयोगशाळेत प्रत्यक्ष रासायनिक व भौतिक प्रयोग करताना.',
-      dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा', catEn: 'Science Lab', catMr: 'विज्ञान लॅब'
-    },
-    {
-      id: 6, category: 'sports',
-      img: 'images/gallery/sports-meet.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80',
-      titleEn: 'Inter-School Sports Meet & Tournament', titleMr: 'वार्षिक क्रीडा महोत्सव व कबड्डी / व्हॉलीबॉल स्पर्धा',
-      descEn: 'Thrilling inter-house Kabaddi, Kho-Kho, Volleyball, and athletics sprint matches.',
-      descMr: 'विद्यार्थ्यांमधील चुरशीचे कबड्डी, खो-खो, व्हॉलीबॉल आणि धावण्याच्या स्पर्धा सामने.',
-      dateEn: 'Sports Meet', dateMr: 'क्रीडा महोत्सव', catEn: 'Annual Sports', catMr: 'क्रीडा स्पर्धा'
-    },
-    {
-      id: 7, category: 'science',
-      img: 'images/gallery/science-fair.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'District-Level Science Exhibition Projects', titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन',
-      descEn: 'Innovative working models on solar energy, drip irrigation, and IoT robotics created by students.',
-      descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण विज्ञान प्रकल्पांचे सादरीकरण.',
-      dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन', catEn: 'Science Exhibition', catMr: 'विज्ञान प्रदर्शन'
-    },
-    {
-      id: 8, category: 'campus',
-      img: 'images/gallery/smart-classroom.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Interactive Smart Classroom Lecture', titleMr: 'स्मार्ट क्लासरूम डिजिटल ऑडिओ-व्हिज्युअल तासिका',
-      descEn: 'Engaging digital syllabus presentations using interactive touchscreens and audiovisual simulations.',
-      descMr: 'डिजिटल स्क्रीनवर क्लिष्ट संकल्पनांचे सुलभ दृकश्राव्य स्पष्टीकरण घेणारे विद्यार्थी.',
-      dateEn: 'Smart Teaching', dateMr: 'स्मार्ट शिक्षण', catEn: 'Classroom', catMr: 'वर्गखोली'
-    },
-    {
-      id: 9, category: 'festivals',
-      img: 'images/gallery/independence-day.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Independence Day Parade & Flag Hoisting', titleMr: 'स्वातंत्र्य दिन ध्वजारोहण व संचलन',
-      descEn: 'Ceremonial national flag hoisting, Scout & Guide parade, and patriotic choir performances.',
-      descMr: '१५ ऑगस्ट स्वातंत्र्य दिन सोहळा, ध्वजारोहण आणि शिस्तबद्ध संचलन.',
-      dateEn: '15 August', dateMr: '१५ ऑगस्ट', catEn: 'National Day', catMr: 'राष्ट्रीय उत्सव'
-    },
-    {
-      id: 10, category: 'campus',
-      img: 'images/gallery/library-study.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Central Library & Dedicated Study Hall', titleMr: 'मध्यवर्ती ग्रंथालय व वाचन कक्ष',
-      descEn: 'Students preparing for MHT-CET, NEET, and Board Exams in our quiet reference library.',
-      descMr: 'शांत वातावरणात स्पर्धा परीक्षा व बोर्ड परीक्षेचा अभ्यास करणारे विद्यार्थी.',
-      dateEn: 'Study Hall', dateMr: 'अभ्यासिका', catEn: 'Library', catMr: 'ग्रंथालय'
-    },
-    {
-      id: 11, category: 'cultural',
-      img: 'images/gallery/prize-distribution.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Annual Prize Distribution & Merit Felicitation', titleMr: 'गुणवंत विद्यार्थी सत्कार व बक्षीस वितरण समारंभ',
-      descEn: 'Honoring SSC & HSC Board toppers and sports champions with medals and scholarships.',
-      descMr: 'बोर्ड परीक्षेत व क्रीडा स्पर्धांमध्ये उज्ज्वल यश संपादन केलेल्या विद्यार्थ्यांचा गौरव.',
-      dateEn: 'Award Ceremony', dateMr: 'बक्षीस वितरण', catEn: 'Felicitation', catMr: 'सत्कार समारंभ'
-    },
-    {
-      id: 12, category: 'sports',
-      img: 'images/gallery/athletics-sprint.jpg',
-      fallbackImg: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80',
-      titleEn: 'Athletic Track & Field Sprint Races', titleMr: 'धावण्याच्या शर्यती व मैदानी क्रीडा स्पर्धा',
-      descEn: 'Annual track and field 100m, 200m, and relay races conducted on the college grounds.',
-      descMr: 'विद्यालयाच्या मैदानावर १०० मी., २०० मी. व रिले शर्यतींचे आयोजन.',
-      dateEn: 'Athletics Meet', dateMr: 'धावण्याची शर्यत', catEn: 'Athletics', catMr: 'मैदानी खेळ'
-    }
+    { id: 1, category: 'campus', img: 'images/gallery/campus-main.jpg', fallbackImg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80', titleEn: 'Main Academic Campus & Building', titleMr: 'मुख्य इमारत व शाळा परिसर', descEn: 'The picturesque front view of Shivaji English School & Junior College established in 1960 at Pandur Titha.', descMr: '१९६० पासून सिंधुदुर्गातील विद्यार्थ्यांचे भविष्य घडविणारी मुख्य महाविद्यालयीन इमारत.', dateEn: 'Campus View', dateMr: 'परिसर', catEn: 'Campus & Labs', catMr: 'परिसर व लॅब' },
+    { id: 2, category: 'festivals', img: 'images/gallery/shiv-jayanti.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80', titleEn: 'Chhatrapati Shivaji Maharaj Jayanti Utsav', titleMr: 'छत्रपती शिवाजी महाराज जयंती व पालखी सोहळा', descEn: 'Grand annual procession, traditional Lezim performance, dhol-tasha, and patriotic student speeches.', descMr: 'भव्य शिवजयंती मिरवणूक, लेझीम प्रात्यक्षिके आणि विद्यार्थ्यांची प्रेरणादायी भाषणे.', dateEn: '19 February', dateMr: '१९ फेब्रुवारी', catEn: 'Shiv Jayanti', catMr: 'शिवजयंती' },
+    { id: 3, category: 'campus', img: 'images/gallery/it-session.jpg', fallbackImg: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', titleEn: '12th HSC IT Practical Lab Session', titleMr: '१२ वी IT प्रॅक्टिकल व कोडिंग सत्र', descEn: 'Students developing responsive websites, writing CSS Flexbox, and executing JavaScript SOP exercises.', descMr: 'विद्यार्थी HTML5, CSS3 आणि जावास्क्रिप्ट प्रॅक्टिकल्स प्रत्यक्ष कॉम्प्युटरवर करताना.', dateEn: 'HSC IT Practicals', dateMr: 'HSC IT प्रात्यक्षिके', catEn: 'IT Lab', catMr: 'IT लॅब' },
+    { id: 4, category: 'cultural', img: 'images/gallery/annual-gathering.jpg', fallbackImg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80', titleEn: 'Annual Gathering Traditional Folk Dance', titleMr: 'वार्षिक स्नेहसंमेलन - पारंपरिक लोकनृत्य व नाटक', descEn: 'Vibrant cultural stage performances, Konkani folk dance, classical drama, and musical orchestras.', descMr: 'वार्षिक स्नेहसंमेलनातील मनमोहक नृत्य, नाटक आणि पारंपरिक लोककला सादरीकरण.', dateEn: 'Annual Gathering', dateMr: 'वार्षिक स्नेहसंमेलन', catEn: 'Annual Gathering', catMr: 'स्नेहसंमेलन' },
+    { id: 5, category: 'science', img: 'images/gallery/science-practical.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80', titleEn: 'Physics & Chemistry Practical Experiments', titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके', descEn: 'Junior College Science students conducting titration, spectrometry, and optics experiments.', descMr: 'विज्ञान शाखेतील विद्यार्थी प्रयोगशाळेत प्रत्यक्ष रासायनिक व भौतिक प्रयोग करताना.', dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा', catEn: 'Science Lab', catMr: 'विज्ञान लॅब' },
+    { id: 6, category: 'sports', img: 'images/gallery/sports-meet.jpg', fallbackImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80', titleEn: 'Inter-School Sports Meet & Tournament', titleMr: 'वार्षिक क्रीडा महोत्सव व कबड्डी / व्हॉलीबॉल स्पर्धा', descEn: 'Thrilling inter-house Kabaddi, Kho-Kho, Volleyball, and athletics sprint matches.', descMr: 'विद्यार्थ्यांमधील चुरशीचे कबड्डी, खो-खो, व्हॉलीबॉल आणि धावण्याच्या स्पर्धा सामने.', dateEn: 'Sports Meet', dateMr: 'क्रीडा महोत्सव', catEn: 'Annual Sports', catMr: 'क्रीडा स्पर्धा' },
+    { id: 7, category: 'science', img: 'images/gallery/science-fair.jpg', fallbackImg: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80', titleEn: 'District-Level Science Exhibition Projects', titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन', descEn: 'Innovative working models on solar energy, drip irrigation, and IoT robotics created by students.', descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण विज्ञान प्रकल्पांचे सादरीकरण.', dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन', catEn: 'Science Exhibition', catMr: 'विज्ञान प्रदर्शन' },
+    { id: 8, category: 'campus', img: 'images/gallery/smart-classroom.jpg', fallbackImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', titleEn: 'Interactive Smart Classroom Lecture', titleMr: 'स्मार्ट क्लासरूम डिजिटल ऑडिओ-व्हिज्युअल तासिका', descEn: 'Engaging digital syllabus presentations using interactive touchscreens and audiovisual simulations.', descMr: 'डिजिटल स्क्रीनवर क्लिष्ट संकल्पनांचे सुलभ दृकश्राव्य स्पष्टीकरण घेणारे विद्यार्थी.', dateEn: 'Smart Teaching', dateMr: 'स्मार्ट शिक्षण', catEn: 'Classroom', catMr: 'वर्गखोली' },
+    { id: 9, category: 'festivals', img: 'images/gallery/independence-day.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80', titleEn: 'Independence Day Parade & Flag Hoisting', titleMr: 'स्वातंत्र्य दिन ध्वजारोहण व संचलन', descEn: 'Ceremonial national flag hoisting, Scout & Guide parade, and patriotic choir performances.', descMr: '१५ ऑगस्ट स्वातंत्र्य दिन सोहळा, ध्वजारोहण आणि शिस्तबद्ध संचलन.', dateEn: '15 August', dateMr: '१५ ऑगस्ट', catEn: 'National Day', catMr: 'राष्ट्रीय उत्सव' },
+    { id: 10, category: 'campus', img: 'images/gallery/library-study.jpg', fallbackImg: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80', titleEn: 'Central Library & Dedicated Study Hall', titleMr: 'मध्यवर्ती ग्रंथालय व वाचन कक्ष', descEn: 'Students preparing for MHT-CET, NEET, and Board Exams in our quiet reference library.', descMr: 'शांत वातावरणात स्पर्धा परीक्षा व बोर्ड परीक्षेचा अभ्यास करणारे विद्यार्थी.', dateEn: 'Study Hall', dateMr: 'अभ्यासिका', catEn: 'Library', catMr: 'ग्रंथालय' },
+    { id: 11, category: 'cultural', img: 'images/gallery/prize-distribution.jpg', fallbackImg: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', titleEn: 'Annual Prize Distribution & Merit Felicitation', titleMr: 'गुणवंत विद्यार्थी सत्कार व बक्षीस वितरण समारंभ', descEn: 'Honoring SSC & HSC Board toppers and sports champions with medals and scholarships.', descMr: 'बोर्ड परीक्षेत व क्रीडा स्पर्धांमध्ये उज्ज्वल यश संपादन केलेल्या विद्यार्थ्यांचा गौरव.', dateEn: 'Award Ceremony', dateMr: 'बक्षीस वितरण', catEn: 'Felicitation', catMr: 'सत्कार समारंभ' },
+    { id: 12, category: 'sports', img: 'images/gallery/athletics-sprint.jpg', fallbackImg: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80', titleEn: 'Athletic Track & Field Sprint Races', titleMr: 'धावण्याच्या शर्यती व मैदानी क्रीडा स्पर्धा', descEn: 'Annual track and field 100m, 200m, and relay races conducted on the college grounds.', descMr: 'विद्यालयाच्या मैदानावर १०० मी., २०० मी. व रिले शर्यतींचे आयोजन.', dateEn: 'Athletics Meet', dateMr: 'धावण्याची शर्यत', catEn: 'Athletics', catMr: 'मैदानी खेळ' }
   ];
 
   let activeGalleryList = [...galleryData];
 
-  // =========================================================================
-  // 5. 12TH IT PRACTICAL SOPS DATA
-  // =========================================================================
   const sopData = {
     sop1: {
       badge: "SOP 1 • HTML5 & CSS",
@@ -592,10 +463,6 @@
     }
   };
 
-  // =========================================================================
-  // 6. GLOBAL EXPOSED FUNCTIONS (BULLETPROOF EXECUTION)
-  // =========================================================================
-
   window.applyLanguage = function(lang) {
     safeSetItem('ses_lang', lang);
     state.lang = lang;
@@ -613,12 +480,9 @@
       }
     }
 
-    // Apply text translation to all matching IDs
     for (const key in dict) {
       const el = document.getElementById(key);
-      if (el) {
-        el.innerHTML = dict[key];
-      }
+      if (el) el.innerHTML = dict[key];
     }
 
     const txtDark = document.getElementById('txtDarkStatus');
@@ -627,7 +491,6 @@
     const txtSmart = document.getElementById('txtSmartStatus');
     if (txtSmart) txtSmart.textContent = state.smartBoard ? (lang === 'mr' ? 'सुरू' : 'On') : (lang === 'mr' ? 'बंद' : 'Off');
 
-    // Update AI welcome message
     const aiBubble = document.getElementById('aiWelcomeBubble');
     if (aiBubble) {
       if (lang === 'mr') {
@@ -932,11 +795,7 @@
     const item = sopData[sopKey] || sopData.sop1;
 
     const escapeHTML = str => str.replace(/[&<>'"]/g, tag => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
     }[tag] || tag));
 
     container.innerHTML = `
@@ -967,13 +826,19 @@
     });
   };
 
+  // =========================================================================
+  // FIX: OPEN REAL LINKS IN NEW TABS FOR THE STUDENT HUB
+  // =========================================================================
   window.openResourceInfo = function(type) {
     if (type === 'science') {
-      alert(state.lang === 'mr' ? "विज्ञान लॅब मॅन्युअल: भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र मॅन्युअल्स कॉलेजच्या IT कक्षात उपलब्ध आहेत." : "Science Lab Manuals: Physics, Chemistry & Biology laboratory journals are available in the college library.");
+      // Official National Testing Agency (NTA) archive for NEET/JEE
+      window.open('https://nta.ac.in/Downloads', '_blank');
     } else if (type === 'commerce') {
-      alert(state.lang === 'mr' ? "वाणिज्य प्रॅक्टिस शीट्स: अकाउंट्स व जीएसटी सराव पत्रके विद्यार्थी कक्षात उपलब्ध आहेत." : "Commerce Practice Sheets: Balance sheet templates and GST accounting worksheets are available.");
+      // Official Maharashtra eBalbharati portal
+      window.open('https://ebalbharati.in/main/publicHome.aspx', '_blank');
     } else if (type === 'papers') {
-      alert(state.lang === 'mr' ? "बोर्ड प्रश्नपत्रिका: २०२१ ते २०२६ च्या HSC व SSC प्रश्नपत्रिका मध्यवर्ती ग्रंथालयात उपलब्ध आहेत." : "Previous Board Papers: HSC & SSC question papers (2021–2026) with model answer sheets are available in the library.");
+      // Shaalaa (most widely used by HSC students for board papers) or Official Board
+      window.open('https://shaalaa.com/question-papers/maharashtra-state-board-12th-board-exam-hsc-science-general_33', '_blank');
     }
   };
 
@@ -1058,9 +923,6 @@
     }, 250);
   }
 
-  // =========================================================================
-  // 7. INITIALIZATION ON DOM READY (ATTACH ALL LISTENERS)
-  // =========================================================================
   function initApp() {
     window.applyLanguage(state.lang);
     window.applyFontSize(state.fontSize);
