@@ -27,6 +27,25 @@
 
   const state = window.sesState;
 
+  // AI Knowledge Base Constants
+  const aiKnowledge = {
+    schoolName: "Shivaji English School & Junior College, Pandur Titha",
+    location: "Pandur Titha, Taluka Kudal, District Sindhudurg, Maharashtra",
+    pin: "416812",
+    established: "1960",
+    type: "Co-educational",
+    udise: "27330408903",
+    timings: {
+      secondary: "11:30 AM to 4:30 PM",
+      juniorCollege: "7:30 AM to 11:30 AM",
+      office: "9:30 AM to 4:30 PM (Monday to Saturday)"
+    },
+    contact: {
+      phone: "+91 (02362) 224-8090",
+      email: "sohamjikamde@gmail.com",
+    }
+  };
+
   const translations = {
     en: {
       "topAddr": "Pandur Titha, Sindhudurg, Maharashtra",
@@ -164,11 +183,11 @@
       "contactCardHead": "Campus Office",
       "contactCardSub": "Pandur Titha, Sindhudurg",
       "contactLblAddr": "Address",
-      "contactValAddr": "Shivaji English School &amp; Jr. College, At/Post Pandur Titha, Taluka Kudal, District Sindhudurg, Maharashtra – 416528",
+      "contactValAddr": "Shivaji English School &amp; Jr. College, At/Post Pandur Titha, Taluka Kudal, District Sindhudurg, Maharashtra – 416812",
       "contactLblPhone": "Phone Numbers",
       "contactLblEmail": "Official Email",
       "contactLblHours": "Office Hours",
-      "contactValHours": "Monday to Saturday: 9:30 AM – 5:30 PM (Sunday Closed)",
+      "contactValHours": "Monday to Saturday: 9:30 AM – 4:30 PM (Sunday Closed)",
       "inquiryHead": "Send an Inquiry",
       "lblFormName": "Student / Parent Name *",
       "lblFormPhone": "Phone Number (10 Digits) *",
@@ -312,11 +331,11 @@
       "contactCardHead": "महाविद्यालयीन कार्यालय",
       "contactCardSub": "पांडूर तिठा, सिंधुदुर्ग",
       "contactLblAddr": "पत्ता",
-      "contactValAddr": "शिवाजी इंग्लिश स्कूल व ज्युनिअर कॉलेज, मु. पो. पांडूर तिठा, तालुका कुडाळ, जिल्हा सिंधुदुर्ग, महाराष्ट्र – ४१६५२८",
+      "contactValAddr": "शिवाजी इंग्लिश स्कूल व ज्युनिअर कॉलेज, मु. पो. पांडूर तिठा, तालुका कुडाळ, जिल्हा सिंधुदुर्ग, महाराष्ट्र – ४१६८१२",
       "contactLblPhone": "संपर्क क्रमांक",
       "contactLblEmail": "अधिकृत ईमेल",
       "contactLblHours": "कार्यालयीन वेळ",
-      "contactValHours": "सोमवार ते शनिवार: सकाळी ९:३० ते सायंकाळी ५:३० (रविवार सुट्टी)",
+      "contactValHours": "सोमवार ते शनिवार: सकाळी ९:३० ते सायंकाळी ४:३० (रविवार सुट्टी)",
       "inquiryHead": "चौकशी संदेश पाठवा",
       "lblFormName": "विद्यार्थी / पालकांचे नाव *",
       "lblFormPhone": "मोबाईल नंबर (१० अंकी) *",
@@ -327,38 +346,14 @@
   };
 
   const facilitiesData = {
-    smartClass: {
-      icon: "fa-chalkboard", img: "images/facilities/smart-class.jpg", fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Interactive Touch Screen", badgeMr: "डिजिटल टच स्क्रीन", titleEn: "Interactive Smart Classrooms", titleMr: "डिजिटल स्मार्ट क्लासरूम्स", descEn: "Equipped with high-definition interactive touchscreens, smart projectors, digital podiums, and ultra-high-speed broadband. Complex concepts in Science and Mathematics are taught using animated simulations, 3D models, and digital board notes.", descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.", tagsEn: ["Interactive Touchscreen", "Digital Podium", "Audio-Visual Projection", "E-Learning Modules"], tagsMr: ["टच स्क्रीन", "डिजिटल पोडियम", "दृकश्राव्य प्रोजेक्शन", "ई-लर्निंग"]
-    },
-    itLab: {
-      icon: "fa-desktop", img: "images/facilities/it-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "40+ Workstations", badgeMr: "४०+ कॉम्प्युटर लॅब", titleEn: "Computer & Information Technology (IT) Lab", titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब", descEn: "Modern computing center featuring 40+ networked Core-i5 systems with dual-boot Linux and Windows OS, gigabit Ethernet LAN, dedicated high-speed optical fiber leased line, HTML5/CSS3/JavaScript IDEs, PostgreSQL/MySQL database engines, and full power backup via centralized online UPS.", descMr: "४०+ अद्ययावत संगणक, अखंड हाय-स्पीड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.", tagsEn: ["40+ Core-i5 PCs", "Gigabit LAN & Fiber", "Linux & Windows OS", "Web Design IDEs"], tagsMr: ["४०+ संगणक", "ऑप्टिकल फायबर इंटरनेट", "लिनक्स व विंडोज", "वेब डिझायनिंग टूल्स"]
-    },
-    physicsLab: {
-      icon: "fa-atom", img: "images/facilities/physics-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Precision Apparatus", badgeMr: "अचूक प्रायोगिक साधने", titleEn: "Physics Laboratory", titleMr: "भौतिकशास्त्र प्रयोगशाळा", descEn: "Designed strictly per Maharashtra HSC Board specifications. Equipped with darkroom optics setups, spectrometers, travelling microscopes, potentiometer benches, resonance tubes, and digital multi-meters ensuring hands-on mastery of practical physics.", descMr: "महाराष्ट्र HSC बोर्डाच्या मानकांनुसार सुसज्ज. ऑप्टिक्स, स्पेक्ट्रोमीटर, मायक्रोस्कोप, पोटेंशियोमीटर आणि अचूक विद्युत मापक यंत्रांनी सज्ज प्रशस्त लॅब.", tagsEn: ["Optics & Darkroom", "Spectrometers", "Travelling Microscopes", "Electrical Benches"], tagsMr: ["ऑप्टिक्स डार्क रूम", "स्पेक्ट्रोमीटर", "मायक्रोस्कोप", "विद्युत प्रयोग मांडणी"]
-    },
-    chemLab: {
-      icon: "fa-flask", img: "images/facilities/chemistry-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Safe & Modern Fume Hoods", badgeMr: "सुरक्षित रसायन लॅब", titleEn: "Chemistry Laboratory", titleMr: "रसायनशास्त्र प्रयोगशाळा", descEn: "Spacious, well-ventilated laboratory furnished with anti-corrosive granite counters, individual LPG burner stations, calibrated chemical balances, glass distillation units, eye-wash stations, and dedicated safety shower protocols.", descMr: "सुरक्षितता मानकांचे काटेकोर पालन करणारी हवेशीर प्रयोगशाळा. ग्रॅनाइट प्लॅटफॉर्म, बर्नर स्टेशन, डिजिटल वजनी काटे आणि सर्व रासायनिक अभिकर्मके उपलब्ध.", tagsEn: ["Granite Workstations", "Chemical Balances", "Safety Showers", "Distillation Setups"], tagsMr: ["ग्रॅनाइट वर्कस्टेशन", "रासायनिक शिल्लक", "सुरक्षा शॉवर", "डिस्टिलेशन संच"]
-    },
-    bioLab: {
-      icon: "fa-dna", img: "images/facilities/biology-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "Microscopes & Specimens", badgeMr: "सूक्ष्मदर्शक व नमुने", titleEn: "Biology Laboratory", titleMr: "जीवशास्त्र प्रयोगशाळा", descEn: "Equipped with binocular compound microscopes, preserved Konkan floral and faunal specimens, anatomical human skeletal models, plant physiology apparatus, and permanent cytology projection slides for Botany and Zoology practicals.", descMr: "बायनॉक्युलर संयुक्त सूक्ष्मदर्शक, कोकणातील वनस्पती व प्राणी नमुने, मानवी सांगाडा मॉडेल्स आणि वनस्पतीशास्त्र व प्राणीशास्त्र प्रयोगांची समृद्ध मांडणी.", tagsEn: ["Compound Microscopes", "Botanical Herbarium", "Anatomical Models", "Histology Slides"], tagsMr: ["संयुक्त सूक्ष्मदर्शक", "हर्बेरियम नमुने", "मानवी सांगाडा", "सायटोलॉजी स्लाईड्स"]
-    },
-    library: {
-      icon: "fa-book-bookmark", img: "images/facilities/library.jpg", fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "15,000+ Books", badgeMr: "१५,०००+ ग्रंथ संपदा", titleEn: "Central Library & Reading Hall", titleMr: "मध्यवर्ती ग्रंथालय व वाचन कक्ष", descEn: "A serene academic sanctuary stocking over 15,000 reference textbooks, Maharashtra State Board guides, CET/NEET/JEE preparatory series, educational journals, regional Konkani & Marathi literature, and a peaceful 100-seat reading hall.", descMr: "१५,००० हून अधिक संदर्भ पुस्तके, स्पर्धा परीक्षा मार्गदर्शिका, शैक्षणिक नियतकालिके, मराठी साहित्य आणि १०० विद्यार्थी क्षमतेचा शांत वाचन कक्ष.", tagsEn: ["15,000+ Volumes", "Competitive Exam Guides", "Digital Catalog (OPAC)", "100-Seat Study Hall"], tagsMr: ["१५,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "डिजिटल कॅटलॉग", "१०० आसन वाचनालय"]
-    },
-    sports: {
-      icon: "fa-volleyball", img: "images/facilities/sports-ground.jpg", fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "2-Acre Athletic Complex", badgeMr: "२ एकर भव्य क्रीडांगण", titleEn: "Playground & Sports Complex", titleMr: "क्रीडांगण व क्रीडा संकुल", descEn: "Expansive multi-sport athletic grounds featuring standard volleyball courts, Kho-Kho & Kabaddi clay arenas, running tracks, cricket pitches, and indoor facilities for chess, carrom, and table tennis under certified NIS physical training instructors.", descMr: "२ एकराचे विस्तीर्ण मैदान, व्हॉलीबॉल कोर्ट, खो-खो व कबड्डीचे मातीचे मैदान, धावपट्टी आणि इनडोअर खेळांसाठी टेबल टेनिस व बुद्धिबळ कक्ष.", tagsEn: ["2-Acre Grounds", "Kabaddi & Kho-Kho", "Volleyball Court", "Indoor Games Room"], tagsMr: ["२ एकर मैदान", "कबड्डी व खो-खो", "व्हॉलीबॉल कोर्ट", "इनडोअर गेम्स"]
-    },
-    auditorium: {
-      icon: "fa-masks-theater", img: "images/facilities/auditorium.jpg", fallbackImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80",
-      badgeEn: "500+ Seating Capacity", badgeMr: "५०० आसन क्षमता", titleEn: "Auditorium & Cultural Stage", titleMr: "सभागृह व सांस्कृतिक मंच", descEn: "A grand multi-purpose hall equipped with acoustic wall treatment, modern stage lighting, surround sound PA systems, and digital projection. Host venue for Annual Gatherings, Shiv Jayanti celebrations, elocutions, science fairs, and parent conferences.", descMr: "अत्याधुनिक ध्वनी व्यवस्था, स्टेज लाइटिंग आणि ५०० आसन क्षमतेचे भव्य सभागृह. स्नेहसंमेलन, शिवजयंती, वक्तृत्व स्पर्धा आणि परिसंवादांसाठी उपयुक्त.", tagsEn: ["500+ Seats", "Acoustic Stage", "Surround Sound PA", "Stage Lighting"], tagsMr: ["५०० आसने", "अकॉस्टिक स्टेज", "सराउंड साऊंड", "स्टेज लाइटिंग"]
-    }
+    smartClass: { icon: "fa-chalkboard", img: "images/facilities/smart-class.jpg", fallbackImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80", badgeEn: "Interactive Touch Screen", badgeMr: "डिजिटल टच स्क्रीन", titleEn: "Interactive Smart Classrooms", titleMr: "डिजिटल स्मार्ट क्लासरूम्स", descEn: "Equipped with high-definition interactive touchscreens, smart projectors, digital podiums, and ultra-high-speed broadband. Complex concepts in Science and Mathematics are taught using animated simulations, 3D models, and digital board notes.", descMr: "उच्च दर्जाचे टच-सक्षम डिजिटल स्मार्ट बोर्ड, ऑडिओ-व्हिज्युअल प्रोजेक्शन सिस्टीम आणि हाय-स्पीड इंटरनेटसह सुसज्ज वर्गखोल्या, ज्यामुळे क्लिष्ट संकल्पना दृकश्राव्य माध्यमातून सहज समजतात.", tagsEn: ["Interactive Touchscreen", "Digital Podium", "Audio-Visual Projection", "E-Learning Modules"], tagsMr: ["टच स्क्रीन", "डिजिटल पोडियम", "दृकश्राव्य प्रोजेक्शन", "ई-लर्निंग"] },
+    itLab: { icon: "fa-desktop", img: "images/facilities/it-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80", badgeEn: "40+ Workstations", badgeMr: "४०+ कॉम्प्युटर लॅब", titleEn: "Computer & Information Technology (IT) Lab", titleMr: "कॉम्प्युटर आणि माहिती तंत्रज्ञान (IT) लॅब", descEn: "Modern computing center featuring 40+ networked Core-i5 systems with dual-boot Linux and Windows OS, gigabit Ethernet LAN, dedicated high-speed optical fiber leased line, HTML5/CSS3/JavaScript IDEs, PostgreSQL/MySQL database engines, and full power backup via centralized online UPS.", descMr: "४०+ अद्ययावत संगणक, अखंड हाय-स्पीड इंटरनेट, लिनक्स व विंडोज ऑपरेटिंग सिस्टीम, HTML5/CSS3/JS वेब डिझायनिंग टूल्स आणि अखंड वीज पुरवठ्यासह सज्ज प्रशस्त IT लॅब.", tagsEn: ["40+ Core-i5 PCs", "Gigabit LAN & Fiber", "Linux & Windows OS", "Web Design IDEs"], tagsMr: ["४०+ संगणक", "ऑप्टिकल फायबर इंटरनेट", "लिनक्स व विंडोज", "वेब डिझायनिंग टूल्स"] },
+    physicsLab: { icon: "fa-atom", img: "images/facilities/physics-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80", badgeEn: "Precision Apparatus", badgeMr: "अचूक प्रायोगिक साधने", titleEn: "Physics Laboratory", titleMr: "भौतिकशास्त्र प्रयोगशाळा", descEn: "Designed strictly per Maharashtra HSC Board specifications. Equipped with darkroom optics setups, spectrometers, travelling microscopes, potentiometer benches, resonance tubes, and digital multi-meters ensuring hands-on mastery of practical physics.", descMr: "महाराष्ट्र HSC बोर्डाच्या मानकांनुसार सुसज्ज. ऑप्टिक्स, स्पेक्ट्रोमीटर, मायक्रोस्कोप, पोटेंशियोमीटर आणि अचूक विद्युत मापक यंत्रांनी सज्ज प्रशस्त लॅब.", tagsEn: ["Optics & Darkroom", "Spectrometers", "Travelling Microscopes", "Electrical Benches"], tagsMr: ["ऑप्टिक्स डार्क रूम", "स्पेक्ट्रोमीटर", "मायक्रोस्कोप", "विद्युत प्रयोग मांडणी"] },
+    chemLab: { icon: "fa-flask", img: "images/facilities/chemistry-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1000&q=80", badgeEn: "Safe & Modern Fume Hoods", badgeMr: "सुरक्षित रसायन लॅब", titleEn: "Chemistry Laboratory", titleMr: "रसायनशास्त्र प्रयोगशाळा", descEn: "Spacious, well-ventilated laboratory furnished with anti-corrosive granite counters, individual LPG burner stations, calibrated chemical balances, glass distillation units, eye-wash stations, and dedicated safety shower protocols.", descMr: "सुरक्षितता मानकांचे काटेकोर पालन करणारी हवेशीर प्रयोगशाळा. ग्रॅनाइट प्लॅटफॉर्म, बर्नर स्टेशन, डिजिटल वजनी काटे आणि सर्व रासायनिक अभिकर्मके उपलब्ध.", tagsEn: ["Granite Workstations", "Chemical Balances", "Safety Showers", "Distillation Setups"], tagsMr: ["ग्रॅनाइट वर्कस्टेशन", "रासायनिक शिल्लक", "सुरक्षा शॉवर", "डिस्टिलेशन संच"] },
+    bioLab: { icon: "fa-dna", img: "images/facilities/biology-lab.jpg", fallbackImg: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80", badgeEn: "Microscopes & Specimens", badgeMr: "सूक्ष्मदर्शक व नमुने", titleEn: "Biology Laboratory", titleMr: "जीवशास्त्र प्रयोगशाळा", descEn: "Equipped with binocular compound microscopes, preserved Konkan floral and faunal specimens, anatomical human skeletal models, plant physiology apparatus, and permanent cytology projection slides for Botany and Zoology practicals.", descMr: "बायनॉक्युलर संयुक्त सूक्ष्मदर्शक, कोकणातील वनस्पती व प्राणी नमुने, मानवी सांगाडा मॉडेल्स आणि वनस्पतीशास्त्र व प्राणीशास्त्र प्रयोगांची समृद्ध मांडणी.", tagsEn: ["Compound Microscopes", "Botanical Herbarium", "Anatomical Models", "Histology Slides"], tagsMr: ["संयुक्त सूक्ष्मदर्शक", "हर्बेरियम नमुने", "मानवी सांगाडा", "सायटोलॉजी स्लाईड्स"] },
+    library: { icon: "fa-book-bookmark", img: "images/facilities/library.jpg", fallbackImg: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80", badgeEn: "15,000+ Books", badgeMr: "१५,०००+ ग्रंथ संपदा", titleEn: "Central Library & Reading Hall", titleMr: "मध्यवर्ती ग्रंथालय व वाचन कक्ष", descEn: "A serene academic sanctuary stocking over 15,000 reference textbooks, Maharashtra State Board guides, CET/NEET/JEE preparatory series, educational journals, regional Konkani & Marathi literature, and a peaceful 100-seat reading hall.", descMr: "१५,००० हून अधिक संदर्भ पुस्तके, स्पर्धा परीक्षा मार्गदर्शिका, शैक्षणिक नियतकालिके, मराठी साहित्य आणि १०० विद्यार्थी क्षमतेचा शांत वाचन कक्ष.", tagsEn: ["15,000+ Volumes", "Competitive Exam Guides", "Digital Catalog (OPAC)", "100-Seat Study Hall"], tagsMr: ["१५,०००+ पुस्तके", "स्पर्धा परीक्षा कक्ष", "डिजिटल कॅटलॉग", "१०० आसन वाचनालय"] },
+    sports: { icon: "fa-volleyball", img: "images/facilities/sports-ground.jpg", fallbackImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80", badgeEn: "2-Acre Athletic Complex", badgeMr: "२ एकर भव्य क्रीडांगण", titleEn: "Playground & Sports Complex", titleMr: "क्रीडांगण व क्रीडा संकुल", descEn: "Expansive multi-sport athletic grounds featuring standard volleyball courts, Kho-Kho & Kabaddi clay arenas, running tracks, cricket pitches, and indoor facilities for chess, carrom, and table tennis under certified NIS physical training instructors.", descMr: "२ एकराचे विस्तीर्ण मैदान, व्हॉलीबॉल कोर्ट, खो-खो व कबड्डीचे मातीचे मैदान, धावपट्टी आणि इनडोअर खेळांसाठी टेबल टेनिस व बुद्धिबळ कक्ष.", tagsEn: ["2-Acre Grounds", "Kabaddi & Kho-Kho", "Volleyball Court", "Indoor Games Room"], tagsMr: ["२ एकर मैदान", "कबड्डी व खो-खो", "व्हॉलीबॉल कोर्ट", "इनडोअर गेम्स"] },
+    auditorium: { icon: "fa-masks-theater", img: "images/facilities/auditorium.jpg", fallbackImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80", badgeEn: "500+ Seating Capacity", badgeMr: "५०० आसन क्षमता", titleEn: "Auditorium & Cultural Stage", titleMr: "सभागृह व सांस्कृतिक मंच", descEn: "A grand multi-purpose hall equipped with acoustic wall treatment, modern stage lighting, surround sound PA systems, and digital projection. Host venue for Annual Gatherings, Shiv Jayanti celebrations, elocutions, science fairs, and parent conferences.", descMr: "अत्याधुनिक ध्वनी व्यवस्था, स्टेज लाइटिंग आणि ५०० आसन क्षमतेचे भव्य सभागृह. स्नेहसंमेलन, शिवजयंती, वक्तृत्व स्पर्धा आणि परिसंवादांसाठी उपयुक्त.", tagsEn: ["500+ Seats", "Acoustic Stage", "Surround Sound PA", "Stage Lighting"], tagsMr: ["५०० आसने", "अकॉस्टिक स्टेज", "सराउंड साऊंड", "स्टेज लाइटिंग"] }
   };
 
   const galleryData = [
@@ -419,21 +414,21 @@
         aiBubble.innerHTML = `नमस्ते! मी <strong>शिवाजी इंग्लिश स्कूल आणि ज्युनिअर कॉलेज, पांडूर तिठा</strong> चा अधिकृत <strong>Ai Assistant</strong> आहे.<br><br>खालीलपैकी कोणताही प्रश्न निवडा किंवा आपला प्रश्न टाइप करा:
         <div class="ai-suggestion-chips">
           <button class="ai-chip-btn" data-query="Admissions">🎓 प्रवेश माहिती</button>
-          <button class="ai-chip-btn" data-query="12th IT SOPs">💻 १२ वी IT प्रॅक्टिकल</button>
-          <button class="ai-chip-btn" data-query="Academic Streams">📚 अभ्यासक्रम शाखा</button>
-          <button class="ai-chip-btn" data-query="Office Timings">🕒 वेळ व सुट्ट्या</button>
-          <button class="ai-chip-btn" data-query="Principal Details">👨‍🏫 प्राचार्य माहिती</button>
           <button class="ai-chip-btn" data-query="Campus Facilities">🏫 परिसर सुविधा</button>
+          <button class="ai-chip-btn" data-query="Office Timings">🕒 वेळ व सुट्ट्या</button>
+          <button class="ai-chip-btn" data-query="Location">📍 पत्ता व नकाशा</button>
+          <button class="ai-chip-btn" data-query="Principal Details">👨‍🏫 प्राचार्य माहिती</button>
+          <button class="ai-chip-btn" data-query="12th IT SOPs">💻 १२ वी IT प्रॅक्टिकल</button>
         </div>`;
       } else {
         aiBubble.innerHTML = `Namaste! I am the Smart <strong>Ai Assistant</strong> for <strong>Shivaji English School &amp; Jr. College, Pandur Titha</strong>.<br><br>Ask me anything or choose a quick topic below:
         <div class="ai-suggestion-chips">
           <button class="ai-chip-btn" data-query="Admissions">🎓 Admissions</button>
-          <button class="ai-chip-btn" data-query="12th IT SOPs">💻 12th IT SOPs</button>
-          <button class="ai-chip-btn" data-query="Academic Streams">📚 Courses</button>
-          <button class="ai-chip-btn" data-query="Office Timings">🕒 Timings</button>
-          <button class="ai-chip-btn" data-query="Principal Details">👨‍🏫 Principal</button>
           <button class="ai-chip-btn" data-query="Campus Facilities">🏫 Facilities</button>
+          <button class="ai-chip-btn" data-query="Office Timings">🕒 Timings</button>
+          <button class="ai-chip-btn" data-query="Location">📍 Location & Map</button>
+          <button class="ai-chip-btn" data-query="Principal Details">👨‍🏫 Principal</button>
+          <button class="ai-chip-btn" data-query="12th IT SOPs">💻 12th IT SOPs</button>
         </div>`;
       }
     }
@@ -742,28 +737,60 @@
     chatMsgBox.scrollTop = chatMsgBox.scrollHeight;
   }
 
+  // =========================================================================
+  // STRICT, VERIFIED AI KNOWLEDGE BASE (NO HALLUCINATIONS)
+  // =========================================================================
   function processAiText(query) {
     const q = query.toLowerCase().trim();
     let reply = "";
 
-    if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('फॉर्म') || q.includes('फी')) {
-      reply = state.lang === 'mr' ? "📚 <strong>प्रवेश २०२६-२७ माहिती:</strong><br>• इयत्ता ११ वी कला, वाणिज्य व विज्ञान आणि ५ वी ते १०্বা वी प्रवेश सुरू आहेत.<br>• <strong>आवश्यक कागदपत्रे:</strong> १० वी गुणपत्रिका, शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो.<br>• <strong>फी रचना:</strong> शासन नियमांनुसार माफक/अनुदानित फी व EBC/मागासवर्गीय शिष्यवृत्ती उपलब्ध.<br>• <strong>कार्यालय संपर्क:</strong> +91 (02362) 224-8090" : "📚 <strong>Admissions 2026–27 Information:</strong><br>• Admissions are open for 11th Science, Commerce, Arts & IT streams, as well as Secondary Grades 5th–10th.<br>• <strong>Required Documents:</strong> 10th Marksheet, School Leaving Certificate (LC), Aadhaar Card & photos.<br>• <strong>Fee Structure:</strong> Highly subsidized government-aided fees with EBC & government scholarships.<br>• <strong>Helpline:</strong> +91 (02362) 224-8090";
-    } else if (q.includes('it') || q.includes('sop') || q.includes('practical') || q.includes('प्रॅक्टिकल') || q.includes('code') || q.includes('कोड')) {
-      reply = state.lang === 'mr' ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>• महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे.<br>• वर दिलेल्या <strong>View IT SOPs & Code</strong> बटणावर क्लिक करून आपण थेट कोड पाहू व कॉपी करू शकता." : "💻 <strong>12th HSC IT Practical Hub:</strong><br>• Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) including HTML5, CSS Flexbox, JavaScript Validation, Image Mapping, and SEO are ready in the <em>Student Hub</em>.<br>• Click the <strong>View IT SOPs & Code</strong> button to view and copy complete source code.";
-    } else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब') || q.includes('chemistry') || q.includes('physics') || q.includes('library')) {
-      reply = state.lang === 'mr' ? "🏫 <strong>महाविद्यालयीन पायाभूत सुविधा:</strong><br>• <strong>स्मार्ट क्लासरूम्स:</strong> परस्परसंवादी टच स्क्रीन व ऑडिओ-व्हिज्युअल सिस्टम.<br>• <strong>IT लॅब:</strong> ४०+ हाय-स्पीड कॉम्प्युटर, गिगाबिट लॅन व अखंड वीजपुरवठा.<br>• <strong>विज्ञान लॅब:</strong> सुसज्ज भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रयोगशाळा.<br>• <strong>मध्यवर्ती ग्रंथालय:</strong> १५,०००+ पुस्तके व वाचनालय.<br>• <strong>क्रीडांगण:</strong> २ एकराचे भव्य क्रीडांगण व व्हॉलीबॉल कोर्ट." : "🏫 <strong>Campus Infrastructure & Facilities:</strong><br>• <strong>Smart Classrooms:</strong> Interactive touch displays & digital podiums.<br>• <strong>IT Lab:</strong> 40+ Core-i5 PCs, gigabit LAN, Linux/Windows OS & UPS backup.<br>• <strong>Science Labs:</strong> Dedicated Physics, Chemistry & Biology laboratories.<br>• <strong>Central Library:</strong> 15,000+ reference books & 100-seat reading hall.<br>• <strong>Sports Complex:</strong> 2-acre athletic grounds, Kabaddi/Kho-Kho arenas & volleyball court.";
-    } else if (q.includes('stream') || q.includes('course') || q.includes('शाखा') || q.includes('subject') || q.includes('विषय')) {
-      reply = state.lang === 'mr' ? "🎓 <strong>उपलब्ध शैक्षणिक शाखा:</strong><br>१. <strong>विज्ञान (Science):</strong> Physics, Chemistry, Maths, Biology, Information Technology (IT).<br>२. <strong>वाणिज्य (Commerce):</strong> Book Keeping & Accountancy, OCM, SP, Economics, IT.<br>३. <strong>कला (Arts):</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>४. <strong>माध्यमिक (Grades 5-10):</strong> सेमी-इंग्रजी व मराठी माध्यम." : "🎓 <strong>Available Academic Streams:</strong><br>1. <strong>Science Stream:</strong> Physics, Chemistry, Mathematics, Biology, Information Technology (IT).<br>2. <strong>Commerce Stream:</strong> Accountancy, OCM, Secretarial Practice, Economics, IT.<br>3. <strong>Arts Stream:</strong> History, Geography, Political Science, Economics, Marathi Literature.<br>4. <strong>Secondary (5th–10th):</strong> Semi-English & English medium options.";
-    } else if (q.includes('timing') || q.includes('time') || q.includes('वेळ') || q.includes('office') || q.includes('कार्यालय')) {
-      reply = state.lang === 'mr' ? "🕒 <strong>महाविद्यालयीन वेळा:</strong><br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> सकाळी ७:३० ते दुपारी १:००<br>• <strong>माध्यमिक शाळा (५ वी ते १० वी):</strong> सकाळी १०:०० ते सायंकाळी ५:००<br>• <strong>प्रशासकीय कार्यालय:</strong> सकाळी ९:३० ते सायंकाळी ५:३० (सोमवार ते शनिवार)" : "🕒 <strong>College & Office Timings:</strong><br>• <strong>Junior College (11th & 12th):</strong> 7:30 AM to 1:00 PM<br>• <strong>Secondary School (5th to 10th):</strong> 10:00 AM to 5:00 PM<br>• <strong>Administrative Office:</strong> 9:30 AM to 5:30 PM (Monday to Saturday)";
-    } else if (q.includes('principal') || q.includes('प्राचार्य') || q.includes('head') || q.includes('management') || q.includes('संस्था')) {
-      reply = state.lang === 'mr' ? "👨‍🏫 <strong>प्रशासकीय नेतृत्व:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील (M.Sc., Ph.D., B.Ed.) - २५+ वर्षे शैक्षणिक अनुभव.<br>• <strong>संस्था:</strong> शिवाजी शिक्षण प्रसारक मंडळ, पांडूर तिठा (स्थापना १९६०)." : "👨‍🏫 <strong>Administrative Leadership:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil (M.Sc., Ph.D., B.Ed.) with 25+ years of distinguished leadership.<br>• <strong>Institution:</strong> Shivaji Shikshan Prasarak Mandal, Pandur Titha (Estd. 1960).";
-    } else if (q.includes('contact') || q.includes('संपर्क') || q.includes('address') || q.includes('पत्ता') || q.includes('phone') || q.includes('नंबर')) {
-      reply = state.lang === 'mr' ? "📍 <strong>संपर्क व पत्ता:</strong><br>• <strong>पत्ता:</strong> पांडूर तिठा, तालुका कुडाळ, जिल्हा सिंधुदुर्ग, महाराष्ट्र ४१६५२८<br>• <strong>फोन:</strong> +91 (02362) 224-8090<br>• <strong>ईमेल:</strong> contact@shivajischoolpandur.edu.in" : "📍 <strong>Contact & Location:</strong><br>• <strong>Address:</strong> Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra 416528<br>• <strong>Phone:</strong> +91 (02362) 224-8090<br>• <strong>Email:</strong> contact@shivajischoolpandur.edu.in";
-    } else if (q.includes('sport') || q.includes('खेळ') || q.includes('gathering') || q.includes('संमेलन') || q.includes('science fair') || q.includes('प्रदर्शन')) {
-      reply = state.lang === 'mr' ? "🏆 <strong>क्रीडा व सांस्कृतिक उपक्रम:</strong><br>• वार्षिक स्नेहसंमेलन (डिसेंबर/जानेवारी), शिवजयंती उत्सव (१९ फेब्रुवारी), तालुका व जिल्हास्तरीय क्रीडा स्पर्धा आणि विज्ञान प्रदर्शन दरवर्षी उत्साहात साजरे केले जातात." : "🏆 <strong>Sports & Cultural Activities:</strong><br>• Annual Gathering & Drama festival, Grand Shiv Jayanti Utsav (19 Feb), Inter-School Athletic tournaments, and District Science Exhibitions are celebrated annually.";
-    } else {
-      reply = state.lang === 'mr' ? "मी <strong>Ai Assistant</strong> आहे! आपण प्रवेश प्रक्रिया, १२ वी IT प्रॅक्टिकल, प्रयोगशाळा सुविधा, शाखा किंवा महाविद्यालयाच्या वेळेबद्दल विचारू शकता." : "I am your <strong>Ai Assistant</strong>! Feel free to ask about Admissions 2026–27, 12th IT Practicals (SOP 1–6), Science Labs, Courses, Facilities, or College Timings.";
+    // 1. School Information & Location
+    if (q.includes('school name') || q.includes('udise') || q.includes('location') || q.includes('pin') || q.includes('address') || q.includes('पत्ता') || q.includes('नकाशा') || q.includes('map')) {
+      reply = state.lang === 'mr' 
+        ? `📍 <strong>संस्थेची माहिती:</strong><br>• <strong>नाव:</strong> ${aiKnowledge.schoolName}<br>• <strong>पत्ता:</strong> ${aiKnowledge.location} (PIN: ${aiKnowledge.pin})<br>• <strong>स्थापना:</strong> ${aiKnowledge.established} (सह-शिक्षण)<br>• <strong>UDISE Code:</strong> ${aiKnowledge.udise}<br>• <a href="#contact" onclick="window.closeAiChat()" style="color: #3b82f6; text-decoration: underline;">Google Map वर पाहण्यासाठी येथे क्लिक करा</a>.` 
+        : `📍 <strong>Institution Details:</strong><br>• <strong>Name:</strong> ${aiKnowledge.schoolName}<br>• <strong>Address:</strong> ${aiKnowledge.location} (PIN: ${aiKnowledge.pin})<br>• <strong>Established:</strong> ${aiKnowledge.established} (${aiKnowledge.type})<br>• <strong>UDISE Code:</strong> ${aiKnowledge.udise}<br>• <a href="#contact" onclick="window.closeAiChat()" style="color: #3b82f6; text-decoration: underline;">Click here to view our exact Google Maps location</a>.`;
+    } 
+    // 2. Admissions & Timings
+    else if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('timing') || q.includes('time') || q.includes('वेळ')) {
+      reply = state.lang === 'mr' 
+        ? `🕒 <strong>वेळापत्रक व प्रवेश (२०२६-२७):</strong><br>• <strong>माध्यमिक (५ वी ते १० वी):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>कार्यालयीन वेळ:</strong> ${aiKnowledge.timings.office}<br><br><strong>प्रवेशासाठी लागणारी कागदपत्रे:</strong> शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो आणि मागील वर्षाची गुणपत्रिका. फी ची अचूक माहिती कार्यालयात उपलब्ध आहे.` 
+        : `🕒 <strong>Timings & Admissions (2026-27):</strong><br>• <strong>Secondary (5th-10th):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>Junior College (11th & 12th):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>Office Hours:</strong> ${aiKnowledge.timings.office}<br><br><strong>Required Documents:</strong> Leaving Certificate (LC), Aadhaar Card, Passport Photos, and Previous Marksheet. Please visit the office for exact fee structures.`;
+    } 
+    // 3. Facilities
+    else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब')) {
+      reply = state.lang === 'mr' 
+        ? `🏫 <strong>आमच्या परिसरातील सुविधा:</strong><br>• डिजिटल स्मार्ट क्लासरूम्स<br>• कॉम्प्युटर व IT लॅब<br>• भौतिकशास्त्र, रसायनशास्त्र आणि जीवशास्त्र प्रयोगशाळा<br>• मध्यवर्ती ग्रंथालय<br>• क्रीडांगण व सभागृह<br>• नृत्य/संगीत सराव कक्ष, स्वच्छ स्वच्छतागृहे आणि पिण्याचे पाणी.` 
+        : `🏫 <strong>Campus Facilities Available:</strong><br>• Smart Classrooms<br>• Computer & IT Lab<br>• Physics, Chemistry & Biology Laboratories<br>• Central Library<br>• Playground & Sports Complex<br>• Auditorium, Dance/Music Practice Rooms, clean washrooms, and safe drinking water.`;
+    } 
+    // 4. Principal & Contact
+    else if (q.includes('principal') || q.includes('प्राचार्य') || q.includes('contact') || q.includes('संपर्क') || q.includes('phone')) {
+      reply = state.lang === 'mr' 
+        ? `👨‍🏫 <strong>संपर्क व प्रशासन:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील<br>• <strong>फोन नंबर:</strong> ${aiKnowledge.contact.phone}<br>• <strong>ईमेल:</strong> ${aiKnowledge.contact.email}<br>• कार्यालयीन वेळेत (सकाळी ९:३० ते ४:३०) आपण प्रत्यक्ष भेटू शकता.` 
+        : `👨‍🏫 <strong>Administration & Contact:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil<br>• <strong>Phone:</strong> ${aiKnowledge.contact.phone}<br>• <strong>Email:</strong> ${aiKnowledge.contact.email}<br>• You can visit our Administrative Office between 9:30 AM to 4:30 PM.`;
+    } 
+    // 5. Rules & Discipline
+    else if (q.includes('rule') || q.includes('नियम') || q.includes('uniform') || q.includes('mobile') || q.includes('attendance')) {
+      reply = state.lang === 'mr'
+        ? `⚖️ <strong>शाळेचे नियम:</strong><br>• कॅम्पसमध्ये अधिकृत गणवेश आणि ओळखपत्र (ID Card) अनिवार्य आहे.<br>• मोबाईल फोन आणण्यास सक्त मनाई आहे.<br>• ७५% उपस्थिती (Attendance) अनिवार्य आहे.<br>• प्रयोगशाळा व ग्रंथालयातील नियमांचे काटेकोर पालन करणे आवश्यक आहे.`
+        : `⚖️ <strong>Campus Rules & Discipline:</strong><br>• Official uniform and ID cards are strictly mandatory on campus.<br>• Mobile phones are strictly prohibited.<br>• 75% minimum attendance is required for board exams.<br>• Strict safety protocols must be followed in science laboratories.`;
+    }
+    // 6. Events
+    else if (q.includes('event') || q.includes('उपक्रम') || q.includes('sports') || q.includes('gathering') || q.includes('exhibition')) {
+      reply = state.lang === 'mr'
+        ? `🏆 <strong>वार्षिक उपक्रम:</strong><br>आम्ही वार्षिक स्नेहसंमेलन, क्रीडा महोत्सव, सांस्कृतिक कार्यक्रम, विज्ञान प्रदर्शन, आणि स्वातंत्र्य/प्रजासत्ताक दिन मोठ्या उत्साहात साजरे करतो.`
+        : `🏆 <strong>Events & Activities:</strong><br>Our institution proudly hosts the Annual Gathering, Inter-School Sports Meets, Cultural Programs, Science Exhibitions, and patriotic Independence/Republic day celebrations.`;
+    }
+    // 7. IT Practical Code
+    else if (q.includes('it') || q.includes('sop') || q.includes('practical') || q.includes('प्रॅक्टिकल') || q.includes('code') || q.includes('कोड')) {
+      reply = state.lang === 'mr' 
+        ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे." 
+        : "💻 <strong>12th HSC IT Practical Hub:</strong><br>Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) are completely available in the <em>Student Hub</em> section of this website.";
+    } 
+    // Fallback Rule (Strict Anti-Hallucination)
+    else {
+      reply = state.lang === 'mr' 
+        ? "माफ करा, मी फक्त संस्थेची अधिकृत आणि प्रमाणित माहिती देतो. जर आपल्याला फी, विशिष्ट शिक्षकांची नावे किंवा इतर माहिती हवी असेल, तर कृपया आमच्या कार्यालयाशी संपर्क साधा: " + aiKnowledge.contact.phone 
+        : "I am programmed to only provide verified school information. If you need details regarding specific fees, exact admission dates, or teacher names not listed here, please contact the school office directly at " + aiKnowledge.contact.phone + ".";
     }
 
     setTimeout(() => { appendAiMessage(reply, 'ai'); }, 250);
@@ -831,13 +858,6 @@
       });
     });
 
-    document.querySelectorAll('.notice-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const id = item.getAttribute('data-notice-id');
-        if (id) window.openNoticeModal(id);
-      });
-    });
-
     const noticeModal = document.getElementById('noticeModal');
     if (noticeModal) noticeModal.addEventListener('click', (e) => { if (e.target === noticeModal) window.closeNoticeModal(); });
 
@@ -852,23 +872,10 @@
       });
     });
 
-    const facilityZoomBtn = document.getElementById('facilityZoomBtn');
-    if (facilityZoomBtn) facilityZoomBtn.addEventListener('click', window.zoomCurrentFacility);
-
-    const facilityImg = document.getElementById('facilityImg');
-    if (facilityImg) facilityImg.addEventListener('click', window.zoomCurrentFacility);
-
     document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
         if (filter) window.filterGalleryCategory(filter);
-      });
-    });
-
-    document.querySelectorAll('.gallery-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        const visibleCards = Array.from(document.querySelectorAll('.gallery-card')).filter(c => c.style.display !== 'none');
-        window.openLightbox(visibleCards.indexOf(card) >= 0 ? visibleCards.indexOf(card) : 0);
       });
     });
 
