@@ -62,15 +62,13 @@
       "subSetSmart": "Large touch buttons & presenter view for classroom interactive boards",
       "txtResetSettings": "Reset Defaults",
       "txtDoneSettings": "Done",
-      "navTxtHome": "Home",
-      "navTxtAbout": "About",
-      "navTxtAcademics": "Academics",
-      "navTxtNotices": "Notices",
-      "navTxtHub": "Student Hub",
-      "navTxtCampus": "Campus",
-      "navTxtGallery": "Gallery",
-      "navTxtFaculty": "Faculty",
-      "navTxtContact": "Contact",
+      "navTxtAbout": "About Our Institution",
+      "navTxtKiosk": "Admissions & Kiosk",
+      "navTxtNotices": "Official Notice Board",
+      "navTxtHub": "Academic Streams & Hub",
+      "navTxtCampus": "Interactive Campus & Facilities",
+      "navTxtGallery": "Campus Life & Gallery",
+      "navTxtContact": "Contact & Location",
       "heroBadge": "<i class=\"fa-solid fa-star\"></i> 60+ Years of Academic Excellence (Since 1960)",
       "heroTitle": "Empowering Minds, <br><span class=\"text-highlight\">Shaping Leaders</span> in Sindhudurg.",
       "heroDesc": "A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.",
@@ -210,14 +208,12 @@
       "subSetSmart": "वर्गखोलीतील स्मार्ट बोर्डसाठी मोठे बटन्स व प्रेझेंटर मोड",
       "txtResetSettings": "मूळ सेटिंग्ज",
       "txtDoneSettings": "पूर्ण झाले",
-      "navTxtHome": "मुख्यपृष्ठ",
       "navTxtAbout": "संस्थेबद्दल",
-      "navTxtAcademics": "अभ्यासक्रम",
+      "navTxtKiosk": "प्रवेश व माहिती",
       "navTxtNotices": "सूचना फलक",
-      "navTxtHub": "विद्यार्थी कक्ष",
-      "navTxtCampus": "परिसर",
+      "navTxtHub": "अभ्यासक्रम व कक्ष",
+      "navTxtCampus": "परिसर व सुविधा",
       "navTxtGallery": "चित्रदालन",
-      "navTxtFaculty": "शिक्षक वृंद",
       "navTxtContact": "संपर्क",
       "heroBadge": "<i class=\"fa-solid fa-star\"></i> ६४+ वर्षांची शैक्षणिक परंपरा (स्थापना १९६०)",
       "heroTitle": "सिंधुदुर्गातील विद्यार्थ्यांचे <br><span class=\"text-highlight\">उज्ज्वल भविष्य</span> घडवणारी अग्रगण्य संस्था.",
@@ -485,22 +481,7 @@
     if (modal) modal.classList.remove('open');
   };
 
-  window.toggleMobileNav = function() {
-    const nav = document.getElementById('navMenu');
-    const toggleBtn = document.getElementById('mobileNavToggle');
-    if (nav) {
-      nav.classList.toggle('open');
-      const isOpen = nav.classList.contains('open');
-      if (toggleBtn) {
-        toggleBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-        toggleBtn.setAttribute('aria-expanded', isOpen);
-      }
-    }
-  };
-
-  // =========================================================================
-  // MAIN TAB SWITCHER (NEW FUNCTION)
-  // =========================================================================
+  // MAIN TAB SWITCHER
   window.switchMainTab = function(tabId) {
     document.querySelectorAll('.main-tab-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-tab-target') === tabId);
@@ -510,9 +491,7 @@
     });
   };
 
-  // =========================================================================
   // NOTICE BOARD MODAL LOGIC
-  // =========================================================================
   window.openNoticeModal = function(noticeId) {
     const modal = document.getElementById('noticeModal');
     const noticeItem = document.querySelector(`.notice-item[data-notice-id="${noticeId}"]`);
@@ -538,9 +517,6 @@
     if (modal) modal.classList.remove('open');
   };
 
-  // =========================================================================
-  // FACILITIES, GALLERY, AND LIGHTBOX
-  // =========================================================================
   window.selectFacility = function(key) {
     state.currentFacility = key;
     const fac = facilitiesData[key];
@@ -621,12 +597,7 @@
   window.openLightbox = function(index) {
     if (activeGalleryList.length === 1 && index !== 0) {
         activeGalleryList = [...galleryData];
-    } else if (activeGalleryList.length === 1 && index === 0) {
-        // Keep single item array for facility
-    } else {
-        activeGalleryList = [...galleryData];
     }
-    
     if (index < 0 || index >= activeGalleryList.length) return;
     state.activeLightboxIndex = index;
     const item = activeGalleryList[state.activeLightboxIndex];
@@ -646,20 +617,8 @@
     document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
     
     const counterEl = document.getElementById('lightboxCounter');
-    const nextBtn = document.getElementById('lightboxNextBtn');
-    const prevBtn = document.getElementById('lightboxPrevBtn');
-
     if (counterEl) {
-        if(activeGalleryList.length <= 1) {
-             counterEl.style.display = 'none';
-             if(nextBtn) nextBtn.style.display = 'none';
-             if(prevBtn) prevBtn.style.display = 'none';
-        } else {
-             counterEl.style.display = 'block';
-             if(nextBtn) nextBtn.style.display = 'flex';
-             if(prevBtn) prevBtn.style.display = 'flex';
-             counterEl.textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
-        }
+      counterEl.textContent = `${state.activeLightboxIndex + 1} / ${activeGalleryList.length}`;
     }
 
     modal.classList.add('active');
@@ -682,9 +641,6 @@
     window.openLightbox((state.activeLightboxIndex - 1 + activeGalleryList.length) % activeGalleryList.length);
   };
 
-  // =========================================================================
-  // IT HUB MODAL & AI WIDGET
-  // =========================================================================
   window.openItHubModal = function() {
     const modal = document.getElementById('itHubModal');
     if (modal) { modal.classList.add('open'); window.renderSopContent(state.currentSop); }
@@ -773,68 +729,39 @@
     chatMsgBox.scrollTop = chatMsgBox.scrollHeight;
   }
 
-  // =========================================================================
-  // STRICT, VERIFIED AI KNOWLEDGE BASE (NO HALLUCINATIONS)
-  // =========================================================================
   function processAiText(query) {
     const q = query.toLowerCase().trim();
     let reply = "";
 
-    // 1. School Information & Location
     if (q.includes('school name') || q.includes('udise') || q.includes('location') || q.includes('pin') || q.includes('address') || q.includes('पत्ता') || q.includes('नकाशा') || q.includes('map')) {
       reply = state.lang === 'mr' 
         ? `📍 <strong>संस्थेची माहिती:</strong><br>• <strong>नाव:</strong> ${aiKnowledge.schoolName}<br>• <strong>पत्ता:</strong> ${aiKnowledge.location} (PIN: ${aiKnowledge.pin})<br>• <strong>स्थापना:</strong> ${aiKnowledge.established} (सह-शिक्षण)<br>• <strong>UDISE Code:</strong> ${aiKnowledge.udise}<br>• <a href="#contact" onclick="window.closeAiChat()" style="color: #3b82f6; text-decoration: underline;">Google Map वर पाहण्यासाठी येथे क्लिक करा</a>.` 
         : `📍 <strong>Institution Details:</strong><br>• <strong>Name:</strong> ${aiKnowledge.schoolName}<br>• <strong>Address:</strong> ${aiKnowledge.location} (PIN: ${aiKnowledge.pin})<br>• <strong>Established:</strong> ${aiKnowledge.established} (${aiKnowledge.type})<br>• <strong>UDISE Code:</strong> ${aiKnowledge.udise}<br>• <a href="#contact" onclick="window.closeAiChat()" style="color: #3b82f6; text-decoration: underline;">Click here to view our exact Google Maps location</a>.`;
     } 
-    // 2. Admissions & Timings
     else if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('timing') || q.includes('time') || q.includes('वेळ')) {
       reply = state.lang === 'mr' 
-        ? `🕒 <strong>वेळापत्रक व प्रवेश (२०२६-२७):</strong><br>• <strong>माध्यमिक (५ वी ते १० वी):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>कार्यालयीन वेळ:</strong> ${aiKnowledge.timings.office}<br><br><strong>प्रवेशासाठी लागणारी कागदपत्रे:</strong> शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो आणि मागील वर्षाची गुणपत्रिका. फी ची अचूक माहिती कार्यालयात उपलब्ध आहे.` 
-        : `🕒 <strong>Timings & Admissions (2026-27):</strong><br>• <strong>Secondary (5th-10th):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>Junior College (11th & 12th):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>Office Hours:</strong> ${aiKnowledge.timings.office}<br><br><strong>Required Documents:</strong> Leaving Certificate (LC), Aadhaar Card, Passport Photos, and Previous Marksheet. Please visit the office for exact fee structures.`;
+        ? `🕒 <strong>वेळापत्रक व प्रवेश (२०२६-२७):</strong><br>• <strong>माध्यमिक (५ वी ते १० वी):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>कार्यालयीन वेळ:</strong> ${aiKnowledge.timings.office}<br><br><strong>प्रवेशासाठी लागणारी कागदपत्रे:</strong> शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो आणि मागील वर्षाची गुणपत्रिका.` 
+        : `🕒 <strong>Timings & Admissions (2026-27):</strong><br>• <strong>Secondary (5th-10th):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>Junior College (11th & 12th):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>Office Hours:</strong> ${aiKnowledge.timings.office}<br><br><strong>Required Documents:</strong> Leaving Certificate (LC), Aadhaar Card, Passport Photos, and Previous Marksheet.`;
     } 
-    // 3. Facilities
     else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब')) {
       reply = state.lang === 'mr' 
-        ? `🏫 <strong>आमच्या परिसरातील सुविधा:</strong><br>• डिजिटल स्मार्ट क्लासरूम्स<br>• कॉम्प्युटर व IT लॅब<br>• भौतिकशास्त्र, रसायनशास्त्र आणि जीवशास्त्र प्रयोगशाळा<br>• मध्यवर्ती ग्रंथालय<br>• क्रीडांगण व सभागृह<br>• नृत्य/संगीत सराव कक्ष, स्वच्छ स्वच्छतागृहे आणि पिण्याचे पाणी.` 
-        : `🏫 <strong>Campus Facilities Available:</strong><br>• Smart Classrooms<br>• Computer & IT Lab<br>• Physics, Chemistry & Biology Laboratories<br>• Central Library<br>• Playground & Sports Complex<br>• Auditorium, Dance/Music Practice Rooms, clean washrooms, and safe drinking water.`;
+        ? `🏫 <strong>आमच्या परिसरातील सुविधा:</strong><br>• डिजिटल स्मार्ट क्लासरूम्स<br>• कॉम्प्युटर व IT लॅब<br>• भौतिकशास्त्र, रसायनशास्त्र आणि जीवशास्त्र प्रयोगशाळा<br>• मध्यवर्ती ग्रंथालय<br>• क्रीडांगण व सभागृह.` 
+        : `🏫 <strong>Campus Facilities Available:</strong><br>• Smart Classrooms<br>• Computer & IT Lab<br>• Physics, Chemistry & Biology Laboratories<br>• Central Library<br>• Playground & Sports Complex.`;
     } 
-    // 4. Principal & Contact
     else if (q.includes('principal') || q.includes('प्राचार्य') || q.includes('contact') || q.includes('संपर्क') || q.includes('phone')) {
       reply = state.lang === 'mr' 
-        ? `👨‍🏫 <strong>संपर्क व प्रशासन:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील<br>• <strong>फोन नंबर:</strong> ${aiKnowledge.contact.phone}<br>• <strong>ईमेल:</strong> ${aiKnowledge.contact.email}<br>• कार्यालयीन वेळेत (सकाळी ९:३० ते ४:३०) आपण प्रत्यक्ष भेटू शकता.` 
-        : `👨‍🏫 <strong>Administration & Contact:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil<br>• <strong>Phone:</strong> ${aiKnowledge.contact.phone}<br>• <strong>Email:</strong> ${aiKnowledge.contact.email}<br>• You can visit our Administrative Office between 9:30 AM to 4:30 PM.`;
+        ? `👨‍🏫 <strong>संपर्क व प्रशासन:</strong><br>• <strong>प्राचार्य:</strong> डॉ. अरविंद पाटील<br>• <strong>फोन नंबर:</strong> ${aiKnowledge.contact.phone}<br>• <strong>ईमेल:</strong> ${aiKnowledge.contact.email}` 
+        : `👨‍🏫 <strong>Administration & Contact:</strong><br>• <strong>Principal:</strong> Dr. Arvind Patil<br>• <strong>Phone:</strong> ${aiKnowledge.contact.phone}<br>• <strong>Email:</strong> ${aiKnowledge.contact.email}`;
     } 
-    // 5. Rules & Discipline
-    else if (q.includes('rule') || q.includes('नियम') || q.includes('uniform') || q.includes('mobile') || q.includes('attendance')) {
-      reply = state.lang === 'mr'
-        ? `⚖️ <strong>शाळेचे नियम:</strong><br>• कॅम्पसमध्ये अधिकृत गणवेश आणि ओळखपत्र (ID Card) अनिवार्य आहे.<br>• मोबाईल फोन आणण्यास सक्त मनाई आहे.<br>• ७५% उपस्थिती (Attendance) अनिवार्य आहे.<br>• प्रयोगशाळा व ग्रंथालयातील नियमांचे काटेकोर पालन करणे आवश्यक आहे.`
-        : `⚖️ <strong>Campus Rules & Discipline:</strong><br>• Official uniform and ID cards are strictly mandatory on campus.<br>• Mobile phones are strictly prohibited.<br>• 75% minimum attendance is required for board exams.<br>• Strict safety protocols must be followed in science laboratories.`;
-    }
-    // 6. Events
-    else if (q.includes('event') || q.includes('उपक्रम') || q.includes('sports') || q.includes('gathering') || q.includes('exhibition')) {
-      reply = state.lang === 'mr'
-        ? `🏆 <strong>वार्षिक उपक्रम:</strong><br>आम्ही वार्षिक स्नेहसंमेलन, क्रीडा महोत्सव, सांस्कृतिक कार्यक्रम, विज्ञान प्रदर्शन, आणि स्वातंत्र्य/प्रजासत्ताक दिन मोठ्या उत्साहात साजरे करतो.`
-        : `🏆 <strong>Events & Activities:</strong><br>Our institution proudly hosts the Annual Gathering, Inter-School Sports Meets, Cultural Programs, Science Exhibitions, and patriotic Independence/Republic day celebrations.`;
-    }
-    // 7. IT Practical Code
-    else if (q.includes('it') || q.includes('sop') || q.includes('practical') || q.includes('प्रॅक्टिकल') || q.includes('code') || q.includes('कोड')) {
-      reply = state.lang === 'mr' 
-        ? "💻 <strong>१२ वी IT प्रॅक्टिकल हब:</strong><br>महाराष्ट्र राज्य HSC IT बोर्ड प्रॅक्टिकल्स (SOP 1 ते SOP 6) चे संपूर्ण कोड आणि माहिती वेबसाइटवरील <em>Student Hub</em> विभागात उपलब्ध आहे." 
-        : "💻 <strong>12th HSC IT Practical Hub:</strong><br>Maharashtra State Board HSC IT practical solutions (SOP 1 to SOP 6) are completely available in the <em>Student Hub</em> section of this website.";
-    } 
-    // Fallback Rule (Strict Anti-Hallucination)
     else {
       reply = state.lang === 'mr' 
-        ? "माफ करा, मी फक्त संस्थेची अधिकृत आणि प्रमाणित माहिती देतो. जर आपल्याला फी, विशिष्ट शिक्षकांची नावे किंवा इतर माहिती हवी असेल, तर कृपया आमच्या कार्यालयाशी संपर्क साधा: " + aiKnowledge.contact.phone 
-        : "I am programmed to only provide verified school information. If you need details regarding specific fees, exact admission dates, or teacher names not listed here, please contact the school office directly at " + aiKnowledge.contact.phone + ".";
+        ? "माफ करा, मी फक्त संस्थेची अधिकृत आणि प्रमाणित माहिती देतो. कृपया आमच्या कार्यालयाशी संपर्क साधा: " + aiKnowledge.contact.phone 
+        : "I am programmed to only provide verified school information. Please contact the school office directly at " + aiKnowledge.contact.phone + ".";
     }
 
     setTimeout(() => { appendAiMessage(reply, 'ai'); }, 250);
   }
 
-  // =========================================================================
-  // APP INITIALIZATION
-  // =========================================================================
   function initApp() {
     window.applyLanguage(state.lang);
     window.applyFontSize(state.fontSize);
@@ -844,7 +771,6 @@
     window.filterGalleryCategory('all');
     window.renderSopContent('sop1');
 
-    // Attach Listeners
     const btnIds = ['settingsOpenBtn', 'settingsCloseBtn', 'btnCloseSettingsModal', 'langEnBtn', 'langMrBtn', 'fontSmBtn', 'fontMdBtn', 'fontLgBtn', 'fontXlBtn'];
     const actions = [window.openSettingsModal, window.closeSettingsModal, window.closeSettingsModal, () => window.applyLanguage('en'), () => window.applyLanguage('mr'), () => window.applyFontSize('font-sm'), () => window.applyFontSize('font-md'), () => window.applyFontSize('font-lg'), () => window.applyFontSize('font-xl')];
     btnIds.forEach((id, i) => { const el = document.getElementById(id); if (el) el.addEventListener('click', actions[i]); });
@@ -861,28 +787,6 @@
     const settingsModal = document.getElementById('settingsModal');
     if (settingsModal) settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) window.closeSettingsModal(); });
 
-    const mobileNavToggle = document.getElementById('mobileNavToggle');
-    if (mobileNavToggle) mobileNavToggle.addEventListener('click', window.toggleMobileNav);
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        const nav = document.getElementById('navMenu');
-        const toggleBtn = document.getElementById('mobileNavToggle');
-        if (nav && nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          if (toggleBtn) { toggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>'; toggleBtn.setAttribute('aria-expanded', 'false'); }
-        }
-      });
-    });
-
-    // MAIN TABS LOGIC
-    document.querySelectorAll('.main-tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const tabId = btn.getAttribute('data-tab-target');
-        if (tabId) window.switchMainTab(tabId);
-      });
-    });
-
     // BACK TO TOP BUTTON LOGIC
     const backToTopBtn = document.getElementById('backToTopBtn');
     if (backToTopBtn) {
@@ -893,7 +797,6 @@
       backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
 
-    // NOTICE BOARD MODAL EVENT LISTENERS
     document.querySelectorAll('.btn-notice-action').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -914,7 +817,6 @@
 
     const noticeModalCloseBtn = document.getElementById('noticeModalCloseBtn');
     if (noticeModalCloseBtn) noticeModalCloseBtn.addEventListener('click', window.closeNoticeModal);
-
 
     document.querySelectorAll('.facility-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -949,12 +851,6 @@
         if (e.key === 'ArrowRight') window.nextLightbox();
         if (e.key === 'ArrowLeft') window.prevLightbox();
       }
-      const modals = [document.getElementById('settingsModal'), document.getElementById('itHubModal'), document.getElementById('noticeModal')];
-      modals.forEach(m => {
-        if (m && m.classList.contains('open') && e.key === 'Escape') {
-          m.classList.remove('open');
-        }
-      });
     });
 
     const btnOpenItHub = document.getElementById('btnOpenItHub');
@@ -1001,8 +897,46 @@
         inquiryForm.reset();
       });
     }
+
+    // MAIN TABS SWITCHER LISTENER
+    document.querySelectorAll('.main-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab-target');
+        if (tabId) window.switchMainTab(tabId);
+      });
+    });
   }
 
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initApp); } else { initApp(); }
+
+  // Modern Mobile Accordion Drawer Toggle Logic (3-line button)
+  const mobileNavToggle = document.getElementById('mobileNavToggle');
+  const navMenu = document.getElementById('navMenu');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const navToggleIcon = document.getElementById('navToggleIcon');
+
+  if (mobileNavToggle && navMenu) {
+    mobileNavToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      const isOpen = navMenu.classList.contains('open');
+      if (navToggleIcon) {
+        navToggleIcon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+      }
+    });
+  }
+
+  if (drawerCloseBtn && navMenu) {
+    drawerCloseBtn.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      if (navToggleIcon) navToggleIcon.className = "fa-solid fa-bars";
+    });
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu) navMenu.classList.remove('open');
+      if (navToggleIcon) navToggleIcon.className = "fa-solid fa-bars";
+    });
+  });
 
 })();
