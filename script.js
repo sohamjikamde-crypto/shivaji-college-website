@@ -377,9 +377,6 @@
     sop6: { badge: "SOP 6 • SEO & Meta Tags", title: "Search Engine Optimization (SEO) & Structured Headings", aim: "To optimize web pages for search engines using standard Meta tags (charset, description, keywords, author, robots, OpenGraph), semantic hierarchy (H1-H6), and alt attributes.", code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Shivaji English School & Jr. College | Pandur Titha, Sindhudurg</title>\n  \n  <!-- Core SEO Meta Tags -->\n  <meta name="description" content="Official website of Shivaji English School & Junior College, Pandur Titha, Sindhudurg. Admissions open for 11th & 12th Science, Commerce, Arts, and IT.">\n  <meta name="keywords" content="Shivaji College Pandur Titha, Sindhudurg Junior College, 12th IT HSC Maharashtra Board, Sindhudurg Science College">\n  <meta name="author" content="Shivaji English School & Jr. College IT Dept">\n  <meta name="robots" content="index, follow">\n\n  <!-- Open Graph for Social Media Sharing -->\n  <meta property="og:title" content="Shivaji English School & Junior College">\n  <meta property="og:description" content="64+ Years of Academic Excellence in Sindhudurg.">\n  <meta property="og:image" content="https://images.unsplash.com/photo-1562774053-701939374585">\n  <meta property="og:type" content="website">\n</head>\n<body>\n  <h1>Shivaji English School & Junior College - Pandur Titha</h1>\n  <!-- Structured Semantic Content -->\n</body>\n</html>` }
   };
 
-  // =========================================================================
-  // CORE FUNCTIONS
-  // =========================================================================
   window.applyLanguage = function(lang) {
     safeSetItem('ses_lang', lang);
     state.lang = lang;
@@ -431,7 +428,6 @@
     window.renderSopContent(state.currentSop);
   };
 
-  // Fixed Font Size Application
   window.applyFontSize = function(sizeClass) {
     safeSetItem('ses_font', sizeClass);
     state.fontSize = sizeClass;
@@ -555,7 +551,6 @@
     }
   };
 
-  // Fixed Zoom Box Function[span_3](start_span)[span_3](end_span)
   window.zoomCurrentFacility = function() {
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
@@ -598,7 +593,6 @@
     });
   };
 
-  // Fixed Lightbox implementation to work with the explicit HTML index calls[span_4](start_span)[span_4](end_span)
   window.openLightbox = function(index, fromGrid = false) {
     if (fromGrid) {
         activeGalleryList = [...galleryData];
@@ -702,7 +696,6 @@
     }
   };
 
-  // AI Assistant with Backdrop Lock
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
     const backdrop = document.getElementById('aiBackdrop');
@@ -777,7 +770,6 @@
     window.selectFacility('smartClass');
     window.filterGalleryCategory('all');
 
-    // EXPLICIT EVENT BINDINGS FOR SETTINGS TO PREVENT BUGS
     document.getElementById('langEnBtn')?.addEventListener('click', () => window.applyLanguage('en'));
     document.getElementById('langMrBtn')?.addEventListener('click', () => window.applyLanguage('mr'));
     
@@ -924,7 +916,6 @@
 
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initApp); } else { initApp(); }
 
-  // Modern Mobile Accordion Drawer Toggle Logic
   const mobileNavToggle = document.getElementById('mobileNavToggle');
   const navMenu = document.getElementById('navMenu');
   const drawerCloseBtn = document.getElementById('drawerCloseBtn');
