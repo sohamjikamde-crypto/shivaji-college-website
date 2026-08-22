@@ -18,7 +18,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <link rel="stylesheet" href="style.css?v=56">
+  <link rel="stylesheet" href="style.css?v=57">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
 
   <header class="main-header" id="mainHeader">
     <div class="container nav-container">
-      <a href="#home" class="brand-logo" title="Shivaji English School & Jr College Home">
+      <a href="#about" class="brand-logo" title="Shivaji English School & Jr College Home">
         <div class="logo-emblem"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="logo-text">
           <span class="college-name">SHIVAJI ENGLISH SCHOOL</span>
@@ -49,17 +49,39 @@
         </div>
       </a>
 
-      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+      <!-- Modernized 3-line Toggle Menu (Bank Style Accordion Drawer) -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars" id="navToggleIcon"></i>
+      </button>
 
+      <!-- Accordion Dropdown Navigation Drawer -->
       <nav class="nav-menu" id="navMenu">
+        <div class="nav-drawer-header">
+          <span>Quick Menu / मुख्य मेनू</span>
+          <button class="drawer-close-btn" id="drawerCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
         <ul class="nav-list">
-          <li><a href="#about" class="nav-link active"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About</span></a></li>
-          <li><a href="#kiosk" class="nav-link"><i class="fa-solid fa-display"></i> <span id="navTxtKiosk">Kiosk</span></a></li>
-          <li><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Notices</span></a></li>
-          <li><a href="#mainTabsSection" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtHub">Student Hub</span></a></li>
-          <li><a href="#campus" class="nav-link"><i class="fa-solid fa-school"></i> <span id="navTxtCampus">Campus</span></a></li>
-          <li><a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span id="navTxtGallery">Gallery</span></a></li>
-          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span id="navTxtContact">Contact</span></a></li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About Our Institution</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#kiosk" class="nav-link"><i class="fa-solid fa-display"></i> <span id="navTxtKiosk">Admissions &amp; Kiosk</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Official Notice Board</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#mainTabsSection" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtHub">Academic Streams &amp; Hub</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#campus" class="nav-link"><i class="fa-solid fa-school"></i> <span id="navTxtCampus">Interactive Campus &amp; Facilities</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span id="navTxtGallery">Campus Life &amp; Gallery</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span id="navTxtContact">Contact &amp; Location</span></a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -420,7 +442,7 @@
     </div>
   </div>
 
-  <!-- 6. INTERACTIVE CAMPUS & FACILITIES -->
+  <!-- 6. INTERACTIVE CAMPUS & FACILITIES (Moved above Gallery) -->
   <section class="section campus-section" id="campus">
     <div class="container">
       <div class="section-header">
@@ -763,6 +785,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=56" defer></script>
+  <script src="script.js?v=57" defer></script>
 </body>
 </html>
