@@ -899,14 +899,39 @@
       }
     });
 
-    const inquiryForm = document.getElementById('inquiryForm');
+        const inquiryForm = document.getElementById('inquiryForm');
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert(state.lang === 'mr' ? "धन्यवाद! तुमची चौकशी यशस्वीरीत्या नोंदवली गेली आहे." : "Thank you! Your admission inquiry has been successfully submitted.");
+        e.preventDefault(); // Stops the page from refreshing
+
+        // 1. Grab the information the user typed in
+        const fullName = document.getElementById('fullName').value;
+        const phone = document.getElementById('phone').value;
+        const purpose = document.getElementById('inquiryType').value;
+        const message = document.getElementById('message').value;
+
+        // 2. Format the email subject and body text
+        const emailTo = "sohamjikamde@gmail.com";
+        const subject = encodeURIComponent(`New Inquiry: ${purpose} - ${fullName}`);
+        const body = encodeURIComponent(
+          `Student/Parent Name: ${fullName}\n` +
+          `Phone Number: ${phone}\n` +
+          `Inquiry Purpose: ${purpose}\n\n` +
+          `Message:\n${message}`
+        );
+
+        // 3. Create the direct link to open Gmail in a new tab
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${subject}&body=${body}`;
+        
+        // 4. Open Gmail
+        window.open(gmailLink, '_blank');
+
+        // 5. Show a quick message before redirecting and clear the form
+        alert(state.lang === 'mr' ? "तुम्हाला Gmail वर रीडायरेक्ट केले जात आहे..." : "Redirecting you to Gmail to send your message...");
         inquiryForm.reset();
       });
     }
+
 
     document.querySelectorAll('.main-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
