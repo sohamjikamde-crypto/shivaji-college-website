@@ -899,7 +899,7 @@
       }
     });
 
-            const inquiryForm = document.getElementById('inquiryForm');
+                        const inquiryForm = document.getElementById('inquiryForm');
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', (e) => {
         e.preventDefault(); // Stops the page from refreshing
@@ -910,34 +910,30 @@
         const purpose = document.getElementById('inquiryType').value;
         const message = document.getElementById('message').value;
 
-        // 2. Format the email subject and body text
-        const emailTo = "sohamjikamde@gmail.com";
-        const subject = encodeURIComponent(`New Inquiry: ${purpose} - ${fullName}`);
-        const body = encodeURIComponent(
-          `Student/Parent Name: ${fullName}\n` +
-          `Phone Number: ${phone}\n` +
-          `Inquiry Purpose: ${purpose}\n\n` +
-          `Message:\n${message}`
-        );
+        // 2. Format the email subject
+        const emailTo = 'sohamjikamde@gmail.com';
+        const subject = encodeURIComponent('New Inquiry: ' + purpose + ' - ' + fullName);
+        
+        // 3. Use standard string addition (+) so we don't need backticks!
+        const bodyText = 'Student/Parent Name: ' + fullName + '\r\nPhone Number: ' + phone + '\r\nInquiry Purpose: ' + purpose + '\r\n\r\nMessage:\r\n' + message;
+        const body = encodeURIComponent(bodyText);
 
-        // 3. Detect if the user is on a Mobile device or Desktop
+        // 4. Detect if the user is on a Mobile device or Desktop
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         if (isMobile) {
-            // 4a. Mobile: Use 'mailto:' to trigger the phone's native Email/Gmail App
-            window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+            // 5a. Mobile: Force open the native Email/Gmail App
+            window.open('mailto:' + emailTo + '?subject=' + subject + '&body=' + body, '_self');
         } else {
-            // 4b. Desktop: Open the Gmail Web interface in a new browser tab
-            const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${subject}&body=${body}`;
-            window.open(gmailWebLink, '_blank');
+            // 5b. Desktop: Open the Gmail Web interface in a new browser tab
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + emailTo + '&su=' + subject + '&body=' + body, '_blank');
         }
 
-        // 5. Show a quick message and clear the form
-        alert(state.lang === 'mr' ? "चौकशी पाठवली जात आहे..." : "Opening your email app to send the message...");
-        inquiryForm.reset();
+        // 6. Wait almost 1 second before clearing the form so the app has time to open!
+        setTimeout(() => {
+            inquiryForm.reset();
+        }, 800);
       });
-    }
-
     }
 
 
