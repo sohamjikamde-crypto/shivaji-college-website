@@ -899,7 +899,7 @@
       }
     });
 
-        const inquiryForm = document.getElementById('inquiryForm');
+            const inquiryForm = document.getElementById('inquiryForm');
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', (e) => {
         e.preventDefault(); // Stops the page from refreshing
@@ -920,16 +920,24 @@
           `Message:\n${message}`
         );
 
-        // 3. Create the direct link to open Gmail in a new tab
-        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${subject}&body=${body}`;
-        
-        // 4. Open Gmail
-        window.open(gmailLink, '_blank');
+        // 3. Detect if the user is on a Mobile device or Desktop
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        // 5. Show a quick message before redirecting and clear the form
-        alert(state.lang === 'mr' ? "तुम्हाला Gmail वर रीडायरेक्ट केले जात आहे..." : "Redirecting you to Gmail to send your message...");
+        if (isMobile) {
+            // 4a. Mobile: Use 'mailto:' to trigger the phone's native Email/Gmail App
+            window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+        } else {
+            // 4b. Desktop: Open the Gmail Web interface in a new browser tab
+            const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${subject}&body=${body}`;
+            window.open(gmailWebLink, '_blank');
+        }
+
+        // 5. Show a quick message and clear the form
+        alert(state.lang === 'mr' ? "चौकशी पाठवली जात आहे..." : "Opening your email app to send the message...");
         inquiryForm.reset();
       });
+    }
+
     }
 
 
