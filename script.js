@@ -126,9 +126,9 @@
       "hubSub": "Academic Resources",
       "hubTitle": "Student Learning Hub",
       "hubLead": "Quick access to board curriculum, IT practical materials, and previous year question papers.",
-      "hub1Title": "12th Standard IT Hub",
-      "hub1Desc": "HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules as per Maharashtra State Board.",
-      "hub1Btn": "View IT SOPs &amp; Code",
+      "hub1Title": "12th Standard IT Practical Hub",
+      "hub1Desc": "Access complete HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules formatted as per the Maharashtra State Board examination requirements.",
+      "hub1Btn": "Launch IT SOP Editor",
       "hub2Title": "JEE, NEET &amp; Science Labs",
       "hub2Desc": "Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.",
       "hub2Btn": "Open NTA Archives",
@@ -174,7 +174,7 @@
       "fac4Name": "Prof. Deepali Parab",
       "fac4Role": "HOD Commerce &amp; Accountancy",
       "fac4Msg": "\"Empowering future entrepreneurs and finance professionals with practical financial accounting and corporate skills.\"",
-      "contactSub": "Reach Out To Us",
+      "contactSub": "School Office Details",
       "contactTitle": "Send an Inquiry / Message",
       "contactLead": "Have questions regarding admissions, documents, or curriculum? Send us a quick message below.",
       "contactCardHead": "School Office Details",
@@ -273,7 +273,7 @@
       "hubTitle": "विद्यार्थी अभ्यास कक्ष",
       "hubLead": "१२ वी IT बोर्ड प्रॅक्टिकल SOP कोडिंग रनर, लॅब मॅन्युअल्स आणि मागील वर्षांच्या प्रश्नपत्रिका.",
       "hub1Title": "१२ वी IT प्रॅक्टिकल हब",
-      "hub1Desc": "HTML5, CSS3, जावास्क्रिप्ट व्हॅलिडेशन, SOP 1 ते 6 चे संपूर्ण कोड व सोल्युशन्स.",
+      "hub1Desc": "महाराष्ट्र राज्य बोर्डाच्या मानकांनुसार HTML5, CSS3, जावास्क्रिप्ट व्हॅलिडेशन आणि SEO चे संपूर्ण SOP अभ्यास मॉड्यूल्स.",
       "hub1Btn": "IT SOPs व कोड पहा",
       "hub2Title": "JEE, NEET व विज्ञान लॅब",
       "hub2Desc": "भौतिकशास्त्र, रसायनशास्त्र व जीवशास्त्र प्रात्यक्षिक पुस्तिका आणि NEET / JEE मागील वर्षांच्या प्रश्नपत्रिका.",
@@ -320,7 +320,7 @@
       "fac4Name": "प्रा. दिपाली परब",
       "fac4Role": "वाणिज्य व अकाउंटन्सी विभागप्रमुख",
       "fac4Msg": "\"विद्यार्थ्यांमध्ये व्यावसायिक कौशल्ये आणि आर्थिक समज निर्माण करून त्यांना स्वावलंबी बनवणे.\"",
-      "contactSub": "संपर्क साधा",
+      "contactSub": "महाविद्यालयीन कार्यालय",
       "contactTitle": "चौकशी संदेश पाठवा",
       "contactLead": "प्रवेश, दाखले व अभ्यासक्रमाबाबतच्या माहितीसाठी संदेश पाठवा.",
       "contactCardHead": "महाविद्यालयीन कार्यालय",
@@ -377,6 +377,9 @@
     sop6: { badge: "SOP 6 • SEO & Meta Tags", title: "Search Engine Optimization (SEO) & Structured Headings", aim: "To optimize web pages for search engines using standard Meta tags (charset, description, keywords, author, robots, OpenGraph), semantic hierarchy (H1-H6), and alt attributes.", code: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Shivaji English School & Jr. College | Pandur Titha, Sindhudurg</title>\n  \n  <!-- Core SEO Meta Tags -->\n  <meta name="description" content="Official website of Shivaji English School & Junior College, Pandur Titha, Sindhudurg. Admissions open for 11th & 12th Science, Commerce, Arts, and IT.">\n  <meta name="keywords" content="Shivaji College Pandur Titha, Sindhudurg Junior College, 12th IT HSC Maharashtra Board, Sindhudurg Science College">\n  <meta name="author" content="Shivaji English School & Jr. College IT Dept">\n  <meta name="robots" content="index, follow">\n\n  <!-- Open Graph for Social Media Sharing -->\n  <meta property="og:title" content="Shivaji English School & Junior College">\n  <meta property="og:description" content="64+ Years of Academic Excellence in Sindhudurg.">\n  <meta property="og:image" content="https://images.unsplash.com/photo-1562774053-701939374585">\n  <meta property="og:type" content="website">\n</head>\n<body>\n  <h1>Shivaji English School & Junior College - Pandur Titha</h1>\n  <!-- Structured Semantic Content -->\n</body>\n</html>` }
   };
 
+  // =========================================================================
+  // CORE FUNCTIONS
+  // =========================================================================
   window.applyLanguage = function(lang) {
     safeSetItem('ses_lang', lang);
     state.lang = lang;
@@ -428,6 +431,7 @@
     window.renderSopContent(state.currentSop);
   };
 
+  // Fixed Font Size Application
   window.applyFontSize = function(sizeClass) {
     safeSetItem('ses_font', sizeClass);
     state.fontSize = sizeClass;
@@ -437,10 +441,13 @@
     ['fontSmBtn', 'fontMdBtn', 'fontLgBtn', 'fontXlBtn'].forEach(btnId => {
       const btn = document.getElementById(btnId);
       if (!btn) return;
-      if (btnId.toLowerCase().includes(sizeClass.split('-')[1])) { 
-        btn.classList.add('active'); 
-      } else { 
-        btn.classList.remove('active'); 
+      if ((btnId === 'fontSmBtn' && sizeClass === 'font-sm') || 
+          (btnId === 'fontMdBtn' && sizeClass === 'font-md') || 
+          (btnId === 'fontLgBtn' && sizeClass === 'font-lg') || 
+          (btnId === 'fontXlBtn' && sizeClass === 'font-xl')) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
       }
     });
   };
@@ -501,12 +508,13 @@
       document.getElementById('noticeModalDesc').textContent = descText;
       
       modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
   };
   
   window.closeNoticeModal = function() {
     const modal = document.getElementById('noticeModal');
-    if (modal) modal.classList.remove('open');
+    if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
   };
 
   window.selectFacility = function(key) {
@@ -547,9 +555,11 @@
     }
   };
 
+  // Fixed Zoom Box Function
   window.zoomCurrentFacility = function() {
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
+    
     activeGalleryList = [{
       img: fac.img, fallbackImg: fac.fallbackImg, titleEn: fac.titleEn, titleMr: fac.titleMr, descEn: fac.descEn, descMr: fac.descMr, catEn: 'Campus Facility', catMr: 'परिसर सुविधा', dateEn: 'Infrastructure', dateMr: 'पायाभूत सुविधा'
     }];
@@ -558,6 +568,7 @@
 
   window.filterGalleryCategory = function(filter) {
     state.currentGalleryFilter = filter;
+    
     document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
       if (btn.getAttribute('data-filter') === filter) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     });
@@ -571,9 +582,9 @@
 
   window.updateGalleryLanguage = function() {
     const cards = document.querySelectorAll('.gallery-card');
-    let dataIdx = 0; // because youtube embed is first card, skip it
+    let dataIdx = 0;
     cards.forEach((card) => {
-      if(card.querySelector('iframe')) return; // skip video
+      if(card.querySelector('iframe')) return; 
       const item = galleryData[dataIdx];
       if (!item) return;
       const titleEl = card.querySelector('h4');
@@ -587,7 +598,6 @@
     });
   };
 
-  // Fixed openLightbox logic for filtered grids
   window.openLightbox = function(index, fromGrid = false) {
     if (fromGrid) {
         activeGalleryList = [...galleryData];
@@ -606,9 +616,7 @@
     }
     
     document.getElementById('lightboxTitle').textContent = state.lang === 'mr' ? item.titleMr : item.titleEn;
-    document.getElementById('lightboxDesc').textContent = state.lang === 'mr' ? item.descMr : item.descEn;
     document.getElementById('lightboxCategory').textContent = state.lang === 'mr' ? item.catMr : item.catEn;
-    document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar"></i> ${state.lang === 'mr' ? item.dateMr : item.dateEn}`;
     
     const counterEl = document.getElementById('lightboxCounter');
     if (counterEl) {
@@ -621,8 +629,7 @@
 
   window.closeLightbox = function() {
     const modal = document.getElementById('galleryLightbox');
-    if (modal) modal.classList.remove('active');
-    document.body.style.overflow = '';
+    if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
   };
 
   window.nextLightbox = function() {
@@ -637,12 +644,12 @@
 
   window.openItHubModal = function() {
     const modal = document.getElementById('itHubModal');
-    if (modal) { modal.classList.add('open'); window.renderSopContent(state.currentSop); }
+    if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; window.renderSopContent(state.currentSop); }
   };
 
   window.closeItHubModal = function() {
     const modal = document.getElementById('itHubModal');
-    if (modal) modal.classList.remove('open');
+    if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
   };
 
   window.selectSopTab = function(sopKey) {
@@ -694,7 +701,7 @@
     }
   };
 
-  // AI Assistant with Backdrop Lock
+  // AI Assistant locked backdrop
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
     const backdrop = document.getElementById('aiBackdrop');
@@ -769,7 +776,6 @@
     window.selectFacility('smartClass');
     window.filterGalleryCategory('all');
 
-    // EXPLICIT EVENT BINDINGS FOR SETTINGS TO PREVENT BUGS
     document.getElementById('langEnBtn')?.addEventListener('click', () => window.applyLanguage('en'));
     document.getElementById('langMrBtn')?.addEventListener('click', () => window.applyLanguage('mr'));
     
