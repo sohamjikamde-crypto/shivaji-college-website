@@ -401,6 +401,9 @@ html.dark-theme label { color: #cbd5e1; }
 html.dark-theme .contact-info-card, html.dark-theme .contact-form-card { background: #131d31; border-color: #1e293b; }
 html.dark-theme .inquiry-section { background: #0b1120 !important; border-top: 1px solid #1e293b !important; }
 
+/* NEW: Calculator Box Fixes */
+.calc-result-box { display: none; margin-top: 1.5rem; padding: 1.2rem; background: #f8fafc; border: 1px dashed var(--border-color); border-radius: 8px; text-align: center; }
+html.dark-theme .calc-result-box { background: #0f172a; border-color: #334155; }
 
 /* Main Footer */
 .main-footer { background: var(--primary-dark); color: #94a3b8; padding: 3rem 0 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; }
