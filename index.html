@@ -28,7 +28,7 @@
         <span class="desktop-only"><i class="fa-solid fa-phone"></i> <span>+91 (02362) 224-8090</span></span>
         <span class="desktop-only"><i class="fa-solid fa-award"></i> <span id="topAided">Estd. 1960 | UDISE: 27330408903</span></span>
       </div>
-      <button class="settings-trigger-btn" id="settingsOpenBtn" onclick="window.openSettingsModal()" title="Preferences & Accessibility">
+      <button class="settings-trigger-btn" id="settingsOpenBtn" title="Preferences & Accessibility">
         <i class="fa-solid fa-gear"></i> <span id="settingsBtnLabel">Settings</span>
       </button>
     </div>
@@ -67,7 +67,6 @@
     </div>
   </header>
 
-  <!-- Fully Fixed Preferences Modal (Guaranteed to Work) -->
   <div class="settings-modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalHeading">
     <div class="settings-modal-box">
       <div class="settings-modal-header">
@@ -75,7 +74,7 @@
           <i class="fa-solid fa-sliders"></i>
           <h3 id="settingsModalHeading">Preferences &amp; Settings</h3>
         </div>
-        <button class="settings-close-btn" onclick="window.closeSettingsModal()" aria-label="Close Settings"><i class="fa-solid fa-xmark"></i></button>
+        <button class="settings-close-btn" id="settingsCloseBtn" aria-label="Close Settings"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="settings-modal-body">
         <div class="setting-row">
@@ -84,8 +83,8 @@
             <p id="subSetLang">Switch entire website between English and Marathi</p>
           </div>
           <div class="setting-controls">
-            <button class="btn-setting-toggle active" id="langEnBtn" onclick="window.applyLanguage('en')">English</button>
-            <button class="btn-setting-toggle" id="langMrBtn" onclick="window.applyLanguage('mr')">मराठी</button>
+            <button class="btn-setting-toggle active" id="langEnBtn">English</button>
+            <button class="btn-setting-toggle" id="langMrBtn">मराठी</button>
           </div>
         </div>
         <div class="setting-row">
@@ -94,10 +93,10 @@
             <p id="subSetFont">Enlarge or reduce readability font size</p>
           </div>
           <div class="setting-controls font-btn-group">
-            <button class="btn-setting-toggle" id="fontSmBtn" onclick="window.applyFontSize('font-sm')" title="Small text">A-</button>
-            <button class="btn-setting-toggle active" id="fontMdBtn" onclick="window.applyFontSize('font-md')" title="Normal text">A</button>
-            <button class="btn-setting-toggle" id="fontLgBtn" onclick="window.applyFontSize('font-lg')" title="Large text">A+</button>
-            <button class="btn-setting-toggle" id="fontXlBtn" onclick="window.applyFontSize('font-xl')" title="Extra Large text">A++</button>
+            <button class="btn-setting-toggle" id="fontSmBtn" title="Small text">A-</button>
+            <button class="btn-setting-toggle active" id="fontMdBtn" title="Normal text">A</button>
+            <button class="btn-setting-toggle" id="fontLgBtn" title="Large text">A+</button>
+            <button class="btn-setting-toggle" id="fontXlBtn" title="Extra Large text">A++</button>
           </div>
         </div>
         <div class="setting-row">
@@ -106,7 +105,7 @@
             <p id="subSetDark">Comfortable night reading palette</p>
           </div>
           <div class="setting-controls">
-            <button class="btn-setting-toggle" id="darkModeToggleBtn" onclick="window.applyTheme(!window.sesState.darkMode)"><i class="fa-solid fa-circle-half-stroke"></i> <span id="txtDarkStatus">Off</span></button>
+            <button class="btn-setting-toggle" id="darkModeToggleBtn"><i class="fa-solid fa-circle-half-stroke"></i> <span id="txtDarkStatus">Off</span></button>
           </div>
         </div>
         <div class="setting-row">
@@ -115,13 +114,13 @@
             <p id="subSetSmart">Large touch buttons &amp; presenter view for classroom interactive boards</p>
           </div>
           <div class="setting-controls">
-            <button class="btn-setting-toggle" id="smartBoardToggleBtn" onclick="window.applySmartBoard(!window.sesState.smartBoard)"><i class="fa-solid fa-display"></i> <span id="txtSmartStatus">Off</span></button>
+            <button class="btn-setting-toggle" id="smartBoardToggleBtn"><i class="fa-solid fa-display"></i> <span id="txtSmartStatus">Off</span></button>
           </div>
         </div>
       </div>
       <div class="settings-modal-footer">
-        <button class="btn-reset" onclick="window.applyLanguage('en'); window.applyFontSize('font-md'); window.applyTheme(false); window.applySmartBoard(false);"><i class="fa-solid fa-rotate-left"></i> <span id="txtResetSettings">Reset Defaults</span></button>
-        <button class="btn-done" onclick="window.closeSettingsModal()"><i class="fa-solid fa-check"></i> <span id="txtDoneSettings">Done</span></button>
+        <button class="btn-reset" id="btnResetSettings"><i class="fa-solid fa-rotate-left"></i> <span id="txtResetSettings">Reset Defaults</span></button>
+        <button class="btn-done" id="btnCloseSettingsModal"><i class="fa-solid fa-check"></i> <span id="txtDoneSettings">Done</span></button>
       </div>
     </div>
   </div>
@@ -136,7 +135,7 @@
         <div class="hero-action-buttons">
           <a href="#mainTabsSection" class="btn-explore"><i class="fa-solid fa-compass"></i> Explore Courses</a>
           <a href="#notices" class="btn-notice"><i class="fa-solid fa-bell"></i> Notice Board</a>
-          <button class="btn-ask-ai-hero" onclick="window.openAiChat()"><i class="fa-solid fa-robot"></i> Ask College AI</button>
+          <button class="btn-ask-ai-hero" id="heroAskAiBtn"><i class="fa-solid fa-robot"></i> Ask College AI</button>
         </div>
 
         <div class="hero-stats-grid">
@@ -215,32 +214,32 @@
       </div>
 
       <div class="notices-container" id="noticesList">
-        <div class="notice-item" onclick="window.openNoticeModal('notice1')" data-notice-id="notice1">
+        <div class="notice-item" data-notice-id="notice1">
           <div class="notice-date-box"><span class="date-day">22</span><span class="date-month">AUG</span></div>
           <div class="notice-info">
             <span class="notice-tag tag-urgent">Urgent Circular</span>
             <h4 id="noticeParentTitle">Urgent Parent-Management Meeting with Principal</h4>
             <p id="noticeParentDesc">All parents are hereby informed that an important meeting with the Institution Management and Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school premises. All parents are requested to attend without fail. — Principal</p>
           </div>
-          <button class="btn-notice-action" title="View Notice Details"><i class="fa-solid fa-arrow-right"></i></button>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice1"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
-        <div class="notice-item" onclick="window.openNoticeModal('notice2')" data-notice-id="notice2">
+        <div class="notice-item" data-notice-id="notice2">
           <div class="notice-date-box"><span class="date-day">28</span><span class="date-month">AUG</span></div>
           <div class="notice-info">
             <span class="notice-tag tag-academic">Academic</span>
             <h4 id="noticeItTitle">12th Standard IT Practical Journal Submission</h4>
             <p id="noticeItDesc">Class 12th Science &amp; Commerce IT students must submit their complete SOP Practical Journals (HTML5, Advanced Web Designing, JavaScript Validation &amp; SEO) to the IT department by 28th August 2026.</p>
           </div>
-          <button class="btn-notice-action" title="View Notice Details"><i class="fa-solid fa-arrow-right"></i></button>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice2"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
-        <div class="notice-item" onclick="window.openNoticeModal('notice3')" data-notice-id="notice3">
+        <div class="notice-item" data-notice-id="notice3">
           <div class="notice-date-box"><span class="date-day">05</span><span class="date-month">SEP</span></div>
           <div class="notice-info">
             <span class="notice-tag tag-event">Events</span>
             <h4 id="noticeTeachersTitle">Teachers' Day &amp; Annual Cultural Gathering Announcement</h4>
             <p id="noticeTeachersDesc">Special felicitation program on 5th September 2026 followed by rehearsal schedule for Annual Gathering traditional folk dance and sports competitions.</p>
           </div>
-          <button class="btn-notice-action" title="View Notice Details"><i class="fa-solid fa-arrow-right"></i></button>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice3"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
@@ -250,7 +249,7 @@
     <div class="notice-modal-box">
       <div class="notice-modal-header">
         <div class="notice-modal-title"><i class="fa-solid fa-bullhorn"></i> Official Notice Details</div>
-        <button class="notice-modal-close-btn" onclick="window.closeNoticeModal()" aria-label="Close Notice"><i class="fa-solid fa-xmark"></i></button>
+        <button class="notice-modal-close-btn" id="noticeModalCloseBtn" aria-label="Close Notice"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="notice-modal-body">
         <div id="noticeModalTagWrap"></div>
@@ -323,7 +322,7 @@
 
       <div class="main-tab-pane" id="tab-learning-hub">
         <div class="hub-container">
-          <!-- FIXED IT HUB BANNER - Prevents crushing text on mobile -->
+          <!-- Lag-free Mobile-First IT Hub Banner -->
           <div class="hub-it-banner">
             <div class="hub-it-icon"><i class="fa-solid fa-code"></i></div>
             <div class="hub-it-text">
@@ -331,7 +330,7 @@
               <p id="hub1Desc">Access complete HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules formatted as per the Maharashtra State Board examination requirements.</p>
             </div>
             <div class="hub-it-action">
-              <button class="btn btn-primary" onclick="window.openItHubModal()"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">Launch IT SOP Editor</span></button>
+              <button class="btn btn-primary" id="btnOpenItHub"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">Launch IT SOP Editor</span></button>
             </div>
           </div>
           
@@ -340,19 +339,19 @@
               <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
               <h3 id="hub2Title">JEE, NEET &amp; Science Labs</h3>
               <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.</p>
-              <button class="hub-btn" onclick="window.openResourceInfo('science')"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
+              <button class="hub-btn" id="btnOpenScienceHub"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
             </div>
             <div class="hub-card" data-hub-target="commerce-vault">
               <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
               <h3 id="hub3Title">Commerce &amp; Accounts Vault</h3>
               <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.</p>
-              <button class="hub-btn" onclick="window.openResourceInfo('commerce')"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
+              <button class="hub-btn" id="btnOpenCommerceHub"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
             </div>
             <div class="hub-card" data-hub-target="board-papers">
               <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
               <h3 id="hub4Title">Previous Board Papers</h3>
               <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-              <button class="hub-btn" onclick="window.openResourceInfo('papers')"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
+              <button class="hub-btn" id="btnOpenPapersHub"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
             </div>
           </div>
         </div>
@@ -432,7 +431,7 @@
             <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
             <div class="facility-img-overlay">
               <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
-              <button class="facility-zoom-btn" onclick="window.zoomCurrentFacility()" aria-label="Enlarge Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image"><i class="fa-solid fa-expand"></i></button>
             </div>
           </div>
           <div class="facility-card-body">
@@ -464,128 +463,118 @@
         <button class="gallery-filter-btn" data-filter="science"><i class="fa-solid fa-flask-vial"></i> <span id="galFilterScience">Science Exhibition</span></button>
       </div>
 
-      <!-- RESTORED ALL 12 GALLERY ITEMS + ZOOM BUG FIX -->
+      <!-- Restored All Gallery Item Titles and Descriptions -->
       <div class="gallery-grid" id="galleryGrid">
         
         <div class="gallery-card span-2x2" data-category="cultural" style="background: #000; overflow: hidden; position: relative;">
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/evCdXwgeUeo?si=m5l9WvL8JjQd4f5X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top:0; left:0; width:100%; height:100%; border:none; z-index: 10;"></iframe>
         </div>
 
-        <div class="gallery-card span-2x1" data-category="campus" onclick="window.openLightbox(0, true)">
+        <div class="gallery-card span-2x1" data-category="campus">
           <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Campus &amp; Labs</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-1">Main Academic Campus &amp; Building</h4><p class="gal-date-1"><i class="fa-regular fa-calendar"></i> Campus View</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="festivals" onclick="window.openLightbox(1, true)">
+        <div class="gallery-card span-1x1" data-category="festivals">
           <img src="images/gallery/shiv-jayanti.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80';" alt="Shiv Jayanti" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Shiv Jayanti</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-2">Chhatrapati Shivaji Maharaj Jayanti Utsav</h4><p class="gal-date-2"><i class="fa-regular fa-calendar"></i> 19 February</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="campus" onclick="window.openLightbox(2, true)">
+        <div class="gallery-card span-1x1" data-category="campus">
           <img src="images/gallery/it-session.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80';" alt="IT Lab Session" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">IT Lab</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-3">12th HSC IT Practical Lab Session</h4><p class="gal-date-3"><i class="fa-regular fa-calendar"></i> HSC IT Practicals</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x2" data-category="cultural" onclick="window.openLightbox(3, true)">
+        <div class="gallery-card span-1x2" data-category="cultural">
           <img src="images/gallery/annual-gathering.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" alt="Annual Gathering" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Cultural Event</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-4">Annual Gathering Traditional Folk Dance</h4><p class="gal-date-4"><i class="fa-regular fa-calendar"></i> Annual Gathering</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="science" onclick="window.openLightbox(4, true)">
-          <img src="images/gallery/science-practical.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80';" alt="Science Experiments" loading="lazy">
-          <div class="gallery-card-overlay">
-            <div class="gallery-card-top"><span class="gallery-cat-pill">Science Lab</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
-            </div>
-            <div class="gallery-card-bottom"><h4 class="gal-title-5">Physics &amp; Chemistry Practical Experiments</h4><p class="gal-date-5"><i class="fa-regular fa-calendar"></i> Science Stream</p></div>
-          </div>
-        </div>
-
-        <div class="gallery-card span-2x1" data-category="sports" onclick="window.openLightbox(5, true)">
+        <div class="gallery-card span-2x1" data-category="sports">
           <img src="images/gallery/sports-meet.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80';" alt="Sports Meet" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Sports</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-6">Inter-School Sports Meet &amp; Tournament</h4><p class="gal-date-6"><i class="fa-regular fa-calendar"></i> Sports Meet</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="science" onclick="window.openLightbox(6, true)">
+        <div class="gallery-card span-1x1" data-category="science">
           <img src="images/gallery/science-fair.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80';" alt="Science Exhibition" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Science Fair</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-7">District-Level Science Exhibition Projects</h4><p class="gal-date-7"><i class="fa-regular fa-calendar"></i> Science Fair</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="campus" onclick="window.openLightbox(7, true)">
+        <div class="gallery-card span-1x1" data-category="campus">
           <img src="images/gallery/smart-classroom.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80';" alt="Smart Classroom" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Classroom</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(7, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-8">Interactive Smart Classroom Lecture</h4><p class="gal-date-8"><i class="fa-regular fa-calendar"></i> Smart Teaching</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="festivals" onclick="window.openLightbox(8, true)">
+        <div class="gallery-card span-1x1" data-category="festivals">
           <img src="images/gallery/independence-day.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80';" alt="Independence Day" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">National Day</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(8, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-9">77th Independence Day Parade &amp; Flag Hoisting</h4><p class="gal-date-9"><i class="fa-regular fa-calendar"></i> 15 August</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="campus" onclick="window.openLightbox(9, true)">
+        <div class="gallery-card span-1x1" data-category="campus">
           <img src="images/gallery/library-study.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80';" alt="Central Library" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Library</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(9, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-10">Central Library &amp; Dedicated Study Hall</h4><p class="gal-date-10"><i class="fa-regular fa-calendar"></i> Study Hall</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="cultural" onclick="window.openLightbox(10, true)">
+        <div class="gallery-card span-1x1" data-category="cultural">
           <img src="images/gallery/prize-distribution.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80';" alt="Prize Distribution" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Felicitation</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(10, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-11">Annual Prize Distribution &amp; Merit Felicitation</h4><p class="gal-date-11"><i class="fa-regular fa-calendar"></i> Award Ceremony</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="sports" onclick="window.openLightbox(11, true)">
+        <div class="gallery-card span-1x1" data-category="sports">
           <img src="images/gallery/athletics-sprint.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80';" alt="Athletics Meet" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Athletics</span>
-              <button class="gallery-zoom-icon" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(11, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4 class="gal-title-12">Athletic Track &amp; Field Sprint Races</h4><p class="gal-date-12"><i class="fa-regular fa-calendar"></i> Athletics Meet</p></div>
           </div>
@@ -594,8 +583,9 @@
     </div>
   </section>
 
+  <!-- Lightbox Modal -->
   <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="lightbox-backdrop" id="lightboxBackdrop" onclick="window.closeLightbox()"></div>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
     <div class="lightbox-dialog">
       <div class="lightbox-header">
         <div class="lightbox-title-wrap">
@@ -604,17 +594,17 @@
         </div>
         <div class="lightbox-header-actions">
           <span class="lightbox-counter" id="lightboxCounter">1 / 12</span>
-          <button class="lightbox-btn-close" onclick="window.closeLightbox()" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+          <button class="lightbox-btn-close" id="lightboxCloseBtn" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </div>
       <div class="lightbox-body">
-        <button class="lightbox-nav-btn lightbox-prev" onclick="window.prevLightbox()" aria-label="Previous Photo"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous Photo"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="lightbox-image-viewport">
           <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
             <img id="lightboxImg" src="images/gallery/campus-main.jpg" width="1200" height="800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Enlarged Photo">
           </div>
         </div>
-        <button class="lightbox-nav-btn lightbox-next" onclick="window.nextLightbox()" aria-label="Next Photo"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" aria-label="Next Photo"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
@@ -661,57 +651,59 @@
     <div class="it-modal-box">
       <div class="it-modal-header">
         <div class="it-modal-title"><i class="fa-solid fa-laptop-code"></i><h3 id="itModalHeading">Maharashtra HSC Board - 12th IT Practical SOPs Hub</h3></div>
-        <button class="it-modal-close-btn" onclick="window.closeItHubModal()"><i class="fa-solid fa-xmark"></i></button>
+        <button class="it-modal-close-btn" id="itModalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="it-modal-body" id="itModalBody">
         <div class="sop-tabs-nav">
-          <button class="sop-tab-btn active" onclick="window.selectSopTab('sop1')" data-sop-tab="sop1">SOP 1: Web Design</button>
-          <button class="sop-tab-btn" onclick="window.selectSopTab('sop2')" data-sop-tab="sop2">SOP 2: JS Validation</button>
-          <button class="sop-tab-btn" onclick="window.selectSopTab('sop3')" data-sop-tab="sop3">SOP 3: Audio/Video</button>
-          <button class="sop-tab-btn" onclick="window.selectSopTab('sop4')" data-sop-tab="sop4">SOP 4: Image Map</button>
-          <button class="sop-tab-btn" onclick="window.selectSopTab('sop5')" data-sop-tab="sop5">SOP 5: CSS Layout</button>
-          <button class="sop-tab-btn" onclick="window.selectSopTab('sop6')" data-sop-tab="sop6">SOP 6: SEO &amp; Meta</button>
+          <button class="sop-tab-btn active" data-sop-tab="sop1">SOP 1: Web Design</button>
+          <button class="sop-tab-btn" data-sop-tab="sop2">SOP 2: JS Validation</button>
+          <button class="sop-tab-btn" data-sop-tab="sop3">SOP 3: Audio/Video</button>
+          <button class="sop-tab-btn" data-sop-tab="sop4">SOP 4: Image Map</button>
+          <button class="sop-tab-btn" data-sop-tab="sop5">SOP 5: CSS Layout</button>
+          <button class="sop-tab-btn" data-sop-tab="sop6">SOP 6: SEO &amp; Meta</button>
         </div>
         <div class="sop-tab-content-area" id="sopTabContent"></div>
       </div>
     </div>
   </div>
 
-  <div class="ai-backdrop" id="aiBackdrop" onclick="window.closeAiChat()"></div>
+  <!-- FIXED: AI Backdrop and AI Chat Window separated so blur doesn't affect chat window -->
+  <div class="ai-backdrop" id="aiBackdrop"></div>
+
+  <div class="ai-chat-window" id="aiChatWindow" role="region" aria-label="AI Chat Assistant">
+    <div class="ai-chat-header">
+      <div class="ai-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="ai-header-info">
+        <h4 id="aiChatTitle">Ai Assistant</h4>
+        <span class="ai-status"><span class="status-indicator"></span> Smart Online Assistant</span>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn" aria-label="Close Chat"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-bubble ai" id="aiWelcomeBubble">
+        Namaste! I am the Smart Ai Assistant for <strong>Shivaji English School &amp; Jr. College, Pandur Titha</strong>.
+        <br><br>
+        Ask me anything in English or मराठी:
+        <div class="ai-suggestion-chips">
+          <button class="ai-chip-btn" data-query="Admissions">🎓 Admissions</button>
+          <button class="ai-chip-btn" data-query="Campus Facilities">🏫 Facilities</button>
+          <button class="ai-chip-btn" data-query="Office Timings">🕒 Timings</button>
+          <button class="ai-chip-btn" data-query="Location">📍 Location & Map</button>
+          <button class="ai-chip-btn" data-query="12th IT SOPs">💻 12th IT SOPs</button>
+        </div>
+      </div>
+    </div>
+    <div class="ai-chat-input-box">
+      <input type="text" id="aiUserInput" placeholder="Ask in English or मराठी..." autocomplete="off">
+      <button id="aiSendBtn" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
 
   <div class="ai-assistant-wrapper">
-    <button class="ai-assistant-toggle-btn" id="aiToggleBtn" onclick="window.openAiChat()" title="Open Shivaji College Ai Assistant">
+    <button class="ai-assistant-toggle-btn" id="aiToggleBtn" title="Open Shivaji College Ai Assistant">
       <i class="fa-solid fa-robot"></i>
       <span class="ai-btn-text" id="aiFloatingBtnText">Ai Assistant</span>
     </button>
-    <div class="ai-chat-window" id="aiChatWindow" role="region" aria-label="AI Chat Assistant">
-      <div class="ai-chat-header">
-        <div class="ai-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="ai-header-info">
-          <h4 id="aiChatTitle">Ai Assistant</h4>
-          <span class="ai-status"><span class="status-indicator"></span> Smart Online Assistant</span>
-        </div>
-        <button class="ai-close-btn" onclick="window.closeAiChat()" aria-label="Close Chat"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="ai-chat-messages" id="aiChatMessages">
-        <div class="chat-bubble ai" id="aiWelcomeBubble">
-          Namaste! I am the Smart Ai Assistant for <strong>Shivaji English School &amp; Jr. College, Pandur Titha</strong>.
-          <br><br>
-          Ask me anything in English or मराठी:
-          <div class="ai-suggestion-chips">
-            <button class="ai-chip-btn" data-query="Admissions">🎓 Admissions</button>
-            <button class="ai-chip-btn" data-query="Campus Facilities">🏫 Facilities</button>
-            <button class="ai-chip-btn" data-query="Office Timings">🕒 Timings</button>
-            <button class="ai-chip-btn" data-query="Location">📍 Location & Map</button>
-            <button class="ai-chip-btn" data-query="12th IT SOPs">💻 12th IT SOPs</button>
-          </div>
-        </div>
-      </div>
-      <div class="ai-chat-input-box">
-        <input type="text" id="aiUserInput" placeholder="Ask in English or मराठी..." autocomplete="off">
-        <button id="aiSendBtn" onclick="window.sendAiMessage()" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
-      </div>
-    </div>
   </div>
 
   <footer class="main-footer">
