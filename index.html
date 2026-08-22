@@ -7,18 +7,15 @@
   <title>Shivaji English School & Junior College | Pandur Titha, Sindhudurg</title>
   <meta name="title" content="Shivaji English School & Junior College | Pandur Titha, Sindhudurg">
   <meta name="description" content="Official Portal of Shivaji English School & Junior College of Arts, Science & Commerce, Pandur Titha, Sindhudurg (Estd. 1960). 12th Standard HSC Board IT Project.">
-  <meta name="keywords" content="Shivaji English School, Junior College Pandur Titha, Sindhudurg, Maharashtra State Board, HSC 12th IT Project, Science, Commerce, Arts">
-  <meta name="author" content="12th Standard Information Technology Dept.">
   <meta name="theme-color" content="#1a365d">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <link rel="stylesheet" href="style.css?v=58">
+  <link rel="stylesheet" href="style.css?v=59">
 </head>
 <body>
 
@@ -31,7 +28,7 @@
         <span class="desktop-only"><i class="fa-solid fa-phone"></i> <span>+91 (02362) 224-8090</span></span>
         <span class="desktop-only"><i class="fa-solid fa-award"></i> <span id="topAided">Estd. 1960 | UDISE: 27330408903</span></span>
       </div>
-      <button class="settings-trigger-btn" id="settingsOpenBtn" title="Preferences & Accessibility / सेटिंग्ज">
+      <button class="settings-trigger-btn" id="settingsOpenBtn" title="Preferences & Accessibility">
         <i class="fa-solid fa-gear"></i> <span id="settingsBtnLabel">Settings</span>
       </button>
     </div>
@@ -39,7 +36,7 @@
 
   <header class="main-header" id="mainHeader">
     <div class="container nav-container">
-      <a href="#about" class="brand-logo" title="Shivaji English School & Jr College Home">
+      <a href="#home" class="brand-logo" title="Shivaji English School & Jr College Home">
         <div class="logo-emblem"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="logo-text">
           <span class="college-name">SHIVAJI ENGLISH SCHOOL</span>
@@ -48,31 +45,29 @@
         </div>
       </a>
 
-      <!-- Mobile 3-Line Menu Button -->
       <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
         <i class="fa-solid fa-bars" id="navToggleIcon"></i>
       </button>
 
-      <!-- Accordion Drawer -->
       <nav class="nav-menu" id="navMenu">
         <div class="nav-drawer-header">
           <span>Quick Menu / मुख्य मेनू</span>
           <button class="drawer-close-btn" id="drawerCloseBtn"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> <span>About Our Institution</span></a></li>
-          <li class="nav-item"><a href="#kiosk" class="nav-link"><i class="fa-solid fa-display"></i> <span>Admissions &amp; Kiosk</span></a></li>
-          <li class="nav-item"><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span>Official Notice Board</span></a></li>
-          <li class="nav-item"><a href="#mainTabsSection" class="nav-link"><i class="fa-solid fa-shapes"></i> <span>Academic Streams &amp; Hub</span></a></li>
-          <li class="nav-item"><a href="#campus" class="nav-link"><i class="fa-solid fa-school"></i> <span>Interactive Campus &amp; Facilities</span></a></li>
-          <li class="nav-item"><a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span>Campus Life &amp; Gallery</span></a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Contact &amp; Location</span></a></li>
+          <li class="nav-item"><a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About Our Institution</span></a></li>
+          <li class="nav-item"><a href="#kiosk" class="nav-link"><i class="fa-solid fa-display"></i> <span id="navTxtKiosk">Admissions &amp; Kiosk</span></a></li>
+          <li class="nav-item"><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Official Notice Board</span></a></li>
+          <li class="nav-item"><a href="#mainTabsSection" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtHub">Academic Streams &amp; Hub</span></a></li>
+          <li class="nav-item"><a href="#campus" class="nav-link"><i class="fa-solid fa-school"></i> <span id="navTxtCampus">Interactive Campus &amp; Facilities</span></a></li>
+          <li class="nav-item"><a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span id="navTxtGallery">Campus Life &amp; Gallery</span></a></li>
+          <li class="nav-item"><a href="#inquiry" class="nav-link"><i class="fa-solid fa-paper-plane"></i> <span id="navTxtContact">Send an Inquiry</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Preferences Modal -->
+  <!-- Modernized Preferences Modal -->
   <div class="settings-modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalHeading">
     <div class="settings-modal-box">
       <div class="settings-modal-header">
@@ -114,15 +109,23 @@
             <button class="btn-setting-toggle" id="darkModeToggleBtn"><i class="fa-solid fa-circle-half-stroke"></i> <span id="txtDarkStatus">Off</span></button>
           </div>
         </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <label><i class="fa-solid fa-chalkboard-user"></i> <span id="lblSetSmart">Smart Board View / स्मार्ट बोर्ड</span></label>
+            <p id="subSetSmart">Large touch buttons &amp; presenter view for classroom interactive boards</p>
+          </div>
+          <div class="setting-controls">
+            <button class="btn-setting-toggle" id="smartBoardToggleBtn"><i class="fa-solid fa-display"></i> <span id="txtSmartStatus">Off</span></button>
+          </div>
+        </div>
       </div>
       <div class="settings-modal-footer">
-        <button class="btn btn-secondary btn-sm" id="btnResetSettings"><i class="fa-solid fa-rotate-left"></i> <span id="txtResetSettings">Reset Defaults</span></button>
-        <button class="btn btn-primary btn-sm" id="btnCloseSettingsModal"><i class="fa-solid fa-check"></i> <span id="txtDoneSettings">Done</span></button>
+        <button class="btn-reset" id="btnResetSettings"><i class="fa-solid fa-rotate-left"></i> <span id="txtResetSettings">Reset Defaults</span></button>
+        <button class="btn-done" id="btnCloseSettingsModal"><i class="fa-solid fa-check"></i> <span id="txtDoneSettings">Done</span></button>
       </div>
     </div>
   </div>
 
-  <!-- NEW MODERNIZED HERO SECTION -->
   <section class="hero-section" id="home">
     <div class="container hero-grid">
       <div class="hero-content">
@@ -133,7 +136,7 @@
         <div class="hero-action-buttons">
           <a href="#mainTabsSection" class="btn-explore"><i class="fa-solid fa-compass"></i> Explore Courses</a>
           <a href="#notices" class="btn-notice"><i class="fa-solid fa-bell"></i> Notice Board</a>
-          <button class="btn-ask-ai" id="heroAskAiBtn"><i class="fa-solid fa-robot"></i> Ask College AI</button>
+          <button class="btn-ask-ai-hero" id="heroAskAiBtn"><i class="fa-solid fa-robot"></i> Ask College AI</button>
         </div>
 
         <div class="hero-stats-grid">
@@ -146,7 +149,6 @@
     </div>
   </section>
 
-  <!-- 1. ABOUT OUR INSTITUTION -->
   <section class="section about-section" id="about">
     <div class="container">
       <div class="section-header">
@@ -174,7 +176,6 @@
     </div>
   </section>
 
-  <!-- 2 & 3. ADMISSIONS OPEN & CAMPUS DIGITAL KIOSK -->
   <section class="section kiosk-section" id="kiosk">
     <div class="container">
       <div class="section-header">
@@ -205,7 +206,6 @@
     </div>
   </section>
 
-  <!-- 4. OFFICIAL NOTICE BOARD -->
   <section class="section notices-section" id="notices">
     <div class="container">
       <div class="section-header">
@@ -263,13 +263,12 @@
     </div>
   </div>
 
-  <!-- 5. TABS SECTION (4 TABS) -->
   <div class="main-tabs-wrapper container" id="mainTabsSection">
     <div class="main-tabs-header">
       <button class="main-tab-btn active" data-tab-target="academics"><i class="fa-solid fa-book-open"></i> Academic Streams & Curriculum</button>
       <button class="main-tab-btn" data-tab-target="learning-hub"><i class="fa-solid fa-laptop-file"></i> Student Learning Hub</button>
       <button class="main-tab-btn" data-tab-target="faculty"><i class="fa-solid fa-user-tie"></i> Dedicated Educators & Leadership</button>
-      <button class="main-tab-btn" data-tab-target="contact"><i class="fa-solid fa-envelope"></i> Contact Information & Location</button>
+      <button class="main-tab-btn" data-tab-target="contact"><i class="fa-solid fa-location-dot"></i> Campus Office & Location</button>
     </div>
 
     <div class="main-tabs-content">
@@ -388,52 +387,25 @@
         </div>
       </div>
 
-      <!-- TAB 4: CONTACT & LOCATION -->
+      <!-- TAB 4: CAMPUS OFFICE (Inquiry Form Moved Out) -->
       <div class="main-tab-pane" id="tab-contact">
-        <div class="contact-grid">
-          <div class="contact-info-card">
-            <h3 id="contactCardHead">School Office Details</h3>
-            <p id="contactCardSub">For admissions, verification, certificates, and student inquiries:</p>
-            <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong id="contactLblAddr">Campus Address:</strong><p id="contactValAddr">Shivaji English School &amp; Junior College,<br>Pandur Titha, Taluka: Kudal, District: Sindhudurg, Maharashtra - 416812</p></div></div>
-            <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong id="contactLblPhone">Phone / Landline:</strong><p>+91 (02362) 224-8090</p></div></div>
-            <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Email:</strong><p>sohamjikamde@gmail.com</p></div></div>
-            <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours:</strong><p id="contactValHours">Monday – Saturday: 9:30 AM to 4:30 PM (Sunday Closed)</p></div></div>
-          </div>
-
-          <div class="contact-form-card">
-            <h3 id="inquiryHead">Send an Inquiry / Message</h3>
-            <form id="inquiryForm" novalidate>
-              <div class="form-group">
-                <label for="fullName" id="lblFormName">Student / Parent Name *</label>
-                <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required minlength="3">
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="phone" id="lblFormPhone">Phone Number (10 Digits) *</label>
-                  <input type="tel" id="phone" class="form-control" placeholder="e.g. 9822XXXXXX" required pattern="^[6-9][0-9]{9}$" maxlength="10">
-                </div>
-                <div class="form-group">
-                  <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose *</label>
-                  <select id="inquiryType" class="form-control" required>
-                    <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
-                    <option value="12th IT Project Query">12th IT Project Query</option>
-                    <option value="TC / LC / Certificates">TC / LC / Certificates</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message" id="lblFormMsg">Message / Details *</label>
-                <textarea id="message" rows="4" class="form-control" placeholder="Write your question or details here..." required minlength="10"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm"><i class="fa-solid fa-paper-plane"></i> <span id="txtSubmitInquiry">Submit Inquiry</span></button>
-            </form>
+        <div class="contact-info-card" style="max-width: 800px; margin: 0 auto;">
+          <h3 id="contactCardHead">School Office Details</h3>
+          <p id="contactCardSub">For admissions, verification, certificates, and student inquiries:</p>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong id="contactLblAddr">Campus Address:</strong><p id="contactValAddr">Shivaji English School &amp; Junior College,<br>Pandur Titha, Taluka: Kudal, District: Sindhudurg, Maharashtra - 416812</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong id="contactLblPhone">Phone / Landline:</strong><p>+91 (02362) 224-8090</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Email:</strong><p>sohamjikamde@gmail.com</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours:</strong><p id="contactValHours">Monday – Saturday: 9:30 AM to 4:30 PM (Sunday Closed)</p></div></div>
+          
+          <div class="map-wrapper" title="Open in Google Maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.123456789!2d73.684123456789!3d16.0023456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAwJzA4LjQiTiA3M8KwNDEnMDMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" style="pointer-events: none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a href="https://maps.app.goo.gl/uTYXtiGdfuSG8Hjg6" target="_blank" class="map-overlay-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 6. INTERACTIVE CAMPUS & FACILITIES -->
   <section class="section campus-section" id="campus">
     <div class="container">
       <div class="section-header">
@@ -457,7 +429,7 @@
             <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
             <div class="facility-img-overlay">
               <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
-              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image / मोठे करा"><i class="fa-solid fa-expand"></i></button>
+              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image"><i class="fa-solid fa-expand"></i></button>
             </div>
           </div>
           <div class="facility-card-body">
@@ -473,7 +445,6 @@
     </div>
   </section>
 
-  <!-- 7. CAMPUS LIFE & EVENT COLLAGE GALLERY (Now with YouTube Embed) -->
   <section class="section gallery-section" id="gallery">
     <div class="container">
       <div class="section-header">
@@ -491,66 +462,66 @@
 
       <div class="gallery-grid" id="galleryGrid">
         
-        <!-- EMBEDDED YOUTUBE VIDEO -->
-        <div class="gallery-card span-2x2" data-category="cultural" style="background: #000;">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xqFInrkwbFs?si=5Z4vU_pX_qL-mX2q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top:0; left:0; width:100%; height:100%; border:none; z-index: 10;"></iframe>
+        <!-- YOUTUBE VIDEO EMBED -->
+        <div class="gallery-card span-2x2" data-category="cultural" style="background: #000; overflow: hidden; position: relative;">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/evCdXwgeUeo?si=m5l9WvL8JjQd4f5X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top:0; left:0; width:100%; height:100%; border:none; z-index: 10;"></iframe>
         </div>
 
-        <div class="gallery-card span-2x1" data-category="campus" data-idx="0">
-          <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy" decoding="async">
+        <div class="gallery-card span-2x1" data-category="campus">
+          <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Campus &amp; Labs</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>Main Academic Campus &amp; Building</h4><p><i class="fa-regular fa-calendar"></i> Campus View</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="festivals" data-idx="1">
-          <img src="images/gallery/shiv-jayanti.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80';" alt="Shiv Jayanti" loading="lazy" decoding="async">
+        <div class="gallery-card span-1x1" data-category="festivals">
+          <img src="images/gallery/shiv-jayanti.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80';" alt="Shiv Jayanti" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Shiv Jayanti</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>Chhatrapati Shivaji Maharaj Jayanti Utsav</h4><p><i class="fa-regular fa-calendar"></i> 19 February</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="campus" data-idx="2">
-          <img src="images/gallery/it-session.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80';" alt="IT Lab Session" loading="lazy" decoding="async">
+        <div class="gallery-card span-1x1" data-category="campus">
+          <img src="images/gallery/it-session.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80';" alt="IT Lab Session" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">IT Lab</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>12th HSC IT Practical Lab Session</h4><p><i class="fa-regular fa-calendar"></i> HSC IT Practicals</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x2" data-category="cultural" data-idx="3">
-          <img src="images/gallery/annual-gathering.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" alt="Annual Gathering" loading="lazy" decoding="async">
+        <div class="gallery-card span-1x2" data-category="cultural">
+          <img src="images/gallery/annual-gathering.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" alt="Annual Gathering" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Cultural Event</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>Annual Gathering Traditional Folk Dance</h4><p><i class="fa-regular fa-calendar"></i> Annual Gathering</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-2x1" data-category="sports" data-idx="5">
-          <img src="images/gallery/sports-meet.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80';" alt="Sports Meet" loading="lazy" decoding="async">
+        <div class="gallery-card span-2x1" data-category="sports">
+          <img src="images/gallery/sports-meet.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80';" alt="Sports Meet" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Sports</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>Inter-School Sports Meet &amp; Tournament</h4><p><i class="fa-regular fa-calendar"></i> Sports Meet</p></div>
           </div>
         </div>
 
-        <div class="gallery-card span-1x1" data-category="science" data-idx="6">
-          <img src="images/gallery/science-fair.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80';" alt="Science Exhibition" loading="lazy" decoding="async">
+        <div class="gallery-card span-1x1" data-category="science">
+          <img src="images/gallery/science-fair.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80';" alt="Science Exhibition" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Science Fair</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6)"><i class="fa-solid fa-expand"></i></div>
+              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6, true)"><i class="fa-solid fa-expand"></i></div>
             </div>
             <div class="gallery-card-bottom"><h4>District-Level Science Exhibition Projects</h4><p><i class="fa-regular fa-calendar"></i> Science Fair</p></div>
           </div>
@@ -577,13 +548,52 @@
         <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous Photo"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="lightbox-image-viewport">
           <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
-            <img id="lightboxImg" src="images/gallery/campus-main.jpg" width="1200" height="800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Enlarged Campus Photo">
+            <img id="lightboxImg" src="images/gallery/campus-main.jpg" width="1200" height="800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Enlarged Photo">
           </div>
         </div>
         <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" aria-label="Next Photo"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
+
+  <!-- 8. SEND AN INQUIRY (NEW DEDICATED SECTION) -->
+  <section class="section inquiry-section" id="inquiry" style="background: var(--bg-card); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Reach Out To Us</span>
+        <h2 class="section-title">Send an Inquiry / Message</h2>
+        <p class="section-lead">Have questions regarding admissions, documents, or curriculum? Send us a quick message below.</p>
+      </div>
+      
+      <div class="contact-form-card" style="max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-md);">
+        <form id="inquiryForm" novalidate>
+          <div class="form-group">
+            <label for="fullName" id="lblFormName">Student / Parent Name *</label>
+            <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required minlength="3">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" id="lblFormPhone">Phone Number (10 Digits) *</label>
+              <input type="tel" id="phone" class="form-control" placeholder="e.g. 9822XXXXXX" required pattern="^[6-9][0-9]{9}$" maxlength="10">
+            </div>
+            <div class="form-group">
+              <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose *</label>
+              <select id="inquiryType" class="form-control" required>
+                <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
+                <option value="12th IT Project Query">12th IT Project Query</option>
+                <option value="TC / LC / Certificates">TC / LC / Certificates</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message" id="lblFormMsg">Message / Details *</label>
+            <textarea id="message" rows="4" class="form-control" placeholder="Write your question or details here..." required minlength="10"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> <span id="txtSubmitInquiry">Submit Inquiry</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- IT Hub Modal -->
   <div class="it-modal-overlay" id="itHubModal" role="dialog" aria-modal="true" aria-labelledby="itModalHeading">
@@ -606,10 +616,14 @@
     </div>
   </div>
 
-  <!-- AI Assistant Backdrop Fix (Prevents background touching) -->
+  <!-- AI Assistant & Background Overlay -->
   <div class="ai-backdrop" id="aiBackdrop"></div>
 
   <div class="ai-assistant-wrapper">
+    <button class="ai-assistant-toggle-btn" id="aiToggleBtn" title="Open Shivaji College Ai Assistant">
+      <i class="fa-solid fa-robot"></i>
+      <span class="ai-btn-text" id="aiFloatingBtnText">Ai Assistant</span>
+    </button>
     <div class="ai-chat-window" id="aiChatWindow" role="region" aria-label="AI Chat Assistant">
       <div class="ai-chat-header">
         <div class="ai-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -645,6 +659,7 @@
       <div class="footer-left">
         <h4>Shivaji English School &amp; Junior College</h4>
         <p>Pandur Titha, Taluka Kudal, Sindhudurg, Maharashtra 416812 | Estd. 1960</p>
+        <p class="project-tag"><i class="fa-solid fa-laptop-code"></i> Maharashtra HSC Board 12th Standard Information Technology (IT) Web Project</p>
       </div>
       <div class="footer-right">
         <p>© 2026 Shivaji English School &amp; Jr. College. All Rights Reserved.</p>
@@ -652,6 +667,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=58" defer></script>
+  <script src="script.js?v=59" defer></script>
 </body>
 </html>
