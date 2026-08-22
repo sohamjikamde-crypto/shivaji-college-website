@@ -64,6 +64,7 @@
       "navTxtAbout": "About Our Institution",
       "navTxtKiosk": "Admissions & Kiosk",
       "navTxtNotices": "Official Notice Board",
+      "navTxtCalc": "GPA / Percentage Calculator",
       "navTxtHub": "Academic Streams & Hub",
       "navTxtCampus": "Interactive Campus & Facilities",
       "navTxtGallery": "Campus Life & Gallery",
@@ -190,7 +191,15 @@
       "lblFormPhone": "Phone Number (10 Digits) *",
       "lblFormPurpose": "Inquiry Purpose *",
       "lblFormMsg": "Message / Details *",
-      "txtSubmitInquiry": "Submit Inquiry"
+      "txtSubmitInquiry": "Submit Inquiry",
+      "calcModalHeading": "HSC Grade Calculator",
+      "calcLead": "Enter marks out of 100 for each subject:",
+      "lblCalcEng": "English / Language",
+      "lblCalcMath": "Maths / Science",
+      "lblCalcIT": "IT (97)",
+      "lblCalcOther": "Other Subjects Average",
+      "txtCalculate": "Calculate Percentage",
+      "txtCalcResultHead": "Your Result"
     },
     mr: {
       "topAddr": "पांडूर तिठा, सिंधुदुर्ग, महाराष्ट्र",
@@ -210,6 +219,7 @@
       "navTxtAbout": "संस्थेबद्दल",
       "navTxtKiosk": "प्रवेश व माहिती",
       "navTxtNotices": "सूचना फलक",
+      "navTxtCalc": "GPA / टक्केवारी कॅल्क्युलेटर",
       "navTxtHub": "अभ्यासक्रम व कक्ष",
       "navTxtCampus": "परिसर व सुविधा",
       "navTxtGallery": "चित्रदालन",
@@ -336,7 +346,15 @@
       "lblFormPhone": "मोबाईल नंबर (१० अंकी) *",
       "lblFormPurpose": "चौकशीचा उद्देश *",
       "lblFormMsg": "आपला संदेश / प्रश्न *",
-      "txtSubmitInquiry": "चौकशी पाठवा"
+      "txtSubmitInquiry": "चौकशी पाठवा",
+      "calcModalHeading": "HSC गुण कॅल्क्युलेटर",
+      "calcLead": "प्रत्येक विषयाचे १०० पैकी गुण प्रविष्ट करा:",
+      "lblCalcEng": "इंग्रजी / भाषा",
+      "lblCalcMath": "गणित / विज्ञान",
+      "lblCalcIT": "माहिती तंत्रज्ञान (IT)",
+      "lblCalcOther": "इतर विषयांची सरासरी",
+      "txtCalculate": "टक्केवारी काढा",
+      "txtCalcResultHead": "तुमचा निकाल"
     }
   };
 
@@ -356,7 +374,7 @@
     { id: 2, category: 'festivals', img: 'images/gallery/shiv-jayanti.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80', titleEn: 'Chhatrapati Shivaji Maharaj Jayanti Utsav', titleMr: 'छत्रपती शिवाजी महाराज जयंती व पालखी सोहळा', descEn: 'Grand annual procession, traditional Lezim performance, dhol-tasha, and patriotic student speeches.', descMr: 'भव्य शिवजयंती मिरवणूक, लेझीम प्रात्यक्षिके आणि विद्यार्थ्यांची प्रेरणादायी भाषणे.', dateEn: '19 February', dateMr: '१९ फेब्रुवारी', catEn: 'Shiv Jayanti', catMr: 'शिवजयंती' },
     { id: 3, category: 'campus', img: 'images/gallery/it-session.jpg', fallbackImg: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', titleEn: '12th HSC IT Practical Lab Session', titleMr: '१२ वी IT प्रॅक्टिकल व कोडिंग सत्र', descEn: 'Students developing responsive websites, writing CSS Flexbox, and executing JavaScript SOP exercises.', descMr: 'विद्यार्थी HTML5, CSS3 आणि जावास्क्रिप्ट प्रॅक्टिकल्स प्रत्यक्ष कॉम्प्युटरवर करताना.', dateEn: 'HSC IT Practicals', dateMr: 'HSC IT प्रात्यक्षिके', catEn: 'IT Lab', catMr: 'IT लॅब' },
     { id: 4, category: 'cultural', img: 'images/gallery/annual-gathering.jpg', fallbackImg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80', titleEn: 'Annual Gathering Traditional Folk Dance', titleMr: 'वार्षिक स्नेहसंमेलन - पारंपरिक लोकनृत्य व नाटक', descEn: 'Vibrant cultural stage performances, Konkani folk dance, classical drama, and musical orchestras.', descMr: 'वार्षिक स्नेहसंमेलनातील मनमोहक नृत्य, नाटक आणि पारंपरिक लोककला सादरीकरण.', dateEn: 'Annual Gathering', dateMr: 'वार्षिक स्नेहसंमेलन', catEn: 'Annual Gathering', catMr: 'स्नेहसंमेलन' },
-    { id: 5, category: 'science', img: 'images/gallery/science-practical.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80', titleEn: 'Physics & Chemistry Practical Experiments', titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके', descEn: 'Junior College Science students conducting titration, spectrometry, and optics experiments.', descMr: 'विज्ञान शाखेतील विद्यार्थी प्रयोगशाळेत प्रत्यक्ष रासायनिक व भौतिक प्रयोग करताना.', dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा', catEn: 'Science Lab', catMr: 'विज्ञान लॅब' },
+    { id: 5, category: 'science', img: 'images/gallery/science-practical.jpg', fallbackImg: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80', titleEn: 'Physics & Chemistry Practical Experiments', titleMr: 'भौतिकशास्त्र व रसायनशास्त्र प्रात्यक्षिके', descEn: 'Junior College Science students conducting titration, spectrometry, and optics experiments.', descMr: 'विज्ञान शाखेतील विद्यार्थी प्रत्यक्ष रासायनिक व भौतिक प्रयोग करताना.', dateEn: 'Science Stream', dateMr: 'विज्ञान शाखा', catEn: 'Science Lab', catMr: 'विज्ञान लॅब' },
     { id: 6, category: 'sports', img: 'images/gallery/sports-meet.jpg', fallbackImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80', titleEn: 'Inter-School Sports Meet & Tournament', titleMr: 'वार्षिक क्रीडा महोत्सव व कबड्डी / व्हॉलीबॉल स्पर्धा', descEn: 'Thrilling inter-house Kabaddi, Kho-Kho, Volleyball, and athletics sprint matches.', descMr: 'विद्यार्थ्यांमधील चुरशीचे कबड्डी, खो-खो, व्हॉलीबॉल आणि धावण्याच्या स्पर्धा सामने.', dateEn: 'Sports Meet', dateMr: 'क्रीडा महोत्सव', catEn: 'Annual Sports', catMr: 'क्रीडा स्पर्धा' },
     { id: 7, category: 'science', img: 'images/gallery/science-fair.jpg', fallbackImg: 'https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80', titleEn: 'District-Level Science Exhibition Projects', titleMr: 'तालुका व जिल्हास्तरीय विज्ञान प्रदर्शन', descEn: 'Innovative working models on solar energy, drip irrigation, and IoT robotics created by students.', descMr: 'सौर ऊर्जा, जलसंधारण आणि रोबोटिक्सवरील नाविन्यपूर्ण विज्ञान प्रकल्पांचे सादरीकरण.', dateEn: 'Science Fair', dateMr: 'विज्ञान प्रदर्शन', catEn: 'Science Exhibition', catMr: 'विज्ञान प्रदर्शन' },
     { id: 8, category: 'campus', img: 'images/gallery/smart-classroom.jpg', fallbackImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', titleEn: 'Interactive Smart Classroom Lecture', titleMr: 'स्मार्ट क्लासरूम डिजिटल ऑडिओ-व्हिज्युअल तासिका', descEn: 'Engaging digital syllabus presentations using interactive touchscreens and audiovisual simulations.', descMr: 'डिजिटल स्क्रीनवर क्लिष्ट संकल्पनांचे सुलभ दृकश्राव्य स्पष्टीकरण घेणारे विद्यार्थी.', dateEn: 'Smart Teaching', dateMr: 'स्मार्ट शिक्षण', catEn: 'Classroom', catMr: 'वर्गखोली' },
@@ -593,7 +611,6 @@
     });
   };
 
-  // Fixed openLightbox logic for filtered grids
   window.openLightbox = function(index, fromGrid = false) {
     if (fromGrid) {
         activeGalleryList = [...galleryData];
@@ -697,7 +714,6 @@
     }
   };
 
-  // Fixed AI Assistant Handlers
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
     const backdrop = document.getElementById('aiBackdrop');
@@ -899,43 +915,35 @@
       }
     });
 
-                        const inquiryForm = document.getElementById('inquiryForm');
+    const inquiryForm = document.getElementById('inquiryForm');
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Stops the page from refreshing
+        e.preventDefault();
 
-        // 1. Grab the information the user typed in
         const fullName = document.getElementById('fullName').value;
         const phone = document.getElementById('phone').value;
         const purpose = document.getElementById('inquiryType').value;
         const message = document.getElementById('message').value;
 
-        // 2. Format the email subject
         const emailTo = 'sohamjikamde@gmail.com';
         const subject = encodeURIComponent('New Inquiry: ' + purpose + ' - ' + fullName);
         
-        // 3. Use standard string addition (+) so we don't need backticks!
         const bodyText = 'Student/Parent Name: ' + fullName + '\r\nPhone Number: ' + phone + '\r\nInquiry Purpose: ' + purpose + '\r\n\r\nMessage:\r\n' + message;
         const body = encodeURIComponent(bodyText);
 
-        // 4. Detect if the user is on a Mobile device or Desktop
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         if (isMobile) {
-            // 5a. Mobile: Force open the native Email/Gmail App
             window.open('mailto:' + emailTo + '?subject=' + subject + '&body=' + body, '_self');
         } else {
-            // 5b. Desktop: Open the Gmail Web interface in a new browser tab
             window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + emailTo + '&su=' + subject + '&body=' + body, '_blank');
         }
 
-        // 6. Wait almost 1 second before clearing the form so the app has time to open!
         setTimeout(() => {
             inquiryForm.reset();
         }, 800);
       });
     }
-
 
     document.querySelectorAll('.main-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -943,6 +951,66 @@
         if (tabId) window.switchMainTab(tabId);
       });
     });
+
+    // --- NEW: GPA CALCULATOR MODAL LOGIC ---
+    const calcModal = document.getElementById('calcModal');
+    const navCalcBtn = document.getElementById('navCalcBtn');
+    const calcCloseBtn = document.getElementById('calcCloseBtn');
+    const btnCalculate = document.getElementById('btnCalculate');
+
+    if (navCalcBtn) {
+      navCalcBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (calcModal) calcModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu) navMenu.classList.remove('open');
+        const navToggleIcon = document.getElementById('navToggleIcon');
+        if (navToggleIcon) navToggleIcon.className = "fa-solid fa-bars";
+      });
+    }
+
+    if (calcCloseBtn) {
+      calcCloseBtn.addEventListener('click', () => {
+        calcModal.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    if (calcModal) {
+      calcModal.addEventListener('click', (e) => {
+        if (e.target === calcModal) {
+          calcModal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    if (btnCalculate) {
+      btnCalculate.addEventListener('click', () => {
+        const eng = parseFloat(document.getElementById('calcEng').value) || 0;
+        const math = parseFloat(document.getElementById('calcMath').value) || 0;
+        const it = parseFloat(document.getElementById('calcIT').value) || 0;
+        const other = parseFloat(document.getElementById('calcOther').value) || 0;
+
+        const total = eng + math + it + other;
+        const percentage = (total / 400) * 100;
+
+        let grade = "Distinction (O)";
+        if (percentage < 35) grade = state.lang === 'mr' ? "नापास / सुधारणेची गरज" : "Fail / Needs Improvement";
+        else if (percentage < 60) grade = state.lang === 'mr' ? "द्वितीय श्रेणी (B)" : "Second Class (B)";
+        else if (percentage < 75) grade = state.lang === 'mr' ? "प्रथम श्रेणी (A)" : "First Class (A)";
+        else if (percentage < 85) grade = state.lang === 'mr' ? "विशेष प्राविण्य (A+)" : "Distinction (A+)";
+
+        const resultBox = document.getElementById('calcResultBox');
+        if (resultBox) {
+            resultBox.style.display = 'block';
+            document.getElementById('calcResultText').textContent = percentage.toFixed(2) + "%";
+            document.getElementById('calcGradeText').textContent = (state.lang === 'mr' ? "श्रेणी: " : "Grade: ") + grade;
+        }
+      });
+    }
   }
 
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initApp); } else { initApp(); }
