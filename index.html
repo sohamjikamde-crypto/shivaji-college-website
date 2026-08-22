@@ -15,7 +15,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <link rel="stylesheet" href="style.css?v=59">
+  <link rel="stylesheet" href="style.css?v=60">
 </head>
 <body>
 
@@ -246,7 +246,6 @@
     </div>
   </section>
 
-  <!-- Notice Details Modal -->
   <div class="notice-modal-overlay" id="noticeModal" role="dialog" aria-modal="true" aria-labelledby="noticeModalTitle">
     <div class="notice-modal-box">
       <div class="notice-modal-header">
@@ -272,7 +271,6 @@
     </div>
 
     <div class="main-tabs-content">
-      <!-- TAB 1: ACADEMICS -->
       <div class="main-tab-pane active" id="tab-academics">
         <div class="course-grid">
           <div class="course-card">
@@ -323,37 +321,42 @@
         </div>
       </div>
 
-      <!-- TAB 2: LEARNING HUB -->
       <div class="main-tab-pane" id="tab-learning-hub">
-        <div class="hub-grid">
-          <div class="hub-card" data-hub-target="it-hub">
-            <div class="hub-icon"><i class="fa-solid fa-code"></i></div>
-            <h3 id="hub1Title">12th Standard IT Hub</h3>
-            <p id="hub1Desc">HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules as per Maharashtra State Board.</p>
-            <button class="hub-btn" id="btnOpenItHub"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">View IT SOPs &amp; Code</span></button>
+        <div class="hub-grid" style="grid-template-columns: 1fr; gap: 2rem;">
+            
+          <!-- 12th IT Hub (Redesigned for better UI) -->
+          <div class="hub-card highlight-card" data-hub-target="it-hub" style="display: flex; flex-direction: row; align-items: center; gap: 2rem; background: linear-gradient(135deg, rgba(26, 54, 93, 0.05), rgba(43, 108, 176, 0.05)); border: 1px solid rgba(43, 108, 176, 0.3);">
+            <div class="hub-icon" style="width: 80px; height: 80px; font-size: 2.5rem; background: var(--primary); color: #ffffff;"><i class="fa-solid fa-code"></i></div>
+            <div style="flex: 1;">
+              <h3 id="hub1Title" style="font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 0.5rem;">12th Standard IT Practical Hub</h3>
+              <p id="hub1Desc" style="font-size: 1rem; color: var(--text-muted);">Access complete HTML5, CSS3, JavaScript, Advanced Web Designing SOPs (SOP 1 to 6), and SEO study modules formatted as per the Maharashtra State Board examination requirements.</p>
+            </div>
+            <button class="btn btn-primary" id="btnOpenItHub"><i class="fa-solid fa-laptop-code"></i> <span id="hub1Btn">Launch IT SOP Editor</span></button>
           </div>
-          <div class="hub-card" data-hub-target="science-lab">
-            <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
-            <h3 id="hub2Title">JEE, NEET &amp; Science Labs</h3>
-            <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.</p>
-            <button class="hub-btn" id="btnOpenScienceHub"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
-          </div>
-          <div class="hub-card" data-hub-target="commerce-vault">
-            <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
-            <h3 id="hub3Title">Commerce &amp; Accounts Vault</h3>
-            <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.</p>
-            <button class="hub-btn" id="btnOpenCommerceHub"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
-          </div>
-          <div class="hub-card" data-hub-target="board-papers">
-            <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-            <h3 id="hub4Title">Previous Board Papers</h3>
-            <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-            <button class="hub-btn" id="btnOpenPapersHub"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <div class="hub-card" data-hub-target="science-lab">
+              <div class="hub-icon"><i class="fa-solid fa-flask-vial"></i></div>
+              <h3 id="hub2Title">JEE, NEET &amp; Science Labs</h3>
+              <p id="hub2Desc">Physics, Chemistry, and Biology experimental handbooks, plus NEET &amp; JEE previous year question banks.</p>
+              <button class="hub-btn" id="btnOpenScienceHub"><i class="fa-solid fa-file-lines"></i> <span id="hub2Btn">Open NTA Archives</span></button>
+            </div>
+            <div class="hub-card" data-hub-target="commerce-vault">
+              <div class="hub-icon"><i class="fa-solid fa-calculator"></i></div>
+              <h3 id="hub3Title">Commerce &amp; Accounts Vault</h3>
+              <p id="hub3Desc">Solved balance sheet templates, ledger practice questions, GST accounting notes, and business mathematics.</p>
+              <button class="hub-btn" id="btnOpenCommerceHub"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">eBalbharati Sheets</span></button>
+            </div>
+            <div class="hub-card" data-hub-target="board-papers">
+              <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <h3 id="hub4Title">Previous Board Papers</h3>
+              <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
+              <button class="hub-btn" id="btnOpenPapersHub"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Board Papers</span></button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- TAB 3: FACULTY -->
       <div class="main-tab-pane" id="tab-faculty">
         <div class="faculty-grid">
           <div class="faculty-card">
@@ -387,7 +390,7 @@
         </div>
       </div>
 
-      <!-- TAB 4: CAMPUS OFFICE (Inquiry Form Moved Out) -->
+      <!-- TAB 4: CAMPUS OFFICE -->
       <div class="main-tab-pane" id="tab-contact">
         <div class="contact-info-card" style="max-width: 800px; margin: 0 auto;">
           <h3 id="contactCardHead">School Office Details</h3>
@@ -429,6 +432,7 @@
             <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
             <div class="facility-img-overlay">
               <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
+              <!-- FIXED: Stop Propagation handles the click cleanly -->
               <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image"><i class="fa-solid fa-expand"></i></button>
             </div>
           </div>
@@ -458,6 +462,7 @@
         <button class="gallery-filter-btn" data-filter="campus"><i class="fa-solid fa-school"></i> <span id="galFilterCampus">Campus &amp; Labs</span></button>
         <button class="gallery-filter-btn" data-filter="cultural"><i class="fa-solid fa-masks-theater"></i> <span id="galFilterCultural">Annual Gathering</span></button>
         <button class="gallery-filter-btn" data-filter="sports"><i class="fa-solid fa-trophy"></i> <span id="galFilterSports">Sports Meet</span></button>
+        <button class="gallery-filter-btn" data-filter="science"><i class="fa-solid fa-flask-vial"></i> <span id="galFilterScience">Science Exhibition</span></button>
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
@@ -471,7 +476,7 @@
           <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Campus &amp; Labs</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(0, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>Main Academic Campus &amp; Building</h4><p><i class="fa-regular fa-calendar"></i> Campus View</p></div>
           </div>
@@ -481,7 +486,7 @@
           <img src="images/gallery/shiv-jayanti.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1000&q=80';" alt="Shiv Jayanti" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Shiv Jayanti</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(1, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>Chhatrapati Shivaji Maharaj Jayanti Utsav</h4><p><i class="fa-regular fa-calendar"></i> 19 February</p></div>
           </div>
@@ -491,7 +496,7 @@
           <img src="images/gallery/it-session.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80';" alt="IT Lab Session" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">IT Lab</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(2, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>12th HSC IT Practical Lab Session</h4><p><i class="fa-regular fa-calendar"></i> HSC IT Practicals</p></div>
           </div>
@@ -501,7 +506,7 @@
           <img src="images/gallery/annual-gathering.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" alt="Annual Gathering" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Cultural Event</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(3, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>Annual Gathering Traditional Folk Dance</h4><p><i class="fa-regular fa-calendar"></i> Annual Gathering</p></div>
           </div>
@@ -511,7 +516,7 @@
           <img src="images/gallery/sports-meet.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80';" alt="Sports Meet" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Sports</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(5, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>Inter-School Sports Meet &amp; Tournament</h4><p><i class="fa-regular fa-calendar"></i> Sports Meet</p></div>
           </div>
@@ -521,7 +526,7 @@
           <img src="images/gallery/science-fair.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80';" alt="Science Exhibition" loading="lazy">
           <div class="gallery-card-overlay">
             <div class="gallery-card-top"><span class="gallery-cat-pill">Science Fair</span>
-              <div class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6, true)"><i class="fa-solid fa-expand"></i></div>
+              <button class="gallery-zoom-icon" onclick="event.stopPropagation(); window.openLightbox(6, true)" aria-label="Expand Image"><i class="fa-solid fa-expand"></i></button>
             </div>
             <div class="gallery-card-bottom"><h4>District-Level Science Exhibition Projects</h4><p><i class="fa-regular fa-calendar"></i> Science Fair</p></div>
           </div>
@@ -556,7 +561,7 @@
     </div>
   </div>
 
-  <!-- 8. SEND AN INQUIRY (NEW DEDICATED SECTION) -->
+  <!-- 8. SEND AN INQUIRY (NEW DEDICATED SECTION BELOW GALLERY) -->
   <section class="section inquiry-section" id="inquiry" style="background: var(--bg-card); border-top: 1px solid var(--border-color);">
     <div class="container">
       <div class="section-header">
@@ -616,7 +621,7 @@
     </div>
   </div>
 
-  <!-- AI Assistant & Background Overlay -->
+  <!-- AI Assistant & Background Overlay Fix -->
   <div class="ai-backdrop" id="aiBackdrop"></div>
 
   <div class="ai-assistant-wrapper">
@@ -667,6 +672,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=59" defer></script>
+  <script src="script.js?v=60" defer></script>
 </body>
 </html>
