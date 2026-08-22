@@ -555,7 +555,7 @@
     }
   };
 
-  // Fixed Zoom Box Function
+  // Fixed Zoom Box Function[span_3](start_span)[span_3](end_span)
   window.zoomCurrentFacility = function() {
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
@@ -598,6 +598,7 @@
     });
   };
 
+  // Fixed Lightbox implementation to work with the explicit HTML index calls[span_4](start_span)[span_4](end_span)
   window.openLightbox = function(index, fromGrid = false) {
     if (fromGrid) {
         activeGalleryList = [...galleryData];
@@ -701,7 +702,7 @@
     }
   };
 
-  // AI Assistant locked backdrop
+  // AI Assistant with Backdrop Lock
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
     const backdrop = document.getElementById('aiBackdrop');
@@ -776,6 +777,7 @@
     window.selectFacility('smartClass');
     window.filterGalleryCategory('all');
 
+    // EXPLICIT EVENT BINDINGS FOR SETTINGS TO PREVENT BUGS
     document.getElementById('langEnBtn')?.addEventListener('click', () => window.applyLanguage('en'));
     document.getElementById('langMrBtn')?.addEventListener('click', () => window.applyLanguage('mr'));
     
