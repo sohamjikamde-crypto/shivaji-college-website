@@ -551,10 +551,10 @@
     }
   };
 
+  // Explicit Zoom Icon Handler
   window.zoomCurrentFacility = function() {
     const fac = facilitiesData[state.currentFacility];
     if (!fac) return;
-    
     activeGalleryList = [{
       img: fac.img, fallbackImg: fac.fallbackImg, titleEn: fac.titleEn, titleMr: fac.titleMr, descEn: fac.descEn, descMr: fac.descMr, catEn: 'Campus Facility', catMr: 'परिसर सुविधा', dateEn: 'Infrastructure', dateMr: 'पायाभूत सुविधा'
     }];
@@ -593,6 +593,7 @@
     });
   };
 
+  // Fixed openLightbox logic for filtered grids
   window.openLightbox = function(index, fromGrid = false) {
     if (fromGrid) {
         activeGalleryList = [...galleryData];
@@ -696,6 +697,7 @@
     }
   };
 
+  // Fixed AI Assistant Handlers
   window.openAiChat = function() {
     const win = document.getElementById('aiChatWindow');
     const backdrop = document.getElementById('aiBackdrop');
@@ -740,7 +742,7 @@
     } 
     else if (q.includes('admission') || q.includes('प्रवेश') || q.includes('fee') || q.includes('form') || q.includes('timing') || q.includes('time') || q.includes('वेळ')) {
       reply = state.lang === 'mr' 
-        ? `🕒 <strong>वेळापत्रक व प्रवेश (२०२६-२७):</strong><br>• <strong>माध्यमिक (५ वी ते १० वी):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>कार्यालयीन वेळ:</strong> ${aiKnowledge.timings.office}<br><br><strong>प्रवेशासाठी लागणारी कागदपत्रे:</strong> शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो आणि मागील वर्षाची गुणपत्रिका.` 
+        ? `🕒 <strong>वेळापत्रक व प्रवेश (२०२६-२७):</strong><br>• <strong>माध्यमिक (५ वी ते १० পশ্চी):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>कनिष्ठ महाविद्यालय (११ वी / १२ वी):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>कार्यालयीन वेळ:</strong> ${aiKnowledge.timings.office}<br><br><strong>प्रवेशासाठी लागणारी कागदपत्रे:</strong> शाळा सोडल्याचा दाखला (LC), आधार कार्ड, पासपोर्ट फोटो आणि मागील वर्षाची गुणपत्रिका.` 
         : `🕒 <strong>Timings & Admissions (2026-27):</strong><br>• <strong>Secondary (5th-10th):</strong> ${aiKnowledge.timings.secondary}<br>• <strong>Junior College (11th & 12th):</strong> ${aiKnowledge.timings.juniorCollege}<br>• <strong>Office Hours:</strong> ${aiKnowledge.timings.office}<br><br><strong>Required Documents:</strong> Leaving Certificate (LC), Aadhaar Card, Passport Photos, and Previous Marksheet.`;
     } 
     else if (q.includes('facility') || q.includes('सुविधा') || q.includes('lab') || q.includes('campus') || q.includes('परिसर') || q.includes('लॅब')) {
