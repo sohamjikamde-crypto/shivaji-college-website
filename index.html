@@ -18,7 +18,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <link rel="stylesheet" href="style.css?v=55">
+  <link rel="stylesheet" href="style.css?v=56">
 </head>
 <body>
 
@@ -53,11 +53,13 @@
 
       <nav class="nav-menu" id="navMenu">
         <ul class="nav-list">
-          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> <span id="navTxtHome">Home</span></a></li>
-          <li><a href="#about" class="nav-link"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About</span></a></li>
-          <li><a href="#campus" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtCampus">Campus</span></a></li>
+          <li><a href="#about" class="nav-link active"><i class="fa-solid fa-landmark"></i> <span id="navTxtAbout">About</span></a></li>
+          <li><a href="#kiosk" class="nav-link"><i class="fa-solid fa-display"></i> <span id="navTxtKiosk">Kiosk</span></a></li>
           <li><a href="#notices" class="nav-link"><i class="fa-solid fa-bullhorn"></i> <span id="navTxtNotices">Notices</span></a></li>
+          <li><a href="#mainTabsSection" class="nav-link"><i class="fa-solid fa-shapes"></i> <span id="navTxtHub">Student Hub</span></a></li>
+          <li><a href="#campus" class="nav-link"><i class="fa-solid fa-school"></i> <span id="navTxtCampus">Campus</span></a></li>
           <li><a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> <span id="navTxtGallery">Gallery</span></a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span id="navTxtContact">Contact</span></a></li>
         </ul>
       </nav>
     </div>
@@ -122,46 +124,7 @@
     </div>
   </div>
 
-  <section class="hero-section" id="home">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="badge-pill" id="heroBadge"><i class="fa-solid fa-star"></i> 60+ Years of Academic Excellence (Since 1960)</div>
-        <h1 class="hero-title" id="heroTitle">Empowering Minds, <br><span class="text-highlight">Shaping Leaders</span> in Sindhudurg.</h1>
-        <p class="hero-description" id="heroDesc">A premier co-educational, private-aided institution imparting high-quality education from Grades 5 through 12 in General Secondary, Arts, Commerce, Science, and Information Technology.</p>
-        <div class="hero-action-buttons">
-          <button class="btn btn-assistant" id="heroAskAiBtn"><i class="fa-solid fa-robot"></i> <span id="btnAskAi">Ai Assistant</span></button>
-          <a href="#notices" class="btn btn-secondary" id="btnNotices"><i class="fa-solid fa-bell"></i> Notice Board</a>
-        </div>
-        <div class="hero-stats-grid">
-          <div class="stat-card"><span class="stat-number">1960</span><span class="stat-label" id="stat1">Year Established</span></div>
-          <div class="stat-card"><span class="stat-number">1,500+</span><span class="stat-label" id="stat2">Students Enrolled</span></div>
-          <div class="stat-card"><span class="stat-number">100%</span><span class="stat-label" id="stat3">Board Exam Result</span></div>
-          <div class="stat-card"><span class="stat-number">50+</span><span class="stat-label" id="stat4">Expert Educators</span></div>
-        </div>
-      </div>
-      <div class="hero-interactive-card">
-        <div class="smart-kiosk-panel">
-          <div class="kiosk-header">
-            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-            <span class="kiosk-title" id="kioskTitle"><i class="fa-solid fa-display"></i> Campus Digital Kiosk</span>
-          </div>
-          <div class="kiosk-body">
-            <div class="kiosk-live-badge" id="kioskBadge"><i class="fa-solid fa-satellite-dish"></i> LIVE ADMISSIONS &amp; UPDATES</div>
-            <h3 id="kioskHeading">Admissions Open for 2026–27</h3>
-            <p id="kioskDesc">Grades 5th to 10th (Semi-English &amp; English) and 11th/12th (Science, Commerce, Arts &amp; IT).</p>
-            <div class="kiosk-quick-links">
-              <button class="kiosk-chip" data-kiosk-action="exam"><i class="fa-solid fa-calendar-check"></i> <span id="chip1">Exam Dates</span></button>
-              <button class="kiosk-chip" data-kiosk-action="qb"><i class="fa-solid fa-file-pdf"></i> <span id="chip2">Question Banks</span></button>
-              <button class="kiosk-chip" data-kiosk-action="admission"><i class="fa-solid fa-user-plus"></i> <span id="chip3">Admission Info</span></button>
-              <button class="kiosk-chip" data-kiosk-action="it"><i class="fa-solid fa-code"></i> <span id="chip4">12th IT Syllabus</span></button>
-            </div>
-            <div class="kiosk-footer-note" id="kioskAffiliation"><i class="fa-solid fa-shield-halved"></i> Maharashtra State Board Affiliated (Pune Division)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- 1. ABOUT OUR INSTITUTION -->
   <section class="section about-section" id="about">
     <div class="container">
       <div class="section-header">
@@ -189,50 +152,99 @@
     </div>
   </section>
 
-  <section class="section campus-section" id="campus">
+  <!-- 2 & 3. ADMISSIONS OPEN & CAMPUS DIGITAL KIOSK -->
+  <section class="section kiosk-section" id="kiosk">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle" id="campusSub">Infrastructure</span>
-        <h2 class="section-title" id="campusTitle">Interactive Campus &amp; Facilities</h2>
-        <p class="section-lead" id="campusLead">Tap any facility below to inspect the infrastructure on your screen or smart board.</p>
+        <span class="section-subtitle">Admissions 2026–27</span>
+        <h2 class="section-title">Admissions Open for 2026–27 &amp; Digital Kiosk</h2>
+        <p class="section-lead">Quick access to board curriculum, admission criteria, and student guidance.</p>
       </div>
-      <div class="campus-layout">
-        <div class="facility-buttons-grid" id="facilityButtonGroup">
-          <button class="facility-btn active" data-fac-key="smartClass"><i class="fa-solid fa-chalkboard"></i><span id="facBtn1">Smart Classrooms</span></button>
-          <button class="facility-btn" data-fac-key="itLab"><i class="fa-solid fa-desktop"></i><span id="facBtn2">Computer &amp; IT Lab</span></button>
-          <button class="facility-btn" data-fac-key="physicsLab"><i class="fa-solid fa-atom"></i><span id="facBtn3">Physics Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="chemLab"><i class="fa-solid fa-flask"></i><span id="facBtn4">Chemistry Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="bioLab"><i class="fa-solid fa-dna"></i><span id="facBtn5">Biology Laboratory</span></button>
-          <button class="facility-btn" data-fac-key="library"><i class="fa-solid fa-book-bookmark"></i><span id="facBtn6">Central Library</span></button>
-          <button class="facility-btn" data-fac-key="sports"><i class="fa-solid fa-volleyball"></i><span id="facBtn7">Playground &amp; Sports</span></button>
-          <button class="facility-btn" data-fac-key="auditorium"><i class="fa-solid fa-masks-theater"></i><span id="facBtn8">Auditorium &amp; Stage</span></button>
-        </div>
-        <div class="facility-display-card" id="facilityDisplay">
-          <div class="facility-img-wrapper" id="facilityImgWrapper">
-            <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
-            <div class="facility-img-overlay">
-              <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
-              <!-- FIXED: stopPropagation stops the bug where click passes through to the image -->
-              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image / मोठे करा"><i class="fa-solid fa-expand"></i></button>
-            </div>
+      <div class="hero-interactive-card" style="justify-content: center;">
+        <div class="smart-kiosk-panel">
+          <div class="kiosk-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="kiosk-title" id="kioskTitle"><i class="fa-solid fa-display"></i> Campus Digital Kiosk</span>
           </div>
-          <div class="facility-card-body">
-            <div class="facility-icon-wrap" id="facilityIcon"><i class="fa-solid fa-chalkboard"></i></div>
-            <h3 id="facilityTitle">Interactive Smart Classrooms</h3>
-            <p id="facilityDesc">Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.</p>
-            <div class="facility-tags" id="facilityTags">
-              <span class="badge">Touch Enabled</span><span class="badge">Audio-Visual</span><span class="badge">E-Learning</span>
+          <div class="kiosk-body">
+            <div class="kiosk-live-badge" id="kioskBadge"><i class="fa-solid fa-satellite-dish"></i> LIVE ADMISSIONS &amp; UPDATES</div>
+            <h3 id="kioskHeading">Admissions Open for 2026–27</h3>
+            <p id="kioskDesc">Grades 5th to 10th (Semi-English &amp; English) and 11th/12th (Science, Commerce, Arts &amp; IT).</p>
+            <div class="kiosk-quick-links">
+              <button class="kiosk-chip" data-kiosk-action="exam"><i class="fa-solid fa-calendar-check"></i> <span id="chip1">Exam Dates</span></button>
+              <button class="kiosk-chip" data-kiosk-action="qb"><i class="fa-solid fa-file-pdf"></i> <span id="chip2">Question Banks</span></button>
+              <button class="kiosk-chip" data-kiosk-action="admission"><i class="fa-solid fa-user-plus"></i> <span id="chip3">Admission Info</span></button>
+              <button class="kiosk-chip" data-kiosk-action="it"><i class="fa-solid fa-code"></i> <span id="chip4">12th IT Syllabus</span></button>
             </div>
+            <div class="kiosk-footer-note" id="kioskAffiliation"><i class="fa-solid fa-shield-halved"></i> Maharashtra State Board Affiliated (Pune Division)</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- NEW CONDENSED TABBED SECTION START -->
-  <!-- ========================================== -->
-  <div class="main-tabs-wrapper container">
+  <!-- 4. OFFICIAL NOTICE BOARD -->
+  <section class="section notices-section" id="notices">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" id="noticeSub">Real-Time Bulletin</span>
+        <h2 class="section-title" id="noticeTitle">Official Notice Board</h2>
+        <p class="section-lead" id="noticeLead">Stay updated with latest announcements, meeting circulars, and exam schedules.</p>
+      </div>
+
+      <div class="notices-container" id="noticesList">
+        <div class="notice-item" data-notice-id="notice1">
+          <div class="notice-date-box"><span class="date-day">22</span><span class="date-month">AUG</span></div>
+          <div class="notice-info">
+            <span class="notice-tag tag-urgent">Urgent Circular</span>
+            <h4 id="noticeParentTitle">Urgent Parent-Management Meeting with Principal</h4>
+            <p id="noticeParentDesc">All parents are hereby informed that an important meeting with the Institution Management and Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school premises. All parents are requested to attend without fail. — Principal</p>
+          </div>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice1"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="notice-item" data-notice-id="notice2">
+          <div class="notice-date-box"><span class="date-day">28</span><span class="date-month">AUG</span></div>
+          <div class="notice-info">
+            <span class="notice-tag tag-academic">Academic</span>
+            <h4 id="noticeItTitle">12th Standard IT Practical Journal Submission</h4>
+            <p id="noticeItDesc">Class 12th Science &amp; Commerce IT students must submit their complete SOP Practical Journals (HTML5, Advanced Web Designing, JavaScript Validation &amp; SEO) to the IT department by 28th August 2026.</p>
+          </div>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice2"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="notice-item" data-notice-id="notice3">
+          <div class="notice-date-box"><span class="date-day">05</span><span class="date-month">SEP</span></div>
+          <div class="notice-info">
+            <span class="notice-tag tag-event">Events</span>
+            <h4 id="noticeTeachersTitle">Teachers' Day &amp; Annual Cultural Gathering Announcement</h4>
+            <p id="noticeTeachersDesc">Special felicitation program on 5th September 2026 followed by rehearsal schedule for Annual Gathering traditional folk dance and sports competitions.</p>
+          </div>
+          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice3"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notice Details Modal -->
+  <div class="notice-modal-overlay" id="noticeModal" role="dialog" aria-modal="true" aria-labelledby="noticeModalTitle">
+    <div class="notice-modal-box">
+      <div class="notice-modal-header">
+        <div class="notice-modal-title"><i class="fa-solid fa-bullhorn"></i> Official Notice Details</div>
+        <button class="notice-modal-close-btn" id="noticeModalCloseBtn" aria-label="Close Notice"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="notice-modal-body">
+        <div id="noticeModalTagWrap"></div>
+        <br>
+        <span class="notice-full-date" id="noticeModalDate"></span>
+        <h3 class="notice-full-title" id="noticeModalTitle">Notice Title</h3>
+        <p class="notice-full-desc" id="noticeModalDesc">Notice Description</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TABS SECTION (4 TABS) -->
+  <div class="main-tabs-wrapper container" id="mainTabsSection">
     <div class="main-tabs-header">
       <button class="main-tab-btn active" data-tab-target="academics"><i class="fa-solid fa-book-open"></i> Academic Streams & Curriculum</button>
       <button class="main-tab-btn" data-tab-target="learning-hub"><i class="fa-solid fa-laptop-file"></i> Student Learning Hub</button>
@@ -368,7 +380,6 @@
             <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Email:</strong><p>sohamjikamde@gmail.com</p></div></div>
             <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours:</strong><p id="contactValHours">Monday – Saturday: 9:30 AM to 4:30 PM (Sunday Closed)</p></div></div>
             
-            <!-- FIXED: Clickable Google Map Embed -->
             <div class="map-wrapper" title="Open in Google Maps">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.123456789!2d73.684123456789!3d16.0023456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAwJzA4LjQiTiA3M8KwNDEnMDMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" style="pointer-events: none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <a href="https://maps.app.goo.gl/uTYXtiGdfuSG8Hjg6" target="_blank" class="map-overlay-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
@@ -408,69 +419,48 @@
 
     </div>
   </div>
-  <!-- ========================================== -->
-  <!-- NEW CONDENSED TABBED SECTION END -->
-  <!-- ========================================== -->
 
-  <section class="section notices-section" id="notices">
+  <!-- 6. INTERACTIVE CAMPUS & FACILITIES -->
+  <section class="section campus-section" id="campus">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle" id="noticeSub">Real-Time Bulletin</span>
-        <h2 class="section-title" id="noticeTitle">Official Notice Board</h2>
-        <p class="section-lead" id="noticeLead">Stay updated with latest announcements, meeting circulars, and exam schedules.</p>
+        <span class="section-subtitle" id="campusSub">Infrastructure</span>
+        <h2 class="section-title" id="campusTitle">Interactive Campus &amp; Facilities</h2>
+        <p class="section-lead" id="campusLead">Tap any facility below to inspect the infrastructure on your screen or smart board.</p>
       </div>
-
-      <div class="notices-container" id="noticesList">
-        <div class="notice-item" data-notice-id="notice1">
-          <div class="notice-date-box"><span class="date-day">22</span><span class="date-month">AUG</span></div>
-          <div class="notice-info">
-            <span class="notice-tag tag-urgent">Urgent Circular</span>
-            <h4 id="noticeParentTitle">Urgent Parent-Management Meeting with Principal</h4>
-            <p id="noticeParentDesc">All parents are hereby informed that an important meeting with the Institution Management and Principal is scheduled on Saturday, 22/08/2026 at 10:00 AM sharp in the school premises. All parents are requested to attend without fail. — Principal</p>
-          </div>
-          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice1"><i class="fa-solid fa-arrow-right"></i></button>
+      <div class="campus-layout">
+        <div class="facility-buttons-grid" id="facilityButtonGroup">
+          <button class="facility-btn active" data-fac-key="smartClass"><i class="fa-solid fa-chalkboard"></i><span id="facBtn1">Smart Classrooms</span></button>
+          <button class="facility-btn" data-fac-key="itLab"><i class="fa-solid fa-desktop"></i><span id="facBtn2">Computer &amp; IT Lab</span></button>
+          <button class="facility-btn" data-fac-key="physicsLab"><i class="fa-solid fa-atom"></i><span id="facBtn3">Physics Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="chemLab"><i class="fa-solid fa-flask"></i><span id="facBtn4">Chemistry Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="bioLab"><i class="fa-solid fa-dna"></i><span id="facBtn5">Biology Laboratory</span></button>
+          <button class="facility-btn" data-fac-key="library"><i class="fa-solid fa-book-bookmark"></i><span id="facBtn6">Central Library</span></button>
+          <button class="facility-btn" data-fac-key="sports"><i class="fa-solid fa-volleyball"></i><span id="facBtn7">Playground &amp; Sports</span></button>
+          <button class="facility-btn" data-fac-key="auditorium"><i class="fa-solid fa-masks-theater"></i><span id="facBtn8">Auditorium &amp; Stage</span></button>
         </div>
-
-        <div class="notice-item" data-notice-id="notice2">
-          <div class="notice-date-box"><span class="date-day">28</span><span class="date-month">AUG</span></div>
-          <div class="notice-info">
-            <span class="notice-tag tag-academic">Academic</span>
-            <h4 id="noticeItTitle">12th Standard IT Practical Journal Submission</h4>
-            <p id="noticeItDesc">Class 12th Science &amp; Commerce IT students must submit their complete SOP Practical Journals (HTML5, Advanced Web Designing, JavaScript Validation &amp; SEO) to the IT department by 28th August 2026.</p>
+        <div class="facility-display-card" id="facilityDisplay">
+          <div class="facility-img-wrapper" id="facilityImgWrapper">
+            <img id="facilityImg" src="images/facilities/smart-class.jpg" width="800" height="533" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=80';" alt="Smart Classrooms" loading="lazy">
+            <div class="facility-img-overlay">
+              <span class="facility-badge" id="facilityImgBadge"><i class="fa-solid fa-chalkboard"></i> <span>Interactive Touch</span></span>
+              <button class="facility-zoom-btn" id="facilityZoomBtn" onclick="event.stopPropagation(); window.zoomCurrentFacility()" title="Enlarge Image / मोठे करा"><i class="fa-solid fa-expand"></i></button>
+            </div>
           </div>
-          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice2"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <div class="notice-item" data-notice-id="notice3">
-          <div class="notice-date-box"><span class="date-day">05</span><span class="date-month">SEP</span></div>
-          <div class="notice-info">
-            <span class="notice-tag tag-event">Events</span>
-            <h4 id="noticeTeachersTitle">Teachers' Day &amp; Annual Cultural Gathering Announcement</h4>
-            <p id="noticeTeachersDesc">Special felicitation program on 5th September 2026 followed by rehearsal schedule for Annual Gathering traditional folk dance and sports competitions.</p>
+          <div class="facility-card-body">
+            <div class="facility-icon-wrap" id="facilityIcon"><i class="fa-solid fa-chalkboard"></i></div>
+            <h3 id="facilityTitle">Interactive Smart Classrooms</h3>
+            <p id="facilityDesc">Equipped with ultra-responsive interactive touch smart-boards, high-definition audio-visual projection systems, and broadband internet for dynamic multimedia lectures.</p>
+            <div class="facility-tags" id="facilityTags">
+              <span class="badge">Touch Enabled</span><span class="badge">Audio-Visual</span><span class="badge">E-Learning</span>
+            </div>
           </div>
-          <button class="btn-notice-action" title="View Notice Details" data-notice-open="notice3"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Notice Details Modal -->
-  <div class="notice-modal-overlay" id="noticeModal" role="dialog" aria-modal="true" aria-labelledby="noticeModalTitle">
-    <div class="notice-modal-box">
-      <div class="notice-modal-header">
-        <div class="notice-modal-title"><i class="fa-solid fa-bullhorn"></i> Official Notice Details</div>
-        <button class="notice-modal-close-btn" id="noticeModalCloseBtn" aria-label="Close Notice"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="notice-modal-body">
-        <div id="noticeModalTagWrap"></div>
-        <br>
-        <span class="notice-full-date" id="noticeModalDate"></span>
-        <h3 class="notice-full-title" id="noticeModalTitle">Notice Title</h3>
-        <p class="notice-full-desc" id="noticeModalDesc">Notice Description</p>
-      </div>
-    </div>
-  </div>
-
+  <!-- 7. CAMPUS LIFE & EVENT COLLAGE GALLERY -->
   <section class="section gallery-section" id="gallery">
     <div class="container">
       <div class="section-header">
@@ -489,7 +479,6 @@
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
-        <!-- FIXED: Clickable Zoom Button separated via event.stopPropagation() -->
         <div class="gallery-card span-2x2" data-category="campus" data-idx="0">
           <img src="images/gallery/campus-main.jpg" width="600" height="400" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80';" alt="Main Academic Campus" loading="lazy" decoding="async">
           <div class="gallery-card-overlay">
@@ -613,6 +602,7 @@
     </div>
   </section>
 
+  <!-- Lightbox Modal -->
   <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
     <div class="lightbox-dialog">
@@ -644,6 +634,64 @@
       </div>
     </div>
   </div>
+
+  <!-- 8 & 9. SEND AN INQUIRY & CAMPUS OFFICE (LOCATION) -->
+  <section class="section contact-section" id="contact" style="background: var(--bg-card); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" id="contactSub">Get In Touch</span>
+        <h2 class="section-title" id="contactTitle">Contact Information &amp; Location</h2>
+        <p class="section-lead" id="contactLead">Have questions regarding admissions, documents, or curriculum? Reach out to us.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <!-- 9. Campus Office & Location -->
+        <div class="contact-info-card">
+          <h3 id="contactCardHead">Campus Office</h3>
+          <p id="contactCardSub">Pandur Titha, Sindhudurg</p>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong id="contactLblAddr">Address</strong><p id="contactValAddr">Shivaji English School &amp; Jr. College, At/Post Pandur Titha, Taluka Kudal, District Sindhudurg, Maharashtra – 416812</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong id="contactLblPhone">Phone Numbers</strong><p>+91 (02362) 224-8090</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong id="contactLblEmail">Official Email</strong><p>sohamjikamde@gmail.com</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong id="contactLblHours">Office Hours</strong><p id="contactValHours">Monday to Saturday: 9:30 AM – 4:30 PM (Sunday Closed)</p></div></div>
+          
+          <div class="map-wrapper" title="Open in Google Maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.123456789!2d73.684123456789!3d16.0023456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAwJzA4LjQiTiA3M8KwNDEnMDMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" style="pointer-events: none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a href="https://maps.app.goo.gl/uTYXtiGdfuSG8Hjg6" target="_blank" class="map-overlay-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
+          </div>
+        </div>
+
+        <!-- 8. Send an Inquiry -->
+        <div class="contact-form-card">
+          <h3 id="inquiryHead">Send an Inquiry</h3>
+          <form id="inquiryForm" novalidate>
+            <div class="form-group">
+              <label for="fullName" id="lblFormName">Student / Parent Name *</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. Rohan R. Parab" required minlength="3">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone" id="lblFormPhone">Phone Number (10 Digits) *</label>
+                <input type="tel" id="phone" class="form-control" placeholder="e.g. 9822XXXXXX" required pattern="^[6-9][0-9]{9}$" maxlength="10">
+              </div>
+              <div class="form-group">
+                <label for="inquiryType" id="lblFormPurpose">Inquiry Purpose *</label>
+                <select id="inquiryType" class="form-control" required>
+                  <option value="Admissions (5th - 12th)">Admissions (5th - 12th)</option>
+                  <option value="12th IT Project Query">12th IT Project Query</option>
+                  <option value="TC / LC / Certificates">TC / LC / Certificates</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" id="lblFormMsg">Message / Details *</label>
+              <textarea id="message" rows="4" class="form-control" placeholder="Write your question or details here..." required minlength="10"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm"><i class="fa-solid fa-paper-plane"></i> <span id="txtSubmitInquiry">Submit Inquiry</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="it-modal-overlay" id="itHubModal" role="dialog" aria-modal="true" aria-labelledby="itModalHeading">
     <div class="it-modal-box">
@@ -715,6 +763,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=55" defer></script>
+  <script src="script.js?v=56" defer></script>
 </body>
 </html>
